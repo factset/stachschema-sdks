@@ -1,0 +1,1 @@
+importFrom("RProtoBuf", readProtoFiles2)
