@@ -23,6 +23,3 @@ call protoc --proto_path=../proto --csharp_out=./Schema/fds/protobuf/stach --csh
  fds/protobuf/stach/table/TableDefinition.proto^
  fds/protobuf/stach/table/VerticalAlignment.proto
 echo dotnet: Generated new schema c# classes
-
-call dotnet run -c Release -p Generator
-echo dotnet: Generated figures and examples
