@@ -1,0 +1,12 @@
+FROM python:3.8
+
+LABEL org.label-schema.license="Apache-2.0" \
+      org.label-schema.vcs-url="https://github.com/factset/stachschema" \
+      org.label-schema.description="To build Python Stach package" \
+      maintainer="analytics.api.support@factset.com"
+
+COPY python /src
+
+RUN /src/CI/build-sdk.sh
+
+ENTRYPOINT ["bash", "/src/CI/extract-artifacts.sh"]

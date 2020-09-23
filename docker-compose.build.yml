@@ -1,0 +1,38 @@
+version: '3'
+services:
+  build_dotnet:
+    build:
+      context: .
+      dockerfile: dotnet/Dockerfile.build
+    volumes:
+    - ./dotnet:/dotnet
+  build_java:
+    build:
+      context: .
+      dockerfile: java/Dockerfile.build
+    volumes:
+    - ./java:/java
+  build_js:
+    build:
+      context: .
+      dockerfile: js/Dockerfile.build
+    volumes:
+    - ./js:/js
+  build_python:
+    build:
+      context: .
+      dockerfile: python/Dockerfile.build
+    volumes:
+    - ./python:/python
+  build_go:
+    build:
+      context: .
+      dockerfile: go/Dockerfile.build
+    volumes:
+    - ./go:/golang
+  build_r:
+    build:
+      context: .
+      dockerfile: r/Dockerfile.build
+    volumes:
+    - ./r:/r

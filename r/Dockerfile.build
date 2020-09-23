@@ -1,0 +1,16 @@
+FROM rprotobuf/ci
+
+LABEL org.label-schema.license="Apache-2.0" \
+      org.label-schema.vcs-url="https://github.com/factset/stachschema" \
+      org.label-schema.description="To build and run unit tests of R Stach package" \
+      maintainer="analytics.api.support@factset.com"
+
+# Install RProtoBuf and testthat dependencies. This step takes a long time to complete.
+RUN install.r RProtoBuf
+RUN R -e "install.packages(c('testthat'), dependencies=TRUE, repos='http://cran.rstudio.com/')"
+
+COPY r /src
+
+RUN /src/CI/build-sdk.sh
+
+ENTRYPOINT ["bash", "/src/CI/extract-artifacts.sh"]

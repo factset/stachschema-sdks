@@ -1,0 +1,8 @@
+FROM node:12.18
+
+LABEL org.label-schema.license="Apache-2.0" \
+      org.label-schema.vcs-url="https://github.com/factset/stachschema" \
+      org.label-schema.description="To generate Javascript and Typescript Stach package" \
+      maintainer="analytics.api.support@factset.com"
+
+ENTRYPOINT ["bash", "/js/CI/generate-sdk.sh"] 

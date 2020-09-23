@@ -11,7 +11,8 @@ js/node_modules/
 python/fds.protobuf.stach/dist/*.*
 python/fds.protobuf.stach/fds.protobuf.stach.egg-info
 r/*.tar.gz
-r/**/inst
+r/.RData
+r/.Rhistory
 js/.yarn/*
 !js/.yarn/cache
 !js/.yarn/releases
@@ -19,3 +20,5 @@ js/.yarn/*
 !js/.yarn/sdks
 !js/.yarn/versions
 .DS_Store
+go/pkg/
+artifacts

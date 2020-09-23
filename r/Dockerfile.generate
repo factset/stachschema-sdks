@@ -1,0 +1,8 @@
+FROM r-base:3.6.3
+
+LABEL org.label-schema.license="Apache-2.0" \
+      org.label-schema.vcs-url="https://github.com/factset/stachschema" \
+      org.label-schema.description="To generate R Stach package" \
+      maintainer="analytics.api.support@factset.com"
+
+ENTRYPOINT ["bash", "/r/CI/generate-sdk.sh"]

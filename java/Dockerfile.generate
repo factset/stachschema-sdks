@@ -1,0 +1,8 @@
+FROM maven:3.6.3-jdk-8
+
+LABEL org.label-schema.license="Apache-2.0" \
+      org.label-schema.vcs-url="https://github.com/factset/stachschema" \
+      org.label-schema.description="To generate Java Stach package" \
+      maintainer="analytics.api.support@factset.com"
+
+ENTRYPOINT ["bash", "/java/CI/generate-sdk.sh"]

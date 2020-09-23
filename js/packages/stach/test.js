@@ -1,7 +1,7 @@
 var assert = require('assert');
 var lib = require('./index');
 
-const equitiesByRegionPackageJSON = require('../../../docs/v2/examples/ColumnOrganized/EquitiesByRegion/Default.json');
+const equitiesByRegionPackageJSON = require('../../examples/Default.json');
 
 describe('STACH', function () {
   it('Can deserialize Package from JSON', function () {

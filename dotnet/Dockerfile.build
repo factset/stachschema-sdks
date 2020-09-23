@@ -1,0 +1,12 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2
+
+LABEL org.label-schema.license="Apache-2.0" \
+      org.label-schema.vcs-url="https://github.com/factset/stachschema" \
+      org.label-schema.description="To build .Net Stach package" \
+      maintainer="analytics.api.support@factset.com"
+
+COPY dotnet /src
+
+RUN /src/CI/build-sdk.sh
+
+ENTRYPOINT ["bash", "/src/CI/extract-artifacts.sh"]

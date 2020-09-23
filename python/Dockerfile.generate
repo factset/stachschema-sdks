@@ -1,0 +1,17 @@
+FROM python:3.8
+
+LABEL org.label-schema.license="Apache-2.0" \
+      org.label-schema.vcs-url="https://github.com/factset/stachschema" \
+      org.label-schema.description="To generate Python Stach package" \
+      maintainer="analytics.api.support@factset.com"
+
+RUN apt-get update && \
+    apt-get -y install unzip
+
+ARG PROTOC_ZIP=protoc-3.12.3-linux-x86_64.zip
+RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.12.3/$PROTOC_ZIP
+RUN unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+RUN unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
+RUN rm -f $PROTOC_ZIP
+
+ENTRYPOINT ["bash", "/python/CI/generate-sdk.sh"]

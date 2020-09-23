@@ -1,0 +1,10 @@
+FROM node:12.18
+
+LABEL org.label-schema.license="Apache-2.0" \
+      org.label-schema.vcs-url="https://github.com/factset/stachschema" \
+      org.label-schema.description="To build Javascript and Typescript Stach package and run the tests" \
+      maintainer="analytics.api.support@factset.com"
+
+COPY js /src
+
+RUN /src/CI/build-sdk.sh
