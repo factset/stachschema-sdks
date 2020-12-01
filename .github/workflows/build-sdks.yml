@@ -1,0 +1,43 @@
+name: Build SDKs
+
+# For every pull request raised, on merge to master or on manual trigger, this workflow runs to make sure that the SDKs are buildable and the unit tests are successful.
+# Built SDKs are accessible as artifacts.
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Branch to build
+        required: true
+        default: master
+
+jobs:
+  build_sdks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the pull request or master branch
+        uses: actions/checkout@v2
+        if: github.event_name == 'pull_request' || github.event_name == 'push' 
+        with: 
+          ref: ${{ github.head_ref }}
+
+      - name: Checkout the provided branch with manual trigger
+        uses: actions/checkout@v2
+        if: github.event_name == 'workflow_dispatch'
+        with: 
+          ref: ${{ github.event.inputs.branch }}
+
+      - name: Build SDKs and run unit tests
+        run: |
+          docker-compose -f docker-compose.build.yml up --remove-orphans
+
+      - name: Copy artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Artifacts
+          path: '*/artifacts/'
