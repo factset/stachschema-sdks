@@ -19,6 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='factset.protobuf.stach.table',
   syntax='proto3',
   serialized_options=b'\n com.factset.protobuf.stach.tableB\026VerticalAlignmentProtoZ=github.com/factset/stachschema/go/v2/fds/protobuf/stach/table\252\002\034FactSet.Protobuf.Stach.Table',
+  create_key=_descriptor._internal_create_key,
   serialized_pb=b'\n0fds/protobuf/stach/table/VerticalAlignment.proto\x12\x1c\x66\x61\x63tset.protobuf.stach.table*H\n\x11VerticalAlignment\x12\x12\n\x0eUNKNOWN_VALIGN\x10\x00\x12\x07\n\x03TOP\x10\x01\x12\n\n\x06MIDDLE\x10\x02\x12\n\n\x06\x42OTTOM\x10\x03\x42\x98\x01\n com.factset.protobuf.stach.tableB\x16VerticalAlignmentProtoZ=github.com/factset/stachschema/go/v2/fds/protobuf/stach/table\xaa\x02\x1c\x46\x61\x63tSet.Protobuf.Stach.Tableb\x06proto3'
 )
 
@@ -27,23 +28,28 @@ _VERTICALALIGNMENT = _descriptor.EnumDescriptor(
   full_name='factset.protobuf.stach.table.VerticalAlignment',
   filename=None,
   file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
       name='UNKNOWN_VALIGN', index=0, number=0,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='TOP', index=1, number=1,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='MIDDLE', index=2, number=2,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='BOTTOM', index=3, number=3,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,

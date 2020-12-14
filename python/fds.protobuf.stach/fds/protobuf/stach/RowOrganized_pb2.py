@@ -22,6 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='factset.protobuf.stach',
   syntax='proto3',
   serialized_options=b'\n\032com.factset.protobuf.stachB\021RowOrganizedProtoZ7github.com/factset/stachschema/go/v2/fds/protobuf/stach\252\002\026FactSet.Protobuf.Stach',
+  create_key=_descriptor._internal_create_key,
   serialized_pb=b'\n%fds/protobuf/stach/RowOrganized.proto\x12\x16\x66\x61\x63tset.protobuf.stach\x1a+fds/protobuf/stach/table/MetadataItem.proto\x1a-fds/protobuf/stach/table/CellDefinition.proto\x1a/fds/protobuf/stach/table/ColumnDefinition.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xa2\x16\n\x13RowOrganizedPackage\x12\x0f\n\x07version\x18\x01 \x01(\t\x12G\n\x06tables\x18\x02 \x03(\x0b\x32\x37.factset.protobuf.stach.RowOrganizedPackage.TablesEntry\x1a`\n\x0bTablesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12@\n\x05value\x18\x02 \x01(\x0b\x32\x31.factset.protobuf.stach.RowOrganizedPackage.Table:\x02\x38\x01\x1a\xf6\x01\n\x05Table\x12O\n\ndefinition\x18\x01 \x01(\x0b\x32;.factset.protobuf.stach.RowOrganizedPackage.TableDefinition\x12W\n\x12headers_definition\x18\x02 \x01(\x0b\x32;.factset.protobuf.stach.RowOrganizedPackage.TableDefinition\x12\x43\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x35.factset.protobuf.stach.RowOrganizedPackage.TableData\x1aR\n\x0fTableDefinition\x12?\n\x07\x63olumns\x18\x01 \x03(\x0b\x32..factset.protobuf.stach.table.ColumnDefinition\x1a\xe4\x03\n\tTableData\x12=\n\x04rows\x18\x01 \x03(\x0b\x32/.factset.protobuf.stach.RowOrganizedPackage.Row\x12`\n\x0etable_metadata\x18\x02 \x03(\x0b\x32H.factset.protobuf.stach.RowOrganizedPackage.TableData.TableMetadataEntry\x12\x62\n\x0f\x63olumn_metadata\x18\x03 \x03(\x0b\x32I.factset.protobuf.stach.RowOrganizedPackage.TableData.ColumnMetadataEntry\x1a`\n\x12TableMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.factset.protobuf.stach.table.MetadataItem:\x02\x38\x01\x1ap\n\x13\x43olumnMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12H\n\x05value\x18\x02 \x01(\x0b\x32\x39.factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata:\x02\x38\x01\x1a\xb6\x06\n\x03Row\x12\n\n\x02id\x18\x01 \x01(\t\x12I\n\x08row_type\x18\x02 \x01(\x0e\x32\x37.factset.protobuf.stach.RowOrganizedPackage.Row.RowType\x12+\n\x05\x63\x65lls\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.ListValueH\x00\x12)\n\x06values\x18\x04 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x12V\n\x0c\x63\x65ll_details\x18\x05 \x03(\x0b\x32@.factset.protobuf.stach.RowOrganizedPackage.Row.CellDetailsEntry\x12\x63\n\x13header_cell_details\x18\x06 \x03(\x0b\x32\x46.factset.protobuf.stach.RowOrganizedPackage.Row.HeaderCellDetailsEntry\x12V\n\x0crow_metadata\x18\x07 \x03(\x0b\x32@.factset.protobuf.stach.RowOrganizedPackage.Row.RowMetadataEntry\x1aj\n\x10\x43\x65llDetailsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x45\n\x05value\x18\x02 \x01(\x0b\x32\x36.factset.protobuf.stach.RowOrganizedPackage.CellDetail:\x02\x38\x01\x1av\n\x16HeaderCellDetailsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12K\n\x05value\x18\x02 \x01(\x0b\x32<.factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail:\x02\x38\x01\x1a^\n\x10RowMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.factset.protobuf.stach.table.MetadataItem:\x02\x38\x01\"\x1f\n\x07RowType\x12\x08\n\x04\x42ody\x10\x00\x12\n\n\x06Header\x10\x01\x42\x06\n\x04kind\x1a\xaa\x02\n\nCellDetail\x12\x13\n\x0bgroup_level\x18\x01 \x01(\x05\x12\x45\n\x0f\x63\x65ll_definition\x18\x02 \x01(\x0b\x32,.factset.protobuf.stach.table.CellDefinition\x12_\n\rcell_metadata\x18\x03 \x03(\x0b\x32H.factset.protobuf.stach.RowOrganizedPackage.CellDetail.CellMetadataEntry\x1a_\n\x11\x43\x65llMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.factset.protobuf.stach.table.MetadataItem:\x02\x38\x01\x1a\xf3\x03\n\x10HeaderCellDetail\x12\x0f\n\x07\x63olspan\x18\x01 \x01(\x05\x12\x0f\n\x07rowspan\x18\x02 \x01(\x05\x12X\n\x06source\x18\x03 \x01(\x0e\x32H.factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.TableSource\x12\x14\n\x0c\x63olumn_index\x18\x04 \x01(\x05\x12\x45\n\x0f\x63\x65ll_definition\x18\x05 \x01(\x0b\x32,.factset.protobuf.stach.table.CellDefinition\x12\x65\n\rcell_metadata\x18\x06 \x03(\x0b\x32N.factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry\x1a_\n\x11\x43\x65llMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.factset.protobuf.stach.table.MetadataItem:\x02\x38\x01\">\n\x0bTableSource\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04NONE\x10\x01\x12\x0b\n\x07PRIMARY\x10\x02\x12\x0b\n\x07HEADERS\x10\x03\x1a\xbe\x01\n\rMapOfMetadata\x12S\n\x05items\x18\x01 \x03(\x0b\x32\x44.factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata.ItemsEntry\x1aX\n\nItemsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.factset.protobuf.stach.table.MetadataItem:\x02\x38\x01\x42\x81\x01\n\x1a\x63om.factset.protobuf.stachB\x11RowOrganizedProtoZ7github.com/factset/stachschema/go/v2/fds/protobuf/stach\xaa\x02\x16\x46\x61\x63tSet.Protobuf.Stachb\x06proto3'
   ,
   dependencies=[fds_dot_protobuf_dot_stach_dot_table_dot_MetadataItem__pb2.DESCRIPTOR,fds_dot_protobuf_dot_stach_dot_table_dot_CellDefinition__pb2.DESCRIPTOR,fds_dot_protobuf_dot_stach_dot_table_dot_ColumnDefinition__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
@@ -33,15 +34,18 @@ _ROWORGANIZEDPACKAGE_ROW_ROWTYPE = _descriptor.EnumDescriptor(
   full_name='factset.protobuf.stach.RowOrganizedPackage.Row.RowType',
   filename=None,
   file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
       name='Body', index=0, number=0,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='Header', index=1, number=1,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
@@ -55,23 +59,28 @@ _ROWORGANIZEDPACKAGE_HEADERCELLDETAIL_TABLESOURCE = _descriptor.EnumDescriptor(
   full_name='factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.TableSource',
   filename=None,
   file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
       name='UNKNOWN', index=0, number=0,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='NONE', index=1, number=1,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='PRIMARY', index=2, number=2,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='HEADERS', index=3, number=3,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
@@ -87,6 +96,7 @@ _ROWORGANIZEDPACKAGE_TABLESENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.RowOrganizedPackage.TablesEntry.key', index=0,
@@ -94,14 +104,14 @@ _ROWORGANIZEDPACKAGE_TABLESENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.RowOrganizedPackage.TablesEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -124,6 +134,7 @@ _ROWORGANIZEDPACKAGE_TABLE = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='definition', full_name='factset.protobuf.stach.RowOrganizedPackage.Table.definition', index=0,
@@ -131,21 +142,21 @@ _ROWORGANIZEDPACKAGE_TABLE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='headers_definition', full_name='factset.protobuf.stach.RowOrganizedPackage.Table.headers_definition', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='data', full_name='factset.protobuf.stach.RowOrganizedPackage.Table.data', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -168,6 +179,7 @@ _ROWORGANIZEDPACKAGE_TABLEDEFINITION = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='columns', full_name='factset.protobuf.stach.RowOrganizedPackage.TableDefinition.columns', index=0,
@@ -175,7 +187,7 @@ _ROWORGANIZEDPACKAGE_TABLEDEFINITION = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -198,6 +210,7 @@ _ROWORGANIZEDPACKAGE_TABLEDATA_TABLEMETADATAENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.RowOrganizedPackage.TableData.TableMetadataEntry.key', index=0,
@@ -205,14 +218,14 @@ _ROWORGANIZEDPACKAGE_TABLEDATA_TABLEMETADATAENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.RowOrganizedPackage.TableData.TableMetadataEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -235,6 +248,7 @@ _ROWORGANIZEDPACKAGE_TABLEDATA_COLUMNMETADATAENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.RowOrganizedPackage.TableData.ColumnMetadataEntry.key', index=0,
@@ -242,14 +256,14 @@ _ROWORGANIZEDPACKAGE_TABLEDATA_COLUMNMETADATAENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.RowOrganizedPackage.TableData.ColumnMetadataEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -272,6 +286,7 @@ _ROWORGANIZEDPACKAGE_TABLEDATA = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='rows', full_name='factset.protobuf.stach.RowOrganizedPackage.TableData.rows', index=0,
@@ -279,21 +294,21 @@ _ROWORGANIZEDPACKAGE_TABLEDATA = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='table_metadata', full_name='factset.protobuf.stach.RowOrganizedPackage.TableData.table_metadata', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='column_metadata', full_name='factset.protobuf.stach.RowOrganizedPackage.TableData.column_metadata', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -316,6 +331,7 @@ _ROWORGANIZEDPACKAGE_ROW_CELLDETAILSENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.CellDetailsEntry.key', index=0,
@@ -323,14 +339,14 @@ _ROWORGANIZEDPACKAGE_ROW_CELLDETAILSENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.CellDetailsEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -353,6 +369,7 @@ _ROWORGANIZEDPACKAGE_ROW_HEADERCELLDETAILSENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.HeaderCellDetailsEntry.key', index=0,
@@ -360,14 +377,14 @@ _ROWORGANIZEDPACKAGE_ROW_HEADERCELLDETAILSENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.HeaderCellDetailsEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -390,6 +407,7 @@ _ROWORGANIZEDPACKAGE_ROW_ROWMETADATAENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.RowMetadataEntry.key', index=0,
@@ -397,14 +415,14 @@ _ROWORGANIZEDPACKAGE_ROW_ROWMETADATAENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.RowMetadataEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -427,6 +445,7 @@ _ROWORGANIZEDPACKAGE_ROW = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.id', index=0,
@@ -434,49 +453,49 @@ _ROWORGANIZEDPACKAGE_ROW = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='row_type', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.row_type', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='cells', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.cells', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='values', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.values', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='cell_details', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.cell_details', index=4,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='header_cell_details', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.header_cell_details', index=5,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='row_metadata', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.row_metadata', index=6,
       number=7, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -491,7 +510,9 @@ _ROWORGANIZEDPACKAGE_ROW = _descriptor.Descriptor(
   oneofs=[
     _descriptor.OneofDescriptor(
       name='kind', full_name='factset.protobuf.stach.RowOrganizedPackage.Row.kind',
-      index=0, containing_type=None, fields=[]),
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
   serialized_start=1269,
   serialized_end=2091,
@@ -503,6 +524,7 @@ _ROWORGANIZEDPACKAGE_CELLDETAIL_CELLMETADATAENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.RowOrganizedPackage.CellDetail.CellMetadataEntry.key', index=0,
@@ -510,14 +532,14 @@ _ROWORGANIZEDPACKAGE_CELLDETAIL_CELLMETADATAENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.RowOrganizedPackage.CellDetail.CellMetadataEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -540,6 +562,7 @@ _ROWORGANIZEDPACKAGE_CELLDETAIL = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='group_level', full_name='factset.protobuf.stach.RowOrganizedPackage.CellDetail.group_level', index=0,
@@ -547,21 +570,21 @@ _ROWORGANIZEDPACKAGE_CELLDETAIL = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='cell_definition', full_name='factset.protobuf.stach.RowOrganizedPackage.CellDetail.cell_definition', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='cell_metadata', full_name='factset.protobuf.stach.RowOrganizedPackage.CellDetail.cell_metadata', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -584,6 +607,7 @@ _ROWORGANIZEDPACKAGE_HEADERCELLDETAIL_CELLMETADATAENTRY = _descriptor.Descriptor
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry.key', index=0,
@@ -591,14 +615,14 @@ _ROWORGANIZEDPACKAGE_HEADERCELLDETAIL_CELLMETADATAENTRY = _descriptor.Descriptor
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.CellMetadataEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -621,6 +645,7 @@ _ROWORGANIZEDPACKAGE_HEADERCELLDETAIL = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='colspan', full_name='factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.colspan', index=0,
@@ -628,42 +653,42 @@ _ROWORGANIZEDPACKAGE_HEADERCELLDETAIL = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='rowspan', full_name='factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.rowspan', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='source', full_name='factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.source', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='column_index', full_name='factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.column_index', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='cell_definition', full_name='factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.cell_definition', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='cell_metadata', full_name='factset.protobuf.stach.RowOrganizedPackage.HeaderCellDetail.cell_metadata', index=5,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -687,6 +712,7 @@ _ROWORGANIZEDPACKAGE_MAPOFMETADATA_ITEMSENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata.ItemsEntry.key', index=0,
@@ -694,14 +720,14 @@ _ROWORGANIZEDPACKAGE_MAPOFMETADATA_ITEMSENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata.ItemsEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -724,6 +750,7 @@ _ROWORGANIZEDPACKAGE_MAPOFMETADATA = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='items', full_name='factset.protobuf.stach.RowOrganizedPackage.MapOfMetadata.items', index=0,
@@ -731,7 +758,7 @@ _ROWORGANIZEDPACKAGE_MAPOFMETADATA = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -754,6 +781,7 @@ _ROWORGANIZEDPACKAGE = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='version', full_name='factset.protobuf.stach.RowOrganizedPackage.version', index=0,
@@ -761,14 +789,14 @@ _ROWORGANIZEDPACKAGE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='tables', full_name='factset.protobuf.stach.RowOrganizedPackage.tables', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],

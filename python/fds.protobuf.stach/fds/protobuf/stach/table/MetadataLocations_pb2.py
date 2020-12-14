@@ -19,6 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='factset.protobuf.stach.table',
   syntax='proto3',
   serialized_options=b'\n com.factset.protobuf.stach.tableB\026MetadataLocationsProtoZ=github.com/factset/stachschema/go/v2/fds/protobuf/stach/table\252\002\034FactSet.Protobuf.Stach.Table',
+  create_key=_descriptor._internal_create_key,
   serialized_pb=b'\n0fds/protobuf/stach/table/MetadataLocations.proto\x12\x1c\x66\x61\x63tset.protobuf.stach.table\x1a-fds/protobuf/stach/table/ListOfMetadata.proto\"\xe0\x06\n\x11MetadataLocations\x12\r\n\x05table\x18\x01 \x03(\t\x12M\n\x07\x63olumns\x18\x02 \x03(\x0b\x32<.factset.protobuf.stach.table.MetadataLocations.ColumnsEntry\x12G\n\x04rows\x18\x03 \x03(\x0b\x32\x39.factset.protobuf.stach.table.MetadataLocations.RowsEntry\x12M\n\x05\x63\x65lls\x18\x04 \x01(\x0b\x32>.factset.protobuf.stach.table.MetadataLocations.CellsColumnMap\x1a\xdb\x01\n\x0e\x43\x65llsColumnMap\x12\\\n\x07\x63olumns\x18\x01 \x03(\x0b\x32K.factset.protobuf.stach.table.MetadataLocations.CellsColumnMap.ColumnsEntry\x1ak\n\x0c\x43olumnsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12J\n\x05value\x18\x02 \x01(\x0b\x32;.factset.protobuf.stach.table.MetadataLocations.CellsRowMap:\x02\x38\x01\x1a\xbd\x01\n\x0b\x43\x65llsRowMap\x12S\n\x04rows\x18\x01 \x03(\x0b\x32\x45.factset.protobuf.stach.table.MetadataLocations.CellsRowMap.RowsEntry\x1aY\n\tRowsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12;\n\x05value\x18\x02 \x01(\x0b\x32,.factset.protobuf.stach.table.ListOfMetadata:\x02\x38\x01\x1a\\\n\x0c\x43olumnsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12;\n\x05value\x18\x02 \x01(\x0b\x32,.factset.protobuf.stach.table.ListOfMetadata:\x02\x38\x01\x1aY\n\tRowsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12;\n\x05value\x18\x02 \x01(\x0b\x32,.factset.protobuf.stach.table.ListOfMetadata:\x02\x38\x01\x42\x98\x01\n com.factset.protobuf.stach.tableB\x16MetadataLocationsProtoZ=github.com/factset/stachschema/go/v2/fds/protobuf/stach/table\xaa\x02\x1c\x46\x61\x63tSet.Protobuf.Stach.Tableb\x06proto3'
   ,
   dependencies=[fds_dot_protobuf_dot_stach_dot_table_dot_ListOfMetadata__pb2.DESCRIPTOR,])
@@ -32,6 +33,7 @@ _METADATALOCATIONS_CELLSCOLUMNMAP_COLUMNSENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.table.MetadataLocations.CellsColumnMap.ColumnsEntry.key', index=0,
@@ -39,14 +41,14 @@ _METADATALOCATIONS_CELLSCOLUMNMAP_COLUMNSENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.table.MetadataLocations.CellsColumnMap.ColumnsEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -69,6 +71,7 @@ _METADATALOCATIONS_CELLSCOLUMNMAP = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='columns', full_name='factset.protobuf.stach.table.MetadataLocations.CellsColumnMap.columns', index=0,
@@ -76,7 +79,7 @@ _METADATALOCATIONS_CELLSCOLUMNMAP = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -99,6 +102,7 @@ _METADATALOCATIONS_CELLSROWMAP_ROWSENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.table.MetadataLocations.CellsRowMap.RowsEntry.key', index=0,
@@ -106,14 +110,14 @@ _METADATALOCATIONS_CELLSROWMAP_ROWSENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.table.MetadataLocations.CellsRowMap.RowsEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -136,6 +140,7 @@ _METADATALOCATIONS_CELLSROWMAP = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='rows', full_name='factset.protobuf.stach.table.MetadataLocations.CellsRowMap.rows', index=0,
@@ -143,7 +148,7 @@ _METADATALOCATIONS_CELLSROWMAP = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -166,6 +171,7 @@ _METADATALOCATIONS_COLUMNSENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.table.MetadataLocations.ColumnsEntry.key', index=0,
@@ -173,14 +179,14 @@ _METADATALOCATIONS_COLUMNSENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.table.MetadataLocations.ColumnsEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -203,6 +209,7 @@ _METADATALOCATIONS_ROWSENTRY = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='key', full_name='factset.protobuf.stach.table.MetadataLocations.RowsEntry.key', index=0,
@@ -210,14 +217,14 @@ _METADATALOCATIONS_ROWSENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='factset.protobuf.stach.table.MetadataLocations.RowsEntry.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -240,6 +247,7 @@ _METADATALOCATIONS = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='table', full_name='factset.protobuf.stach.table.MetadataLocations.table', index=0,
@@ -247,28 +255,28 @@ _METADATALOCATIONS = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='columns', full_name='factset.protobuf.stach.table.MetadataLocations.columns', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='rows', full_name='factset.protobuf.stach.table.MetadataLocations.rows', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='cells', full_name='factset.protobuf.stach.table.MetadataLocations.cells', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],

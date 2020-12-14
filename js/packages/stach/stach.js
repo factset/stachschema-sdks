@@ -119,7 +119,7 @@ $root.factset = (function() {
                             writer.uint32(/* id 2, wireType 2 =*/18).string(message.primaryTableIds[i]);
                     if (message.tables != null && Object.hasOwnProperty.call(message, "tables"))
                         for (var keys = Object.keys(message.tables), i = 0; i < keys.length; ++i) {
-                            writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                            writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                             $root.factset.protobuf.stach.table.Table.encode(message.tables[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                         }
                     return writer;
@@ -164,7 +164,7 @@ $root.factset = (function() {
                                 message.primaryTableIds = [];
                             message.primaryTableIds.push(reader.string());
                             break;
-                        case 3:
+                        case 4:
                             if (message.tables === $util.emptyObject)
                                 message.tables = {};
                             var end2 = reader.uint32() + reader.pos;

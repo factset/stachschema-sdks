@@ -27,7 +27,7 @@ namespace FactSet.Protobuf.Stach {
             "CiBmZHMvcHJvdG9idWYvc3RhY2gvUGFja2FnZS5wcm90bxIWZmFjdHNldC5w",
             "cm90b2J1Zi5zdGFjaBokZmRzL3Byb3RvYnVmL3N0YWNoL3RhYmxlL1RhYmxl",
             "LnByb3RvIsYBCgdQYWNrYWdlEg8KB3ZlcnNpb24YASABKAkSGQoRcHJpbWFy",
-            "eV90YWJsZV9pZHMYAiADKAkSOwoGdGFibGVzGAMgAygLMisuZmFjdHNldC5w",
+            "eV90YWJsZV9pZHMYAiADKAkSOwoGdGFibGVzGAQgAygLMisuZmFjdHNldC5w",
             "cm90b2J1Zi5zdGFjaC5QYWNrYWdlLlRhYmxlc0VudHJ5GlIKC1RhYmxlc0Vu",
             "dHJ5EgsKA2tleRgBIAEoCRIyCgV2YWx1ZRgCIAEoCzIjLmZhY3RzZXQucHJv",
             "dG9idWYuc3RhY2gudGFibGUuVGFibGU6AjgBQnwKGmNvbS5mYWN0c2V0LnBy",
@@ -111,9 +111,9 @@ namespace FactSet.Protobuf.Stach {
     }
 
     /// <summary>Field number for the "tables" field.</summary>
-    public const int TablesFieldNumber = 3;
+    public const int TablesFieldNumber = 4;
     private static readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.Table>.Codec _map_tables_codec
-        = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.Table>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::FactSet.Protobuf.Stach.Table.Table.Parser), 26);
+        = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.Table>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForMessage(18, global::FactSet.Protobuf.Stach.Table.Table.Parser), 34);
     private readonly pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.Table> tables_ = new pbc::MapField<string, global::FactSet.Protobuf.Stach.Table.Table>();
     /// <summary>
     /// The map (key: table id) of all tables
@@ -215,7 +215,7 @@ namespace FactSet.Protobuf.Stach {
             primaryTableIds_.AddEntriesFrom(input, _repeated_primaryTableIds_codec);
             break;
           }
-          case 26: {
+          case 34: {
             tables_.AddEntriesFrom(input, _map_tables_codec);
             break;
           }

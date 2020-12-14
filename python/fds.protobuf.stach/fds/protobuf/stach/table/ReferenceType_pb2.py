@@ -19,6 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='factset.protobuf.stach.table',
   syntax='proto3',
   serialized_options=b'\n com.factset.protobuf.stach.tableB\022ReferenceTypeProtoZ=github.com/factset/stachschema/go/v2/fds/protobuf/stach/table\252\002\034FactSet.Protobuf.Stach.Table',
+  create_key=_descriptor._internal_create_key,
   serialized_pb=b'\n,fds/protobuf/stach/table/ReferenceType.proto\x12\x1c\x66\x61\x63tset.protobuf.stach.table*U\n\rReferenceType\x12\x1a\n\x16UNKNOWN_REFERENCE_TYPE\x10\x00\x12\t\n\x05TABLE\x10\x01\x12\n\n\x06\x43OLUMN\x10\x02\x12\x07\n\x03ROW\x10\x03\x12\x08\n\x04\x43\x45LL\x10\x04\x42\x94\x01\n com.factset.protobuf.stach.tableB\x12ReferenceTypeProtoZ=github.com/factset/stachschema/go/v2/fds/protobuf/stach/table\xaa\x02\x1c\x46\x61\x63tSet.Protobuf.Stach.Tableb\x06proto3'
 )
 
@@ -27,27 +28,33 @@ _REFERENCETYPE = _descriptor.EnumDescriptor(
   full_name='factset.protobuf.stach.table.ReferenceType',
   filename=None,
   file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
       name='UNKNOWN_REFERENCE_TYPE', index=0, number=0,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='TABLE', index=1, number=1,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='COLUMN', index=2, number=2,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='ROW', index=3, number=3,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='CELL', index=4, number=4,
       serialized_options=None,
-      type=None),
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,

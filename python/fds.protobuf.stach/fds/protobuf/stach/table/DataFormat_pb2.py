@@ -20,6 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='factset.protobuf.stach.table',
   syntax='proto3',
   serialized_options=b'\n com.factset.protobuf.stach.tableB\017DataFormatProtoZ=github.com/factset/stachschema/go/v2/fds/protobuf/stach/table\252\002\034FactSet.Protobuf.Stach.Table',
+  create_key=_descriptor._internal_create_key,
   serialized_pb=b'\n)fds/protobuf/stach/table/DataFormat.proto\x12\x1c\x66\x61\x63tset.protobuf.stach.table\x1a\x32\x66\x64s/protobuf/stach/table/HorizontalAlignment.proto\x1a\x30\x66\x64s/protobuf/stach/table/VerticalAlignment.proto\"\xb5\x01\n\nDataFormat\x12\x0e\n\x06\x66ormat\x18\x01 \x01(\t\x12\x13\n\x0bnull_format\x18\x02 \x01(\t\x12\x41\n\x06halign\x18\x03 \x01(\x0e\x32\x31.factset.protobuf.stach.table.HorizontalAlignment\x12?\n\x06valign\x18\x04 \x01(\x0e\x32/.factset.protobuf.stach.table.VerticalAlignmentB\x91\x01\n com.factset.protobuf.stach.tableB\x0f\x44\x61taFormatProtoZ=github.com/factset/stachschema/go/v2/fds/protobuf/stach/table\xaa\x02\x1c\x46\x61\x63tSet.Protobuf.Stach.Tableb\x06proto3'
   ,
   dependencies=[fds_dot_protobuf_dot_stach_dot_table_dot_HorizontalAlignment__pb2.DESCRIPTOR,fds_dot_protobuf_dot_stach_dot_table_dot_VerticalAlignment__pb2.DESCRIPTOR,])
@@ -33,6 +34,7 @@ _DATAFORMAT = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='format', full_name='factset.protobuf.stach.table.DataFormat.format', index=0,
@@ -40,28 +42,28 @@ _DATAFORMAT = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='null_format', full_name='factset.protobuf.stach.table.DataFormat.null_format', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='halign', full_name='factset.protobuf.stach.table.DataFormat.halign', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='valign', full_name='factset.protobuf.stach.table.DataFormat.valign', index=3,
       number=4, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],

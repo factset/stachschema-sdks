@@ -20,6 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='factset.protobuf.stach.table',
   syntax='proto3',
   serialized_options=b'\n com.factset.protobuf.stach.tableB\nTableProtoZ=github.com/factset/stachschema/go/v2/fds/protobuf/stach/table\252\002\034FactSet.Protobuf.Stach.Table',
+  create_key=_descriptor._internal_create_key,
   serialized_pb=b'\n$fds/protobuf/stach/table/Table.proto\x12\x1c\x66\x61\x63tset.protobuf.stach.table\x1a(fds/protobuf/stach/table/TableData.proto\x1a.fds/protobuf/stach/table/TableDefinition.proto\"\x81\x01\n\x05Table\x12\x41\n\ndefinition\x18\x01 \x01(\x0b\x32-.factset.protobuf.stach.table.TableDefinition\x12\x35\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\'.factset.protobuf.stach.table.TableDataB\x8c\x01\n com.factset.protobuf.stach.tableB\nTableProtoZ=github.com/factset/stachschema/go/v2/fds/protobuf/stach/table\xaa\x02\x1c\x46\x61\x63tSet.Protobuf.Stach.Tableb\x06proto3'
   ,
   dependencies=[fds_dot_protobuf_dot_stach_dot_table_dot_TableData__pb2.DESCRIPTOR,fds_dot_protobuf_dot_stach_dot_table_dot_TableDefinition__pb2.DESCRIPTOR,])
@@ -33,6 +34,7 @@ _TABLE = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='definition', full_name='factset.protobuf.stach.table.Table.definition', index=0,
@@ -40,14 +42,14 @@ _TABLE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='data', full_name='factset.protobuf.stach.table.Table.data', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],

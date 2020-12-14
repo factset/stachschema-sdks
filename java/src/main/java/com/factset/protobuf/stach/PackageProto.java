@@ -84,7 +84,7 @@ public final class PackageProto {
      * The map (key: table id) of all tables
      * </pre>
      *
-     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
      */
     int getTablesCount();
     /**
@@ -92,7 +92,7 @@ public final class PackageProto {
      * The map (key: table id) of all tables
      * </pre>
      *
-     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
      */
     boolean containsTables(
         java.lang.String key);
@@ -107,7 +107,7 @@ public final class PackageProto {
      * The map (key: table id) of all tables
      * </pre>
      *
-     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
      */
     java.util.Map<java.lang.String, com.factset.protobuf.stach.table.TableProto.Table>
     getTablesMap();
@@ -116,7 +116,7 @@ public final class PackageProto {
      * The map (key: table id) of all tables
      * </pre>
      *
-     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
      */
 
     com.factset.protobuf.stach.table.TableProto.Table getTablesOrDefault(
@@ -127,7 +127,7 @@ public final class PackageProto {
      * The map (key: table id) of all tables
      * </pre>
      *
-     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
      */
 
     com.factset.protobuf.stach.table.TableProto.Table getTablesOrThrow(
@@ -200,7 +200,7 @@ public final class PackageProto {
               primaryTableIds_.add(s);
               break;
             }
-            case 26: {
+            case 34: {
               if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 tables_ = com.google.protobuf.MapField.newMapField(
                     TablesDefaultEntryHolder.defaultEntry);
@@ -245,7 +245,7 @@ public final class PackageProto {
     protected com.google.protobuf.MapField internalGetMapField(
         int number) {
       switch (number) {
-        case 3:
+        case 4:
           return internalGetTables();
         default:
           throw new RuntimeException(
@@ -357,7 +357,7 @@ public final class PackageProto {
       return primaryTableIds_.getByteString(index);
     }
 
-    public static final int TABLES_FIELD_NUMBER = 3;
+    public static final int TABLES_FIELD_NUMBER = 4;
     private static final class TablesDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
           java.lang.String, com.factset.protobuf.stach.table.TableProto.Table> defaultEntry =
@@ -388,7 +388,7 @@ public final class PackageProto {
      * The map (key: table id) of all tables
      * </pre>
      *
-     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
      */
 
     @java.lang.Override
@@ -410,7 +410,7 @@ public final class PackageProto {
      * The map (key: table id) of all tables
      * </pre>
      *
-     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
      */
     @java.lang.Override
 
@@ -422,7 +422,7 @@ public final class PackageProto {
      * The map (key: table id) of all tables
      * </pre>
      *
-     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
      */
     @java.lang.Override
 
@@ -439,7 +439,7 @@ public final class PackageProto {
      * The map (key: table id) of all tables
      * </pre>
      *
-     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+     * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
      */
     @java.lang.Override
 
@@ -479,7 +479,7 @@ public final class PackageProto {
           output,
           internalGetTables(),
           TablesDefaultEntryHolder.defaultEntry,
-          3);
+          4);
       unknownFields.writeTo(output);
     }
 
@@ -508,7 +508,7 @@ public final class PackageProto {
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(3, tables__);
+            .computeMessageSize(4, tables__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -667,7 +667,7 @@ public final class PackageProto {
       protected com.google.protobuf.MapField internalGetMapField(
           int number) {
         switch (number) {
-          case 3:
+          case 4:
             return internalGetTables();
           default:
             throw new RuntimeException(
@@ -678,7 +678,7 @@ public final class PackageProto {
       protected com.google.protobuf.MapField internalGetMutableMapField(
           int number) {
         switch (number) {
-          case 3:
+          case 4:
             return internalGetMutableTables();
           default:
             throw new RuntimeException(
@@ -1118,7 +1118,7 @@ public final class PackageProto {
        * The map (key: table id) of all tables
        * </pre>
        *
-       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
        */
 
       @java.lang.Override
@@ -1140,7 +1140,7 @@ public final class PackageProto {
        * The map (key: table id) of all tables
        * </pre>
        *
-       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
        */
       @java.lang.Override
 
@@ -1152,7 +1152,7 @@ public final class PackageProto {
        * The map (key: table id) of all tables
        * </pre>
        *
-       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
        */
       @java.lang.Override
 
@@ -1169,7 +1169,7 @@ public final class PackageProto {
        * The map (key: table id) of all tables
        * </pre>
        *
-       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
        */
       @java.lang.Override
 
@@ -1194,7 +1194,7 @@ public final class PackageProto {
        * The map (key: table id) of all tables
        * </pre>
        *
-       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
        */
 
       public Builder removeTables(
@@ -1217,7 +1217,7 @@ public final class PackageProto {
        * The map (key: table id) of all tables
        * </pre>
        *
-       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
        */
       public Builder putTables(
           java.lang.String key,
@@ -1233,7 +1233,7 @@ public final class PackageProto {
        * The map (key: table id) of all tables
        * </pre>
        *
-       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 3;</code>
+       * <code>map&lt;string, .factset.protobuf.stach.table.Table&gt; tables = 4;</code>
        */
 
       public Builder putAllTables(
@@ -1318,7 +1318,7 @@ public final class PackageProto {
       "set.protobuf.stach\032$fds/protobuf/stach/t" +
       "able/Table.proto\"\306\001\n\007Package\022\017\n\007version\030" +
       "\001 \001(\t\022\031\n\021primary_table_ids\030\002 \003(\t\022;\n\006tabl" +
-      "es\030\003 \003(\0132+.factset.protobuf.stach.Packag" +
+      "es\030\004 \003(\0132+.factset.protobuf.stach.Packag" +
       "e.TablesEntry\032R\n\013TablesEntry\022\013\n\003key\030\001 \001(" +
       "\t\0222\n\005value\030\002 \001(\0132#.factset.protobuf.stac" +
       "h.table.Table:\0028\001B|\n\032com.factset.protobu" +
