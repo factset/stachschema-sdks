@@ -1161,11 +1161,11 @@ public final class ReferenceProto {
       "e.proto\"\210\001\n\tReference\022F\n\016reference_type\030" +
       "\001 \001(\0162..factset.protobuf.stach.v2.table." +
       "ReferenceType\022\020\n\010table_id\030\002 \001(\t\022\021\n\tcolum" +
-      "n_id\030\003 \001(\t\022\016\n\006row_id\030\004 \001(\tB\226\001\n#com.facts" +
+      "n_id\030\003 \001(\t\022\016\n\006row_id\030\004 \001(\tB\233\001\n#com.facts" +
       "et.protobuf.stach.v2.tableB\016ReferencePro" +
-      "toZ=github.com/factset/stachschema/go/fd" +
-      "s/protobuf/stach/v2/table\252\002\037FactSet.Prot" +
-      "obuf.Stach.V2.Tableb\006proto3"
+      "toZBgithub.com/factset/stachschema-sdks/" +
+      "go/fds/protobuf/stach/v2/table\252\002\037FactSet" +
+      ".Protobuf.Stach.V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -1117,11 +1117,11 @@ public final class MetadataCollectionProto {
       "protobuf.stach.v2.table.MetadataLocation" +
       "s\032[\n\nItemsEntry\022\013\n\003key\030\001 \001(\t\022<\n\005value\030\002 " +
       "\001(\0132-.factset.protobuf.stach.v2.table.Me" +
-      "tadataItem:\0028\001B\237\001\n#com.factset.protobuf." +
+      "tadataItem:\0028\001B\244\001\n#com.factset.protobuf." +
       "stach.v2.tableB\027MetadataCollectionProtoZ" +
-      "=github.com/factset/stachschema/go/fds/p" +
-      "rotobuf/stach/v2/table\252\002\037FactSet.Protobu" +
-      "f.Stach.V2.Tableb\006proto3"
+      "Bgithub.com/factset/stachschema-sdks/go/" +
+      "fds/protobuf/stach/v2/table\252\002\037FactSet.Pr" +
+      "otobuf.Stach.V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

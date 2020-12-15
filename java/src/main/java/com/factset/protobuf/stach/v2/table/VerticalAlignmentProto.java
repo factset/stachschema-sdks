@@ -189,11 +189,11 @@ public final class VerticalAlignmentProto {
       "ignment.proto\022\037factset.protobuf.stach.v2" +
       ".table*H\n\021VerticalAlignment\022\022\n\016UNKNOWN_V" +
       "ALIGN\020\000\022\007\n\003TOP\020\001\022\n\n\006MIDDLE\020\002\022\n\n\006BOTTOM\020\003" +
-      "B\236\001\n#com.factset.protobuf.stach.v2.table" +
-      "B\026VerticalAlignmentProtoZ=github.com/fac" +
-      "tset/stachschema/go/fds/protobuf/stach/v" +
-      "2/table\252\002\037FactSet.Protobuf.Stach.V2.Tabl" +
-      "eb\006proto3"
+      "B\243\001\n#com.factset.protobuf.stach.v2.table" +
+      "B\026VerticalAlignmentProtoZBgithub.com/fac" +
+      "tset/stachschema-sdks/go/fds/protobuf/st" +
+      "ach/v2/table\252\002\037FactSet.Protobuf.Stach.V2" +
+      ".Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

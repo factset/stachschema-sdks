@@ -987,11 +987,11 @@ public final class TableProto {
       "tion.proto\"\207\001\n\005Table\022D\n\ndefinition\030\001 \001(\013" +
       "20.factset.protobuf.stach.v2.table.Table" +
       "Definition\0228\n\004data\030\002 \001(\0132*.factset.proto" +
-      "buf.stach.v2.table.TableDataB\222\001\n#com.fac" +
+      "buf.stach.v2.table.TableDataB\227\001\n#com.fac" +
       "tset.protobuf.stach.v2.tableB\nTableProto" +
-      "Z=github.com/factset/stachschema/go/fds/" +
-      "protobuf/stach/v2/table\252\002\037FactSet.Protob" +
-      "uf.Stach.V2.Tableb\006proto3"
+      "ZBgithub.com/factset/stachschema-sdks/go" +
+      "/fds/protobuf/stach/v2/table\252\002\037FactSet.P" +
+      "rotobuf.Stach.V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

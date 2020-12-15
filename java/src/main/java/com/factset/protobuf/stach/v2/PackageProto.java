@@ -1321,11 +1321,11 @@ public final class PackageProto {
       "\t\022>\n\006tables\030\003 \003(\0132..factset.protobuf.sta" +
       "ch.v2.Package.TablesEntry\032U\n\013TablesEntry" +
       "\022\013\n\003key\030\001 \001(\t\0225\n\005value\030\002 \001(\0132&.factset.p" +
-      "rotobuf.stach.v2.table.Table:\0028\001B\202\001\n\035com" +
+      "rotobuf.stach.v2.table.Table:\0028\001B\207\001\n\035com" +
       ".factset.protobuf.stach.v2B\014PackageProto" +
-      "Z7github.com/factset/stachschema/go/fds/" +
-      "protobuf/stach/v2\252\002\031FactSet.Protobuf.Sta" +
-      "ch.V2b\006proto3"
+      "Z<github.com/factset/stachschema-sdks/go" +
+      "/fds/protobuf/stach/v2\252\002\031FactSet.Protobu" +
+      "f.Stach.V2b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

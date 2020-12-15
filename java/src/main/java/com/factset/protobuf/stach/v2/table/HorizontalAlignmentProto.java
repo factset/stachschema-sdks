@@ -189,11 +189,11 @@ public final class HorizontalAlignmentProto {
       "Alignment.proto\022\037factset.protobuf.stach." +
       "v2.table*J\n\023HorizontalAlignment\022\022\n\016UNKNO" +
       "WN_HALIGN\020\000\022\010\n\004LEFT\020\001\022\n\n\006CENTER\020\002\022\t\n\005RIG" +
-      "HT\020\003B\240\001\n#com.factset.protobuf.stach.v2.t" +
-      "ableB\030HorizontalAlignmentProtoZ=github.c" +
-      "om/factset/stachschema/go/fds/protobuf/s" +
-      "tach/v2/table\252\002\037FactSet.Protobuf.Stach.V" +
-      "2.Tableb\006proto3"
+      "HT\020\003B\245\001\n#com.factset.protobuf.stach.v2.t" +
+      "ableB\030HorizontalAlignmentProtoZBgithub.c" +
+      "om/factset/stachschema-sdks/go/fds/proto" +
+      "buf/stach/v2/table\252\002\037FactSet.Protobuf.St" +
+      "ach.V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

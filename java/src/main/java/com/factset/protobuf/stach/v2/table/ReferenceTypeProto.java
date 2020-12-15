@@ -206,11 +206,11 @@ public final class ReferenceTypeProto {
       "ype.proto\022\037factset.protobuf.stach.v2.tab" +
       "le*U\n\rReferenceType\022\032\n\026UNKNOWN_REFERENCE" +
       "_TYPE\020\000\022\t\n\005TABLE\020\001\022\n\n\006COLUMN\020\002\022\007\n\003ROW\020\003\022" +
-      "\010\n\004CELL\020\004B\232\001\n#com.factset.protobuf.stach" +
-      ".v2.tableB\022ReferenceTypeProtoZ=github.co" +
-      "m/factset/stachschema/go/fds/protobuf/st" +
-      "ach/v2/table\252\002\037FactSet.Protobuf.Stach.V2" +
-      ".Tableb\006proto3"
+      "\010\n\004CELL\020\004B\237\001\n#com.factset.protobuf.stach" +
+      ".v2.tableB\022ReferenceTypeProtoZBgithub.co" +
+      "m/factset/stachschema-sdks/go/fds/protob" +
+      "uf/stach/v2/table\252\002\037FactSet.Protobuf.Sta" +
+      "ch.V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

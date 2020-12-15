@@ -1603,11 +1603,11 @@ public final class TableDataProto {
       "ctset.protobuf.stach.v2.table.MetadataCo" +
       "llection\032[\n\014ColumnsEntry\022\013\n\003key\030\001 \001(\t\022:\n" +
       "\005value\030\002 \001(\0132+.factset.protobuf.stach.v2" +
-      ".table.ColumnData:\0028\001B\226\001\n#com.factset.pr" +
-      "otobuf.stach.v2.tableB\016TableDataProtoZ=g" +
-      "ithub.com/factset/stachschema/go/fds/pro" +
-      "tobuf/stach/v2/table\252\002\037FactSet.Protobuf." +
-      "Stach.V2.Tableb\006proto3"
+      ".table.ColumnData:\0028\001B\233\001\n#com.factset.pr" +
+      "otobuf.stach.v2.tableB\016TableDataProtoZBg" +
+      "ithub.com/factset/stachschema-sdks/go/fd" +
+      "s/protobuf/stach/v2/table\252\002\037FactSet.Prot" +
+      "obuf.Stach.V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

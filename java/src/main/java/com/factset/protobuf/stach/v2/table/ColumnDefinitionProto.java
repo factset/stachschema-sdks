@@ -2210,11 +2210,11 @@ public final class ColumnDefinitionProto {
       "s_hidden\030\006 \001(\010\022\027\n\017next_sibling_id\030\007 \001(\t\022" +
       "\021\n\tparent_id\030\010 \001(\t\022\021\n\theader_id\030\t \001(\t\022;\n" +
       "\006format\030\n \001(\0132+.factset.protobuf.stach.v" +
-      "2.table.DataFormatB\235\001\n#com.factset.proto" +
+      "2.table.DataFormatB\242\001\n#com.factset.proto" +
       "buf.stach.v2.tableB\025ColumnDefinitionProt" +
-      "oZ=github.com/factset/stachschema/go/fds" +
-      "/protobuf/stach/v2/table\252\002\037FactSet.Proto" +
-      "buf.Stach.V2.Tableb\006proto3"
+      "oZBgithub.com/factset/stachschema-sdks/g" +
+      "o/fds/protobuf/stach/v2/table\252\002\037FactSet." +
+      "Protobuf.Stach.V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

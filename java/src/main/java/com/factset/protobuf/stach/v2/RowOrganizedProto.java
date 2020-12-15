@@ -11169,11 +11169,11 @@ public final class RowOrganizedProto {
       "ch.v2.RowOrganizedPackage.MapOfMetadata." +
       "ItemsEntry\032[\n\nItemsEntry\022\013\n\003key\030\001 \001(\t\022<\n" +
       "\005value\030\002 \001(\0132-.factset.protobuf.stach.v2" +
-      ".table.MetadataItem:\0028\001B\207\001\n\035com.factset." +
-      "protobuf.stach.v2B\021RowOrganizedProtoZ7gi" +
-      "thub.com/factset/stachschema/go/fds/prot" +
-      "obuf/stach/v2\252\002\031FactSet.Protobuf.Stach.V" +
-      "2b\006proto3"
+      ".table.MetadataItem:\0028\001B\214\001\n\035com.factset." +
+      "protobuf.stach.v2B\021RowOrganizedProtoZ<gi" +
+      "thub.com/factset/stachschema-sdks/go/fds" +
+      "/protobuf/stach/v2\252\002\031FactSet.Protobuf.St" +
+      "ach.V2b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

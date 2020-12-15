@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fds/protobuf/stach/v2/table/CellDefinition.proto',
   package='factset.protobuf.stach.v2.table',
   syntax='proto3',
-  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\023CellDefinitionProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
+  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\023CellDefinitionProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n0fds/protobuf/stach/v2/table/CellDefinition.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table\x1a,fds/protobuf/stach/v2/table/DataFormat.proto\"[\n\x0e\x43\x65llDefinition\x12\x0c\n\x04type\x18\x01 \x01(\t\x12;\n\x06\x66ormat\x18\x02 \x01(\x0b\x32+.factset.protobuf.stach.v2.table.DataFormatB\x9b\x01\n#com.factset.protobuf.stach.v2.tableB\x13\x43\x65llDefinitionProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
+  serialized_pb=b'\n0fds/protobuf/stach/v2/table/CellDefinition.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table\x1a,fds/protobuf/stach/v2/table/DataFormat.proto\"[\n\x0e\x43\x65llDefinition\x12\x0c\n\x04type\x18\x01 \x01(\t\x12;\n\x06\x66ormat\x18\x02 \x01(\x0b\x32+.factset.protobuf.stach.v2.table.DataFormatB\xa0\x01\n#com.factset.protobuf.stach.v2.tableB\x13\x43\x65llDefinitionProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
   ,
   dependencies=[fds_dot_protobuf_dot_stach_dot_v2_dot_table_dot_DataFormat__pb2.DESCRIPTOR,])
 

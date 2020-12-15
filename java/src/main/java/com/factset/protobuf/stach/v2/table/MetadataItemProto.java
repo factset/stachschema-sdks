@@ -1112,11 +1112,11 @@ public final class MetadataItemProto {
       "\014MetadataItem\022\'\n\005value\030\001 \001(\0132\026.google.pr" +
       "otobuf.ValueH\000\022?\n\treference\030\002 \001(\0132*.fact" +
       "set.protobuf.stach.v2.table.ReferenceH\000B" +
-      "\006\n\004dataB\231\001\n#com.factset.protobuf.stach.v" +
-      "2.tableB\021MetadataItemProtoZ=github.com/f" +
-      "actset/stachschema/go/fds/protobuf/stach" +
-      "/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Ta" +
-      "bleb\006proto3"
+      "\006\n\004dataB\236\001\n#com.factset.protobuf.stach.v" +
+      "2.tableB\021MetadataItemProtoZBgithub.com/f" +
+      "actset/stachschema-sdks/go/fds/protobuf/" +
+      "stach/v2/table\252\002\037FactSet.Protobuf.Stach." +
+      "V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

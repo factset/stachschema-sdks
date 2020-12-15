@@ -1121,11 +1121,11 @@ public final class DataFormatProto {
       "D\n\006halign\030\003 \001(\01624.factset.protobuf.stach" +
       ".v2.table.HorizontalAlignment\022B\n\006valign\030" +
       "\004 \001(\01622.factset.protobuf.stach.v2.table." +
-      "VerticalAlignmentB\227\001\n#com.factset.protob" +
-      "uf.stach.v2.tableB\017DataFormatProtoZ=gith" +
-      "ub.com/factset/stachschema/go/fds/protob" +
-      "uf/stach/v2/table\252\002\037FactSet.Protobuf.Sta" +
-      "ch.V2.Tableb\006proto3"
+      "VerticalAlignmentB\234\001\n#com.factset.protob" +
+      "uf.stach.v2.tableB\017DataFormatProtoZBgith" +
+      "ub.com/factset/stachschema-sdks/go/fds/p" +
+      "rotobuf/stach/v2/table\252\002\037FactSet.Protobu" +
+      "f.Stach.V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

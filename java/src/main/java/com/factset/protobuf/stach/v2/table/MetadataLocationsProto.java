@@ -3414,11 +3414,12 @@ public final class MetadataLocationsProto {
       "\001(\0132/.factset.protobuf.stach.v2.table.Li" +
       "stOfMetadata:\0028\001\032\\\n\tRowsEntry\022\013\n\003key\030\001 \001" +
       "(\t\022>\n\005value\030\002 \001(\0132/.factset.protobuf.sta" +
-      "ch.v2.table.ListOfMetadata:\0028\001B\236\001\n#com.f" +
+      "ch.v2.table.ListOfMetadata:\0028\001B\243\001\n#com.f" +
       "actset.protobuf.stach.v2.tableB\026Metadata" +
-      "LocationsProtoZ=github.com/factset/stach" +
-      "schema/go/fds/protobuf/stach/v2/table\252\002\037" +
-      "FactSet.Protobuf.Stach.V2.Tableb\006proto3"
+      "LocationsProtoZBgithub.com/factset/stach" +
+      "schema-sdks/go/fds/protobuf/stach/v2/tab" +
+      "le\252\002\037FactSet.Protobuf.Stach.V2.Tableb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

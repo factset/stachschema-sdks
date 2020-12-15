@@ -910,11 +910,11 @@ public final class CellDefinitionProto {
       "ble\032,fds/protobuf/stach/v2/table/DataFor" +
       "mat.proto\"[\n\016CellDefinition\022\014\n\004type\030\001 \001(" +
       "\t\022;\n\006format\030\002 \001(\0132+.factset.protobuf.sta" +
-      "ch.v2.table.DataFormatB\233\001\n#com.factset.p" +
+      "ch.v2.table.DataFormatB\240\001\n#com.factset.p" +
       "rotobuf.stach.v2.tableB\023CellDefinitionPr" +
-      "otoZ=github.com/factset/stachschema/go/f" +
-      "ds/protobuf/stach/v2/table\252\002\037FactSet.Pro" +
-      "tobuf.Stach.V2.Tableb\006proto3"
+      "otoZBgithub.com/factset/stachschema-sdks" +
+      "/go/fds/protobuf/stach/v2/table\252\002\037FactSe" +
+      "t.Protobuf.Stach.V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

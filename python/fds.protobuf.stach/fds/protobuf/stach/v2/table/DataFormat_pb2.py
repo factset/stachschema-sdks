@@ -19,9 +19,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fds/protobuf/stach/v2/table/DataFormat.proto',
   package='factset.protobuf.stach.v2.table',
   syntax='proto3',
-  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\017DataFormatProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
+  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\017DataFormatProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,fds/protobuf/stach/v2/table/DataFormat.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table\x1a\x35\x66\x64s/protobuf/stach/v2/table/HorizontalAlignment.proto\x1a\x33\x66\x64s/protobuf/stach/v2/table/VerticalAlignment.proto\"\xbb\x01\n\nDataFormat\x12\x0e\n\x06\x66ormat\x18\x01 \x01(\t\x12\x13\n\x0bnull_format\x18\x02 \x01(\t\x12\x44\n\x06halign\x18\x03 \x01(\x0e\x32\x34.factset.protobuf.stach.v2.table.HorizontalAlignment\x12\x42\n\x06valign\x18\x04 \x01(\x0e\x32\x32.factset.protobuf.stach.v2.table.VerticalAlignmentB\x97\x01\n#com.factset.protobuf.stach.v2.tableB\x0f\x44\x61taFormatProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
+  serialized_pb=b'\n,fds/protobuf/stach/v2/table/DataFormat.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table\x1a\x35\x66\x64s/protobuf/stach/v2/table/HorizontalAlignment.proto\x1a\x33\x66\x64s/protobuf/stach/v2/table/VerticalAlignment.proto\"\xbb\x01\n\nDataFormat\x12\x0e\n\x06\x66ormat\x18\x01 \x01(\t\x12\x13\n\x0bnull_format\x18\x02 \x01(\t\x12\x44\n\x06halign\x18\x03 \x01(\x0e\x32\x34.factset.protobuf.stach.v2.table.HorizontalAlignment\x12\x42\n\x06valign\x18\x04 \x01(\x0e\x32\x32.factset.protobuf.stach.v2.table.VerticalAlignmentB\x9c\x01\n#com.factset.protobuf.stach.v2.tableB\x0f\x44\x61taFormatProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
   ,
   dependencies=[fds_dot_protobuf_dot_stach_dot_v2_dot_table_dot_HorizontalAlignment__pb2.DESCRIPTOR,fds_dot_protobuf_dot_stach_dot_v2_dot_table_dot_VerticalAlignment__pb2.DESCRIPTOR,])
 

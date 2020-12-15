@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fds/protobuf/stach/v2/table/VerticalAlignment.proto',
   package='factset.protobuf.stach.v2.table',
   syntax='proto3',
-  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\026VerticalAlignmentProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
+  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\026VerticalAlignmentProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3fds/protobuf/stach/v2/table/VerticalAlignment.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table*H\n\x11VerticalAlignment\x12\x12\n\x0eUNKNOWN_VALIGN\x10\x00\x12\x07\n\x03TOP\x10\x01\x12\n\n\x06MIDDLE\x10\x02\x12\n\n\x06\x42OTTOM\x10\x03\x42\x9e\x01\n#com.factset.protobuf.stach.v2.tableB\x16VerticalAlignmentProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
+  serialized_pb=b'\n3fds/protobuf/stach/v2/table/VerticalAlignment.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table*H\n\x11VerticalAlignment\x12\x12\n\x0eUNKNOWN_VALIGN\x10\x00\x12\x07\n\x03TOP\x10\x01\x12\n\n\x06MIDDLE\x10\x02\x12\n\n\x06\x42OTTOM\x10\x03\x42\xa3\x01\n#com.factset.protobuf.stach.v2.tableB\x16VerticalAlignmentProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
 )
 
 _VERTICALALIGNMENT = _descriptor.EnumDescriptor(

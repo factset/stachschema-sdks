@@ -19,9 +19,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fds/protobuf/stach/v2/table/MetadataItem.proto',
   package='factset.protobuf.stach.v2.table',
   syntax='proto3',
-  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\021MetadataItemProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
+  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\021MetadataItemProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.fds/protobuf/stach/v2/table/MetadataItem.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table\x1a\x1cgoogle/protobuf/struct.proto\x1a+fds/protobuf/stach/v2/table/Reference.proto\"\x80\x01\n\x0cMetadataItem\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x16.google.protobuf.ValueH\x00\x12?\n\treference\x18\x02 \x01(\x0b\x32*.factset.protobuf.stach.v2.table.ReferenceH\x00\x42\x06\n\x04\x64\x61taB\x99\x01\n#com.factset.protobuf.stach.v2.tableB\x11MetadataItemProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
+  serialized_pb=b'\n.fds/protobuf/stach/v2/table/MetadataItem.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table\x1a\x1cgoogle/protobuf/struct.proto\x1a+fds/protobuf/stach/v2/table/Reference.proto\"\x80\x01\n\x0cMetadataItem\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x16.google.protobuf.ValueH\x00\x12?\n\treference\x18\x02 \x01(\x0b\x32*.factset.protobuf.stach.v2.table.ReferenceH\x00\x42\x06\n\x04\x64\x61taB\x9e\x01\n#com.factset.protobuf.stach.v2.tableB\x11MetadataItemProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,fds_dot_protobuf_dot_stach_dot_v2_dot_table_dot_Reference__pb2.DESCRIPTOR,])
 

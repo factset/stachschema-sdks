@@ -19,9 +19,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fds/protobuf/stach/v2/table/ColumnData.proto',
   package='factset.protobuf.stach.v2.table',
   syntax='proto3',
-  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\017ColumnDataProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
+  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\017ColumnDataProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,fds/protobuf/stach/v2/table/ColumnData.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table\x1a\x30\x66\x64s/protobuf/stach/v2/table/CellDefinition.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xf6\x01\n\nColumnData\x12G\n\x06ranges\x18\x01 \x03(\x0b\x32\x37.factset.protobuf.stach.v2.table.ColumnData.RangesEntry\x12*\n\x06values\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.ListValue\x12\x44\n\x0b\x64\x65\x66initions\x18\x03 \x03(\x0b\x32/.factset.protobuf.stach.v2.table.CellDefinition\x1a-\n\x0bRangesEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x42\x97\x01\n#com.factset.protobuf.stach.v2.tableB\x0f\x43olumnDataProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
+  serialized_pb=b'\n,fds/protobuf/stach/v2/table/ColumnData.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table\x1a\x30\x66\x64s/protobuf/stach/v2/table/CellDefinition.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xf6\x01\n\nColumnData\x12G\n\x06ranges\x18\x01 \x03(\x0b\x32\x37.factset.protobuf.stach.v2.table.ColumnData.RangesEntry\x12*\n\x06values\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.ListValue\x12\x44\n\x0b\x64\x65\x66initions\x18\x03 \x03(\x0b\x32/.factset.protobuf.stach.v2.table.CellDefinition\x1a-\n\x0bRangesEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x42\x9c\x01\n#com.factset.protobuf.stach.v2.tableB\x0f\x43olumnDataProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
   ,
   dependencies=[fds_dot_protobuf_dot_stach_dot_v2_dot_table_dot_CellDefinition__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 

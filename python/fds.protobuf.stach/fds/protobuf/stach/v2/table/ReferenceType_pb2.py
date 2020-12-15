@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fds/protobuf/stach/v2/table/ReferenceType.proto',
   package='factset.protobuf.stach.v2.table',
   syntax='proto3',
-  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\022ReferenceTypeProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
+  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\022ReferenceTypeProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n/fds/protobuf/stach/v2/table/ReferenceType.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table*U\n\rReferenceType\x12\x1a\n\x16UNKNOWN_REFERENCE_TYPE\x10\x00\x12\t\n\x05TABLE\x10\x01\x12\n\n\x06\x43OLUMN\x10\x02\x12\x07\n\x03ROW\x10\x03\x12\x08\n\x04\x43\x45LL\x10\x04\x42\x9a\x01\n#com.factset.protobuf.stach.v2.tableB\x12ReferenceTypeProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
+  serialized_pb=b'\n/fds/protobuf/stach/v2/table/ReferenceType.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table*U\n\rReferenceType\x12\x1a\n\x16UNKNOWN_REFERENCE_TYPE\x10\x00\x12\t\n\x05TABLE\x10\x01\x12\n\n\x06\x43OLUMN\x10\x02\x12\x07\n\x03ROW\x10\x03\x12\x08\n\x04\x43\x45LL\x10\x04\x42\x9f\x01\n#com.factset.protobuf.stach.v2.tableB\x12ReferenceTypeProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
 )
 
 _REFERENCETYPE = _descriptor.EnumDescriptor(

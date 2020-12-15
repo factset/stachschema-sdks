@@ -1133,11 +1133,11 @@ public final class TableDefinitionProto {
       "Definition.proto\"n\n\017TableDefinition\022\027\n\017h" +
       "eader_table_id\030\001 \001(\t\022B\n\007columns\030\002 \003(\01321." +
       "factset.protobuf.stach.v2.table.ColumnDe" +
-      "finitionB\234\001\n#com.factset.protobuf.stach." +
-      "v2.tableB\024TableDefinitionProtoZ=github.c" +
-      "om/factset/stachschema/go/fds/protobuf/s" +
-      "tach/v2/table\252\002\037FactSet.Protobuf.Stach.V" +
-      "2.Tableb\006proto3"
+      "finitionB\241\001\n#com.factset.protobuf.stach." +
+      "v2.tableB\024TableDefinitionProtoZBgithub.c" +
+      "om/factset/stachschema-sdks/go/fds/proto" +
+      "buf/stach/v2/table\252\002\037FactSet.Protobuf.St" +
+      "ach.V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

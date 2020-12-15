@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fds/protobuf/stach/v2/Package.proto',
   package='factset.protobuf.stach.v2',
   syntax='proto3',
-  serialized_options=b'\n\035com.factset.protobuf.stach.v2B\014PackageProtoZ7github.com/factset/stachschema/go/fds/protobuf/stach/v2\252\002\031FactSet.Protobuf.Stach.V2',
+  serialized_options=b'\n\035com.factset.protobuf.stach.v2B\014PackageProtoZ<github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2\252\002\031FactSet.Protobuf.Stach.V2',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#fds/protobuf/stach/v2/Package.proto\x12\x19\x66\x61\x63tset.protobuf.stach.v2\x1a\'fds/protobuf/stach/v2/table/Table.proto\"\xcc\x01\n\x07Package\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x19\n\x11primary_table_ids\x18\x02 \x03(\t\x12>\n\x06tables\x18\x03 \x03(\x0b\x32..factset.protobuf.stach.v2.Package.TablesEntry\x1aU\n\x0bTablesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x35\n\x05value\x18\x02 \x01(\x0b\x32&.factset.protobuf.stach.v2.table.Table:\x02\x38\x01\x42\x82\x01\n\x1d\x63om.factset.protobuf.stach.v2B\x0cPackageProtoZ7github.com/factset/stachschema/go/fds/protobuf/stach/v2\xaa\x02\x19\x46\x61\x63tSet.Protobuf.Stach.V2b\x06proto3'
+  serialized_pb=b'\n#fds/protobuf/stach/v2/Package.proto\x12\x19\x66\x61\x63tset.protobuf.stach.v2\x1a\'fds/protobuf/stach/v2/table/Table.proto\"\xcc\x01\n\x07Package\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x19\n\x11primary_table_ids\x18\x02 \x03(\t\x12>\n\x06tables\x18\x03 \x03(\x0b\x32..factset.protobuf.stach.v2.Package.TablesEntry\x1aU\n\x0bTablesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x35\n\x05value\x18\x02 \x01(\x0b\x32&.factset.protobuf.stach.v2.table.Table:\x02\x38\x01\x42\x87\x01\n\x1d\x63om.factset.protobuf.stach.v2B\x0cPackageProtoZ<github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2\xaa\x02\x19\x46\x61\x63tSet.Protobuf.Stach.V2b\x06proto3'
   ,
   dependencies=[fds_dot_protobuf_dot_stach_dot_v2_dot_table_dot_Table__pb2.DESCRIPTOR,])
 

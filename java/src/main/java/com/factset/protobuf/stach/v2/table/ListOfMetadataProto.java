@@ -744,11 +744,12 @@ public final class ListOfMetadataProto {
     java.lang.String[] descriptorData = {
       "\n0fds/protobuf/stach/v2/table/ListOfMeta" +
       "data.proto\022\037factset.protobuf.stach.v2.ta" +
-      "ble\"\035\n\016ListOfMetadata\022\013\n\003ids\030\001 \003(\tB\233\001\n#c" +
+      "ble\"\035\n\016ListOfMetadata\022\013\n\003ids\030\001 \003(\tB\240\001\n#c" +
       "om.factset.protobuf.stach.v2.tableB\023List" +
-      "OfMetadataProtoZ=github.com/factset/stac" +
-      "hschema/go/fds/protobuf/stach/v2/table\252\002" +
-      "\037FactSet.Protobuf.Stach.V2.Tableb\006proto3"
+      "OfMetadataProtoZBgithub.com/factset/stac" +
+      "hschema-sdks/go/fds/protobuf/stach/v2/ta" +
+      "ble\252\002\037FactSet.Protobuf.Stach.V2.Tableb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

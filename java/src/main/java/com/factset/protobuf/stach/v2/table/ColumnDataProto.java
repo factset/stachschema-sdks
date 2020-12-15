@@ -1602,11 +1602,11 @@ public final class ColumnDataProto {
       "f.ListValue\022D\n\013definitions\030\003 \003(\0132/.facts" +
       "et.protobuf.stach.v2.table.CellDefinitio" +
       "n\032-\n\013RangesEntry\022\013\n\003key\030\001 \001(\005\022\r\n\005value\030\002" +
-      " \001(\005:\0028\001B\227\001\n#com.factset.protobuf.stach." +
-      "v2.tableB\017ColumnDataProtoZ=github.com/fa" +
-      "ctset/stachschema/go/fds/protobuf/stach/" +
-      "v2/table\252\002\037FactSet.Protobuf.Stach.V2.Tab" +
-      "leb\006proto3"
+      " \001(\005:\0028\001B\234\001\n#com.factset.protobuf.stach." +
+      "v2.tableB\017ColumnDataProtoZBgithub.com/fa" +
+      "ctset/stachschema-sdks/go/fds/protobuf/s" +
+      "tach/v2/table\252\002\037FactSet.Protobuf.Stach.V" +
+      "2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

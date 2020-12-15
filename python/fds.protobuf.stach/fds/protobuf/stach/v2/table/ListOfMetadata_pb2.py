@@ -17,9 +17,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fds/protobuf/stach/v2/table/ListOfMetadata.proto',
   package='factset.protobuf.stach.v2.table',
   syntax='proto3',
-  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\023ListOfMetadataProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
+  serialized_options=b'\n#com.factset.protobuf.stach.v2.tableB\023ListOfMetadataProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\252\002\037FactSet.Protobuf.Stach.V2.Table',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n0fds/protobuf/stach/v2/table/ListOfMetadata.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table\"\x1d\n\x0eListOfMetadata\x12\x0b\n\x03ids\x18\x01 \x03(\tB\x9b\x01\n#com.factset.protobuf.stach.v2.tableB\x13ListOfMetadataProtoZ=github.com/factset/stachschema/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
+  serialized_pb=b'\n0fds/protobuf/stach/v2/table/ListOfMetadata.proto\x12\x1f\x66\x61\x63tset.protobuf.stach.v2.table\"\x1d\n\x0eListOfMetadata\x12\x0b\n\x03ids\x18\x01 \x03(\tB\xa0\x01\n#com.factset.protobuf.stach.v2.tableB\x13ListOfMetadataProtoZBgithub.com/factset/stachschema-sdks/go/fds/protobuf/stach/v2/table\xaa\x02\x1f\x46\x61\x63tSet.Protobuf.Stach.V2.Tableb\x06proto3'
 )
 
 

@@ -910,11 +910,11 @@ public final class RowDefinitionProto {
       "le\032,fds/protobuf/stach/v2/table/DataForm" +
       "at.proto\"X\n\rRowDefinition\022\n\n\002id\030\001 \001(\t\022;\n" +
       "\006format\030\002 \001(\0132+.factset.protobuf.stach.v" +
-      "2.table.DataFormatB\232\001\n#com.factset.proto" +
-      "buf.stach.v2.tableB\022RowDefinitionProtoZ=" +
-      "github.com/factset/stachschema/go/fds/pr" +
-      "otobuf/stach/v2/table\252\002\037FactSet.Protobuf" +
-      ".Stach.V2.Tableb\006proto3"
+      "2.table.DataFormatB\237\001\n#com.factset.proto" +
+      "buf.stach.v2.tableB\022RowDefinitionProtoZB" +
+      "github.com/factset/stachschema-sdks/go/f" +
+      "ds/protobuf/stach/v2/table\252\002\037FactSet.Pro" +
+      "tobuf.Stach.V2.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
