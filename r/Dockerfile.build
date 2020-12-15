@@ -1,7 +1,7 @@
 FROM rprotobuf/ci
 
 LABEL org.label-schema.license="Apache-2.0" \
-      org.label-schema.vcs-url="https://github.com/factset/stachschema" \
+      org.label-schema.vcs-url="https://github.com/factset/stachschema-sdks" \
       org.label-schema.description="To build and run unit tests of R Stach package" \
       maintainer="analytics.api.support@factset.com"
 
