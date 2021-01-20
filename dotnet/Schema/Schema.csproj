@@ -6,7 +6,7 @@
     <RootNamespace>FactSet.Protobuf.Stach.V2</RootNamespace>
     <Description>Google Protocol buffer classes for FactSet STACH tabular format which represents complex multi-dimensional array of data. These classes help in the serialization and deserialization of STACH formatted data. See GitHub repository documentation for more information.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>FactSet.Protobuf.Stach</PackageId>
+    <PackageId>FactSet.Protobuf.Stach.V2</PackageId>
     <Authors>FactSet Research Systems, Inc.</Authors>
     <Company>FactSet Research Systems, Inc</Company>
     <Product>FactSet.Protobuf.Stach.V2</Product>
