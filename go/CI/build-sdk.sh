@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-BASE_PATH=/src/v2 # Base location of Go generated classes
-PACKAGE_PATH=fds/protobuf/stach
+BASE_PATH=/src # Base location of Go generated classes
+PACKAGE_PATH=fds/protobuf/stach/v2
 
 cd $BASE_PATH/$PACKAGE_PATH
 go build

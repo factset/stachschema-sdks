@@ -5,7 +5,7 @@ const equitiesByRegionPackageJSON = require('../../examples/Default.json');
 
 describe('STACH', function () {
   it('Can deserialize Package from JSON', function () {
-    let pkg = lib.factset.protobuf.stach.Package.fromObject(equitiesByRegionPackageJSON);
+    let pkg = lib.factset.protobuf.stach.v2.Package.fromObject(equitiesByRegionPackageJSON);
     assert.strictEqual(pkg.version, '2.0');
     assert.strictEqual(pkg.primaryTableIds.length, 1);
     assert.strictEqual(pkg.tables['main'].definition.columns.length, 13);
@@ -16,7 +16,7 @@ describe('STACH', function () {
 
 describe('STACH', function () {
   it('Can serialize Package to JSON', function () {
-    let pkg = lib.factset.protobuf.stach.Package.toObject(lib.factset.protobuf.stach.Package.fromObject(equitiesByRegionPackageJSON));
+    let pkg = lib.factset.protobuf.stach.v2.Package.toObject(lib.factset.protobuf.stach.v2.Package.fromObject(equitiesByRegionPackageJSON));
     assert.strictEqual(pkg.version, '2.0');
     assert.strictEqual(pkg.primaryTableIds.length, 1);
     assert.strictEqual(pkg.tables['main'].definition.columns.length, 13);
@@ -27,31 +27,31 @@ describe('STACH', function () {
 
 describe('STACH', function () {
   it('Can deserialize enum from string', function () {
-    let row = lib.factset.protobuf.stach.RowOrganizedPackage.Row.fromObject({ rowType: 'Header' });
-    assert.strictEqual(row.rowType, lib.factset.protobuf.stach.RowOrganizedPackage.Row.RowType.Header);
+    let row = lib.factset.protobuf.stach.v2.RowOrganizedPackage.Row.fromObject({ rowType: 'Header' });
+    assert.strictEqual(row.rowType, lib.factset.protobuf.stach.v2.RowOrganizedPackage.Row.RowType.Header);
   });
 });
 
 describe('STACH', function () {
   it('Can deserialize enum from number', function () {
-    let row = lib.factset.protobuf.stach.RowOrganizedPackage.Row.fromObject({ rowType: 1 });
-    assert.strictEqual(row.rowType, lib.factset.protobuf.stach.RowOrganizedPackage.Row.RowType.Header);
+    let row = lib.factset.protobuf.stach.v2.RowOrganizedPackage.Row.fromObject({ rowType: 1 });
+    assert.strictEqual(row.rowType, lib.factset.protobuf.stach.v2.RowOrganizedPackage.Row.RowType.Header);
   });
 });
 
 describe('STACH', function () {
   it('Can add rows from json with rowType as string', function () {
-    let tableData = lib.factset.protobuf.stach.RowOrganizedPackage.TableData.fromObject({});
-    tableData.rows.push(lib.factset.protobuf.stach.RowOrganizedPackage.Row.fromObject({ rowType: 'Header', cells: ['foo, bar'] }));
-    tableData.rows.push(lib.factset.protobuf.stach.RowOrganizedPackage.Row.fromObject({ rowType: 'Body', cells: ['foo', 'bar'] }));
+    let tableData = lib.factset.protobuf.stach.v2.RowOrganizedPackage.TableData.fromObject({});
+    tableData.rows.push(lib.factset.protobuf.stach.v2.RowOrganizedPackage.Row.fromObject({ rowType: 'Header', cells: ['foo, bar'] }));
+    tableData.rows.push(lib.factset.protobuf.stach.v2.RowOrganizedPackage.Row.fromObject({ rowType: 'Body', cells: ['foo', 'bar'] }));
     assert.strictEqual(tableData.rows.length, 2);
-    assert.strictEqual(tableData.rows[0].rowType, lib.factset.protobuf.stach.RowOrganizedPackage.Row.RowType.Header);
+    assert.strictEqual(tableData.rows[0].rowType, lib.factset.protobuf.stach.v2.RowOrganizedPackage.Row.RowType.Header);
   });
 });
 
 describe('STACH', function () {
   it('Unset properties are not serialized to JSON', function () {
-    let pkg = lib.factset.protobuf.stach.Package.toObject(lib.factset.protobuf.stach.Package.fromObject({}));
+    let pkg = lib.factset.protobuf.stach.v2.Package.toObject(lib.factset.protobuf.stach.v2.Package.fromObject({}));
     assert.strictEqual(pkg.version, undefined);
   });
 });

@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2
 
 LABEL org.label-schema.license="Apache-2.0" \
-      org.label-schema.vcs-url="https://github.com/factset/stachschema" \
+      org.label-schema.vcs-url="https://github.com/factset/stachschema-sdks" \
       org.label-schema.description="To generate .Net Stach package" \
       maintainer="analytics.api.support@factset.com"
 

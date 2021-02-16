@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.factset.protobuf</groupId>
-    <artifactId>stach</artifactId>
-    <version>2.0.0</version>
-    <url>https://github.com/factset/stachschema</url>
+    <artifactId>stach.v2</artifactId>
+    <version>1.0.0</version>
+    <url>https://github.com/factset/stachschema-sdks</url>
     <description>Google Protocol buffer classes for FactSet STACH tabular format which represents complex multi-dimensional array of data. These classes help in the serialization and deserialization of STACH formatted data. See GitHub repository documentation for more information.</description>
 
     <scm>
-        <connection>scm:git:git://github.com/factset/stachschema.git</connection>
-        <developerConnection>scm:git:ssh://github.com:factset/stachschema.git</developerConnection>
-        <url>http://github.com/factset/stachschema/tree/master</url>
+        <connection>scm:git:git://github.com/factset/stachschema-sdks.git</connection>
+        <developerConnection>scm:git:ssh://github.com:factset/stachschema-sdks.git</developerConnection>
+        <url>http://github.com/factset/stachschema-sdks/tree/master</url>
     </scm>
 
     <licenses>

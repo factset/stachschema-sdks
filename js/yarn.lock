@@ -114,20 +114,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fds/protobuf-stach-v2@workspace:packages/stach":
+  version: 0.0.0-use.local
+  resolution: "@fds/protobuf-stach-v2@workspace:packages/stach"
+  dependencies:
+    protobufjs: ^6.10.1
+  languageName: unknown
+  linkType: soft
+
 "@fds/protobuf-stach-workspace@workspace:.":
   version: 0.0.0-use.local
   resolution: "@fds/protobuf-stach-workspace@workspace:."
   dependencies:
     lerna: ^3.0.1
     mocha: ^8.1.3
-    protobufjs: ^6.10.1
-  languageName: unknown
-  linkType: soft
-
-"@fds/protobuf-stach@workspace:packages/stach":
-  version: 0.0.0-use.local
-  resolution: "@fds/protobuf-stach@workspace:packages/stach"
-  dependencies:
     protobufjs: ^6.10.1
   languageName: unknown
   linkType: soft
