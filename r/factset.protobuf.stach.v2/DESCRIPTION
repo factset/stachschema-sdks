@@ -4,9 +4,9 @@ Title: 'FactSet' 'STACH V2' Library
 Version: 1.0.0
 Author: analytics-reporting
 Maintainer: Charlie Mathis<chmathis@factset.com>
-Description: Generates 'RProtobuf' classes for 'FactSet' 'STACH' tabular 
+Description: Generates 'RProtobuf' classes for 'FactSet' 'STACH V2' tabular 
     format which represents complex multi-dimensional array of data. These 
-    classes help in the 'serialization' and 'deserialization' of 'STACH' 
+    classes help in the 'serialization' and 'deserialization' of 'STACH V2' 
     formatted data. See 'GitHub' repository documentation for more 
     information.
 URL: https://github.com/factset/stachschema-sdks
