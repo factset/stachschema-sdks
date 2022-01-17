@@ -8,7 +8,7 @@ The purpose of this library is to help in the serialization and de-serialization
 }
 
 \section{Usage}{
-   stachFormatdata <- read( factset.protobuf.stach.v2.Package,input='path of your stach extension file' )
+   stachFormatdata <- read( factset.protobuf.stach.v2.Package, input='path of your stach extension file' )
 }
 \section{Arguments}{
 \if{html}{\out{<div class="arguments">}}
@@ -21,13 +21,13 @@ The purpose of this library is to help in the serialization and de-serialization
 \examples{
 \dontrun{
 # an example to Read column organized file data from a connection
-read( factset.protobuf.stach.v2.Package,input = 'path of your stach extension file' )
+read( factset.protobuf.stach.v2.Package, input = 'path of your stach extension file' )
 
 # an example to Read row organized file data from a connection
-read( factset.protobuf.stach.v2.RowOrganizedPackage,input = 'path of your stach extension file' )
+read( factset.protobuf.stach.v2.RowOrganizedPackage, input = 'path of your stach extension file' )
 
 # an example to Read the raw stach data as a character 
-read( factset.protobuf.stach.v2.Packag, input = as.character(stachdata) )
+read( factset.protobuf.stach.v2.Package, input = as.character(stachdata) )
 
 }
 }
