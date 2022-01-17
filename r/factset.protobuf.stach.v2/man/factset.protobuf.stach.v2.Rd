@@ -4,7 +4,7 @@
 \title{factset.protobuf.stach.v2}
 
 \description{
-The purpose of this library is to help in the serialization and de-serialization of the FactSet STACH v2 format represented using Google Protocol buffers. RProtobuf which is an internal dependency of this library provides the required helper serialization related methods. 
+The purpose of this library is to help in the serialization and de-serialization of the FactSet STACH v2 format represented using Google Protocol buffers. This library has the required FactSet STACH v2 Protobuf files and the helper serialization related methods are provided by RProtobuf library which is an internal dependency.
 }
 
 \section{Usage}{
