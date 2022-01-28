@@ -1,7 +1,7 @@
 Package: factset.protobuf.stach.v2
 Type: Package
 Title: 'FactSet' 'STACH V2' Library
-Version: 1.0.2
+Version: 1.0.3
 Author: analytics-reporting
 Maintainer: Charlie Mathis<chmathis@factset.com>
 Description: Generates 'RProtobuf' classes for 'FactSet' 'STACH V2' tabular 
@@ -17,4 +17,8 @@ LazyData: true
 Imports: R6
 Depends: RProtoBuf
 Suggests: testthat
+SystemRequirements: ProtoBuf libraries and compiler version 3.3.0 or later;
+ On Debian/Ubuntu these can be installed as libprotoc-dev, libprotobuf-dev
+ and protobuf-compiler, while on Fedora/CentOS protobuf-devel and
+ protobuf-compiler are needed.
 RoxygenNote: 7.0.0
