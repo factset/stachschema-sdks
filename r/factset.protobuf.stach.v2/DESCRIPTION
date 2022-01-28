@@ -17,4 +17,8 @@ LazyData: true
 Imports: R6
 Depends: RProtoBuf
 Suggests: testthat
+SystemRequirements: ProtoBuf libraries and compiler version 3.3.0 or later;
+ On Debian/Ubuntu these can be installed as libprotoc-dev, libprotobuf-dev
+ and protobuf-compiler, while on Fedora/CentOS protobuf-devel and
+ protobuf-compiler are needed.
 RoxygenNote: 7.0.0
