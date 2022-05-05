@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.factset.protobuf</groupId>
-    <artifactId>stach.v2</artifactId>
-    <name>stach.v2</name>
+    <artifactId>stach.v3</artifactId>
+    <name>stach.v3</name>
     <version>1.0.0</version>
     <url>https://github.com/factset/stachschema-sdks</url>
     <description>Google Protocol buffer classes for FactSet STACH tabular format which represents complex multi-dimensional array of data. These classes help in the serialization and deserialization of STACH formatted data. See GitHub repository documentation for more information.</description>

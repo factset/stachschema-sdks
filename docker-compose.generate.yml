@@ -7,13 +7,13 @@ services:
     volumes:
     - ${SCHEMA}:/schema
     - ./dotnet:/dotnet
-  generate_js:
-    build:
-      context: .
-      dockerfile: js/Dockerfile.generate
-    volumes:
-    - ${SCHEMA}:/schema
-    - ./js:/js
+#  generate_js:
+#    build:
+#      context: .
+#      dockerfile: js/Dockerfile.generate
+#    volumes:
+#    - ${SCHEMA}:/schema
+#    - ./js:/js
   generate_python:
     build:
       context: .

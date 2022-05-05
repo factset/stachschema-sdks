@@ -3,7 +3,7 @@ set -e
 
 SCHEMA_PATH=/schema # Location of Protobuf schema
 BASE_PATH=/r # Base location of R generated classes
-PACKAGE_PATH=factset.protobuf.stach.v2
+PACKAGE_PATH=factset.protobuf.stach.v3
 
 rm -f $BASE_PATH/$PACKAGE_PATH/**/*.proto
 

@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
-    <AssemblyName>FactSet.Protobuf.Stach.V2</AssemblyName>
-    <RootNamespace>FactSet.Protobuf.Stach.V2</RootNamespace>
+    <AssemblyName>FactSet.Protobuf.Stach.V3</AssemblyName>
+    <RootNamespace>FactSet.Protobuf.Stach.V3</RootNamespace>
     <Description>Google Protocol buffer classes for FactSet STACH tabular format which represents complex multi-dimensional array of data. These classes help in the serialization and deserialization of STACH formatted data. See GitHub repository documentation for more information.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>FactSet.Protobuf.Stach.V2</PackageId>
+    <PackageId>FactSet.Protobuf.Stach.V3</PackageId>
     <Authors>FactSet Research Systems, Inc.</Authors>
     <Company>FactSet Research Systems, Inc</Company>
-    <Product>FactSet.Protobuf.Stach.V2</Product>
+    <Product>FactSet.Protobuf.Stach.V3</Product>
     <Version>1.0.0</Version>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/stachschema-sdks.git</RepositoryUrl>

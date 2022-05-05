@@ -2,7 +2,7 @@
 set -e
 
 BASE_PATH=/src # Base location of R generated classes
-PACKAGE_NAME=factset.protobuf.stach.v2
+PACKAGE_NAME=factset.protobuf.stach.v3
 
 cd $BASE_PATH
 R CMD build $PACKAGE_NAME

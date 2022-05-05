@@ -1,5 +1,5 @@
 {
-  "name": "@fds/protobuf-stach-v2",
+  "name": "@fds/protobuf-stach-v3",
   "version": "1.0.0",
   "description": "Protobuf generated javascript files for STACH",
   "main": "index.js",
