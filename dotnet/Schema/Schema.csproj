@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard1.1</TargetFramework>
     <AssemblyName>FactSet.Protobuf.Stach.V3</AssemblyName>
     <RootNamespace>FactSet.Protobuf.Stach.V3</RootNamespace>
     <Description>Google Protocol buffer classes for FactSet STACH tabular format which represents complex multi-dimensional array of data. These classes help in the serialization and deserialization of STACH formatted data. See GitHub repository documentation for more information.</Description>
