@@ -137,9 +137,11 @@ public final class TableViewProto {
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
 
-    java.lang.String getHeadersOrDefault(
+    /* nullable */
+java.lang.String getHeadersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        /* nullable */
+java.lang.String defaultValue);
     /**
      * <pre>
      *The human-readable header values of columns to be applied.
@@ -257,9 +259,11 @@ public final class TableViewProto {
      * <code>map&lt;string, .factset.protobuf.stach.v3.MetadataItem&gt; custom_metadata = 100;</code>
      */
 
-    com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrDefault(
+    /* nullable */
+com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrDefault(
         java.lang.String key,
-        com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue);
+        /* nullable */
+com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue);
     /**
      * <pre>
      *The custom metadata.
@@ -402,6 +406,8 @@ public final class TableViewProto {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -606,6 +612,8 @@ public final class TableViewProto {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -1559,6 +1567,8 @@ public final class TableViewProto {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -1644,7 +1654,7 @@ public final class TableViewProto {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!getAliasBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alias_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, alias_);
         }
         unknownFields.writeTo(output);
@@ -1656,7 +1666,7 @@ public final class TableViewProto {
         if (size != -1) return size;
 
         size = 0;
-        if (!getAliasBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alias_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, alias_);
         }
         size += unknownFields.getSerializedSize();
@@ -2305,9 +2315,11 @@ public final class TableViewProto {
        * <code>map&lt;string, string&gt; headers = 5;</code>
        */
 
-      java.lang.String getHeadersOrDefault(
+      /* nullable */
+java.lang.String getHeadersOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue);
+          /* nullable */
+java.lang.String defaultValue);
       /**
        * <pre>
        *The human-readable header values of `over` columns to be applied.
@@ -2449,6 +2461,8 @@ public final class TableViewProto {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -2745,7 +2759,7 @@ public final class TableViewProto {
       @java.lang.Override
       public boolean containsHeaders(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetHeaders().getMap().containsKey(key);
       }
       /**
@@ -2784,7 +2798,7 @@ public final class TableViewProto {
       public java.lang.String getHeadersOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetHeaders().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -2802,7 +2816,7 @@ public final class TableViewProto {
 
       public java.lang.String getHeadersOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetHeaders().getMap();
         if (!map.containsKey(key)) {
@@ -2842,7 +2856,7 @@ public final class TableViewProto {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!getAliasBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alias_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, alias_);
         }
         for (int i = 0; i < by_.size(); i++) {
@@ -2872,7 +2886,7 @@ public final class TableViewProto {
         if (size != -1) return size;
 
         size = 0;
-        if (!getAliasBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alias_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, alias_);
         }
         {
@@ -3915,7 +3929,7 @@ public final class TableViewProto {
         @java.lang.Override
         public boolean containsHeaders(
             java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           return internalGetHeaders().getMap().containsKey(key);
         }
         /**
@@ -3954,7 +3968,7 @@ public final class TableViewProto {
         public java.lang.String getHeadersOrDefault(
             java.lang.String key,
             java.lang.String defaultValue) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           java.util.Map<java.lang.String, java.lang.String> map =
               internalGetHeaders().getMap();
           return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -3972,7 +3986,7 @@ public final class TableViewProto {
 
         public java.lang.String getHeadersOrThrow(
             java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           java.util.Map<java.lang.String, java.lang.String> map =
               internalGetHeaders().getMap();
           if (!map.containsKey(key)) {
@@ -3998,7 +4012,7 @@ public final class TableViewProto {
 
         public Builder removeHeaders(
             java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           internalGetMutableHeaders().getMutableMap()
               .remove(key);
           return this;
@@ -4023,8 +4037,11 @@ public final class TableViewProto {
         public Builder putHeaders(
             java.lang.String key,
             java.lang.String value) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
-          if (value == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
+          if (value == null) {
+  throw new NullPointerException("map value");
+}
+
           internalGetMutableHeaders().getMutableMap()
               .put(key, value);
           return this;
@@ -4293,7 +4310,7 @@ public final class TableViewProto {
     @java.lang.Override
     public boolean containsHeaders(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetHeaders().getMap().containsKey(key);
     }
     /**
@@ -4332,7 +4349,7 @@ public final class TableViewProto {
     public java.lang.String getHeadersOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetHeaders().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -4350,7 +4367,7 @@ public final class TableViewProto {
 
     public java.lang.String getHeadersOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetHeaders().getMap();
       if (!map.containsKey(key)) {
@@ -4479,7 +4496,7 @@ public final class TableViewProto {
     @java.lang.Override
     public boolean containsCustomMetadata(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetCustomMetadata().getMap().containsKey(key);
     }
     /**
@@ -4516,7 +4533,7 @@ public final class TableViewProto {
     public com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrDefault(
         java.lang.String key,
         com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem> map =
           internalGetCustomMetadata().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -4533,7 +4550,7 @@ public final class TableViewProto {
 
     public com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem> map =
           internalGetCustomMetadata().getMap();
       if (!map.containsKey(key)) {
@@ -4556,7 +4573,7 @@ public final class TableViewProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getDisplayNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, displayName_);
       }
       for (int i = 0; i < columns_.size(); i++) {
@@ -4589,7 +4606,7 @@ public final class TableViewProto {
       if (size != -1) return size;
 
       size = 0;
-      if (!getDisplayNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, displayName_);
       }
       {
@@ -5328,7 +5345,7 @@ public final class TableViewProto {
       @java.lang.Override
       public boolean containsHeaders(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetHeaders().getMap().containsKey(key);
       }
       /**
@@ -5367,7 +5384,7 @@ public final class TableViewProto {
       public java.lang.String getHeadersOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetHeaders().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -5385,7 +5402,7 @@ public final class TableViewProto {
 
       public java.lang.String getHeadersOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetHeaders().getMap();
         if (!map.containsKey(key)) {
@@ -5411,7 +5428,7 @@ public final class TableViewProto {
 
       public Builder removeHeaders(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableHeaders().getMutableMap()
             .remove(key);
         return this;
@@ -5436,8 +5453,11 @@ public final class TableViewProto {
       public Builder putHeaders(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableHeaders().getMutableMap()
             .put(key, value);
         return this;
@@ -5825,7 +5845,7 @@ public final class TableViewProto {
       @java.lang.Override
       public boolean containsCustomMetadata(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetCustomMetadata().getMap().containsKey(key);
       }
       /**
@@ -5862,7 +5882,7 @@ public final class TableViewProto {
       public com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrDefault(
           java.lang.String key,
           com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem> map =
             internalGetCustomMetadata().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -5879,7 +5899,7 @@ public final class TableViewProto {
 
       public com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem> map =
             internalGetCustomMetadata().getMap();
         if (!map.containsKey(key)) {
@@ -5904,7 +5924,7 @@ public final class TableViewProto {
 
       public Builder removeCustomMetadata(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableCustomMetadata().getMutableMap()
             .remove(key);
         return this;
@@ -5928,8 +5948,11 @@ public final class TableViewProto {
       public Builder putCustomMetadata(
           java.lang.String key,
           com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableCustomMetadata().getMutableMap()
             .put(key, value);
         return this;

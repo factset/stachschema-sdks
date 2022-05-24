@@ -86,9 +86,11 @@ public final class ColumnProto {
      * <code>map&lt;string, .factset.protobuf.stach.v3.MetadataItem&gt; custom_metadata = 100;</code>
      */
 
-    com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrDefault(
+    /* nullable */
+com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrDefault(
         java.lang.String key,
-        com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue);
+        /* nullable */
+com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue);
     /**
      * <pre>
      *The custom metadata.
@@ -182,6 +184,8 @@ public final class ColumnProto {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -303,7 +307,7 @@ public final class ColumnProto {
     @java.lang.Override
     public boolean containsCustomMetadata(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetCustomMetadata().getMap().containsKey(key);
     }
     /**
@@ -340,7 +344,7 @@ public final class ColumnProto {
     public com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrDefault(
         java.lang.String key,
         com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem> map =
           internalGetCustomMetadata().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -357,7 +361,7 @@ public final class ColumnProto {
 
     public com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem> map =
           internalGetCustomMetadata().getMap();
       if (!map.containsKey(key)) {
@@ -380,7 +384,7 @@ public final class ColumnProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getContextualTypeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contextualType_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, contextualType_);
       }
       com.google.protobuf.GeneratedMessageV3
@@ -398,7 +402,7 @@ public final class ColumnProto {
       if (size != -1) return size;
 
       size = 0;
-      if (!getContextualTypeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contextualType_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, contextualType_);
       }
       for (java.util.Map.Entry<java.lang.String, com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem> entry
@@ -867,7 +871,7 @@ public final class ColumnProto {
       @java.lang.Override
       public boolean containsCustomMetadata(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetCustomMetadata().getMap().containsKey(key);
       }
       /**
@@ -904,7 +908,7 @@ public final class ColumnProto {
       public com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrDefault(
           java.lang.String key,
           com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem> map =
             internalGetCustomMetadata().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -921,7 +925,7 @@ public final class ColumnProto {
 
       public com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem> map =
             internalGetCustomMetadata().getMap();
         if (!map.containsKey(key)) {
@@ -946,7 +950,7 @@ public final class ColumnProto {
 
       public Builder removeCustomMetadata(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableCustomMetadata().getMutableMap()
             .remove(key);
         return this;
@@ -970,8 +974,11 @@ public final class ColumnProto {
       public Builder putCustomMetadata(
           java.lang.String key,
           com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableCustomMetadata().getMutableMap()
             .put(key, value);
         return this;

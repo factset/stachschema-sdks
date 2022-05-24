@@ -69,23 +69,31 @@ namespace FactSet.Protobuf.Stach.V3 {
   ///A row-organized table.
   ///Used for JSON-encoding a table.
   /// </summary>
-  public sealed partial class RowOrganizedTable : pb::IMessage<RowOrganizedTable> {
+  public sealed partial class RowOrganizedTable : pb::IMessage<RowOrganizedTable>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<RowOrganizedTable> _parser = new pb::MessageParser<RowOrganizedTable>(() => new RowOrganizedTable());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<RowOrganizedTable> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::FactSet.Protobuf.Stach.V3.RowOrganizedTableReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RowOrganizedTable() {
       OnConstruction();
     }
@@ -93,6 +101,7 @@ namespace FactSet.Protobuf.Stach.V3 {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RowOrganizedTable(RowOrganizedTable other) : this() {
       version_ = other.version_;
       name_ = other.name_;
@@ -106,6 +115,7 @@ namespace FactSet.Protobuf.Stach.V3 {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RowOrganizedTable Clone() {
       return new RowOrganizedTable(this);
     }
@@ -119,6 +129,7 @@ namespace FactSet.Protobuf.Stach.V3 {
     ///Required.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Version {
       get { return version_; }
       set {
@@ -135,6 +146,7 @@ namespace FactSet.Protobuf.Stach.V3 {
     ///Optional.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Name {
       get { return name_; }
       set {
@@ -153,6 +165,7 @@ namespace FactSet.Protobuf.Stach.V3 {
     ///Required.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::FactSet.Protobuf.Stach.V3.RowOrganizedTable.Types.Column> Columns {
       get { return columns_; }
     }
@@ -166,6 +179,7 @@ namespace FactSet.Protobuf.Stach.V3 {
     ///Required.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::FactSet.Protobuf.Stach.V3.Table Table {
       get { return table_; }
       set {
@@ -182,6 +196,7 @@ namespace FactSet.Protobuf.Stach.V3 {
     ///Optional.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::FactSet.Protobuf.Stach.V3.RowOrganizedTable MultiLevelHeadersTable {
       get { return multiLevelHeadersTable_; }
       set {
@@ -200,6 +215,7 @@ namespace FactSet.Protobuf.Stach.V3 {
     ///Optional.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::FactSet.Protobuf.Stach.V3.Views.Types.View> Views {
       get { return views_; }
     }
@@ -215,6 +231,7 @@ namespace FactSet.Protobuf.Stach.V3 {
     ///Optional.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::FactSet.Protobuf.Stach.V3.RowOrganizedTable.Types.HeaderRow> HeaderRows {
       get { return headerRows_; }
     }
@@ -230,16 +247,19 @@ namespace FactSet.Protobuf.Stach.V3 {
     ///Required.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::Google.Protobuf.WellKnownTypes.Struct> Rows {
       get { return rows_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as RowOrganizedTable);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(RowOrganizedTable other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -259,6 +279,7 @@ namespace FactSet.Protobuf.Stach.V3 {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (Version.Length != 0) hash ^= Version.GetHashCode();
@@ -276,12 +297,17 @@ namespace FactSet.Protobuf.Stach.V3 {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Version.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(Version);
@@ -305,9 +331,41 @@ namespace FactSet.Protobuf.Stach.V3 {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Version.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Version);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Name);
+      }
+      columns_.WriteTo(ref output, _repeated_columns_codec);
+      if (table_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Table);
+      }
+      if (multiLevelHeadersTable_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(MultiLevelHeadersTable);
+      }
+      views_.WriteTo(ref output, _repeated_views_codec);
+      headerRows_.WriteTo(ref output, _repeated_headerRows_codec);
+      rows_.WriteTo(ref output, _repeated_rows_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (Version.Length != 0) {
@@ -333,6 +391,7 @@ namespace FactSet.Protobuf.Stach.V3 {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(RowOrganizedTable other) {
       if (other == null) {
         return;
@@ -363,7 +422,11 @@ namespace FactSet.Protobuf.Stach.V3 {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -410,33 +473,96 @@ namespace FactSet.Protobuf.Stach.V3 {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Version = input.ReadString();
+            break;
+          }
+          case 18: {
+            Name = input.ReadString();
+            break;
+          }
+          case 26: {
+            columns_.AddEntriesFrom(ref input, _repeated_columns_codec);
+            break;
+          }
+          case 34: {
+            if (table_ == null) {
+              Table = new global::FactSet.Protobuf.Stach.V3.Table();
+            }
+            input.ReadMessage(Table);
+            break;
+          }
+          case 42: {
+            if (multiLevelHeadersTable_ == null) {
+              MultiLevelHeadersTable = new global::FactSet.Protobuf.Stach.V3.RowOrganizedTable();
+            }
+            input.ReadMessage(MultiLevelHeadersTable);
+            break;
+          }
+          case 50: {
+            views_.AddEntriesFrom(ref input, _repeated_views_codec);
+            break;
+          }
+          case 58: {
+            headerRows_.AddEntriesFrom(ref input, _repeated_headerRows_codec);
+            break;
+          }
+          case 66: {
+            rows_.AddEntriesFrom(ref input, _repeated_rows_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
     #region Nested types
     /// <summary>Container for nested types declared in the RowOrganizedTable message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
       /// <summary>
       ///
       ///A row-organized column.
       /// </summary>
-      public sealed partial class Column : pb::IMessage<Column> {
+      public sealed partial class Column : pb::IMessage<Column>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
         private static readonly pb::MessageParser<Column> _parser = new pb::MessageParser<Column>(() => new Column());
         private pb::UnknownFieldSet _unknownFields;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pb::MessageParser<Column> Parser { get { return _parser; } }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
           get { return global::FactSet.Protobuf.Stach.V3.RowOrganizedTable.Descriptor.NestedTypes[0]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         pbr::MessageDescriptor pb::IMessage.Descriptor {
           get { return Descriptor; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public Column() {
           OnConstruction();
         }
@@ -444,6 +570,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         partial void OnConstruction();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public Column(Column other) : this() {
           name_ = other.name_;
           forbidNulls_ = other.forbidNulls_;
@@ -453,6 +580,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public Column Clone() {
           return new Column(this);
         }
@@ -466,6 +594,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         ///Required.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public string Name {
           get { return name_; }
           set {
@@ -483,6 +612,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         ///Required.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public bool ForbidNulls {
           get { return forbidNulls_; }
           set {
@@ -499,6 +629,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         ///Required.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public string ContextualType {
           get { return contextualType_; }
           set {
@@ -517,16 +648,19 @@ namespace FactSet.Protobuf.Stach.V3 {
         ///Optional.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public pbc::MapField<string, global::FactSet.Protobuf.Stach.V3.MetadataItem> CustomMetadata {
           get { return customMetadata_; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override bool Equals(object other) {
           return Equals(other as Column);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public bool Equals(Column other) {
           if (ReferenceEquals(other, null)) {
             return false;
@@ -542,6 +676,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override int GetHashCode() {
           int hash = 1;
           if (Name.Length != 0) hash ^= Name.GetHashCode();
@@ -555,12 +690,17 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override string ToString() {
           return pb::JsonFormatter.ToDiagnosticString(this);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
           if (Name.Length != 0) {
             output.WriteRawTag(10);
             output.WriteString(Name);
@@ -577,9 +717,34 @@ namespace FactSet.Protobuf.Stach.V3 {
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
+        #endif
         }
 
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (Name.Length != 0) {
+            output.WriteRawTag(10);
+            output.WriteString(Name);
+          }
+          if (ForbidNulls != false) {
+            output.WriteRawTag(16);
+            output.WriteBool(ForbidNulls);
+          }
+          if (ContextualType.Length != 0) {
+            output.WriteRawTag(26);
+            output.WriteString(ContextualType);
+          }
+          customMetadata_.WriteTo(ref output, _map_customMetadata_codec);
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public int CalculateSize() {
           int size = 0;
           if (Name.Length != 0) {
@@ -599,6 +764,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public void MergeFrom(Column other) {
           if (other == null) {
             return;
@@ -617,7 +783,11 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
           uint tag;
           while ((tag = input.ReadTag()) != 0) {
             switch(tag) {
@@ -642,7 +812,39 @@ namespace FactSet.Protobuf.Stach.V3 {
               }
             }
           }
+        #endif
         }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 10: {
+                Name = input.ReadString();
+                break;
+              }
+              case 16: {
+                ForbidNulls = input.ReadBool();
+                break;
+              }
+              case 26: {
+                ContextualType = input.ReadString();
+                break;
+              }
+              case 802: {
+                customMetadata_.AddEntriesFrom(ref input, _map_customMetadata_codec);
+                break;
+              }
+            }
+          }
+        }
+        #endif
 
       }
 
@@ -650,23 +852,31 @@ namespace FactSet.Protobuf.Stach.V3 {
       ///
       ///A row-organized header row.
       /// </summary>
-      public sealed partial class HeaderRow : pb::IMessage<HeaderRow> {
+      public sealed partial class HeaderRow : pb::IMessage<HeaderRow>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
         private static readonly pb::MessageParser<HeaderRow> _parser = new pb::MessageParser<HeaderRow>(() => new HeaderRow());
         private pb::UnknownFieldSet _unknownFields;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pb::MessageParser<HeaderRow> Parser { get { return _parser; } }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
           get { return global::FactSet.Protobuf.Stach.V3.RowOrganizedTable.Descriptor.NestedTypes[1]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         pbr::MessageDescriptor pb::IMessage.Descriptor {
           get { return Descriptor; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public HeaderRow() {
           OnConstruction();
         }
@@ -674,12 +884,14 @@ namespace FactSet.Protobuf.Stach.V3 {
         partial void OnConstruction();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public HeaderRow(HeaderRow other) : this() {
           cells_ = other.cells_.Clone();
           _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public HeaderRow Clone() {
           return new HeaderRow(this);
         }
@@ -695,16 +907,19 @@ namespace FactSet.Protobuf.Stach.V3 {
         ///Required.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public pbc::RepeatedField<global::FactSet.Protobuf.Stach.V3.RowOrganizedTable.Types.HeaderCell> Cells {
           get { return cells_; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override bool Equals(object other) {
           return Equals(other as HeaderRow);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public bool Equals(HeaderRow other) {
           if (ReferenceEquals(other, null)) {
             return false;
@@ -717,6 +932,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override int GetHashCode() {
           int hash = 1;
           hash ^= cells_.GetHashCode();
@@ -727,19 +943,37 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override string ToString() {
           return pb::JsonFormatter.ToDiagnosticString(this);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
           cells_.WriteTo(output, _repeated_cells_codec);
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
+        #endif
         }
 
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          cells_.WriteTo(ref output, _repeated_cells_codec);
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public int CalculateSize() {
           int size = 0;
           size += cells_.CalculateSize(_repeated_cells_codec);
@@ -750,6 +984,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public void MergeFrom(HeaderRow other) {
           if (other == null) {
             return;
@@ -759,7 +994,11 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
           uint tag;
           while ((tag = input.ReadTag()) != 0) {
             switch(tag) {
@@ -772,7 +1011,27 @@ namespace FactSet.Protobuf.Stach.V3 {
               }
             }
           }
+        #endif
         }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 10: {
+                cells_.AddEntriesFrom(ref input, _repeated_cells_codec);
+                break;
+              }
+            }
+          }
+        }
+        #endif
 
       }
 
@@ -780,23 +1039,31 @@ namespace FactSet.Protobuf.Stach.V3 {
       ///
       ///A row-organized header cell.
       /// </summary>
-      public sealed partial class HeaderCell : pb::IMessage<HeaderCell> {
+      public sealed partial class HeaderCell : pb::IMessage<HeaderCell>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
         private static readonly pb::MessageParser<HeaderCell> _parser = new pb::MessageParser<HeaderCell>(() => new HeaderCell());
         private pb::UnknownFieldSet _unknownFields;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pb::MessageParser<HeaderCell> Parser { get { return _parser; } }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static pbr::MessageDescriptor Descriptor {
           get { return global::FactSet.Protobuf.Stach.V3.RowOrganizedTable.Descriptor.NestedTypes[2]; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         pbr::MessageDescriptor pb::IMessage.Descriptor {
           get { return Descriptor; }
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public HeaderCell() {
           OnConstruction();
         }
@@ -804,6 +1071,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         partial void OnConstruction();
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public HeaderCell(HeaderCell other) : this() {
           colspan_ = other.colspan_;
           rowspan_ = other.rowspan_;
@@ -812,6 +1080,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public HeaderCell Clone() {
           return new HeaderCell(this);
         }
@@ -826,6 +1095,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         ///Optional.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public uint Colspan {
           get { return colspan_; }
           set {
@@ -843,6 +1113,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         ///Optional.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public uint Rowspan {
           get { return rowspan_; }
           set {
@@ -859,6 +1130,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         ///Optional.
         /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public global::Google.Protobuf.WellKnownTypes.Value Value {
           get { return value_; }
           set {
@@ -867,11 +1139,13 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override bool Equals(object other) {
           return Equals(other as HeaderCell);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public bool Equals(HeaderCell other) {
           if (ReferenceEquals(other, null)) {
             return false;
@@ -886,6 +1160,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override int GetHashCode() {
           int hash = 1;
           if (Colspan != 0) hash ^= Colspan.GetHashCode();
@@ -898,12 +1173,17 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public override string ToString() {
           return pb::JsonFormatter.ToDiagnosticString(this);
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
           if (Colspan != 0) {
             output.WriteRawTag(8);
             output.WriteUInt32(Colspan);
@@ -919,9 +1199,33 @@ namespace FactSet.Protobuf.Stach.V3 {
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
+        #endif
         }
 
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (Colspan != 0) {
+            output.WriteRawTag(8);
+            output.WriteUInt32(Colspan);
+          }
+          if (Rowspan != 0) {
+            output.WriteRawTag(16);
+            output.WriteUInt32(Rowspan);
+          }
+          if (value_ != null) {
+            output.WriteRawTag(26);
+            output.WriteMessage(Value);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public int CalculateSize() {
           int size = 0;
           if (Colspan != 0) {
@@ -940,6 +1244,7 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public void MergeFrom(HeaderCell other) {
           if (other == null) {
             return;
@@ -960,7 +1265,11 @@ namespace FactSet.Protobuf.Stach.V3 {
         }
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
           uint tag;
           while ((tag = input.ReadTag()) != 0) {
             switch(tag) {
@@ -984,7 +1293,38 @@ namespace FactSet.Protobuf.Stach.V3 {
               }
             }
           }
+        #endif
         }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 8: {
+                Colspan = input.ReadUInt32();
+                break;
+              }
+              case 16: {
+                Rowspan = input.ReadUInt32();
+                break;
+              }
+              case 26: {
+                if (value_ == null) {
+                  Value = new global::Google.Protobuf.WellKnownTypes.Value();
+                }
+                input.ReadMessage(Value);
+                break;
+              }
+            }
+          }
+        }
+        #endif
 
       }
 
