@@ -47,11 +47,9 @@ public interface StructOrBuilder extends
    * <code>map&lt;string, .google.protobuf.Value&gt; fields = 1;</code>
    */
 
-  /* nullable */
-com.google.protobuf.Value getFieldsOrDefault(
+  com.google.protobuf.Value getFieldsOrDefault(
       java.lang.String key,
-      /* nullable */
-com.google.protobuf.Value defaultValue);
+      com.google.protobuf.Value defaultValue);
   /**
    * <pre>
    * Unordered map of dynamically typed values.

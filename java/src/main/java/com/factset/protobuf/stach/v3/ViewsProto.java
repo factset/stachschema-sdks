@@ -143,8 +143,6 @@ public final class ViewsProto {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -336,8 +334,6 @@ public final class ViewsProto {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -1221,9 +1217,8 @@ public final class ViewsProto {
           } else {
             if (typeCase_ == 3) {
               tableBuilder_.mergeFrom(value);
-            } else {
-              tableBuilder_.setMessage(value);
             }
+            tableBuilder_.setMessage(value);
           }
           typeCase_ = 3;
           return this;

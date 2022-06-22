@@ -137,11 +137,9 @@ public final class TableViewProto {
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
 
-    /* nullable */
-java.lang.String getHeadersOrDefault(
+    java.lang.String getHeadersOrDefault(
         java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue);
+        java.lang.String defaultValue);
     /**
      * <pre>
      *The human-readable header values of columns to be applied.
@@ -259,11 +257,9 @@ java.lang.String defaultValue);
      * <code>map&lt;string, .factset.protobuf.stach.v3.MetadataItem&gt; custom_metadata = 100;</code>
      */
 
-    /* nullable */
-com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrDefault(
+    com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem getCustomMetadataOrDefault(
         java.lang.String key,
-        /* nullable */
-com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue);
+        com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue);
     /**
      * <pre>
      *The custom metadata.
@@ -406,8 +402,6 @@ com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue);
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -612,8 +606,6 @@ com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue);
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -1567,8 +1559,6 @@ com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue);
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -2315,11 +2305,9 @@ com.factset.protobuf.stach.v3.MetadataItemProto.MetadataItem defaultValue);
        * <code>map&lt;string, string&gt; headers = 5;</code>
        */
 
-      /* nullable */
-java.lang.String getHeadersOrDefault(
+      java.lang.String getHeadersOrDefault(
           java.lang.String key,
-          /* nullable */
-java.lang.String defaultValue);
+          java.lang.String defaultValue);
       /**
        * <pre>
        *The human-readable header values of `over` columns to be applied.
@@ -2461,8 +2449,6 @@ java.lang.String defaultValue);
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
