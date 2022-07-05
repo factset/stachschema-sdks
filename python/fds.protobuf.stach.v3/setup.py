@@ -7,6 +7,6 @@ setup(name='fds.protobuf.stach.v3',
       author='analytics-reporting',
       author_email='analytics.api.support@factset.com',
       license='Apache License 2.0',
-      install_requires=["protobuf>=3.12.3,<4.0.0"],
+      install_requires=["protobuf==3.19.4"],
       packages=find_packages(),
       zip_safe=False)
