@@ -1,12 +1,12 @@
 Package: factset.protobuf.stach.v3
 Type: Package
-Title: 'FactSet' 'STACH V2' Library
-Version: 1.0.3
+Title: 'FactSet' 'STACH V3' Library
+Version: 1.0.0
 Author: analytics-reporting
 Maintainer: Charlie Mathis<chmathis@factset.com>
-Description: Generates 'RProtobuf' classes for 'FactSet' 'STACH V2' tabular 
+Description: Generates 'RProtobuf' classes for 'FactSet' 'STACH V3' tabular 
     format which represents complex multi-dimensional array of data. These 
-    classes help in the 'serialization' and 'deserialization' of 'STACH V2' 
+    classes help in the 'serialization' and 'deserialization' of 'STACH V3' 
     formatted data. See 'GitHub' repository documentation for more 
     information.
 URL: https://github.com/factset/stachschema-sdks
