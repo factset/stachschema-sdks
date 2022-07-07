@@ -36,35 +36,37 @@ $root.factset = (function() {
              */
             var stach = {};
 
-            stach.v3 = (function() {
+            stach.v2 = (function() {
 
                 /**
-                 * Namespace v3.
+                 * Namespace v2.
                  * @memberof factset.protobuf.stach
                  * @namespace
                  */
-                var v3 = {};
+                var v2 = {};
 
-                v3.Column = (function() {
+                v2.Package = (function() {
 
                     /**
-                     * Properties of a Column.
-                     * @memberof factset.protobuf.stach.v3
-                     * @interface IColumn
-                     * @property {string|null} [contextualType] Column contextualType
-                     * @property {Object.<string,factset.protobuf.stach.v3.IMetadataItem>|null} [customMetadata] Column customMetadata
+                     * Properties of a Package.
+                     * @memberof factset.protobuf.stach.v2
+                     * @interface IPackage
+                     * @property {string|null} [version] Package version
+                     * @property {Array.<string>|null} [primaryTableIds] Package primaryTableIds
+                     * @property {Object.<string,factset.protobuf.stach.v2.table.ITable>|null} [tables] Package tables
                      */
 
                     /**
-                     * Constructs a new Column.
-                     * @memberof factset.protobuf.stach.v3
-                     * @classdesc Represents a Column.
-                     * @implements IColumn
+                     * Constructs a new Package.
+                     * @memberof factset.protobuf.stach.v2
+                     * @classdesc Represents a Package.
+                     * @implements IPackage
                      * @constructor
-                     * @param {factset.protobuf.stach.v3.IColumn=} [properties] Properties to set
+                     * @param {factset.protobuf.stach.v2.IPackage=} [properties] Properties to set
                      */
-                    function Column(properties) {
-                        this.customMetadata = {};
+                    function Package(properties) {
+                        this.primaryTableIds = [];
+                        this.tables = {};
                         if (properties)
                             for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                                 if (properties[keys[i]] != null)
@@ -72,1193 +74,537 @@ $root.factset = (function() {
                     }
 
                     /**
-                     * Column contextualType.
-                     * @member {string} contextualType
-                     * @memberof factset.protobuf.stach.v3.Column
-                     * @instance
-                     */
-                    Column.prototype.contextualType = "";
-
-                    /**
-                     * Column customMetadata.
-                     * @member {Object.<string,factset.protobuf.stach.v3.IMetadataItem>} customMetadata
-                     * @memberof factset.protobuf.stach.v3.Column
-                     * @instance
-                     */
-                    Column.prototype.customMetadata = $util.emptyObject;
-
-                    /**
-                     * Creates a new Column instance using the specified properties.
-                     * @function create
-                     * @memberof factset.protobuf.stach.v3.Column
-                     * @static
-                     * @param {factset.protobuf.stach.v3.IColumn=} [properties] Properties to set
-                     * @returns {factset.protobuf.stach.v3.Column} Column instance
-                     */
-                    Column.create = function create(properties) {
-                        return new Column(properties);
-                    };
-
-                    /**
-                     * Encodes the specified Column message. Does not implicitly {@link factset.protobuf.stach.v3.Column.verify|verify} messages.
-                     * @function encode
-                     * @memberof factset.protobuf.stach.v3.Column
-                     * @static
-                     * @param {factset.protobuf.stach.v3.IColumn} message Column message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    Column.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.contextualType != null && Object.hasOwnProperty.call(message, "contextualType"))
-                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.contextualType);
-                        if (message.customMetadata != null && Object.hasOwnProperty.call(message, "customMetadata"))
-                            for (var keys = Object.keys(message.customMetadata), i = 0; i < keys.length; ++i) {
-                                writer.uint32(/* id 100, wireType 2 =*/802).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
-                                $root.factset.protobuf.stach.v3.MetadataItem.encode(message.customMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
-                            }
-                        return writer;
-                    };
-
-                    /**
-                     * Encodes the specified Column message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.Column.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof factset.protobuf.stach.v3.Column
-                     * @static
-                     * @param {factset.protobuf.stach.v3.IColumn} message Column message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    Column.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-
-                    /**
-                     * Decodes a Column message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof factset.protobuf.stach.v3.Column
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {factset.protobuf.stach.v3.Column} Column
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    Column.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.Column(), key, value;
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                message.contextualType = reader.string();
-                                break;
-                            case 100:
-                                if (message.customMetadata === $util.emptyObject)
-                                    message.customMetadata = {};
-                                var end2 = reader.uint32() + reader.pos;
-                                key = "";
-                                value = null;
-                                while (reader.pos < end2) {
-                                    var tag2 = reader.uint32();
-                                    switch (tag2 >>> 3) {
-                                    case 1:
-                                        key = reader.string();
-                                        break;
-                                    case 2:
-                                        value = $root.factset.protobuf.stach.v3.MetadataItem.decode(reader, reader.uint32());
-                                        break;
-                                    default:
-                                        reader.skipType(tag2 & 7);
-                                        break;
-                                    }
-                                }
-                                message.customMetadata[key] = value;
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Decodes a Column message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof factset.protobuf.stach.v3.Column
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {factset.protobuf.stach.v3.Column} Column
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    Column.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-
-                    /**
-                     * Verifies a Column message.
-                     * @function verify
-                     * @memberof factset.protobuf.stach.v3.Column
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    Column.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.contextualType != null && message.hasOwnProperty("contextualType"))
-                            if (!$util.isString(message.contextualType))
-                                return "contextualType: string expected";
-                        if (message.customMetadata != null && message.hasOwnProperty("customMetadata")) {
-                            if (!$util.isObject(message.customMetadata))
-                                return "customMetadata: object expected";
-                            var key = Object.keys(message.customMetadata);
-                            for (var i = 0; i < key.length; ++i) {
-                                var error = $root.factset.protobuf.stach.v3.MetadataItem.verify(message.customMetadata[key[i]]);
-                                if (error)
-                                    return "customMetadata." + error;
-                            }
-                        }
-                        return null;
-                    };
-
-                    /**
-                     * Creates a Column message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof factset.protobuf.stach.v3.Column
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {factset.protobuf.stach.v3.Column} Column
-                     */
-                    Column.fromObject = function fromObject(object) {
-                        if (object instanceof $root.factset.protobuf.stach.v3.Column)
-                            return object;
-                        var message = new $root.factset.protobuf.stach.v3.Column();
-                        if (object.contextualType != null)
-                            message.contextualType = String(object.contextualType);
-                        if (object.customMetadata) {
-                            if (typeof object.customMetadata !== "object")
-                                throw TypeError(".factset.protobuf.stach.v3.Column.customMetadata: object expected");
-                            message.customMetadata = {};
-                            for (var keys = Object.keys(object.customMetadata), i = 0; i < keys.length; ++i) {
-                                if (typeof object.customMetadata[keys[i]] !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.Column.customMetadata: object expected");
-                                message.customMetadata[keys[i]] = $root.factset.protobuf.stach.v3.MetadataItem.fromObject(object.customMetadata[keys[i]]);
-                            }
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Creates a plain object from a Column message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof factset.protobuf.stach.v3.Column
-                     * @static
-                     * @param {factset.protobuf.stach.v3.Column} message Column
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    Column.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.objects || options.defaults)
-                            object.customMetadata = {};
-                        if (options.defaults)
-                            object.contextualType = "";
-                        if (message.contextualType != null && message.hasOwnProperty("contextualType"))
-                            object.contextualType = message.contextualType;
-                        var keys2;
-                        if (message.customMetadata && (keys2 = Object.keys(message.customMetadata)).length) {
-                            object.customMetadata = {};
-                            for (var j = 0; j < keys2.length; ++j)
-                                object.customMetadata[keys2[j]] = $root.factset.protobuf.stach.v3.MetadataItem.toObject(message.customMetadata[keys2[j]], options);
-                        }
-                        return object;
-                    };
-
-                    /**
-                     * Converts this Column to JSON.
-                     * @function toJSON
-                     * @memberof factset.protobuf.stach.v3.Column
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    Column.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-
-                    return Column;
-                })();
-
-                v3.MetadataItem = (function() {
-
-                    /**
-                     * Properties of a MetadataItem.
-                     * @memberof factset.protobuf.stach.v3
-                     * @interface IMetadataItem
-                     * @property {string|null} [contextualType] MetadataItem contextualType
-                     * @property {google.protobuf.IValue|null} [value] MetadataItem value
-                     */
-
-                    /**
-                     * Constructs a new MetadataItem.
-                     * @memberof factset.protobuf.stach.v3
-                     * @classdesc Represents a MetadataItem.
-                     * @implements IMetadataItem
-                     * @constructor
-                     * @param {factset.protobuf.stach.v3.IMetadataItem=} [properties] Properties to set
-                     */
-                    function MetadataItem(properties) {
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-
-                    /**
-                     * MetadataItem contextualType.
-                     * @member {string} contextualType
-                     * @memberof factset.protobuf.stach.v3.MetadataItem
-                     * @instance
-                     */
-                    MetadataItem.prototype.contextualType = "";
-
-                    /**
-                     * MetadataItem value.
-                     * @member {google.protobuf.IValue|null|undefined} value
-                     * @memberof factset.protobuf.stach.v3.MetadataItem
-                     * @instance
-                     */
-                    MetadataItem.prototype.value = null;
-
-                    /**
-                     * Creates a new MetadataItem instance using the specified properties.
-                     * @function create
-                     * @memberof factset.protobuf.stach.v3.MetadataItem
-                     * @static
-                     * @param {factset.protobuf.stach.v3.IMetadataItem=} [properties] Properties to set
-                     * @returns {factset.protobuf.stach.v3.MetadataItem} MetadataItem instance
-                     */
-                    MetadataItem.create = function create(properties) {
-                        return new MetadataItem(properties);
-                    };
-
-                    /**
-                     * Encodes the specified MetadataItem message. Does not implicitly {@link factset.protobuf.stach.v3.MetadataItem.verify|verify} messages.
-                     * @function encode
-                     * @memberof factset.protobuf.stach.v3.MetadataItem
-                     * @static
-                     * @param {factset.protobuf.stach.v3.IMetadataItem} message MetadataItem message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    MetadataItem.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.contextualType != null && Object.hasOwnProperty.call(message, "contextualType"))
-                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.contextualType);
-                        if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                            $root.google.protobuf.Value.encode(message.value, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                        return writer;
-                    };
-
-                    /**
-                     * Encodes the specified MetadataItem message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.MetadataItem.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof factset.protobuf.stach.v3.MetadataItem
-                     * @static
-                     * @param {factset.protobuf.stach.v3.IMetadataItem} message MetadataItem message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    MetadataItem.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-
-                    /**
-                     * Decodes a MetadataItem message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof factset.protobuf.stach.v3.MetadataItem
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {factset.protobuf.stach.v3.MetadataItem} MetadataItem
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    MetadataItem.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.MetadataItem();
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                message.contextualType = reader.string();
-                                break;
-                            case 2:
-                                message.value = $root.google.protobuf.Value.decode(reader, reader.uint32());
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Decodes a MetadataItem message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof factset.protobuf.stach.v3.MetadataItem
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {factset.protobuf.stach.v3.MetadataItem} MetadataItem
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    MetadataItem.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-
-                    /**
-                     * Verifies a MetadataItem message.
-                     * @function verify
-                     * @memberof factset.protobuf.stach.v3.MetadataItem
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    MetadataItem.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.contextualType != null && message.hasOwnProperty("contextualType"))
-                            if (!$util.isString(message.contextualType))
-                                return "contextualType: string expected";
-                        if (message.value != null && message.hasOwnProperty("value")) {
-                            var error = $root.google.protobuf.Value.verify(message.value);
-                            if (error)
-                                return "value." + error;
-                        }
-                        return null;
-                    };
-
-                    /**
-                     * Creates a MetadataItem message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof factset.protobuf.stach.v3.MetadataItem
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {factset.protobuf.stach.v3.MetadataItem} MetadataItem
-                     */
-                    MetadataItem.fromObject = function fromObject(object) {
-                        if (object instanceof $root.factset.protobuf.stach.v3.MetadataItem)
-                            return object;
-                        var message = new $root.factset.protobuf.stach.v3.MetadataItem();
-                        if (object.contextualType != null)
-                            message.contextualType = String(object.contextualType);
-                        if (object.value != null) {
-                            message.value = $root.google.protobuf.Value.fromObject(object.value);
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Creates a plain object from a MetadataItem message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof factset.protobuf.stach.v3.MetadataItem
-                     * @static
-                     * @param {factset.protobuf.stach.v3.MetadataItem} message MetadataItem
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    MetadataItem.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.defaults) {
-                            object.contextualType = "";
-                            object.value = null;
-                        }
-                        if (message.contextualType != null && message.hasOwnProperty("contextualType"))
-                            object.contextualType = message.contextualType;
-                        if (message.value != null && message.hasOwnProperty("value"))
-                            object.value = $root.google.protobuf.Value.toObject(message.value, options);
-                        return object;
-                    };
-
-                    /**
-                     * Converts this MetadataItem to JSON.
-                     * @function toJSON
-                     * @memberof factset.protobuf.stach.v3.MetadataItem
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    MetadataItem.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-
-                    return MetadataItem;
-                })();
-
-                v3.RowOrganizedTable = (function() {
-
-                    /**
-                     * Properties of a RowOrganizedTable.
-                     * @memberof factset.protobuf.stach.v3
-                     * @interface IRowOrganizedTable
-                     * @property {string|null} [version] RowOrganizedTable version
-                     * @property {string|null} [name] RowOrganizedTable name
-                     * @property {Array.<factset.protobuf.stach.v3.RowOrganizedTable.IColumn>|null} [columns] RowOrganizedTable columns
-                     * @property {factset.protobuf.stach.v3.ITable|null} [table] RowOrganizedTable table
-                     * @property {factset.protobuf.stach.v3.IRowOrganizedTable|null} [multiLevelHeadersTable] RowOrganizedTable multiLevelHeadersTable
-                     * @property {Array.<factset.protobuf.stach.v3.Views.IView>|null} [views] RowOrganizedTable views
-                     * @property {Array.<factset.protobuf.stach.v3.RowOrganizedTable.IHeaderRow>|null} [headerRows] RowOrganizedTable headerRows
-                     * @property {Array.<google.protobuf.IStruct>|null} [rows] RowOrganizedTable rows
-                     */
-
-                    /**
-                     * Constructs a new RowOrganizedTable.
-                     * @memberof factset.protobuf.stach.v3
-                     * @classdesc Represents a RowOrganizedTable.
-                     * @implements IRowOrganizedTable
-                     * @constructor
-                     * @param {factset.protobuf.stach.v3.IRowOrganizedTable=} [properties] Properties to set
-                     */
-                    function RowOrganizedTable(properties) {
-                        this.columns = [];
-                        this.views = [];
-                        this.headerRows = [];
-                        this.rows = [];
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-
-                    /**
-                     * RowOrganizedTable version.
+                     * Package version.
                      * @member {string} version
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
+                     * @memberof factset.protobuf.stach.v2.Package
                      * @instance
                      */
-                    RowOrganizedTable.prototype.version = "";
+                    Package.prototype.version = "";
 
                     /**
-                     * RowOrganizedTable name.
-                     * @member {string} name
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
+                     * Package primaryTableIds.
+                     * @member {Array.<string>} primaryTableIds
+                     * @memberof factset.protobuf.stach.v2.Package
                      * @instance
                      */
-                    RowOrganizedTable.prototype.name = "";
+                    Package.prototype.primaryTableIds = $util.emptyArray;
 
                     /**
-                     * RowOrganizedTable columns.
-                     * @member {Array.<factset.protobuf.stach.v3.RowOrganizedTable.IColumn>} columns
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
+                     * Package tables.
+                     * @member {Object.<string,factset.protobuf.stach.v2.table.ITable>} tables
+                     * @memberof factset.protobuf.stach.v2.Package
                      * @instance
                      */
-                    RowOrganizedTable.prototype.columns = $util.emptyArray;
+                    Package.prototype.tables = $util.emptyObject;
 
                     /**
-                     * RowOrganizedTable table.
-                     * @member {factset.protobuf.stach.v3.ITable|null|undefined} table
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                     * @instance
-                     */
-                    RowOrganizedTable.prototype.table = null;
-
-                    /**
-                     * RowOrganizedTable multiLevelHeadersTable.
-                     * @member {factset.protobuf.stach.v3.IRowOrganizedTable|null|undefined} multiLevelHeadersTable
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                     * @instance
-                     */
-                    RowOrganizedTable.prototype.multiLevelHeadersTable = null;
-
-                    /**
-                     * RowOrganizedTable views.
-                     * @member {Array.<factset.protobuf.stach.v3.Views.IView>} views
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                     * @instance
-                     */
-                    RowOrganizedTable.prototype.views = $util.emptyArray;
-
-                    /**
-                     * RowOrganizedTable headerRows.
-                     * @member {Array.<factset.protobuf.stach.v3.RowOrganizedTable.IHeaderRow>} headerRows
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                     * @instance
-                     */
-                    RowOrganizedTable.prototype.headerRows = $util.emptyArray;
-
-                    /**
-                     * RowOrganizedTable rows.
-                     * @member {Array.<google.protobuf.IStruct>} rows
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                     * @instance
-                     */
-                    RowOrganizedTable.prototype.rows = $util.emptyArray;
-
-                    /**
-                     * Creates a new RowOrganizedTable instance using the specified properties.
+                     * Creates a new Package instance using the specified properties.
                      * @function create
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
+                     * @memberof factset.protobuf.stach.v2.Package
                      * @static
-                     * @param {factset.protobuf.stach.v3.IRowOrganizedTable=} [properties] Properties to set
-                     * @returns {factset.protobuf.stach.v3.RowOrganizedTable} RowOrganizedTable instance
+                     * @param {factset.protobuf.stach.v2.IPackage=} [properties] Properties to set
+                     * @returns {factset.protobuf.stach.v2.Package} Package instance
                      */
-                    RowOrganizedTable.create = function create(properties) {
-                        return new RowOrganizedTable(properties);
+                    Package.create = function create(properties) {
+                        return new Package(properties);
                     };
 
                     /**
-                     * Encodes the specified RowOrganizedTable message. Does not implicitly {@link factset.protobuf.stach.v3.RowOrganizedTable.verify|verify} messages.
+                     * Encodes the specified Package message. Does not implicitly {@link factset.protobuf.stach.v2.Package.verify|verify} messages.
                      * @function encode
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
+                     * @memberof factset.protobuf.stach.v2.Package
                      * @static
-                     * @param {factset.protobuf.stach.v3.IRowOrganizedTable} message RowOrganizedTable message or plain object to encode
+                     * @param {factset.protobuf.stach.v2.IPackage} message Package message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
-                    RowOrganizedTable.encode = function encode(message, writer) {
+                    Package.encode = function encode(message, writer) {
                         if (!writer)
                             writer = $Writer.create();
                         if (message.version != null && Object.hasOwnProperty.call(message, "version"))
                             writer.uint32(/* id 1, wireType 2 =*/10).string(message.version);
-                        if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
-                        if (message.columns != null && message.columns.length)
-                            for (var i = 0; i < message.columns.length; ++i)
-                                $root.factset.protobuf.stach.v3.RowOrganizedTable.Column.encode(message.columns[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-                        if (message.table != null && Object.hasOwnProperty.call(message, "table"))
-                            $root.factset.protobuf.stach.v3.Table.encode(message.table, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-                        if (message.multiLevelHeadersTable != null && Object.hasOwnProperty.call(message, "multiLevelHeadersTable"))
-                            $root.factset.protobuf.stach.v3.RowOrganizedTable.encode(message.multiLevelHeadersTable, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
-                        if (message.views != null && message.views.length)
-                            for (var i = 0; i < message.views.length; ++i)
-                                $root.factset.protobuf.stach.v3.Views.View.encode(message.views[i], writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
-                        if (message.headerRows != null && message.headerRows.length)
-                            for (var i = 0; i < message.headerRows.length; ++i)
-                                $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow.encode(message.headerRows[i], writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
-                        if (message.rows != null && message.rows.length)
-                            for (var i = 0; i < message.rows.length; ++i)
-                                $root.google.protobuf.Struct.encode(message.rows[i], writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                        if (message.primaryTableIds != null && message.primaryTableIds.length)
+                            for (var i = 0; i < message.primaryTableIds.length; ++i)
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.primaryTableIds[i]);
+                        if (message.tables != null && Object.hasOwnProperty.call(message, "tables"))
+                            for (var keys = Object.keys(message.tables), i = 0; i < keys.length; ++i) {
+                                writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                $root.factset.protobuf.stach.v2.table.Table.encode(message.tables[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                            }
                         return writer;
                     };
 
                     /**
-                     * Encodes the specified RowOrganizedTable message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.RowOrganizedTable.verify|verify} messages.
+                     * Encodes the specified Package message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.Package.verify|verify} messages.
                      * @function encodeDelimited
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
+                     * @memberof factset.protobuf.stach.v2.Package
                      * @static
-                     * @param {factset.protobuf.stach.v3.IRowOrganizedTable} message RowOrganizedTable message or plain object to encode
+                     * @param {factset.protobuf.stach.v2.IPackage} message Package message or plain object to encode
                      * @param {$protobuf.Writer} [writer] Writer to encode to
                      * @returns {$protobuf.Writer} Writer
                      */
-                    RowOrganizedTable.encodeDelimited = function encodeDelimited(message, writer) {
+                    Package.encodeDelimited = function encodeDelimited(message, writer) {
                         return this.encode(message, writer).ldelim();
                     };
 
                     /**
-                     * Decodes a RowOrganizedTable message from the specified reader or buffer.
+                     * Decodes a Package message from the specified reader or buffer.
                      * @function decode
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
+                     * @memberof factset.protobuf.stach.v2.Package
                      * @static
                      * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                      * @param {number} [length] Message length if known beforehand
-                     * @returns {factset.protobuf.stach.v3.RowOrganizedTable} RowOrganizedTable
+                     * @returns {factset.protobuf.stach.v2.Package} Package
                      * @throws {Error} If the payload is not a reader or valid buffer
                      * @throws {$protobuf.util.ProtocolError} If required fields are missing
                      */
-                    RowOrganizedTable.decode = function decode(reader, length) {
+                    Package.decode = function decode(reader, length) {
                         if (!(reader instanceof $Reader))
                             reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.RowOrganizedTable();
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.Package(), key, value;
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
-                            case 1:
-                                message.version = reader.string();
-                                break;
-                            case 2:
-                                message.name = reader.string();
-                                break;
-                            case 3:
-                                if (!(message.columns && message.columns.length))
-                                    message.columns = [];
-                                message.columns.push($root.factset.protobuf.stach.v3.RowOrganizedTable.Column.decode(reader, reader.uint32()));
-                                break;
-                            case 4:
-                                message.table = $root.factset.protobuf.stach.v3.Table.decode(reader, reader.uint32());
-                                break;
-                            case 5:
-                                message.multiLevelHeadersTable = $root.factset.protobuf.stach.v3.RowOrganizedTable.decode(reader, reader.uint32());
-                                break;
-                            case 6:
-                                if (!(message.views && message.views.length))
-                                    message.views = [];
-                                message.views.push($root.factset.protobuf.stach.v3.Views.View.decode(reader, reader.uint32()));
-                                break;
-                            case 7:
-                                if (!(message.headerRows && message.headerRows.length))
-                                    message.headerRows = [];
-                                message.headerRows.push($root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow.decode(reader, reader.uint32()));
-                                break;
-                            case 8:
-                                if (!(message.rows && message.rows.length))
-                                    message.rows = [];
-                                message.rows.push($root.google.protobuf.Struct.decode(reader, reader.uint32()));
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Decodes a RowOrganizedTable message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {factset.protobuf.stach.v3.RowOrganizedTable} RowOrganizedTable
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    RowOrganizedTable.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-
-                    /**
-                     * Verifies a RowOrganizedTable message.
-                     * @function verify
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    RowOrganizedTable.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.version != null && message.hasOwnProperty("version"))
-                            if (!$util.isString(message.version))
-                                return "version: string expected";
-                        if (message.name != null && message.hasOwnProperty("name"))
-                            if (!$util.isString(message.name))
-                                return "name: string expected";
-                        if (message.columns != null && message.hasOwnProperty("columns")) {
-                            if (!Array.isArray(message.columns))
-                                return "columns: array expected";
-                            for (var i = 0; i < message.columns.length; ++i) {
-                                var error = $root.factset.protobuf.stach.v3.RowOrganizedTable.Column.verify(message.columns[i]);
-                                if (error)
-                                    return "columns." + error;
-                            }
-                        }
-                        if (message.table != null && message.hasOwnProperty("table")) {
-                            var error = $root.factset.protobuf.stach.v3.Table.verify(message.table);
-                            if (error)
-                                return "table." + error;
-                        }
-                        if (message.multiLevelHeadersTable != null && message.hasOwnProperty("multiLevelHeadersTable")) {
-                            var error = $root.factset.protobuf.stach.v3.RowOrganizedTable.verify(message.multiLevelHeadersTable);
-                            if (error)
-                                return "multiLevelHeadersTable." + error;
-                        }
-                        if (message.views != null && message.hasOwnProperty("views")) {
-                            if (!Array.isArray(message.views))
-                                return "views: array expected";
-                            for (var i = 0; i < message.views.length; ++i) {
-                                var error = $root.factset.protobuf.stach.v3.Views.View.verify(message.views[i]);
-                                if (error)
-                                    return "views." + error;
-                            }
-                        }
-                        if (message.headerRows != null && message.hasOwnProperty("headerRows")) {
-                            if (!Array.isArray(message.headerRows))
-                                return "headerRows: array expected";
-                            for (var i = 0; i < message.headerRows.length; ++i) {
-                                var error = $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow.verify(message.headerRows[i]);
-                                if (error)
-                                    return "headerRows." + error;
-                            }
-                        }
-                        if (message.rows != null && message.hasOwnProperty("rows")) {
-                            if (!Array.isArray(message.rows))
-                                return "rows: array expected";
-                            for (var i = 0; i < message.rows.length; ++i) {
-                                var error = $root.google.protobuf.Struct.verify(message.rows[i]);
-                                if (error)
-                                    return "rows." + error;
-                            }
-                        }
-                        return null;
-                    };
-
-                    /**
-                     * Creates a RowOrganizedTable message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {factset.protobuf.stach.v3.RowOrganizedTable} RowOrganizedTable
-                     */
-                    RowOrganizedTable.fromObject = function fromObject(object) {
-                        if (object instanceof $root.factset.protobuf.stach.v3.RowOrganizedTable)
-                            return object;
-                        var message = new $root.factset.protobuf.stach.v3.RowOrganizedTable();
-                        if (object.version != null)
-                            message.version = String(object.version);
-                        if (object.name != null)
-                            message.name = String(object.name);
-                        if (object.columns) {
-                            if (!Array.isArray(object.columns))
-                                throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.columns: array expected");
-                            message.columns = [];
-                            for (var i = 0; i < object.columns.length; ++i) {
-                                if (typeof object.columns[i] !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.columns: object expected");
-                                message.columns[i] = $root.factset.protobuf.stach.v3.RowOrganizedTable.Column.fromObject(object.columns[i]);
-                            }
-                        }
-                        if (object.table != null) {
-                            if (typeof object.table !== "object")
-                                throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.table: object expected");
-                            message.table = $root.factset.protobuf.stach.v3.Table.fromObject(object.table);
-                        }
-                        if (object.multiLevelHeadersTable != null) {
-                            if (typeof object.multiLevelHeadersTable !== "object")
-                                throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.multiLevelHeadersTable: object expected");
-                            message.multiLevelHeadersTable = $root.factset.protobuf.stach.v3.RowOrganizedTable.fromObject(object.multiLevelHeadersTable);
-                        }
-                        if (object.views) {
-                            if (!Array.isArray(object.views))
-                                throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.views: array expected");
-                            message.views = [];
-                            for (var i = 0; i < object.views.length; ++i) {
-                                if (typeof object.views[i] !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.views: object expected");
-                                message.views[i] = $root.factset.protobuf.stach.v3.Views.View.fromObject(object.views[i]);
-                            }
-                        }
-                        if (object.headerRows) {
-                            if (!Array.isArray(object.headerRows))
-                                throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.headerRows: array expected");
-                            message.headerRows = [];
-                            for (var i = 0; i < object.headerRows.length; ++i) {
-                                if (typeof object.headerRows[i] !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.headerRows: object expected");
-                                message.headerRows[i] = $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow.fromObject(object.headerRows[i]);
-                            }
-                        }
-                        if (object.rows) {
-                            if (!Array.isArray(object.rows))
-                                throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.rows: array expected");
-                            message.rows = [];
-                            for (var i = 0; i < object.rows.length; ++i) {
-                                message.rows[i] = $root.google.protobuf.Struct.fromObject(object.rows[i]);
-                            }
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Creates a plain object from a RowOrganizedTable message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                     * @static
-                     * @param {factset.protobuf.stach.v3.RowOrganizedTable} message RowOrganizedTable
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    RowOrganizedTable.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.arrays || options.defaults) {
-                            object.columns = [];
-                            object.views = [];
-                            object.headerRows = [];
-                            object.rows = [];
-                        }
-                        if (options.defaults) {
-                            object.version = "";
-                            object.name = "";
-                            object.table = null;
-                            object.multiLevelHeadersTable = null;
-                        }
-                        if (message.version != null && message.hasOwnProperty("version"))
-                            object.version = message.version;
-                        if (message.name != null && message.hasOwnProperty("name"))
-                            object.name = message.name;
-                        if (message.columns && message.columns.length) {
-                            object.columns = [];
-                            for (var j = 0; j < message.columns.length; ++j)
-                                object.columns[j] = $root.factset.protobuf.stach.v3.RowOrganizedTable.Column.toObject(message.columns[j], options);
-                        }
-                        if (message.table != null && message.hasOwnProperty("table"))
-                            object.table = $root.factset.protobuf.stach.v3.Table.toObject(message.table, options);
-                        if (message.multiLevelHeadersTable != null && message.hasOwnProperty("multiLevelHeadersTable"))
-                            object.multiLevelHeadersTable = $root.factset.protobuf.stach.v3.RowOrganizedTable.toObject(message.multiLevelHeadersTable, options);
-                        if (message.views && message.views.length) {
-                            object.views = [];
-                            for (var j = 0; j < message.views.length; ++j)
-                                object.views[j] = $root.factset.protobuf.stach.v3.Views.View.toObject(message.views[j], options);
-                        }
-                        if (message.headerRows && message.headerRows.length) {
-                            object.headerRows = [];
-                            for (var j = 0; j < message.headerRows.length; ++j)
-                                object.headerRows[j] = $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow.toObject(message.headerRows[j], options);
-                        }
-                        if (message.rows && message.rows.length) {
-                            object.rows = [];
-                            for (var j = 0; j < message.rows.length; ++j)
-                                object.rows[j] = $root.google.protobuf.Struct.toObject(message.rows[j], options);
-                        }
-                        return object;
-                    };
-
-                    /**
-                     * Converts this RowOrganizedTable to JSON.
-                     * @function toJSON
-                     * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    RowOrganizedTable.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-
-                    RowOrganizedTable.Column = (function() {
-
-                        /**
-                         * Properties of a Column.
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                         * @interface IColumn
-                         * @property {string|null} [name] Column name
-                         * @property {boolean|null} [forbidNulls] Column forbidNulls
-                         * @property {string|null} [contextualType] Column contextualType
-                         * @property {Object.<string,factset.protobuf.stach.v3.IMetadataItem>|null} [customMetadata] Column customMetadata
-                         */
-
-                        /**
-                         * Constructs a new Column.
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                         * @classdesc Represents a Column.
-                         * @implements IColumn
-                         * @constructor
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IColumn=} [properties] Properties to set
-                         */
-                        function Column(properties) {
-                            this.customMetadata = {};
-                            if (properties)
-                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                    if (properties[keys[i]] != null)
-                                        this[keys[i]] = properties[keys[i]];
-                        }
-
-                        /**
-                         * Column name.
-                         * @member {string} name
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @instance
-                         */
-                        Column.prototype.name = "";
-
-                        /**
-                         * Column forbidNulls.
-                         * @member {boolean} forbidNulls
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @instance
-                         */
-                        Column.prototype.forbidNulls = false;
-
-                        /**
-                         * Column contextualType.
-                         * @member {string} contextualType
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @instance
-                         */
-                        Column.prototype.contextualType = "";
-
-                        /**
-                         * Column customMetadata.
-                         * @member {Object.<string,factset.protobuf.stach.v3.IMetadataItem>} customMetadata
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @instance
-                         */
-                        Column.prototype.customMetadata = $util.emptyObject;
-
-                        /**
-                         * Creates a new Column instance using the specified properties.
-                         * @function create
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IColumn=} [properties] Properties to set
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.Column} Column instance
-                         */
-                        Column.create = function create(properties) {
-                            return new Column(properties);
-                        };
-
-                        /**
-                         * Encodes the specified Column message. Does not implicitly {@link factset.protobuf.stach.v3.RowOrganizedTable.Column.verify|verify} messages.
-                         * @function encode
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IColumn} message Column message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        Column.encode = function encode(message, writer) {
-                            if (!writer)
-                                writer = $Writer.create();
-                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-                            if (message.forbidNulls != null && Object.hasOwnProperty.call(message, "forbidNulls"))
-                                writer.uint32(/* id 2, wireType 0 =*/16).bool(message.forbidNulls);
-                            if (message.contextualType != null && Object.hasOwnProperty.call(message, "contextualType"))
-                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.contextualType);
-                            if (message.customMetadata != null && Object.hasOwnProperty.call(message, "customMetadata"))
-                                for (var keys = Object.keys(message.customMetadata), i = 0; i < keys.length; ++i) {
-                                    writer.uint32(/* id 100, wireType 2 =*/802).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
-                                    $root.factset.protobuf.stach.v3.MetadataItem.encode(message.customMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
-                                }
-                            return writer;
-                        };
-
-                        /**
-                         * Encodes the specified Column message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.RowOrganizedTable.Column.verify|verify} messages.
-                         * @function encodeDelimited
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IColumn} message Column message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        Column.encodeDelimited = function encodeDelimited(message, writer) {
-                            return this.encode(message, writer).ldelim();
-                        };
-
-                        /**
-                         * Decodes a Column message from the specified reader or buffer.
-                         * @function decode
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @param {number} [length] Message length if known beforehand
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.Column} Column
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        Column.decode = function decode(reader, length) {
-                            if (!(reader instanceof $Reader))
-                                reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.RowOrganizedTable.Column(), key, value;
-                            while (reader.pos < end) {
-                                var tag = reader.uint32();
-                                switch (tag >>> 3) {
                                 case 1:
-                                    message.name = reader.string();
+                                    message.version = reader.string();
                                     break;
                                 case 2:
-                                    message.forbidNulls = reader.bool();
+                                    if (!(message.primaryTableIds && message.primaryTableIds.length))
+                                        message.primaryTableIds = [];
+                                    message.primaryTableIds.push(reader.string());
                                     break;
                                 case 3:
-                                    message.contextualType = reader.string();
-                                    break;
-                                case 100:
-                                    if (message.customMetadata === $util.emptyObject)
-                                        message.customMetadata = {};
+                                    if (message.tables === $util.emptyObject)
+                                        message.tables = {};
                                     var end2 = reader.uint32() + reader.pos;
                                     key = "";
                                     value = null;
                                     while (reader.pos < end2) {
                                         var tag2 = reader.uint32();
                                         switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v3.MetadataItem.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                            case 1:
+                                                key = reader.string();
+                                                break;
+                                            case 2:
+                                                value = $root.factset.protobuf.stach.v2.table.Table.decode(reader, reader.uint32());
+                                                break;
+                                            default:
+                                                reader.skipType(tag2 & 7);
+                                                break;
                                         }
                                     }
-                                    message.customMetadata[key] = value;
+                                    message.tables[key] = value;
                                     break;
                                 default:
                                     reader.skipType(tag & 7);
                                     break;
-                                }
                             }
-                            return message;
-                        };
+                        }
+                        return message;
+                    };
 
-                        /**
-                         * Decodes a Column message from the specified reader or buffer, length delimited.
-                         * @function decodeDelimited
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.Column} Column
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        Column.decodeDelimited = function decodeDelimited(reader) {
-                            if (!(reader instanceof $Reader))
-                                reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
-                        };
+                    /**
+                     * Decodes a Package message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof factset.protobuf.stach.v2.Package
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {factset.protobuf.stach.v2.Package} Package
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    Package.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
 
-                        /**
-                         * Verifies a Column message.
-                         * @function verify
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @static
-                         * @param {Object.<string,*>} message Plain object to verify
-                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                         */
-                        Column.verify = function verify(message) {
-                            if (typeof message !== "object" || message === null)
-                                return "object expected";
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                if (!$util.isString(message.name))
-                                    return "name: string expected";
-                            if (message.forbidNulls != null && message.hasOwnProperty("forbidNulls"))
-                                if (typeof message.forbidNulls !== "boolean")
-                                    return "forbidNulls: boolean expected";
-                            if (message.contextualType != null && message.hasOwnProperty("contextualType"))
-                                if (!$util.isString(message.contextualType))
-                                    return "contextualType: string expected";
-                            if (message.customMetadata != null && message.hasOwnProperty("customMetadata")) {
-                                if (!$util.isObject(message.customMetadata))
-                                    return "customMetadata: object expected";
-                                var key = Object.keys(message.customMetadata);
-                                for (var i = 0; i < key.length; ++i) {
-                                    var error = $root.factset.protobuf.stach.v3.MetadataItem.verify(message.customMetadata[key[i]]);
-                                    if (error)
-                                        return "customMetadata." + error;
-                                }
+                    /**
+                     * Verifies a Package message.
+                     * @function verify
+                     * @memberof factset.protobuf.stach.v2.Package
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    Package.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.version != null && message.hasOwnProperty("version"))
+                            if (!$util.isString(message.version))
+                                return "version: string expected";
+                        if (message.primaryTableIds != null && message.hasOwnProperty("primaryTableIds")) {
+                            if (!Array.isArray(message.primaryTableIds))
+                                return "primaryTableIds: array expected";
+                            for (var i = 0; i < message.primaryTableIds.length; ++i)
+                                if (!$util.isString(message.primaryTableIds[i]))
+                                    return "primaryTableIds: string[] expected";
+                        }
+                        if (message.tables != null && message.hasOwnProperty("tables")) {
+                            if (!$util.isObject(message.tables))
+                                return "tables: object expected";
+                            var key = Object.keys(message.tables);
+                            for (var i = 0; i < key.length; ++i) {
+                                var error = $root.factset.protobuf.stach.v2.table.Table.verify(message.tables[key[i]]);
+                                if (error)
+                                    return "tables." + error;
                             }
-                            return null;
-                        };
+                        }
+                        return null;
+                    };
 
-                        /**
-                         * Creates a Column message from a plain object. Also converts values to their respective internal types.
-                         * @function fromObject
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @static
-                         * @param {Object.<string,*>} object Plain object
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.Column} Column
-                         */
-                        Column.fromObject = function fromObject(object) {
-                            if (object instanceof $root.factset.protobuf.stach.v3.RowOrganizedTable.Column)
-                                return object;
-                            var message = new $root.factset.protobuf.stach.v3.RowOrganizedTable.Column();
-                            if (object.name != null)
-                                message.name = String(object.name);
-                            if (object.forbidNulls != null)
-                                message.forbidNulls = Boolean(object.forbidNulls);
-                            if (object.contextualType != null)
-                                message.contextualType = String(object.contextualType);
-                            if (object.customMetadata) {
-                                if (typeof object.customMetadata !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.Column.customMetadata: object expected");
-                                message.customMetadata = {};
-                                for (var keys = Object.keys(object.customMetadata), i = 0; i < keys.length; ++i) {
-                                    if (typeof object.customMetadata[keys[i]] !== "object")
-                                        throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.Column.customMetadata: object expected");
-                                    message.customMetadata[keys[i]] = $root.factset.protobuf.stach.v3.MetadataItem.fromObject(object.customMetadata[keys[i]]);
-                                }
-                            }
-                            return message;
-                        };
-
-                        /**
-                         * Creates a plain object from a Column message. Also converts values to other types if specified.
-                         * @function toObject
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.Column} message Column
-                         * @param {$protobuf.IConversionOptions} [options] Conversion options
-                         * @returns {Object.<string,*>} Plain object
-                         */
-                        Column.toObject = function toObject(message, options) {
-                            if (!options)
-                                options = {};
-                            var object = {};
-                            if (options.objects || options.defaults)
-                                object.customMetadata = {};
-                            if (options.defaults) {
-                                object.name = "";
-                                object.forbidNulls = false;
-                                object.contextualType = "";
-                            }
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                object.name = message.name;
-                            if (message.forbidNulls != null && message.hasOwnProperty("forbidNulls"))
-                                object.forbidNulls = message.forbidNulls;
-                            if (message.contextualType != null && message.hasOwnProperty("contextualType"))
-                                object.contextualType = message.contextualType;
-                            var keys2;
-                            if (message.customMetadata && (keys2 = Object.keys(message.customMetadata)).length) {
-                                object.customMetadata = {};
-                                for (var j = 0; j < keys2.length; ++j)
-                                    object.customMetadata[keys2[j]] = $root.factset.protobuf.stach.v3.MetadataItem.toObject(message.customMetadata[keys2[j]], options);
-                            }
+                    /**
+                     * Creates a Package message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof factset.protobuf.stach.v2.Package
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {factset.protobuf.stach.v2.Package} Package
+                     */
+                    Package.fromObject = function fromObject(object) {
+                        if (object instanceof $root.factset.protobuf.stach.v2.Package)
                             return object;
-                        };
+                        var message = new $root.factset.protobuf.stach.v2.Package();
+                        if (object.version != null)
+                            message.version = String(object.version);
+                        if (object.primaryTableIds) {
+                            if (!Array.isArray(object.primaryTableIds))
+                                throw TypeError(".factset.protobuf.stach.v2.Package.primaryTableIds: array expected");
+                            message.primaryTableIds = [];
+                            for (var i = 0; i < object.primaryTableIds.length; ++i)
+                                message.primaryTableIds[i] = String(object.primaryTableIds[i]);
+                        }
+                        if (object.tables) {
+                            if (typeof object.tables !== "object")
+                                throw TypeError(".factset.protobuf.stach.v2.Package.tables: object expected");
+                            message.tables = {};
+                            for (var keys = Object.keys(object.tables), i = 0; i < keys.length; ++i) {
+                                if (typeof object.tables[keys[i]] !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.Package.tables: object expected");
+                                message.tables[keys[i]] = $root.factset.protobuf.stach.v2.table.Table.fromObject(object.tables[keys[i]]);
+                            }
+                        }
+                        return message;
+                    };
+
+                    /**
+                     * Creates a plain object from a Package message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof factset.protobuf.stach.v2.Package
+                     * @static
+                     * @param {factset.protobuf.stach.v2.Package} message Package
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    Package.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.arrays || options.defaults)
+                            object.primaryTableIds = [];
+                        if (options.objects || options.defaults)
+                            object.tables = {};
+                        if (options.defaults)
+                            object.version = "";
+                        if (message.version != null && message.hasOwnProperty("version"))
+                            object.version = message.version;
+                        if (message.primaryTableIds && message.primaryTableIds.length) {
+                            object.primaryTableIds = [];
+                            for (var j = 0; j < message.primaryTableIds.length; ++j)
+                                object.primaryTableIds[j] = message.primaryTableIds[j];
+                        }
+                        var keys2;
+                        if (message.tables && (keys2 = Object.keys(message.tables)).length) {
+                            object.tables = {};
+                            for (var j = 0; j < keys2.length; ++j)
+                                object.tables[keys2[j]] = $root.factset.protobuf.stach.v2.table.Table.toObject(message.tables[keys2[j]], options);
+                        }
+                        return object;
+                    };
+
+                    /**
+                     * Converts this Package to JSON.
+                     * @function toJSON
+                     * @memberof factset.protobuf.stach.v2.Package
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    Package.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+
+                    return Package;
+                })();
+
+                v2.RowOrganizedPackage = (function() {
+
+                    /**
+                     * Properties of a RowOrganizedPackage.
+                     * @memberof factset.protobuf.stach.v2
+                     * @interface IRowOrganizedPackage
+                     * @property {string|null} [version] RowOrganizedPackage version
+                     * @property {Object.<string,factset.protobuf.stach.v2.RowOrganizedPackage.ITable>|null} [tables] RowOrganizedPackage tables
+                     */
+
+                    /**
+                     * Constructs a new RowOrganizedPackage.
+                     * @memberof factset.protobuf.stach.v2
+                     * @classdesc Represents a RowOrganizedPackage.
+                     * @implements IRowOrganizedPackage
+                     * @constructor
+                     * @param {factset.protobuf.stach.v2.IRowOrganizedPackage=} [properties] Properties to set
+                     */
+                    function RowOrganizedPackage(properties) {
+                        this.tables = {};
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+
+                    /**
+                     * RowOrganizedPackage version.
+                     * @member {string} version
+                     * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                     * @instance
+                     */
+                    RowOrganizedPackage.prototype.version = "";
+
+                    /**
+                     * RowOrganizedPackage tables.
+                     * @member {Object.<string,factset.protobuf.stach.v2.RowOrganizedPackage.ITable>} tables
+                     * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                     * @instance
+                     */
+                    RowOrganizedPackage.prototype.tables = $util.emptyObject;
+
+                    /**
+                     * Creates a new RowOrganizedPackage instance using the specified properties.
+                     * @function create
+                     * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                     * @static
+                     * @param {factset.protobuf.stach.v2.IRowOrganizedPackage=} [properties] Properties to set
+                     * @returns {factset.protobuf.stach.v2.RowOrganizedPackage} RowOrganizedPackage instance
+                     */
+                    RowOrganizedPackage.create = function create(properties) {
+                        return new RowOrganizedPackage(properties);
+                    };
+
+                    /**
+                     * Encodes the specified RowOrganizedPackage message. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.verify|verify} messages.
+                     * @function encode
+                     * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                     * @static
+                     * @param {factset.protobuf.stach.v2.IRowOrganizedPackage} message RowOrganizedPackage message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    RowOrganizedPackage.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.version != null && Object.hasOwnProperty.call(message, "version"))
+                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.version);
+                        if (message.tables != null && Object.hasOwnProperty.call(message, "tables"))
+                            for (var keys = Object.keys(message.tables), i = 0; i < keys.length; ++i) {
+                                writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                $root.factset.protobuf.stach.v2.RowOrganizedPackage.Table.encode(message.tables[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                            }
+                        return writer;
+                    };
+
+                    /**
+                     * Encodes the specified RowOrganizedPackage message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                     * @static
+                     * @param {factset.protobuf.stach.v2.IRowOrganizedPackage} message RowOrganizedPackage message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    RowOrganizedPackage.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+
+                    /**
+                     * Decodes a RowOrganizedPackage message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {factset.protobuf.stach.v2.RowOrganizedPackage} RowOrganizedPackage
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    RowOrganizedPackage.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage(), key, value;
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            switch (tag >>> 3) {
+                                case 1:
+                                    message.version = reader.string();
+                                    break;
+                                case 2:
+                                    if (message.tables === $util.emptyObject)
+                                        message.tables = {};
+                                    var end2 = reader.uint32() + reader.pos;
+                                    key = "";
+                                    value = null;
+                                    while (reader.pos < end2) {
+                                        var tag2 = reader.uint32();
+                                        switch (tag2 >>> 3) {
+                                            case 1:
+                                                key = reader.string();
+                                                break;
+                                            case 2:
+                                                value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.Table.decode(reader, reader.uint32());
+                                                break;
+                                            default:
+                                                reader.skipType(tag2 & 7);
+                                                break;
+                                        }
+                                    }
+                                    message.tables[key] = value;
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                            }
+                        }
+                        return message;
+                    };
+
+                    /**
+                     * Decodes a RowOrganizedPackage message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {factset.protobuf.stach.v2.RowOrganizedPackage} RowOrganizedPackage
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    RowOrganizedPackage.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+
+                    /**
+                     * Verifies a RowOrganizedPackage message.
+                     * @function verify
+                     * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    RowOrganizedPackage.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.version != null && message.hasOwnProperty("version"))
+                            if (!$util.isString(message.version))
+                                return "version: string expected";
+                        if (message.tables != null && message.hasOwnProperty("tables")) {
+                            if (!$util.isObject(message.tables))
+                                return "tables: object expected";
+                            var key = Object.keys(message.tables);
+                            for (var i = 0; i < key.length; ++i) {
+                                var error = $root.factset.protobuf.stach.v2.RowOrganizedPackage.Table.verify(message.tables[key[i]]);
+                                if (error)
+                                    return "tables." + error;
+                            }
+                        }
+                        return null;
+                    };
+
+                    /**
+                     * Creates a RowOrganizedPackage message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {factset.protobuf.stach.v2.RowOrganizedPackage} RowOrganizedPackage
+                     */
+                    RowOrganizedPackage.fromObject = function fromObject(object) {
+                        if (object instanceof $root.factset.protobuf.stach.v2.RowOrganizedPackage)
+                            return object;
+                        var message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage();
+                        if (object.version != null)
+                            message.version = String(object.version);
+                        if (object.tables) {
+                            if (typeof object.tables !== "object")
+                                throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.tables: object expected");
+                            message.tables = {};
+                            for (var keys = Object.keys(object.tables), i = 0; i < keys.length; ++i) {
+                                if (typeof object.tables[keys[i]] !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.tables: object expected");
+                                message.tables[keys[i]] = $root.factset.protobuf.stach.v2.RowOrganizedPackage.Table.fromObject(object.tables[keys[i]]);
+                            }
+                        }
+                        return message;
+                    };
+
+                    /**
+                     * Creates a plain object from a RowOrganizedPackage message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                     * @static
+                     * @param {factset.protobuf.stach.v2.RowOrganizedPackage} message RowOrganizedPackage
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    RowOrganizedPackage.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.objects || options.defaults)
+                            object.tables = {};
+                        if (options.defaults)
+                            object.version = "";
+                        if (message.version != null && message.hasOwnProperty("version"))
+                            object.version = message.version;
+                        var keys2;
+                        if (message.tables && (keys2 = Object.keys(message.tables)).length) {
+                            object.tables = {};
+                            for (var j = 0; j < keys2.length; ++j)
+                                object.tables[keys2[j]] = $root.factset.protobuf.stach.v2.RowOrganizedPackage.Table.toObject(message.tables[keys2[j]], options);
+                        }
+                        return object;
+                    };
+
+                    /**
+                     * Converts this RowOrganizedPackage to JSON.
+                     * @function toJSON
+                     * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    RowOrganizedPackage.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+
+                    RowOrganizedPackage.Table = (function() {
 
                         /**
-                         * Converts this Column to JSON.
-                         * @function toJSON
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.Column
-                         * @instance
-                         * @returns {Object.<string,*>} JSON object
+                         * Properties of a Table.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @interface ITable
+                         * @property {factset.protobuf.stach.v2.RowOrganizedPackage.ITableDefinition|null} [definition] Table definition
+                         * @property {factset.protobuf.stach.v2.RowOrganizedPackage.ITableDefinition|null} [headersDefinition] Table headersDefinition
+                         * @property {factset.protobuf.stach.v2.RowOrganizedPackage.ITableData|null} [data] Table data
                          */
-                        Column.prototype.toJSON = function toJSON() {
-                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                        };
-
-                        return Column;
-                    })();
-
-                    RowOrganizedTable.HeaderRow = (function() {
 
                         /**
-                         * Properties of a HeaderRow.
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                         * @interface IHeaderRow
-                         * @property {Array.<factset.protobuf.stach.v3.RowOrganizedTable.IHeaderCell>|null} [cells] HeaderRow cells
-                         */
-
-                        /**
-                         * Constructs a new HeaderRow.
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                         * @classdesc Represents a HeaderRow.
-                         * @implements IHeaderRow
+                         * Constructs a new Table.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @classdesc Represents a Table.
+                         * @implements ITable
                          * @constructor
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IHeaderRow=} [properties] Properties to set
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITable=} [properties] Properties to set
                          */
-                        function HeaderRow(properties) {
-                            this.cells = [];
+                        function Table(properties) {
                             if (properties)
                                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                                     if (properties[keys[i]] != null)
@@ -1266,208 +612,457 @@ $root.factset = (function() {
                         }
 
                         /**
-                         * HeaderRow cells.
-                         * @member {Array.<factset.protobuf.stach.v3.RowOrganizedTable.IHeaderCell>} cells
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow
+                         * Table definition.
+                         * @member {factset.protobuf.stach.v2.RowOrganizedPackage.ITableDefinition|null|undefined} definition
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
                          * @instance
                          */
-                        HeaderRow.prototype.cells = $util.emptyArray;
+                        Table.prototype.definition = null;
 
                         /**
-                         * Creates a new HeaderRow instance using the specified properties.
-                         * @function create
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow
-                         * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IHeaderRow=} [properties] Properties to set
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow} HeaderRow instance
+                         * Table headersDefinition.
+                         * @member {factset.protobuf.stach.v2.RowOrganizedPackage.ITableDefinition|null|undefined} headersDefinition
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
+                         * @instance
                          */
-                        HeaderRow.create = function create(properties) {
-                            return new HeaderRow(properties);
+                        Table.prototype.headersDefinition = null;
+
+                        /**
+                         * Table data.
+                         * @member {factset.protobuf.stach.v2.RowOrganizedPackage.ITableData|null|undefined} data
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
+                         * @instance
+                         */
+                        Table.prototype.data = null;
+
+                        /**
+                         * Creates a new Table instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITable=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.Table} Table instance
+                         */
+                        Table.create = function create(properties) {
+                            return new Table(properties);
                         };
 
                         /**
-                         * Encodes the specified HeaderRow message. Does not implicitly {@link factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow.verify|verify} messages.
+                         * Encodes the specified Table message. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.Table.verify|verify} messages.
                          * @function encode
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
                          * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IHeaderRow} message HeaderRow message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITable} message Table message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        HeaderRow.encode = function encode(message, writer) {
+                        Table.encode = function encode(message, writer) {
                             if (!writer)
                                 writer = $Writer.create();
-                            if (message.cells != null && message.cells.length)
-                                for (var i = 0; i < message.cells.length; ++i)
-                                    $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell.encode(message.cells[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.definition != null && Object.hasOwnProperty.call(message, "definition"))
+                                $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.encode(message.definition, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.headersDefinition != null && Object.hasOwnProperty.call(message, "headersDefinition"))
+                                $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.encode(message.headersDefinition, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            if (message.data != null && Object.hasOwnProperty.call(message, "data"))
+                                $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableData.encode(message.data, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
                             return writer;
                         };
 
                         /**
-                         * Encodes the specified HeaderRow message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow.verify|verify} messages.
+                         * Encodes the specified Table message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.Table.verify|verify} messages.
                          * @function encodeDelimited
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
                          * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IHeaderRow} message HeaderRow message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITable} message Table message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        HeaderRow.encodeDelimited = function encodeDelimited(message, writer) {
+                        Table.encodeDelimited = function encodeDelimited(message, writer) {
                             return this.encode(message, writer).ldelim();
                         };
 
                         /**
-                         * Decodes a HeaderRow message from the specified reader or buffer.
+                         * Decodes a Table message from the specified reader or buffer.
                          * @function decode
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                          * @param {number} [length] Message length if known beforehand
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow} HeaderRow
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.Table} Table
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        HeaderRow.decode = function decode(reader, length) {
+                        Table.decode = function decode(reader, length) {
                             if (!(reader instanceof $Reader))
                                 reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow();
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.Table();
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    if (!(message.cells && message.cells.length))
-                                        message.cells = [];
-                                    message.cells.push($root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell.decode(reader, reader.uint32()));
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.definition = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.decode(reader, reader.uint32());
+                                        break;
+                                    case 2:
+                                        message.headersDefinition = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.decode(reader, reader.uint32());
+                                        break;
+                                    case 3:
+                                        message.data = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableData.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
                         };
 
                         /**
-                         * Decodes a HeaderRow message from the specified reader or buffer, length delimited.
+                         * Decodes a Table message from the specified reader or buffer, length delimited.
                          * @function decodeDelimited
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow} HeaderRow
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.Table} Table
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        HeaderRow.decodeDelimited = function decodeDelimited(reader) {
+                        Table.decodeDelimited = function decodeDelimited(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
                             return this.decode(reader, reader.uint32());
                         };
 
                         /**
-                         * Verifies a HeaderRow message.
+                         * Verifies a Table message.
                          * @function verify
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
                          * @static
                          * @param {Object.<string,*>} message Plain object to verify
                          * @returns {string|null} `null` if valid, otherwise the reason why it is not
                          */
-                        HeaderRow.verify = function verify(message) {
+                        Table.verify = function verify(message) {
                             if (typeof message !== "object" || message === null)
                                 return "object expected";
-                            if (message.cells != null && message.hasOwnProperty("cells")) {
-                                if (!Array.isArray(message.cells))
-                                    return "cells: array expected";
-                                for (var i = 0; i < message.cells.length; ++i) {
-                                    var error = $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell.verify(message.cells[i]);
-                                    if (error)
-                                        return "cells." + error;
-                                }
+                            if (message.definition != null && message.hasOwnProperty("definition")) {
+                                var error = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.verify(message.definition);
+                                if (error)
+                                    return "definition." + error;
+                            }
+                            if (message.headersDefinition != null && message.hasOwnProperty("headersDefinition")) {
+                                var error = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.verify(message.headersDefinition);
+                                if (error)
+                                    return "headersDefinition." + error;
+                            }
+                            if (message.data != null && message.hasOwnProperty("data")) {
+                                var error = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableData.verify(message.data);
+                                if (error)
+                                    return "data." + error;
                             }
                             return null;
                         };
 
                         /**
-                         * Creates a HeaderRow message from a plain object. Also converts values to their respective internal types.
+                         * Creates a Table message from a plain object. Also converts values to their respective internal types.
                          * @function fromObject
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
                          * @static
                          * @param {Object.<string,*>} object Plain object
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow} HeaderRow
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.Table} Table
                          */
-                        HeaderRow.fromObject = function fromObject(object) {
-                            if (object instanceof $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow)
+                        Table.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.RowOrganizedPackage.Table)
                                 return object;
-                            var message = new $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow();
-                            if (object.cells) {
-                                if (!Array.isArray(object.cells))
-                                    throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow.cells: array expected");
-                                message.cells = [];
-                                for (var i = 0; i < object.cells.length; ++i) {
-                                    if (typeof object.cells[i] !== "object")
-                                        throw TypeError(".factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow.cells: object expected");
-                                    message.cells[i] = $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell.fromObject(object.cells[i]);
+                            var message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.Table();
+                            if (object.definition != null) {
+                                if (typeof object.definition !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.Table.definition: object expected");
+                                message.definition = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.fromObject(object.definition);
+                            }
+                            if (object.headersDefinition != null) {
+                                if (typeof object.headersDefinition !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.Table.headersDefinition: object expected");
+                                message.headersDefinition = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.fromObject(object.headersDefinition);
+                            }
+                            if (object.data != null) {
+                                if (typeof object.data !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.Table.data: object expected");
+                                message.data = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableData.fromObject(object.data);
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a Table message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.Table} message Table
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        Table.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.definition = null;
+                                object.headersDefinition = null;
+                                object.data = null;
+                            }
+                            if (message.definition != null && message.hasOwnProperty("definition"))
+                                object.definition = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.toObject(message.definition, options);
+                            if (message.headersDefinition != null && message.hasOwnProperty("headersDefinition"))
+                                object.headersDefinition = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.toObject(message.headersDefinition, options);
+                            if (message.data != null && message.hasOwnProperty("data"))
+                                object.data = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableData.toObject(message.data, options);
+                            return object;
+                        };
+
+                        /**
+                         * Converts this Table to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Table
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        Table.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return Table;
+                    })();
+
+                    RowOrganizedPackage.TableDefinition = (function() {
+
+                        /**
+                         * Properties of a TableDefinition.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @interface ITableDefinition
+                         * @property {Array.<factset.protobuf.stach.v2.table.IColumnDefinition>|null} [columns] TableDefinition columns
+                         */
+
+                        /**
+                         * Constructs a new TableDefinition.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @classdesc Represents a TableDefinition.
+                         * @implements ITableDefinition
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITableDefinition=} [properties] Properties to set
+                         */
+                        function TableDefinition(properties) {
+                            this.columns = [];
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * TableDefinition columns.
+                         * @member {Array.<factset.protobuf.stach.v2.table.IColumnDefinition>} columns
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition
+                         * @instance
+                         */
+                        TableDefinition.prototype.columns = $util.emptyArray;
+
+                        /**
+                         * Creates a new TableDefinition instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITableDefinition=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition} TableDefinition instance
+                         */
+                        TableDefinition.create = function create(properties) {
+                            return new TableDefinition(properties);
+                        };
+
+                        /**
+                         * Encodes the specified TableDefinition message. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITableDefinition} message TableDefinition message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        TableDefinition.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.columns != null && message.columns.length)
+                                for (var i = 0; i < message.columns.length; ++i)
+                                    $root.factset.protobuf.stach.v2.table.ColumnDefinition.encode(message.columns[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified TableDefinition message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITableDefinition} message TableDefinition message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        TableDefinition.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a TableDefinition message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition} TableDefinition
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        TableDefinition.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        if (!(message.columns && message.columns.length))
+                                            message.columns = [];
+                                        message.columns.push($root.factset.protobuf.stach.v2.table.ColumnDefinition.decode(reader, reader.uint32()));
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
                         };
 
                         /**
-                         * Creates a plain object from a HeaderRow message. Also converts values to other types if specified.
-                         * @function toObject
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow
+                         * Decodes a TableDefinition message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition
                          * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow} message HeaderRow
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition} TableDefinition
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        TableDefinition.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a TableDefinition message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        TableDefinition.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.columns != null && message.hasOwnProperty("columns")) {
+                                if (!Array.isArray(message.columns))
+                                    return "columns: array expected";
+                                for (var i = 0; i < message.columns.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.ColumnDefinition.verify(message.columns[i]);
+                                    if (error)
+                                        return "columns." + error;
+                                }
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a TableDefinition message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition} TableDefinition
+                         */
+                        TableDefinition.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition();
+                            if (object.columns) {
+                                if (!Array.isArray(object.columns))
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.columns: array expected");
+                                message.columns = [];
+                                for (var i = 0; i < object.columns.length; ++i) {
+                                    if (typeof object.columns[i] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.columns: object expected");
+                                    message.columns[i] = $root.factset.protobuf.stach.v2.table.ColumnDefinition.fromObject(object.columns[i]);
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a TableDefinition message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition} message TableDefinition
                          * @param {$protobuf.IConversionOptions} [options] Conversion options
                          * @returns {Object.<string,*>} Plain object
                          */
-                        HeaderRow.toObject = function toObject(message, options) {
+                        TableDefinition.toObject = function toObject(message, options) {
                             if (!options)
                                 options = {};
                             var object = {};
                             if (options.arrays || options.defaults)
-                                object.cells = [];
-                            if (message.cells && message.cells.length) {
-                                object.cells = [];
-                                for (var j = 0; j < message.cells.length; ++j)
-                                    object.cells[j] = $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell.toObject(message.cells[j], options);
+                                object.columns = [];
+                            if (message.columns && message.columns.length) {
+                                object.columns = [];
+                                for (var j = 0; j < message.columns.length; ++j)
+                                    object.columns[j] = $root.factset.protobuf.stach.v2.table.ColumnDefinition.toObject(message.columns[j], options);
                             }
                             return object;
                         };
 
                         /**
-                         * Converts this HeaderRow to JSON.
+                         * Converts this TableDefinition to JSON.
                          * @function toJSON
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderRow
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition
                          * @instance
                          * @returns {Object.<string,*>} JSON object
                          */
-                        HeaderRow.prototype.toJSON = function toJSON() {
+                        TableDefinition.prototype.toJSON = function toJSON() {
                             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                         };
 
-                        return HeaderRow;
+                        return TableDefinition;
                     })();
 
-                    RowOrganizedTable.HeaderCell = (function() {
+                    RowOrganizedPackage.TableData = (function() {
 
                         /**
-                         * Properties of a HeaderCell.
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                         * @interface IHeaderCell
-                         * @property {number|null} [colspan] HeaderCell colspan
-                         * @property {number|null} [rowspan] HeaderCell rowspan
-                         * @property {google.protobuf.IValue|null} [value] HeaderCell value
+                         * Properties of a TableData.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @interface ITableData
+                         * @property {Array.<factset.protobuf.stach.v2.RowOrganizedPackage.IRow>|null} [rows] TableData rows
+                         * @property {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>|null} [tableMetadata] TableData tableMetadata
+                         * @property {Object.<string,factset.protobuf.stach.v2.RowOrganizedPackage.IMapOfMetadata>|null} [columnMetadata] TableData columnMetadata
                          */
 
                         /**
-                         * Constructs a new HeaderCell.
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable
-                         * @classdesc Represents a HeaderCell.
-                         * @implements IHeaderCell
+                         * Constructs a new TableData.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @classdesc Represents a TableData.
+                         * @implements ITableData
                          * @constructor
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IHeaderCell=} [properties] Properties to set
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITableData=} [properties] Properties to set
                          */
-                        function HeaderCell(properties) {
+                        function TableData(properties) {
+                            this.rows = [];
+                            this.tableMetadata = {};
+                            this.columnMetadata = {};
                             if (properties)
                                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                                     if (properties[keys[i]] != null)
@@ -1475,135 +1070,1320 @@ $root.factset = (function() {
                         }
 
                         /**
-                         * HeaderCell colspan.
-                         * @member {number} colspan
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * TableData rows.
+                         * @member {Array.<factset.protobuf.stach.v2.RowOrganizedPackage.IRow>} rows
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
                          * @instance
                          */
-                        HeaderCell.prototype.colspan = 0;
+                        TableData.prototype.rows = $util.emptyArray;
 
                         /**
-                         * HeaderCell rowspan.
-                         * @member {number} rowspan
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * TableData tableMetadata.
+                         * @member {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>} tableMetadata
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
                          * @instance
                          */
-                        HeaderCell.prototype.rowspan = 0;
+                        TableData.prototype.tableMetadata = $util.emptyObject;
 
                         /**
-                         * HeaderCell value.
-                         * @member {google.protobuf.IValue|null|undefined} value
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * TableData columnMetadata.
+                         * @member {Object.<string,factset.protobuf.stach.v2.RowOrganizedPackage.IMapOfMetadata>} columnMetadata
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
                          * @instance
                          */
-                        HeaderCell.prototype.value = null;
+                        TableData.prototype.columnMetadata = $util.emptyObject;
 
                         /**
-                         * Creates a new HeaderCell instance using the specified properties.
+                         * Creates a new TableData instance using the specified properties.
                          * @function create
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
                          * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IHeaderCell=} [properties] Properties to set
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell} HeaderCell instance
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITableData=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.TableData} TableData instance
                          */
-                        HeaderCell.create = function create(properties) {
-                            return new HeaderCell(properties);
+                        TableData.create = function create(properties) {
+                            return new TableData(properties);
                         };
 
                         /**
-                         * Encodes the specified HeaderCell message. Does not implicitly {@link factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell.verify|verify} messages.
+                         * Encodes the specified TableData message. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.TableData.verify|verify} messages.
                          * @function encode
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
                          * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IHeaderCell} message HeaderCell message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITableData} message TableData message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        HeaderCell.encode = function encode(message, writer) {
+                        TableData.encode = function encode(message, writer) {
                             if (!writer)
                                 writer = $Writer.create();
-                            if (message.colspan != null && Object.hasOwnProperty.call(message, "colspan"))
-                                writer.uint32(/* id 1, wireType 0 =*/8).uint32(message.colspan);
-                            if (message.rowspan != null && Object.hasOwnProperty.call(message, "rowspan"))
-                                writer.uint32(/* id 2, wireType 0 =*/16).uint32(message.rowspan);
-                            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                                $root.google.protobuf.Value.encode(message.value, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                            if (message.rows != null && message.rows.length)
+                                for (var i = 0; i < message.rows.length; ++i)
+                                    $root.factset.protobuf.stach.v2.RowOrganizedPackage.Row.encode(message.rows[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.tableMetadata != null && Object.hasOwnProperty.call(message, "tableMetadata"))
+                                for (var keys = Object.keys(message.tableMetadata), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.table.MetadataItem.encode(message.tableMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
+                            if (message.columnMetadata != null && Object.hasOwnProperty.call(message, "columnMetadata"))
+                                for (var keys = Object.keys(message.columnMetadata), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata.encode(message.columnMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
                             return writer;
                         };
 
                         /**
-                         * Encodes the specified HeaderCell message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell.verify|verify} messages.
+                         * Encodes the specified TableData message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.TableData.verify|verify} messages.
                          * @function encodeDelimited
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
                          * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.IHeaderCell} message HeaderCell message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ITableData} message TableData message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        HeaderCell.encodeDelimited = function encodeDelimited(message, writer) {
+                        TableData.encodeDelimited = function encodeDelimited(message, writer) {
                             return this.encode(message, writer).ldelim();
                         };
 
                         /**
-                         * Decodes a HeaderCell message from the specified reader or buffer.
+                         * Decodes a TableData message from the specified reader or buffer.
                          * @function decode
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                          * @param {number} [length] Message length if known beforehand
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell} HeaderCell
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.TableData} TableData
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        HeaderCell.decode = function decode(reader, length) {
+                        TableData.decode = function decode(reader, length) {
                             if (!(reader instanceof $Reader))
                                 reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell();
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableData(), key, value;
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.colspan = reader.uint32();
-                                    break;
-                                case 2:
-                                    message.rowspan = reader.uint32();
-                                    break;
-                                case 3:
-                                    message.value = $root.google.protobuf.Value.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        if (!(message.rows && message.rows.length))
+                                            message.rows = [];
+                                        message.rows.push($root.factset.protobuf.stach.v2.RowOrganizedPackage.Row.decode(reader, reader.uint32()));
+                                        break;
+                                    case 2:
+                                        if (message.tableMetadata === $util.emptyObject)
+                                            message.tableMetadata = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.tableMetadata[key] = value;
+                                        break;
+                                    case 3:
+                                        if (message.columnMetadata === $util.emptyObject)
+                                            message.columnMetadata = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.columnMetadata[key] = value;
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
                         };
 
                         /**
-                         * Decodes a HeaderCell message from the specified reader or buffer, length delimited.
+                         * Decodes a TableData message from the specified reader or buffer, length delimited.
                          * @function decodeDelimited
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell} HeaderCell
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.TableData} TableData
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        HeaderCell.decodeDelimited = function decodeDelimited(reader) {
+                        TableData.decodeDelimited = function decodeDelimited(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
                             return this.decode(reader, reader.uint32());
                         };
 
                         /**
-                         * Verifies a HeaderCell message.
+                         * Verifies a TableData message.
                          * @function verify
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
                          * @static
                          * @param {Object.<string,*>} message Plain object to verify
                          * @returns {string|null} `null` if valid, otherwise the reason why it is not
                          */
-                        HeaderCell.verify = function verify(message) {
+                        TableData.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.rows != null && message.hasOwnProperty("rows")) {
+                                if (!Array.isArray(message.rows))
+                                    return "rows: array expected";
+                                for (var i = 0; i < message.rows.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.RowOrganizedPackage.Row.verify(message.rows[i]);
+                                    if (error)
+                                        return "rows." + error;
+                                }
+                            }
+                            if (message.tableMetadata != null && message.hasOwnProperty("tableMetadata")) {
+                                if (!$util.isObject(message.tableMetadata))
+                                    return "tableMetadata: object expected";
+                                var key = Object.keys(message.tableMetadata);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.MetadataItem.verify(message.tableMetadata[key[i]]);
+                                    if (error)
+                                        return "tableMetadata." + error;
+                                }
+                            }
+                            if (message.columnMetadata != null && message.hasOwnProperty("columnMetadata")) {
+                                if (!$util.isObject(message.columnMetadata))
+                                    return "columnMetadata: object expected";
+                                var key = Object.keys(message.columnMetadata);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata.verify(message.columnMetadata[key[i]]);
+                                    if (error)
+                                        return "columnMetadata." + error;
+                                }
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a TableData message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.TableData} TableData
+                         */
+                        TableData.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableData)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableData();
+                            if (object.rows) {
+                                if (!Array.isArray(object.rows))
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.TableData.rows: array expected");
+                                message.rows = [];
+                                for (var i = 0; i < object.rows.length; ++i) {
+                                    if (typeof object.rows[i] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.TableData.rows: object expected");
+                                    message.rows[i] = $root.factset.protobuf.stach.v2.RowOrganizedPackage.Row.fromObject(object.rows[i]);
+                                }
+                            }
+                            if (object.tableMetadata) {
+                                if (typeof object.tableMetadata !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.TableData.tableMetadata: object expected");
+                                message.tableMetadata = {};
+                                for (var keys = Object.keys(object.tableMetadata), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.tableMetadata[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.TableData.tableMetadata: object expected");
+                                    message.tableMetadata[keys[i]] = $root.factset.protobuf.stach.v2.table.MetadataItem.fromObject(object.tableMetadata[keys[i]]);
+                                }
+                            }
+                            if (object.columnMetadata) {
+                                if (typeof object.columnMetadata !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.TableData.columnMetadata: object expected");
+                                message.columnMetadata = {};
+                                for (var keys = Object.keys(object.columnMetadata), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.columnMetadata[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.TableData.columnMetadata: object expected");
+                                    message.columnMetadata[keys[i]] = $root.factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata.fromObject(object.columnMetadata[keys[i]]);
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a TableData message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.TableData} message TableData
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        TableData.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.arrays || options.defaults)
+                                object.rows = [];
+                            if (options.objects || options.defaults) {
+                                object.tableMetadata = {};
+                                object.columnMetadata = {};
+                            }
+                            if (message.rows && message.rows.length) {
+                                object.rows = [];
+                                for (var j = 0; j < message.rows.length; ++j)
+                                    object.rows[j] = $root.factset.protobuf.stach.v2.RowOrganizedPackage.Row.toObject(message.rows[j], options);
+                            }
+                            var keys2;
+                            if (message.tableMetadata && (keys2 = Object.keys(message.tableMetadata)).length) {
+                                object.tableMetadata = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.tableMetadata[keys2[j]] = $root.factset.protobuf.stach.v2.table.MetadataItem.toObject(message.tableMetadata[keys2[j]], options);
+                            }
+                            if (message.columnMetadata && (keys2 = Object.keys(message.columnMetadata)).length) {
+                                object.columnMetadata = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.columnMetadata[keys2[j]] = $root.factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata.toObject(message.columnMetadata[keys2[j]], options);
+                            }
+                            return object;
+                        };
+
+                        /**
+                         * Converts this TableData to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.TableData
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        TableData.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return TableData;
+                    })();
+
+                    RowOrganizedPackage.Row = (function() {
+
+                        /**
+                         * Properties of a Row.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @interface IRow
+                         * @property {string|null} [id] Row id
+                         * @property {factset.protobuf.stach.v2.RowOrganizedPackage.Row.RowType|null} [rowType] Row rowType
+                         * @property {google.protobuf.IListValue|null} [cells] Row cells
+                         * @property {google.protobuf.IStruct|null} [values] Row values
+                         * @property {Object.<string,factset.protobuf.stach.v2.RowOrganizedPackage.ICellDetail>|null} [cellDetails] Row cellDetails
+                         * @property {Object.<string,factset.protobuf.stach.v2.RowOrganizedPackage.IHeaderCellDetail>|null} [headerCellDetails] Row headerCellDetails
+                         * @property {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>|null} [rowMetadata] Row rowMetadata
+                         */
+
+                        /**
+                         * Constructs a new Row.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @classdesc Represents a Row.
+                         * @implements IRow
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IRow=} [properties] Properties to set
+                         */
+                        function Row(properties) {
+                            this.cellDetails = {};
+                            this.headerCellDetails = {};
+                            this.rowMetadata = {};
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * Row id.
+                         * @member {string} id
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @instance
+                         */
+                        Row.prototype.id = "";
+
+                        /**
+                         * Row rowType.
+                         * @member {factset.protobuf.stach.v2.RowOrganizedPackage.Row.RowType} rowType
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @instance
+                         */
+                        Row.prototype.rowType = 0;
+
+                        /**
+                         * Row cells.
+                         * @member {google.protobuf.IListValue|null|undefined} cells
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @instance
+                         */
+                        Row.prototype.cells = null;
+
+                        /**
+                         * Row values.
+                         * @member {google.protobuf.IStruct|null|undefined} values
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @instance
+                         */
+                        Row.prototype.values = null;
+
+                        /**
+                         * Row cellDetails.
+                         * @member {Object.<string,factset.protobuf.stach.v2.RowOrganizedPackage.ICellDetail>} cellDetails
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @instance
+                         */
+                        Row.prototype.cellDetails = $util.emptyObject;
+
+                        /**
+                         * Row headerCellDetails.
+                         * @member {Object.<string,factset.protobuf.stach.v2.RowOrganizedPackage.IHeaderCellDetail>} headerCellDetails
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @instance
+                         */
+                        Row.prototype.headerCellDetails = $util.emptyObject;
+
+                        /**
+                         * Row rowMetadata.
+                         * @member {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>} rowMetadata
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @instance
+                         */
+                        Row.prototype.rowMetadata = $util.emptyObject;
+
+                        // OneOf field names bound to virtual getters and setters
+                        var $oneOfFields;
+
+                        /**
+                         * Row kind.
+                         * @member {"cells"|"values"|undefined} kind
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @instance
+                         */
+                        Object.defineProperty(Row.prototype, "kind", {
+                            get: $util.oneOfGetter($oneOfFields = ["cells", "values"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+
+                        /**
+                         * Creates a new Row instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IRow=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.Row} Row instance
+                         */
+                        Row.create = function create(properties) {
+                            return new Row(properties);
+                        };
+
+                        /**
+                         * Encodes the specified Row message. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.Row.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IRow} message Row message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Row.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                            if (message.rowType != null && Object.hasOwnProperty.call(message, "rowType"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.rowType);
+                            if (message.cells != null && Object.hasOwnProperty.call(message, "cells"))
+                                $root.google.protobuf.ListValue.encode(message.cells, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                            if (message.values != null && Object.hasOwnProperty.call(message, "values"))
+                                $root.google.protobuf.Struct.encode(message.values, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                            if (message.cellDetails != null && Object.hasOwnProperty.call(message, "cellDetails"))
+                                for (var keys = Object.keys(message.cellDetails), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 5, wireType 2 =*/42).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.encode(message.cellDetails[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
+                            if (message.headerCellDetails != null && Object.hasOwnProperty.call(message, "headerCellDetails"))
+                                for (var keys = Object.keys(message.headerCellDetails), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 6, wireType 2 =*/50).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.encode(message.headerCellDetails[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
+                            if (message.rowMetadata != null && Object.hasOwnProperty.call(message, "rowMetadata"))
+                                for (var keys = Object.keys(message.rowMetadata), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 7, wireType 2 =*/58).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.table.MetadataItem.encode(message.rowMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified Row message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.Row.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IRow} message Row message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Row.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a Row message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.Row} Row
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Row.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.Row(), key, value;
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        message.id = reader.string();
+                                        break;
+                                    case 2:
+                                        message.rowType = reader.int32();
+                                        break;
+                                    case 3:
+                                        message.cells = $root.google.protobuf.ListValue.decode(reader, reader.uint32());
+                                        break;
+                                    case 4:
+                                        message.values = $root.google.protobuf.Struct.decode(reader, reader.uint32());
+                                        break;
+                                    case 5:
+                                        if (message.cellDetails === $util.emptyObject)
+                                            message.cellDetails = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.cellDetails[key] = value;
+                                        break;
+                                    case 6:
+                                        if (message.headerCellDetails === $util.emptyObject)
+                                            message.headerCellDetails = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.headerCellDetails[key] = value;
+                                        break;
+                                    case 7:
+                                        if (message.rowMetadata === $util.emptyObject)
+                                            message.rowMetadata = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.rowMetadata[key] = value;
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a Row message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.Row} Row
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Row.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a Row message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        Row.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            var properties = {};
+                            if (message.id != null && message.hasOwnProperty("id"))
+                                if (!$util.isString(message.id))
+                                    return "id: string expected";
+                            if (message.rowType != null && message.hasOwnProperty("rowType"))
+                                switch (message.rowType) {
+                                    default:
+                                        return "rowType: enum value expected";
+                                    case 0:
+                                    case 1:
+                                        break;
+                                }
+                            if (message.cells != null && message.hasOwnProperty("cells")) {
+                                properties.kind = 1;
+                                {
+                                    var error = $root.google.protobuf.ListValue.verify(message.cells);
+                                    if (error)
+                                        return "cells." + error;
+                                }
+                            }
+                            if (message.values != null && message.hasOwnProperty("values")) {
+                                if (properties.kind === 1)
+                                    return "kind: multiple values";
+                                properties.kind = 1;
+                                {
+                                    var error = $root.google.protobuf.Struct.verify(message.values);
+                                    if (error)
+                                        return "values." + error;
+                                }
+                            }
+                            if (message.cellDetails != null && message.hasOwnProperty("cellDetails")) {
+                                if (!$util.isObject(message.cellDetails))
+                                    return "cellDetails: object expected";
+                                var key = Object.keys(message.cellDetails);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.verify(message.cellDetails[key[i]]);
+                                    if (error)
+                                        return "cellDetails." + error;
+                                }
+                            }
+                            if (message.headerCellDetails != null && message.hasOwnProperty("headerCellDetails")) {
+                                if (!$util.isObject(message.headerCellDetails))
+                                    return "headerCellDetails: object expected";
+                                var key = Object.keys(message.headerCellDetails);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.verify(message.headerCellDetails[key[i]]);
+                                    if (error)
+                                        return "headerCellDetails." + error;
+                                }
+                            }
+                            if (message.rowMetadata != null && message.hasOwnProperty("rowMetadata")) {
+                                if (!$util.isObject(message.rowMetadata))
+                                    return "rowMetadata: object expected";
+                                var key = Object.keys(message.rowMetadata);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.MetadataItem.verify(message.rowMetadata[key[i]]);
+                                    if (error)
+                                        return "rowMetadata." + error;
+                                }
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a Row message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.Row} Row
+                         */
+                        Row.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.RowOrganizedPackage.Row)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.Row();
+                            if (object.id != null)
+                                message.id = String(object.id);
+                            switch (object.rowType) {
+                                case "Body":
+                                case 0:
+                                    message.rowType = 0;
+                                    break;
+                                case "Header":
+                                case 1:
+                                    message.rowType = 1;
+                                    break;
+                            }
+                            if (object.cells != null) {
+                                message.cells = $root.google.protobuf.ListValue.fromObject(object.cells);
+                            }
+                            if (object.values != null) {
+                                message.values = $root.google.protobuf.Struct.fromObject(object.values);
+                            }
+                            if (object.cellDetails) {
+                                if (typeof object.cellDetails !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.Row.cellDetails: object expected");
+                                message.cellDetails = {};
+                                for (var keys = Object.keys(object.cellDetails), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.cellDetails[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.Row.cellDetails: object expected");
+                                    message.cellDetails[keys[i]] = $root.factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.fromObject(object.cellDetails[keys[i]]);
+                                }
+                            }
+                            if (object.headerCellDetails) {
+                                if (typeof object.headerCellDetails !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.Row.headerCellDetails: object expected");
+                                message.headerCellDetails = {};
+                                for (var keys = Object.keys(object.headerCellDetails), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.headerCellDetails[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.Row.headerCellDetails: object expected");
+                                    message.headerCellDetails[keys[i]] = $root.factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.fromObject(object.headerCellDetails[keys[i]]);
+                                }
+                            }
+                            if (object.rowMetadata) {
+                                if (typeof object.rowMetadata !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.Row.rowMetadata: object expected");
+                                message.rowMetadata = {};
+                                for (var keys = Object.keys(object.rowMetadata), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.rowMetadata[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.Row.rowMetadata: object expected");
+                                    message.rowMetadata[keys[i]] = $root.factset.protobuf.stach.v2.table.MetadataItem.fromObject(object.rowMetadata[keys[i]]);
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a Row message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.Row} message Row
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        Row.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.objects || options.defaults) {
+                                object.cellDetails = {};
+                                object.headerCellDetails = {};
+                                object.rowMetadata = {};
+                            }
+                            if (options.defaults) {
+                                object.id = "";
+                                object.rowType = options.enums === String ? "Body" : 0;
+                            }
+                            if (message.id != null && message.hasOwnProperty("id"))
+                                object.id = message.id;
+                            if (message.rowType != null && message.hasOwnProperty("rowType"))
+                                object.rowType = options.enums === String ? $root.factset.protobuf.stach.v2.RowOrganizedPackage.Row.RowType[message.rowType] : message.rowType;
+                            if (message.cells != null && message.hasOwnProperty("cells")) {
+                                object.cells = $root.google.protobuf.ListValue.toObject(message.cells, options);
+                                if (options.oneofs)
+                                    object.kind = "cells";
+                            }
+                            if (message.values != null && message.hasOwnProperty("values")) {
+                                object.values = $root.google.protobuf.Struct.toObject(message.values, options);
+                                if (options.oneofs)
+                                    object.kind = "values";
+                            }
+                            var keys2;
+                            if (message.cellDetails && (keys2 = Object.keys(message.cellDetails)).length) {
+                                object.cellDetails = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.cellDetails[keys2[j]] = $root.factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.toObject(message.cellDetails[keys2[j]], options);
+                            }
+                            if (message.headerCellDetails && (keys2 = Object.keys(message.headerCellDetails)).length) {
+                                object.headerCellDetails = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.headerCellDetails[keys2[j]] = $root.factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.toObject(message.headerCellDetails[keys2[j]], options);
+                            }
+                            if (message.rowMetadata && (keys2 = Object.keys(message.rowMetadata)).length) {
+                                object.rowMetadata = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.rowMetadata[keys2[j]] = $root.factset.protobuf.stach.v2.table.MetadataItem.toObject(message.rowMetadata[keys2[j]], options);
+                            }
+                            return object;
+                        };
+
+                        /**
+                         * Converts this Row to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.Row
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        Row.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        /**
+                         * RowType enum.
+                         * @name factset.protobuf.stach.v2.RowOrganizedPackage.Row.RowType
+                         * @enum {number}
+                         * @property {number} Body=0 Body value
+                         * @property {number} Header=1 Header value
+                         */
+                        Row.RowType = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "Body"] = 0;
+                            values[valuesById[1] = "Header"] = 1;
+                            return values;
+                        })();
+
+                        return Row;
+                    })();
+
+                    RowOrganizedPackage.CellDetail = (function() {
+
+                        /**
+                         * Properties of a CellDetail.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @interface ICellDetail
+                         * @property {number|null} [groupLevel] CellDetail groupLevel
+                         * @property {factset.protobuf.stach.v2.table.ICellDefinition|null} [cellDefinition] CellDetail cellDefinition
+                         * @property {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>|null} [cellMetadata] CellDetail cellMetadata
+                         */
+
+                        /**
+                         * Constructs a new CellDetail.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @classdesc Represents a CellDetail.
+                         * @implements ICellDetail
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ICellDetail=} [properties] Properties to set
+                         */
+                        function CellDetail(properties) {
+                            this.cellMetadata = {};
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * CellDetail groupLevel.
+                         * @member {number} groupLevel
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @instance
+                         */
+                        CellDetail.prototype.groupLevel = 0;
+
+                        /**
+                         * CellDetail cellDefinition.
+                         * @member {factset.protobuf.stach.v2.table.ICellDefinition|null|undefined} cellDefinition
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @instance
+                         */
+                        CellDetail.prototype.cellDefinition = null;
+
+                        /**
+                         * CellDetail cellMetadata.
+                         * @member {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>} cellMetadata
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @instance
+                         */
+                        CellDetail.prototype.cellMetadata = $util.emptyObject;
+
+                        /**
+                         * Creates a new CellDetail instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ICellDetail=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail} CellDetail instance
+                         */
+                        CellDetail.create = function create(properties) {
+                            return new CellDetail(properties);
+                        };
+
+                        /**
+                         * Encodes the specified CellDetail message. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ICellDetail} message CellDetail message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CellDetail.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.groupLevel != null && Object.hasOwnProperty.call(message, "groupLevel"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.groupLevel);
+                            if (message.cellDefinition != null && Object.hasOwnProperty.call(message, "cellDefinition"))
+                                $root.factset.protobuf.stach.v2.table.CellDefinition.encode(message.cellDefinition, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            if (message.cellMetadata != null && Object.hasOwnProperty.call(message, "cellMetadata"))
+                                for (var keys = Object.keys(message.cellMetadata), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.table.MetadataItem.encode(message.cellMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified CellDetail message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.ICellDetail} message CellDetail message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CellDetail.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a CellDetail message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail} CellDetail
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CellDetail.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail(), key, value;
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        message.groupLevel = reader.int32();
+                                        break;
+                                    case 2:
+                                        message.cellDefinition = $root.factset.protobuf.stach.v2.table.CellDefinition.decode(reader, reader.uint32());
+                                        break;
+                                    case 3:
+                                        if (message.cellMetadata === $util.emptyObject)
+                                            message.cellMetadata = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.cellMetadata[key] = value;
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a CellDetail message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail} CellDetail
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CellDetail.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a CellDetail message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        CellDetail.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.groupLevel != null && message.hasOwnProperty("groupLevel"))
+                                if (!$util.isInteger(message.groupLevel))
+                                    return "groupLevel: integer expected";
+                            if (message.cellDefinition != null && message.hasOwnProperty("cellDefinition")) {
+                                var error = $root.factset.protobuf.stach.v2.table.CellDefinition.verify(message.cellDefinition);
+                                if (error)
+                                    return "cellDefinition." + error;
+                            }
+                            if (message.cellMetadata != null && message.hasOwnProperty("cellMetadata")) {
+                                if (!$util.isObject(message.cellMetadata))
+                                    return "cellMetadata: object expected";
+                                var key = Object.keys(message.cellMetadata);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.MetadataItem.verify(message.cellMetadata[key[i]]);
+                                    if (error)
+                                        return "cellMetadata." + error;
+                                }
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a CellDetail message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail} CellDetail
+                         */
+                        CellDetail.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail();
+                            if (object.groupLevel != null)
+                                message.groupLevel = object.groupLevel | 0;
+                            if (object.cellDefinition != null) {
+                                if (typeof object.cellDefinition !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.cellDefinition: object expected");
+                                message.cellDefinition = $root.factset.protobuf.stach.v2.table.CellDefinition.fromObject(object.cellDefinition);
+                            }
+                            if (object.cellMetadata) {
+                                if (typeof object.cellMetadata !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.cellMetadata: object expected");
+                                message.cellMetadata = {};
+                                for (var keys = Object.keys(object.cellMetadata), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.cellMetadata[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.cellMetadata: object expected");
+                                    message.cellMetadata[keys[i]] = $root.factset.protobuf.stach.v2.table.MetadataItem.fromObject(object.cellMetadata[keys[i]]);
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a CellDetail message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail} message CellDetail
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        CellDetail.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.objects || options.defaults)
+                                object.cellMetadata = {};
+                            if (options.defaults) {
+                                object.groupLevel = 0;
+                                object.cellDefinition = null;
+                            }
+                            if (message.groupLevel != null && message.hasOwnProperty("groupLevel"))
+                                object.groupLevel = message.groupLevel;
+                            if (message.cellDefinition != null && message.hasOwnProperty("cellDefinition"))
+                                object.cellDefinition = $root.factset.protobuf.stach.v2.table.CellDefinition.toObject(message.cellDefinition, options);
+                            var keys2;
+                            if (message.cellMetadata && (keys2 = Object.keys(message.cellMetadata)).length) {
+                                object.cellMetadata = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.cellMetadata[keys2[j]] = $root.factset.protobuf.stach.v2.table.MetadataItem.toObject(message.cellMetadata[keys2[j]], options);
+                            }
+                            return object;
+                        };
+
+                        /**
+                         * Converts this CellDetail to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        CellDetail.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return CellDetail;
+                    })();
+
+                    RowOrganizedPackage.HeaderCellDetail = (function() {
+
+                        /**
+                         * Properties of a HeaderCellDetail.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @interface IHeaderCellDetail
+                         * @property {number|null} [colspan] HeaderCellDetail colspan
+                         * @property {number|null} [rowspan] HeaderCellDetail rowspan
+                         * @property {factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.TableSource|null} [source] HeaderCellDetail source
+                         * @property {number|null} [columnIndex] HeaderCellDetail columnIndex
+                         * @property {factset.protobuf.stach.v2.table.ICellDefinition|null} [cellDefinition] HeaderCellDetail cellDefinition
+                         * @property {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>|null} [cellMetadata] HeaderCellDetail cellMetadata
+                         */
+
+                        /**
+                         * Constructs a new HeaderCellDetail.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @classdesc Represents a HeaderCellDetail.
+                         * @implements IHeaderCellDetail
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IHeaderCellDetail=} [properties] Properties to set
+                         */
+                        function HeaderCellDetail(properties) {
+                            this.cellMetadata = {};
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * HeaderCellDetail colspan.
+                         * @member {number} colspan
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @instance
+                         */
+                        HeaderCellDetail.prototype.colspan = 0;
+
+                        /**
+                         * HeaderCellDetail rowspan.
+                         * @member {number} rowspan
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @instance
+                         */
+                        HeaderCellDetail.prototype.rowspan = 0;
+
+                        /**
+                         * HeaderCellDetail source.
+                         * @member {factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.TableSource} source
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @instance
+                         */
+                        HeaderCellDetail.prototype.source = 0;
+
+                        /**
+                         * HeaderCellDetail columnIndex.
+                         * @member {number} columnIndex
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @instance
+                         */
+                        HeaderCellDetail.prototype.columnIndex = 0;
+
+                        /**
+                         * HeaderCellDetail cellDefinition.
+                         * @member {factset.protobuf.stach.v2.table.ICellDefinition|null|undefined} cellDefinition
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @instance
+                         */
+                        HeaderCellDetail.prototype.cellDefinition = null;
+
+                        /**
+                         * HeaderCellDetail cellMetadata.
+                         * @member {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>} cellMetadata
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @instance
+                         */
+                        HeaderCellDetail.prototype.cellMetadata = $util.emptyObject;
+
+                        /**
+                         * Creates a new HeaderCellDetail instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IHeaderCellDetail=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail} HeaderCellDetail instance
+                         */
+                        HeaderCellDetail.create = function create(properties) {
+                            return new HeaderCellDetail(properties);
+                        };
+
+                        /**
+                         * Encodes the specified HeaderCellDetail message. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IHeaderCellDetail} message HeaderCellDetail message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        HeaderCellDetail.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.colspan != null && Object.hasOwnProperty.call(message, "colspan"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.colspan);
+                            if (message.rowspan != null && Object.hasOwnProperty.call(message, "rowspan"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.rowspan);
+                            if (message.source != null && Object.hasOwnProperty.call(message, "source"))
+                                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.source);
+                            if (message.columnIndex != null && Object.hasOwnProperty.call(message, "columnIndex"))
+                                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.columnIndex);
+                            if (message.cellDefinition != null && Object.hasOwnProperty.call(message, "cellDefinition"))
+                                $root.factset.protobuf.stach.v2.table.CellDefinition.encode(message.cellDefinition, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                            if (message.cellMetadata != null && Object.hasOwnProperty.call(message, "cellMetadata"))
+                                for (var keys = Object.keys(message.cellMetadata), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 6, wireType 2 =*/50).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.table.MetadataItem.encode(message.cellMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified HeaderCellDetail message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @static
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IHeaderCellDetail} message HeaderCellDetail message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        HeaderCellDetail.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a HeaderCellDetail message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail} HeaderCellDetail
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        HeaderCellDetail.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail(), key, value;
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        message.colspan = reader.int32();
+                                        break;
+                                    case 2:
+                                        message.rowspan = reader.int32();
+                                        break;
+                                    case 3:
+                                        message.source = reader.int32();
+                                        break;
+                                    case 4:
+                                        message.columnIndex = reader.int32();
+                                        break;
+                                    case 5:
+                                        message.cellDefinition = $root.factset.protobuf.stach.v2.table.CellDefinition.decode(reader, reader.uint32());
+                                        break;
+                                    case 6:
+                                        if (message.cellMetadata === $util.emptyObject)
+                                            message.cellMetadata = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.cellMetadata[key] = value;
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a HeaderCellDetail message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail} HeaderCellDetail
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        HeaderCellDetail.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a HeaderCellDetail message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        HeaderCellDetail.verify = function verify(message) {
                             if (typeof message !== "object" || message === null)
                                 return "object expected";
                             if (message.colspan != null && message.hasOwnProperty("colspan"))
@@ -1612,446 +2392,183 @@ $root.factset = (function() {
                             if (message.rowspan != null && message.hasOwnProperty("rowspan"))
                                 if (!$util.isInteger(message.rowspan))
                                     return "rowspan: integer expected";
-                            if (message.value != null && message.hasOwnProperty("value")) {
-                                var error = $root.google.protobuf.Value.verify(message.value);
+                            if (message.source != null && message.hasOwnProperty("source"))
+                                switch (message.source) {
+                                    default:
+                                        return "source: enum value expected";
+                                    case 0:
+                                    case 1:
+                                    case 2:
+                                    case 3:
+                                        break;
+                                }
+                            if (message.columnIndex != null && message.hasOwnProperty("columnIndex"))
+                                if (!$util.isInteger(message.columnIndex))
+                                    return "columnIndex: integer expected";
+                            if (message.cellDefinition != null && message.hasOwnProperty("cellDefinition")) {
+                                var error = $root.factset.protobuf.stach.v2.table.CellDefinition.verify(message.cellDefinition);
                                 if (error)
-                                    return "value." + error;
+                                    return "cellDefinition." + error;
+                            }
+                            if (message.cellMetadata != null && message.hasOwnProperty("cellMetadata")) {
+                                if (!$util.isObject(message.cellMetadata))
+                                    return "cellMetadata: object expected";
+                                var key = Object.keys(message.cellMetadata);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.MetadataItem.verify(message.cellMetadata[key[i]]);
+                                    if (error)
+                                        return "cellMetadata." + error;
+                                }
                             }
                             return null;
                         };
 
                         /**
-                         * Creates a HeaderCell message from a plain object. Also converts values to their respective internal types.
+                         * Creates a HeaderCellDetail message from a plain object. Also converts values to their respective internal types.
                          * @function fromObject
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
                          * @static
                          * @param {Object.<string,*>} object Plain object
-                         * @returns {factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell} HeaderCell
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail} HeaderCellDetail
                          */
-                        HeaderCell.fromObject = function fromObject(object) {
-                            if (object instanceof $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell)
+                        HeaderCellDetail.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail)
                                 return object;
-                            var message = new $root.factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell();
+                            var message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail();
                             if (object.colspan != null)
-                                message.colspan = object.colspan >>> 0;
+                                message.colspan = object.colspan | 0;
                             if (object.rowspan != null)
-                                message.rowspan = object.rowspan >>> 0;
-                            if (object.value != null) {
-                                message.value = $root.google.protobuf.Value.fromObject(object.value);
+                                message.rowspan = object.rowspan | 0;
+                            switch (object.source) {
+                                case "UNKNOWN":
+                                case 0:
+                                    message.source = 0;
+                                    break;
+                                case "NONE":
+                                case 1:
+                                    message.source = 1;
+                                    break;
+                                case "PRIMARY":
+                                case 2:
+                                    message.source = 2;
+                                    break;
+                                case "HEADERS":
+                                case 3:
+                                    message.source = 3;
+                                    break;
+                            }
+                            if (object.columnIndex != null)
+                                message.columnIndex = object.columnIndex | 0;
+                            if (object.cellDefinition != null) {
+                                if (typeof object.cellDefinition !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.cellDefinition: object expected");
+                                message.cellDefinition = $root.factset.protobuf.stach.v2.table.CellDefinition.fromObject(object.cellDefinition);
+                            }
+                            if (object.cellMetadata) {
+                                if (typeof object.cellMetadata !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.cellMetadata: object expected");
+                                message.cellMetadata = {};
+                                for (var keys = Object.keys(object.cellMetadata), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.cellMetadata[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.cellMetadata: object expected");
+                                    message.cellMetadata[keys[i]] = $root.factset.protobuf.stach.v2.table.MetadataItem.fromObject(object.cellMetadata[keys[i]]);
+                                }
                             }
                             return message;
                         };
 
                         /**
-                         * Creates a plain object from a HeaderCell message. Also converts values to other types if specified.
+                         * Creates a plain object from a HeaderCellDetail message. Also converts values to other types if specified.
                          * @function toObject
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
                          * @static
-                         * @param {factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell} message HeaderCell
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail} message HeaderCellDetail
                          * @param {$protobuf.IConversionOptions} [options] Conversion options
                          * @returns {Object.<string,*>} Plain object
                          */
-                        HeaderCell.toObject = function toObject(message, options) {
+                        HeaderCellDetail.toObject = function toObject(message, options) {
                             if (!options)
                                 options = {};
                             var object = {};
+                            if (options.objects || options.defaults)
+                                object.cellMetadata = {};
                             if (options.defaults) {
                                 object.colspan = 0;
                                 object.rowspan = 0;
-                                object.value = null;
+                                object.source = options.enums === String ? "UNKNOWN" : 0;
+                                object.columnIndex = 0;
+                                object.cellDefinition = null;
                             }
                             if (message.colspan != null && message.hasOwnProperty("colspan"))
                                 object.colspan = message.colspan;
                             if (message.rowspan != null && message.hasOwnProperty("rowspan"))
                                 object.rowspan = message.rowspan;
-                            if (message.value != null && message.hasOwnProperty("value"))
-                                object.value = $root.google.protobuf.Value.toObject(message.value, options);
+                            if (message.source != null && message.hasOwnProperty("source"))
+                                object.source = options.enums === String ? $root.factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.TableSource[message.source] : message.source;
+                            if (message.columnIndex != null && message.hasOwnProperty("columnIndex"))
+                                object.columnIndex = message.columnIndex;
+                            if (message.cellDefinition != null && message.hasOwnProperty("cellDefinition"))
+                                object.cellDefinition = $root.factset.protobuf.stach.v2.table.CellDefinition.toObject(message.cellDefinition, options);
+                            var keys2;
+                            if (message.cellMetadata && (keys2 = Object.keys(message.cellMetadata)).length) {
+                                object.cellMetadata = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.cellMetadata[keys2[j]] = $root.factset.protobuf.stach.v2.table.MetadataItem.toObject(message.cellMetadata[keys2[j]], options);
+                            }
                             return object;
                         };
 
                         /**
-                         * Converts this HeaderCell to JSON.
+                         * Converts this HeaderCellDetail to JSON.
                          * @function toJSON
-                         * @memberof factset.protobuf.stach.v3.RowOrganizedTable.HeaderCell
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail
                          * @instance
                          * @returns {Object.<string,*>} JSON object
                          */
-                        HeaderCell.prototype.toJSON = function toJSON() {
+                        HeaderCellDetail.prototype.toJSON = function toJSON() {
                             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                         };
 
-                        return HeaderCell;
+                        /**
+                         * TableSource enum.
+                         * @name factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.TableSource
+                         * @enum {number}
+                         * @property {number} UNKNOWN=0 UNKNOWN value
+                         * @property {number} NONE=1 NONE value
+                         * @property {number} PRIMARY=2 PRIMARY value
+                         * @property {number} HEADERS=3 HEADERS value
+                         */
+                        HeaderCellDetail.TableSource = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "UNKNOWN"] = 0;
+                            values[valuesById[1] = "NONE"] = 1;
+                            values[valuesById[2] = "PRIMARY"] = 2;
+                            values[valuesById[3] = "HEADERS"] = 3;
+                            return values;
+                        })();
+
+                        return HeaderCellDetail;
                     })();
 
-                    return RowOrganizedTable;
-                })();
-
-                v3.Table = (function() {
-
-                    /**
-                     * Properties of a Table.
-                     * @memberof factset.protobuf.stach.v3
-                     * @interface ITable
-                     * @property {Array.<string>|null} [primaryKeys] Table primaryKeys
-                     * @property {number|null} [totalNumRows] Table totalNumRows
-                     * @property {factset.protobuf.stach.v3.Table.IGroupResult|null} [groupResult] Table groupResult
-                     * @property {factset.protobuf.stach.v3.Table.ISplitResult|null} [splitResult] Table splitResult
-                     * @property {Object.<string,factset.protobuf.stach.v3.IMetadataItem>|null} [customMetadata] Table customMetadata
-                     */
-
-                    /**
-                     * Constructs a new Table.
-                     * @memberof factset.protobuf.stach.v3
-                     * @classdesc Represents a Table.
-                     * @implements ITable
-                     * @constructor
-                     * @param {factset.protobuf.stach.v3.ITable=} [properties] Properties to set
-                     */
-                    function Table(properties) {
-                        this.primaryKeys = [];
-                        this.customMetadata = {};
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-
-                    /**
-                     * Table primaryKeys.
-                     * @member {Array.<string>} primaryKeys
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @instance
-                     */
-                    Table.prototype.primaryKeys = $util.emptyArray;
-
-                    /**
-                     * Table totalNumRows.
-                     * @member {number} totalNumRows
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @instance
-                     */
-                    Table.prototype.totalNumRows = 0;
-
-                    /**
-                     * Table groupResult.
-                     * @member {factset.protobuf.stach.v3.Table.IGroupResult|null|undefined} groupResult
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @instance
-                     */
-                    Table.prototype.groupResult = null;
-
-                    /**
-                     * Table splitResult.
-                     * @member {factset.protobuf.stach.v3.Table.ISplitResult|null|undefined} splitResult
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @instance
-                     */
-                    Table.prototype.splitResult = null;
-
-                    /**
-                     * Table customMetadata.
-                     * @member {Object.<string,factset.protobuf.stach.v3.IMetadataItem>} customMetadata
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @instance
-                     */
-                    Table.prototype.customMetadata = $util.emptyObject;
-
-                    /**
-                     * Creates a new Table instance using the specified properties.
-                     * @function create
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @static
-                     * @param {factset.protobuf.stach.v3.ITable=} [properties] Properties to set
-                     * @returns {factset.protobuf.stach.v3.Table} Table instance
-                     */
-                    Table.create = function create(properties) {
-                        return new Table(properties);
-                    };
-
-                    /**
-                     * Encodes the specified Table message. Does not implicitly {@link factset.protobuf.stach.v3.Table.verify|verify} messages.
-                     * @function encode
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @static
-                     * @param {factset.protobuf.stach.v3.ITable} message Table message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    Table.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.primaryKeys != null && message.primaryKeys.length)
-                            for (var i = 0; i < message.primaryKeys.length; ++i)
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.primaryKeys[i]);
-                        if (message.totalNumRows != null && Object.hasOwnProperty.call(message, "totalNumRows"))
-                            writer.uint32(/* id 2, wireType 0 =*/16).int32(message.totalNumRows);
-                        if (message.groupResult != null && Object.hasOwnProperty.call(message, "groupResult"))
-                            $root.factset.protobuf.stach.v3.Table.GroupResult.encode(message.groupResult, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-                        if (message.splitResult != null && Object.hasOwnProperty.call(message, "splitResult"))
-                            $root.factset.protobuf.stach.v3.Table.SplitResult.encode(message.splitResult, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-                        if (message.customMetadata != null && Object.hasOwnProperty.call(message, "customMetadata"))
-                            for (var keys = Object.keys(message.customMetadata), i = 0; i < keys.length; ++i) {
-                                writer.uint32(/* id 100, wireType 2 =*/802).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
-                                $root.factset.protobuf.stach.v3.MetadataItem.encode(message.customMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
-                            }
-                        return writer;
-                    };
-
-                    /**
-                     * Encodes the specified Table message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.Table.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @static
-                     * @param {factset.protobuf.stach.v3.ITable} message Table message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    Table.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-
-                    /**
-                     * Decodes a Table message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {factset.protobuf.stach.v3.Table} Table
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    Table.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.Table(), key, value;
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                if (!(message.primaryKeys && message.primaryKeys.length))
-                                    message.primaryKeys = [];
-                                message.primaryKeys.push(reader.string());
-                                break;
-                            case 2:
-                                message.totalNumRows = reader.int32();
-                                break;
-                            case 3:
-                                message.groupResult = $root.factset.protobuf.stach.v3.Table.GroupResult.decode(reader, reader.uint32());
-                                break;
-                            case 4:
-                                message.splitResult = $root.factset.protobuf.stach.v3.Table.SplitResult.decode(reader, reader.uint32());
-                                break;
-                            case 100:
-                                if (message.customMetadata === $util.emptyObject)
-                                    message.customMetadata = {};
-                                var end2 = reader.uint32() + reader.pos;
-                                key = "";
-                                value = null;
-                                while (reader.pos < end2) {
-                                    var tag2 = reader.uint32();
-                                    switch (tag2 >>> 3) {
-                                    case 1:
-                                        key = reader.string();
-                                        break;
-                                    case 2:
-                                        value = $root.factset.protobuf.stach.v3.MetadataItem.decode(reader, reader.uint32());
-                                        break;
-                                    default:
-                                        reader.skipType(tag2 & 7);
-                                        break;
-                                    }
-                                }
-                                message.customMetadata[key] = value;
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Decodes a Table message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {factset.protobuf.stach.v3.Table} Table
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    Table.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-
-                    /**
-                     * Verifies a Table message.
-                     * @function verify
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    Table.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.primaryKeys != null && message.hasOwnProperty("primaryKeys")) {
-                            if (!Array.isArray(message.primaryKeys))
-                                return "primaryKeys: array expected";
-                            for (var i = 0; i < message.primaryKeys.length; ++i)
-                                if (!$util.isString(message.primaryKeys[i]))
-                                    return "primaryKeys: string[] expected";
-                        }
-                        if (message.totalNumRows != null && message.hasOwnProperty("totalNumRows"))
-                            if (!$util.isInteger(message.totalNumRows))
-                                return "totalNumRows: integer expected";
-                        if (message.groupResult != null && message.hasOwnProperty("groupResult")) {
-                            var error = $root.factset.protobuf.stach.v3.Table.GroupResult.verify(message.groupResult);
-                            if (error)
-                                return "groupResult." + error;
-                        }
-                        if (message.splitResult != null && message.hasOwnProperty("splitResult")) {
-                            var error = $root.factset.protobuf.stach.v3.Table.SplitResult.verify(message.splitResult);
-                            if (error)
-                                return "splitResult." + error;
-                        }
-                        if (message.customMetadata != null && message.hasOwnProperty("customMetadata")) {
-                            if (!$util.isObject(message.customMetadata))
-                                return "customMetadata: object expected";
-                            var key = Object.keys(message.customMetadata);
-                            for (var i = 0; i < key.length; ++i) {
-                                var error = $root.factset.protobuf.stach.v3.MetadataItem.verify(message.customMetadata[key[i]]);
-                                if (error)
-                                    return "customMetadata." + error;
-                            }
-                        }
-                        return null;
-                    };
-
-                    /**
-                     * Creates a Table message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {factset.protobuf.stach.v3.Table} Table
-                     */
-                    Table.fromObject = function fromObject(object) {
-                        if (object instanceof $root.factset.protobuf.stach.v3.Table)
-                            return object;
-                        var message = new $root.factset.protobuf.stach.v3.Table();
-                        if (object.primaryKeys) {
-                            if (!Array.isArray(object.primaryKeys))
-                                throw TypeError(".factset.protobuf.stach.v3.Table.primaryKeys: array expected");
-                            message.primaryKeys = [];
-                            for (var i = 0; i < object.primaryKeys.length; ++i)
-                                message.primaryKeys[i] = String(object.primaryKeys[i]);
-                        }
-                        if (object.totalNumRows != null)
-                            message.totalNumRows = object.totalNumRows | 0;
-                        if (object.groupResult != null) {
-                            if (typeof object.groupResult !== "object")
-                                throw TypeError(".factset.protobuf.stach.v3.Table.groupResult: object expected");
-                            message.groupResult = $root.factset.protobuf.stach.v3.Table.GroupResult.fromObject(object.groupResult);
-                        }
-                        if (object.splitResult != null) {
-                            if (typeof object.splitResult !== "object")
-                                throw TypeError(".factset.protobuf.stach.v3.Table.splitResult: object expected");
-                            message.splitResult = $root.factset.protobuf.stach.v3.Table.SplitResult.fromObject(object.splitResult);
-                        }
-                        if (object.customMetadata) {
-                            if (typeof object.customMetadata !== "object")
-                                throw TypeError(".factset.protobuf.stach.v3.Table.customMetadata: object expected");
-                            message.customMetadata = {};
-                            for (var keys = Object.keys(object.customMetadata), i = 0; i < keys.length; ++i) {
-                                if (typeof object.customMetadata[keys[i]] !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.Table.customMetadata: object expected");
-                                message.customMetadata[keys[i]] = $root.factset.protobuf.stach.v3.MetadataItem.fromObject(object.customMetadata[keys[i]]);
-                            }
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Creates a plain object from a Table message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @static
-                     * @param {factset.protobuf.stach.v3.Table} message Table
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    Table.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.arrays || options.defaults)
-                            object.primaryKeys = [];
-                        if (options.objects || options.defaults)
-                            object.customMetadata = {};
-                        if (options.defaults) {
-                            object.totalNumRows = 0;
-                            object.groupResult = null;
-                            object.splitResult = null;
-                        }
-                        if (message.primaryKeys && message.primaryKeys.length) {
-                            object.primaryKeys = [];
-                            for (var j = 0; j < message.primaryKeys.length; ++j)
-                                object.primaryKeys[j] = message.primaryKeys[j];
-                        }
-                        if (message.totalNumRows != null && message.hasOwnProperty("totalNumRows"))
-                            object.totalNumRows = message.totalNumRows;
-                        if (message.groupResult != null && message.hasOwnProperty("groupResult"))
-                            object.groupResult = $root.factset.protobuf.stach.v3.Table.GroupResult.toObject(message.groupResult, options);
-                        if (message.splitResult != null && message.hasOwnProperty("splitResult"))
-                            object.splitResult = $root.factset.protobuf.stach.v3.Table.SplitResult.toObject(message.splitResult, options);
-                        var keys2;
-                        if (message.customMetadata && (keys2 = Object.keys(message.customMetadata)).length) {
-                            object.customMetadata = {};
-                            for (var j = 0; j < keys2.length; ++j)
-                                object.customMetadata[keys2[j]] = $root.factset.protobuf.stach.v3.MetadataItem.toObject(message.customMetadata[keys2[j]], options);
-                        }
-                        return object;
-                    };
-
-                    /**
-                     * Converts this Table to JSON.
-                     * @function toJSON
-                     * @memberof factset.protobuf.stach.v3.Table
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    Table.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-
-                    Table.GroupResult = (function() {
+                    RowOrganizedPackage.MapOfMetadata = (function() {
 
                         /**
-                         * Properties of a GroupResult.
-                         * @memberof factset.protobuf.stach.v3.Table
-                         * @interface IGroupResult
-                         * @property {Array.<string>|null} [by] GroupResult by
-                         * @property {factset.protobuf.stach.v3.Table.ICollapsedColumnResult|null} [collapsedColumnResult] GroupResult collapsedColumnResult
-                         * @property {string|null} [rowPath] GroupResult rowPath
-                         * @property {string|null} [aggregateRows] GroupResult aggregateRows
-                         * @property {string|null} [level] GroupResult level
+                         * Properties of a MapOfMetadata.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @interface IMapOfMetadata
+                         * @property {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>|null} [items] MapOfMetadata items
                          */
 
                         /**
-                         * Constructs a new GroupResult.
-                         * @memberof factset.protobuf.stach.v3.Table
-                         * @classdesc Represents a GroupResult.
-                         * @implements IGroupResult
+                         * Constructs a new MapOfMetadata.
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage
+                         * @classdesc Represents a MapOfMetadata.
+                         * @implements IMapOfMetadata
                          * @constructor
-                         * @param {factset.protobuf.stach.v3.Table.IGroupResult=} [properties] Properties to set
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IMapOfMetadata=} [properties] Properties to set
                          */
-                        function GroupResult(properties) {
-                            this.by = [];
+                        function MapOfMetadata(properties) {
+                            this.items = {};
                             if (properties)
                                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                                     if (properties[keys[i]] != null)
@@ -2059,292 +2576,240 @@ $root.factset = (function() {
                         }
 
                         /**
-                         * GroupResult by.
-                         * @member {Array.<string>} by
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
+                         * MapOfMetadata items.
+                         * @member {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>} items
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata
                          * @instance
                          */
-                        GroupResult.prototype.by = $util.emptyArray;
+                        MapOfMetadata.prototype.items = $util.emptyObject;
 
                         /**
-                         * GroupResult collapsedColumnResult.
-                         * @member {factset.protobuf.stach.v3.Table.ICollapsedColumnResult|null|undefined} collapsedColumnResult
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
-                         * @instance
-                         */
-                        GroupResult.prototype.collapsedColumnResult = null;
-
-                        /**
-                         * GroupResult rowPath.
-                         * @member {string} rowPath
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
-                         * @instance
-                         */
-                        GroupResult.prototype.rowPath = "";
-
-                        /**
-                         * GroupResult aggregateRows.
-                         * @member {string} aggregateRows
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
-                         * @instance
-                         */
-                        GroupResult.prototype.aggregateRows = "";
-
-                        /**
-                         * GroupResult level.
-                         * @member {string} level
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
-                         * @instance
-                         */
-                        GroupResult.prototype.level = "";
-
-                        /**
-                         * Creates a new GroupResult instance using the specified properties.
+                         * Creates a new MapOfMetadata instance using the specified properties.
                          * @function create
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata
                          * @static
-                         * @param {factset.protobuf.stach.v3.Table.IGroupResult=} [properties] Properties to set
-                         * @returns {factset.protobuf.stach.v3.Table.GroupResult} GroupResult instance
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IMapOfMetadata=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata} MapOfMetadata instance
                          */
-                        GroupResult.create = function create(properties) {
-                            return new GroupResult(properties);
+                        MapOfMetadata.create = function create(properties) {
+                            return new MapOfMetadata(properties);
                         };
 
                         /**
-                         * Encodes the specified GroupResult message. Does not implicitly {@link factset.protobuf.stach.v3.Table.GroupResult.verify|verify} messages.
+                         * Encodes the specified MapOfMetadata message. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata.verify|verify} messages.
                          * @function encode
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata
                          * @static
-                         * @param {factset.protobuf.stach.v3.Table.IGroupResult} message GroupResult message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IMapOfMetadata} message MapOfMetadata message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        GroupResult.encode = function encode(message, writer) {
+                        MapOfMetadata.encode = function encode(message, writer) {
                             if (!writer)
                                 writer = $Writer.create();
-                            if (message.by != null && message.by.length)
-                                for (var i = 0; i < message.by.length; ++i)
-                                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.by[i]);
-                            if (message.collapsedColumnResult != null && Object.hasOwnProperty.call(message, "collapsedColumnResult"))
-                                $root.factset.protobuf.stach.v3.Table.CollapsedColumnResult.encode(message.collapsedColumnResult, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                            if (message.rowPath != null && Object.hasOwnProperty.call(message, "rowPath"))
-                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.rowPath);
-                            if (message.aggregateRows != null && Object.hasOwnProperty.call(message, "aggregateRows"))
-                                writer.uint32(/* id 4, wireType 2 =*/34).string(message.aggregateRows);
-                            if (message.level != null && Object.hasOwnProperty.call(message, "level"))
-                                writer.uint32(/* id 5, wireType 2 =*/42).string(message.level);
+                            if (message.items != null && Object.hasOwnProperty.call(message, "items"))
+                                for (var keys = Object.keys(message.items), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.table.MetadataItem.encode(message.items[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
                             return writer;
                         };
 
                         /**
-                         * Encodes the specified GroupResult message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.Table.GroupResult.verify|verify} messages.
+                         * Encodes the specified MapOfMetadata message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata.verify|verify} messages.
                          * @function encodeDelimited
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata
                          * @static
-                         * @param {factset.protobuf.stach.v3.Table.IGroupResult} message GroupResult message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.IMapOfMetadata} message MapOfMetadata message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        GroupResult.encodeDelimited = function encodeDelimited(message, writer) {
+                        MapOfMetadata.encodeDelimited = function encodeDelimited(message, writer) {
                             return this.encode(message, writer).ldelim();
                         };
 
                         /**
-                         * Decodes a GroupResult message from the specified reader or buffer.
+                         * Decodes a MapOfMetadata message from the specified reader or buffer.
                          * @function decode
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                          * @param {number} [length] Message length if known beforehand
-                         * @returns {factset.protobuf.stach.v3.Table.GroupResult} GroupResult
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata} MapOfMetadata
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        GroupResult.decode = function decode(reader, length) {
+                        MapOfMetadata.decode = function decode(reader, length) {
                             if (!(reader instanceof $Reader))
                                 reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.Table.GroupResult();
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata(), key, value;
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    if (!(message.by && message.by.length))
-                                        message.by = [];
-                                    message.by.push(reader.string());
-                                    break;
-                                case 2:
-                                    message.collapsedColumnResult = $root.factset.protobuf.stach.v3.Table.CollapsedColumnResult.decode(reader, reader.uint32());
-                                    break;
-                                case 3:
-                                    message.rowPath = reader.string();
-                                    break;
-                                case 4:
-                                    message.aggregateRows = reader.string();
-                                    break;
-                                case 5:
-                                    message.level = reader.string();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        if (message.items === $util.emptyObject)
+                                            message.items = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.items[key] = value;
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
                         };
 
                         /**
-                         * Decodes a GroupResult message from the specified reader or buffer, length delimited.
+                         * Decodes a MapOfMetadata message from the specified reader or buffer, length delimited.
                          * @function decodeDelimited
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {factset.protobuf.stach.v3.Table.GroupResult} GroupResult
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata} MapOfMetadata
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        GroupResult.decodeDelimited = function decodeDelimited(reader) {
+                        MapOfMetadata.decodeDelimited = function decodeDelimited(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
                             return this.decode(reader, reader.uint32());
                         };
 
                         /**
-                         * Verifies a GroupResult message.
+                         * Verifies a MapOfMetadata message.
                          * @function verify
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata
                          * @static
                          * @param {Object.<string,*>} message Plain object to verify
                          * @returns {string|null} `null` if valid, otherwise the reason why it is not
                          */
-                        GroupResult.verify = function verify(message) {
+                        MapOfMetadata.verify = function verify(message) {
                             if (typeof message !== "object" || message === null)
                                 return "object expected";
-                            if (message.by != null && message.hasOwnProperty("by")) {
-                                if (!Array.isArray(message.by))
-                                    return "by: array expected";
-                                for (var i = 0; i < message.by.length; ++i)
-                                    if (!$util.isString(message.by[i]))
-                                        return "by: string[] expected";
+                            if (message.items != null && message.hasOwnProperty("items")) {
+                                if (!$util.isObject(message.items))
+                                    return "items: object expected";
+                                var key = Object.keys(message.items);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.MetadataItem.verify(message.items[key[i]]);
+                                    if (error)
+                                        return "items." + error;
+                                }
                             }
-                            if (message.collapsedColumnResult != null && message.hasOwnProperty("collapsedColumnResult")) {
-                                var error = $root.factset.protobuf.stach.v3.Table.CollapsedColumnResult.verify(message.collapsedColumnResult);
-                                if (error)
-                                    return "collapsedColumnResult." + error;
-                            }
-                            if (message.rowPath != null && message.hasOwnProperty("rowPath"))
-                                if (!$util.isString(message.rowPath))
-                                    return "rowPath: string expected";
-                            if (message.aggregateRows != null && message.hasOwnProperty("aggregateRows"))
-                                if (!$util.isString(message.aggregateRows))
-                                    return "aggregateRows: string expected";
-                            if (message.level != null && message.hasOwnProperty("level"))
-                                if (!$util.isString(message.level))
-                                    return "level: string expected";
                             return null;
                         };
 
                         /**
-                         * Creates a GroupResult message from a plain object. Also converts values to their respective internal types.
+                         * Creates a MapOfMetadata message from a plain object. Also converts values to their respective internal types.
                          * @function fromObject
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata
                          * @static
                          * @param {Object.<string,*>} object Plain object
-                         * @returns {factset.protobuf.stach.v3.Table.GroupResult} GroupResult
+                         * @returns {factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata} MapOfMetadata
                          */
-                        GroupResult.fromObject = function fromObject(object) {
-                            if (object instanceof $root.factset.protobuf.stach.v3.Table.GroupResult)
+                        MapOfMetadata.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata)
                                 return object;
-                            var message = new $root.factset.protobuf.stach.v3.Table.GroupResult();
-                            if (object.by) {
-                                if (!Array.isArray(object.by))
-                                    throw TypeError(".factset.protobuf.stach.v3.Table.GroupResult.by: array expected");
-                                message.by = [];
-                                for (var i = 0; i < object.by.length; ++i)
-                                    message.by[i] = String(object.by[i]);
+                            var message = new $root.factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata();
+                            if (object.items) {
+                                if (typeof object.items !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata.items: object expected");
+                                message.items = {};
+                                for (var keys = Object.keys(object.items), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.items[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata.items: object expected");
+                                    message.items[keys[i]] = $root.factset.protobuf.stach.v2.table.MetadataItem.fromObject(object.items[keys[i]]);
+                                }
                             }
-                            if (object.collapsedColumnResult != null) {
-                                if (typeof object.collapsedColumnResult !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.Table.GroupResult.collapsedColumnResult: object expected");
-                                message.collapsedColumnResult = $root.factset.protobuf.stach.v3.Table.CollapsedColumnResult.fromObject(object.collapsedColumnResult);
-                            }
-                            if (object.rowPath != null)
-                                message.rowPath = String(object.rowPath);
-                            if (object.aggregateRows != null)
-                                message.aggregateRows = String(object.aggregateRows);
-                            if (object.level != null)
-                                message.level = String(object.level);
                             return message;
                         };
 
                         /**
-                         * Creates a plain object from a GroupResult message. Also converts values to other types if specified.
+                         * Creates a plain object from a MapOfMetadata message. Also converts values to other types if specified.
                          * @function toObject
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata
                          * @static
-                         * @param {factset.protobuf.stach.v3.Table.GroupResult} message GroupResult
+                         * @param {factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata} message MapOfMetadata
                          * @param {$protobuf.IConversionOptions} [options] Conversion options
                          * @returns {Object.<string,*>} Plain object
                          */
-                        GroupResult.toObject = function toObject(message, options) {
+                        MapOfMetadata.toObject = function toObject(message, options) {
                             if (!options)
                                 options = {};
                             var object = {};
-                            if (options.arrays || options.defaults)
-                                object.by = [];
-                            if (options.defaults) {
-                                object.collapsedColumnResult = null;
-                                object.rowPath = "";
-                                object.aggregateRows = "";
-                                object.level = "";
+                            if (options.objects || options.defaults)
+                                object.items = {};
+                            var keys2;
+                            if (message.items && (keys2 = Object.keys(message.items)).length) {
+                                object.items = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.items[keys2[j]] = $root.factset.protobuf.stach.v2.table.MetadataItem.toObject(message.items[keys2[j]], options);
                             }
-                            if (message.by && message.by.length) {
-                                object.by = [];
-                                for (var j = 0; j < message.by.length; ++j)
-                                    object.by[j] = message.by[j];
-                            }
-                            if (message.collapsedColumnResult != null && message.hasOwnProperty("collapsedColumnResult"))
-                                object.collapsedColumnResult = $root.factset.protobuf.stach.v3.Table.CollapsedColumnResult.toObject(message.collapsedColumnResult, options);
-                            if (message.rowPath != null && message.hasOwnProperty("rowPath"))
-                                object.rowPath = message.rowPath;
-                            if (message.aggregateRows != null && message.hasOwnProperty("aggregateRows"))
-                                object.aggregateRows = message.aggregateRows;
-                            if (message.level != null && message.hasOwnProperty("level"))
-                                object.level = message.level;
                             return object;
                         };
 
                         /**
-                         * Converts this GroupResult to JSON.
+                         * Converts this MapOfMetadata to JSON.
                          * @function toJSON
-                         * @memberof factset.protobuf.stach.v3.Table.GroupResult
+                         * @memberof factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata
                          * @instance
                          * @returns {Object.<string,*>} JSON object
                          */
-                        GroupResult.prototype.toJSON = function toJSON() {
+                        MapOfMetadata.prototype.toJSON = function toJSON() {
                             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                         };
 
-                        return GroupResult;
+                        return MapOfMetadata;
                     })();
 
-                    Table.CollapsedColumnResult = (function() {
+                    return RowOrganizedPackage;
+                })();
+
+                v2.table = (function() {
+
+                    /**
+                     * Namespace table.
+                     * @memberof factset.protobuf.stach.v2
+                     * @namespace
+                     */
+                    var table = {};
+
+                    table.CellDefinition = (function() {
 
                         /**
-                         * Properties of a CollapsedColumnResult.
-                         * @memberof factset.protobuf.stach.v3.Table
-                         * @interface ICollapsedColumnResult
-                         * @property {string|null} [name] CollapsedColumnResult name
+                         * Properties of a CellDefinition.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface ICellDefinition
+                         * @property {string|null} [type] CellDefinition type
+                         * @property {factset.protobuf.stach.v2.table.IDataFormat|null} [format] CellDefinition format
                          */
 
                         /**
-                         * Constructs a new CollapsedColumnResult.
-                         * @memberof factset.protobuf.stach.v3.Table
-                         * @classdesc Represents a CollapsedColumnResult.
-                         * @implements ICollapsedColumnResult
+                         * Constructs a new CellDefinition.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a CellDefinition.
+                         * @implements ICellDefinition
                          * @constructor
-                         * @param {factset.protobuf.stach.v3.Table.ICollapsedColumnResult=} [properties] Properties to set
+                         * @param {factset.protobuf.stach.v2.table.ICellDefinition=} [properties] Properties to set
                          */
-                        function CollapsedColumnResult(properties) {
+                        function CellDefinition(properties) {
                             if (properties)
                                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                                     if (properties[keys[i]] != null)
@@ -2352,186 +2817,902 @@ $root.factset = (function() {
                         }
 
                         /**
-                         * CollapsedColumnResult name.
-                         * @member {string} name
-                         * @memberof factset.protobuf.stach.v3.Table.CollapsedColumnResult
+                         * CellDefinition type.
+                         * @member {string} type
+                         * @memberof factset.protobuf.stach.v2.table.CellDefinition
                          * @instance
                          */
-                        CollapsedColumnResult.prototype.name = "";
+                        CellDefinition.prototype.type = "";
 
                         /**
-                         * Creates a new CollapsedColumnResult instance using the specified properties.
-                         * @function create
-                         * @memberof factset.protobuf.stach.v3.Table.CollapsedColumnResult
-                         * @static
-                         * @param {factset.protobuf.stach.v3.Table.ICollapsedColumnResult=} [properties] Properties to set
-                         * @returns {factset.protobuf.stach.v3.Table.CollapsedColumnResult} CollapsedColumnResult instance
+                         * CellDefinition format.
+                         * @member {factset.protobuf.stach.v2.table.IDataFormat|null|undefined} format
+                         * @memberof factset.protobuf.stach.v2.table.CellDefinition
+                         * @instance
                          */
-                        CollapsedColumnResult.create = function create(properties) {
-                            return new CollapsedColumnResult(properties);
+                        CellDefinition.prototype.format = null;
+
+                        /**
+                         * Creates a new CellDefinition instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.table.CellDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.ICellDefinition=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.CellDefinition} CellDefinition instance
+                         */
+                        CellDefinition.create = function create(properties) {
+                            return new CellDefinition(properties);
                         };
 
                         /**
-                         * Encodes the specified CollapsedColumnResult message. Does not implicitly {@link factset.protobuf.stach.v3.Table.CollapsedColumnResult.verify|verify} messages.
+                         * Encodes the specified CellDefinition message. Does not implicitly {@link factset.protobuf.stach.v2.table.CellDefinition.verify|verify} messages.
                          * @function encode
-                         * @memberof factset.protobuf.stach.v3.Table.CollapsedColumnResult
+                         * @memberof factset.protobuf.stach.v2.table.CellDefinition
                          * @static
-                         * @param {factset.protobuf.stach.v3.Table.ICollapsedColumnResult} message CollapsedColumnResult message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.table.ICellDefinition} message CellDefinition message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        CollapsedColumnResult.encode = function encode(message, writer) {
+                        CellDefinition.encode = function encode(message, writer) {
                             if (!writer)
                                 writer = $Writer.create();
-                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.type);
+                            if (message.format != null && Object.hasOwnProperty.call(message, "format"))
+                                $root.factset.protobuf.stach.v2.table.DataFormat.encode(message.format, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                             return writer;
                         };
 
                         /**
-                         * Encodes the specified CollapsedColumnResult message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.Table.CollapsedColumnResult.verify|verify} messages.
+                         * Encodes the specified CellDefinition message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.CellDefinition.verify|verify} messages.
                          * @function encodeDelimited
-                         * @memberof factset.protobuf.stach.v3.Table.CollapsedColumnResult
+                         * @memberof factset.protobuf.stach.v2.table.CellDefinition
                          * @static
-                         * @param {factset.protobuf.stach.v3.Table.ICollapsedColumnResult} message CollapsedColumnResult message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.table.ICellDefinition} message CellDefinition message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        CollapsedColumnResult.encodeDelimited = function encodeDelimited(message, writer) {
+                        CellDefinition.encodeDelimited = function encodeDelimited(message, writer) {
                             return this.encode(message, writer).ldelim();
                         };
 
                         /**
-                         * Decodes a CollapsedColumnResult message from the specified reader or buffer.
+                         * Decodes a CellDefinition message from the specified reader or buffer.
                          * @function decode
-                         * @memberof factset.protobuf.stach.v3.Table.CollapsedColumnResult
+                         * @memberof factset.protobuf.stach.v2.table.CellDefinition
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                          * @param {number} [length] Message length if known beforehand
-                         * @returns {factset.protobuf.stach.v3.Table.CollapsedColumnResult} CollapsedColumnResult
+                         * @returns {factset.protobuf.stach.v2.table.CellDefinition} CellDefinition
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        CollapsedColumnResult.decode = function decode(reader, length) {
+                        CellDefinition.decode = function decode(reader, length) {
                             if (!(reader instanceof $Reader))
                                 reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.Table.CollapsedColumnResult();
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.CellDefinition();
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.name = reader.string();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.type = reader.string();
+                                        break;
+                                    case 2:
+                                        message.format = $root.factset.protobuf.stach.v2.table.DataFormat.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
                         };
 
                         /**
-                         * Decodes a CollapsedColumnResult message from the specified reader or buffer, length delimited.
+                         * Decodes a CellDefinition message from the specified reader or buffer, length delimited.
                          * @function decodeDelimited
-                         * @memberof factset.protobuf.stach.v3.Table.CollapsedColumnResult
+                         * @memberof factset.protobuf.stach.v2.table.CellDefinition
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {factset.protobuf.stach.v3.Table.CollapsedColumnResult} CollapsedColumnResult
+                         * @returns {factset.protobuf.stach.v2.table.CellDefinition} CellDefinition
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        CollapsedColumnResult.decodeDelimited = function decodeDelimited(reader) {
+                        CellDefinition.decodeDelimited = function decodeDelimited(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
                             return this.decode(reader, reader.uint32());
                         };
 
                         /**
-                         * Verifies a CollapsedColumnResult message.
+                         * Verifies a CellDefinition message.
                          * @function verify
-                         * @memberof factset.protobuf.stach.v3.Table.CollapsedColumnResult
+                         * @memberof factset.protobuf.stach.v2.table.CellDefinition
                          * @static
                          * @param {Object.<string,*>} message Plain object to verify
                          * @returns {string|null} `null` if valid, otherwise the reason why it is not
                          */
-                        CollapsedColumnResult.verify = function verify(message) {
+                        CellDefinition.verify = function verify(message) {
                             if (typeof message !== "object" || message === null)
                                 return "object expected";
+                            if (message.type != null && message.hasOwnProperty("type"))
+                                if (!$util.isString(message.type))
+                                    return "type: string expected";
+                            if (message.format != null && message.hasOwnProperty("format")) {
+                                var error = $root.factset.protobuf.stach.v2.table.DataFormat.verify(message.format);
+                                if (error)
+                                    return "format." + error;
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a CellDefinition message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.table.CellDefinition
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.table.CellDefinition} CellDefinition
+                         */
+                        CellDefinition.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.CellDefinition)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.table.CellDefinition();
+                            if (object.type != null)
+                                message.type = String(object.type);
+                            if (object.format != null) {
+                                if (typeof object.format !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.CellDefinition.format: object expected");
+                                message.format = $root.factset.protobuf.stach.v2.table.DataFormat.fromObject(object.format);
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a CellDefinition message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.table.CellDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.CellDefinition} message CellDefinition
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        CellDefinition.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.type = "";
+                                object.format = null;
+                            }
+                            if (message.type != null && message.hasOwnProperty("type"))
+                                object.type = message.type;
+                            if (message.format != null && message.hasOwnProperty("format"))
+                                object.format = $root.factset.protobuf.stach.v2.table.DataFormat.toObject(message.format, options);
+                            return object;
+                        };
+
+                        /**
+                         * Converts this CellDefinition to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.table.CellDefinition
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        CellDefinition.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return CellDefinition;
+                    })();
+
+                    table.ColumnData = (function() {
+
+                        /**
+                         * Properties of a ColumnData.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface IColumnData
+                         * @property {Object.<string,number>|null} [ranges] ColumnData ranges
+                         * @property {google.protobuf.IListValue|null} [values] ColumnData values
+                         * @property {Array.<factset.protobuf.stach.v2.table.ICellDefinition>|null} [definitions] ColumnData definitions
+                         */
+
+                        /**
+                         * Constructs a new ColumnData.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a ColumnData.
+                         * @implements IColumnData
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.table.IColumnData=} [properties] Properties to set
+                         */
+                        function ColumnData(properties) {
+                            this.ranges = {};
+                            this.definitions = [];
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * ColumnData ranges.
+                         * @member {Object.<string,number>} ranges
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @instance
+                         */
+                        ColumnData.prototype.ranges = $util.emptyObject;
+
+                        /**
+                         * ColumnData values.
+                         * @member {google.protobuf.IListValue|null|undefined} values
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @instance
+                         */
+                        ColumnData.prototype.values = null;
+
+                        /**
+                         * ColumnData definitions.
+                         * @member {Array.<factset.protobuf.stach.v2.table.ICellDefinition>} definitions
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @instance
+                         */
+                        ColumnData.prototype.definitions = $util.emptyArray;
+
+                        /**
+                         * Creates a new ColumnData instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IColumnData=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.ColumnData} ColumnData instance
+                         */
+                        ColumnData.create = function create(properties) {
+                            return new ColumnData(properties);
+                        };
+
+                        /**
+                         * Encodes the specified ColumnData message. Does not implicitly {@link factset.protobuf.stach.v2.table.ColumnData.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IColumnData} message ColumnData message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        ColumnData.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.ranges != null && Object.hasOwnProperty.call(message, "ranges"))
+                                for (var keys = Object.keys(message.ranges), i = 0; i < keys.length; ++i)
+                                    writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 0 =*/8).int32(keys[i]).uint32(/* id 2, wireType 0 =*/16).int32(message.ranges[keys[i]]).ldelim();
+                            if (message.values != null && Object.hasOwnProperty.call(message, "values"))
+                                $root.google.protobuf.ListValue.encode(message.values, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            if (message.definitions != null && message.definitions.length)
+                                for (var i = 0; i < message.definitions.length; ++i)
+                                    $root.factset.protobuf.stach.v2.table.CellDefinition.encode(message.definitions[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified ColumnData message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.ColumnData.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IColumnData} message ColumnData message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        ColumnData.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a ColumnData message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.table.ColumnData} ColumnData
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        ColumnData.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.ColumnData(), key, value;
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        if (message.ranges === $util.emptyObject)
+                                            message.ranges = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = 0;
+                                        value = 0;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.int32();
+                                                    break;
+                                                case 2:
+                                                    value = reader.int32();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.ranges[key] = value;
+                                        break;
+                                    case 2:
+                                        message.values = $root.google.protobuf.ListValue.decode(reader, reader.uint32());
+                                        break;
+                                    case 3:
+                                        if (!(message.definitions && message.definitions.length))
+                                            message.definitions = [];
+                                        message.definitions.push($root.factset.protobuf.stach.v2.table.CellDefinition.decode(reader, reader.uint32()));
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a ColumnData message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.table.ColumnData} ColumnData
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        ColumnData.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a ColumnData message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        ColumnData.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.ranges != null && message.hasOwnProperty("ranges")) {
+                                if (!$util.isObject(message.ranges))
+                                    return "ranges: object expected";
+                                var key = Object.keys(message.ranges);
+                                for (var i = 0; i < key.length; ++i) {
+                                    if (!$util.key32Re.test(key[i]))
+                                        return "ranges: integer key{k:int32} expected";
+                                    if (!$util.isInteger(message.ranges[key[i]]))
+                                        return "ranges: integer{k:int32} expected";
+                                }
+                            }
+                            if (message.values != null && message.hasOwnProperty("values")) {
+                                var error = $root.google.protobuf.ListValue.verify(message.values);
+                                if (error)
+                                    return "values." + error;
+                            }
+                            if (message.definitions != null && message.hasOwnProperty("definitions")) {
+                                if (!Array.isArray(message.definitions))
+                                    return "definitions: array expected";
+                                for (var i = 0; i < message.definitions.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.CellDefinition.verify(message.definitions[i]);
+                                    if (error)
+                                        return "definitions." + error;
+                                }
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a ColumnData message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.table.ColumnData} ColumnData
+                         */
+                        ColumnData.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.ColumnData)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.table.ColumnData();
+                            if (object.ranges) {
+                                if (typeof object.ranges !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.ColumnData.ranges: object expected");
+                                message.ranges = {};
+                                for (var keys = Object.keys(object.ranges), i = 0; i < keys.length; ++i)
+                                    message.ranges[keys[i]] = object.ranges[keys[i]] | 0;
+                            }
+                            if (object.values != null) {
+                                message.values = $root.google.protobuf.ListValue.fromObject(object.values);
+                            }
+                            if (object.definitions) {
+                                if (!Array.isArray(object.definitions))
+                                    throw TypeError(".factset.protobuf.stach.v2.table.ColumnData.definitions: array expected");
+                                message.definitions = [];
+                                for (var i = 0; i < object.definitions.length; ++i) {
+                                    if (typeof object.definitions[i] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.table.ColumnData.definitions: object expected");
+                                    message.definitions[i] = $root.factset.protobuf.stach.v2.table.CellDefinition.fromObject(object.definitions[i]);
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a ColumnData message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.ColumnData} message ColumnData
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        ColumnData.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.arrays || options.defaults)
+                                object.definitions = [];
+                            if (options.objects || options.defaults)
+                                object.ranges = {};
+                            if (options.defaults)
+                                object.values = null;
+                            var keys2;
+                            if (message.ranges && (keys2 = Object.keys(message.ranges)).length) {
+                                object.ranges = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.ranges[keys2[j]] = message.ranges[keys2[j]];
+                            }
+                            if (message.values != null && message.hasOwnProperty("values"))
+                                object.values = $root.google.protobuf.ListValue.toObject(message.values, options);
+                            if (message.definitions && message.definitions.length) {
+                                object.definitions = [];
+                                for (var j = 0; j < message.definitions.length; ++j)
+                                    object.definitions[j] = $root.factset.protobuf.stach.v2.table.CellDefinition.toObject(message.definitions[j], options);
+                            }
+                            return object;
+                        };
+
+                        /**
+                         * Converts this ColumnData to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.table.ColumnData
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        ColumnData.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return ColumnData;
+                    })();
+
+                    table.ColumnDefinition = (function() {
+
+                        /**
+                         * Properties of a ColumnDefinition.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface IColumnDefinition
+                         * @property {string|null} [id] ColumnDefinition id
+                         * @property {string|null} [name] ColumnDefinition name
+                         * @property {string|null} [description] ColumnDefinition description
+                         * @property {string|null} [type] ColumnDefinition type
+                         * @property {boolean|null} [isDimension] ColumnDefinition isDimension
+                         * @property {boolean|null} [isHidden] ColumnDefinition isHidden
+                         * @property {string|null} [nextSiblingId] ColumnDefinition nextSiblingId
+                         * @property {string|null} [parentId] ColumnDefinition parentId
+                         * @property {string|null} [headerId] ColumnDefinition headerId
+                         * @property {factset.protobuf.stach.v2.table.IDataFormat|null} [format] ColumnDefinition format
+                         */
+
+                        /**
+                         * Constructs a new ColumnDefinition.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a ColumnDefinition.
+                         * @implements IColumnDefinition
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.table.IColumnDefinition=} [properties] Properties to set
+                         */
+                        function ColumnDefinition(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * ColumnDefinition id.
+                         * @member {string} id
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @instance
+                         */
+                        ColumnDefinition.prototype.id = "";
+
+                        /**
+                         * ColumnDefinition name.
+                         * @member {string} name
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @instance
+                         */
+                        ColumnDefinition.prototype.name = "";
+
+                        /**
+                         * ColumnDefinition description.
+                         * @member {string} description
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @instance
+                         */
+                        ColumnDefinition.prototype.description = "";
+
+                        /**
+                         * ColumnDefinition type.
+                         * @member {string} type
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @instance
+                         */
+                        ColumnDefinition.prototype.type = "";
+
+                        /**
+                         * ColumnDefinition isDimension.
+                         * @member {boolean} isDimension
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @instance
+                         */
+                        ColumnDefinition.prototype.isDimension = false;
+
+                        /**
+                         * ColumnDefinition isHidden.
+                         * @member {boolean} isHidden
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @instance
+                         */
+                        ColumnDefinition.prototype.isHidden = false;
+
+                        /**
+                         * ColumnDefinition nextSiblingId.
+                         * @member {string} nextSiblingId
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @instance
+                         */
+                        ColumnDefinition.prototype.nextSiblingId = "";
+
+                        /**
+                         * ColumnDefinition parentId.
+                         * @member {string} parentId
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @instance
+                         */
+                        ColumnDefinition.prototype.parentId = "";
+
+                        /**
+                         * ColumnDefinition headerId.
+                         * @member {string} headerId
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @instance
+                         */
+                        ColumnDefinition.prototype.headerId = "";
+
+                        /**
+                         * ColumnDefinition format.
+                         * @member {factset.protobuf.stach.v2.table.IDataFormat|null|undefined} format
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @instance
+                         */
+                        ColumnDefinition.prototype.format = null;
+
+                        /**
+                         * Creates a new ColumnDefinition instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IColumnDefinition=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.ColumnDefinition} ColumnDefinition instance
+                         */
+                        ColumnDefinition.create = function create(properties) {
+                            return new ColumnDefinition(properties);
+                        };
+
+                        /**
+                         * Encodes the specified ColumnDefinition message. Does not implicitly {@link factset.protobuf.stach.v2.table.ColumnDefinition.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IColumnDefinition} message ColumnDefinition message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        ColumnDefinition.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
+                            if (message.description != null && Object.hasOwnProperty.call(message, "description"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.description);
+                            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                                writer.uint32(/* id 4, wireType 2 =*/34).string(message.type);
+                            if (message.isDimension != null && Object.hasOwnProperty.call(message, "isDimension"))
+                                writer.uint32(/* id 5, wireType 0 =*/40).bool(message.isDimension);
+                            if (message.isHidden != null && Object.hasOwnProperty.call(message, "isHidden"))
+                                writer.uint32(/* id 6, wireType 0 =*/48).bool(message.isHidden);
+                            if (message.nextSiblingId != null && Object.hasOwnProperty.call(message, "nextSiblingId"))
+                                writer.uint32(/* id 7, wireType 2 =*/58).string(message.nextSiblingId);
+                            if (message.parentId != null && Object.hasOwnProperty.call(message, "parentId"))
+                                writer.uint32(/* id 8, wireType 2 =*/66).string(message.parentId);
+                            if (message.headerId != null && Object.hasOwnProperty.call(message, "headerId"))
+                                writer.uint32(/* id 9, wireType 2 =*/74).string(message.headerId);
+                            if (message.format != null && Object.hasOwnProperty.call(message, "format"))
+                                $root.factset.protobuf.stach.v2.table.DataFormat.encode(message.format, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified ColumnDefinition message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.ColumnDefinition.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IColumnDefinition} message ColumnDefinition message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        ColumnDefinition.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a ColumnDefinition message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.table.ColumnDefinition} ColumnDefinition
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        ColumnDefinition.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.ColumnDefinition();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        message.id = reader.string();
+                                        break;
+                                    case 2:
+                                        message.name = reader.string();
+                                        break;
+                                    case 3:
+                                        message.description = reader.string();
+                                        break;
+                                    case 4:
+                                        message.type = reader.string();
+                                        break;
+                                    case 5:
+                                        message.isDimension = reader.bool();
+                                        break;
+                                    case 6:
+                                        message.isHidden = reader.bool();
+                                        break;
+                                    case 7:
+                                        message.nextSiblingId = reader.string();
+                                        break;
+                                    case 8:
+                                        message.parentId = reader.string();
+                                        break;
+                                    case 9:
+                                        message.headerId = reader.string();
+                                        break;
+                                    case 10:
+                                        message.format = $root.factset.protobuf.stach.v2.table.DataFormat.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a ColumnDefinition message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.table.ColumnDefinition} ColumnDefinition
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        ColumnDefinition.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a ColumnDefinition message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        ColumnDefinition.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.id != null && message.hasOwnProperty("id"))
+                                if (!$util.isString(message.id))
+                                    return "id: string expected";
                             if (message.name != null && message.hasOwnProperty("name"))
                                 if (!$util.isString(message.name))
                                     return "name: string expected";
+                            if (message.description != null && message.hasOwnProperty("description"))
+                                if (!$util.isString(message.description))
+                                    return "description: string expected";
+                            if (message.type != null && message.hasOwnProperty("type"))
+                                if (!$util.isString(message.type))
+                                    return "type: string expected";
+                            if (message.isDimension != null && message.hasOwnProperty("isDimension"))
+                                if (typeof message.isDimension !== "boolean")
+                                    return "isDimension: boolean expected";
+                            if (message.isHidden != null && message.hasOwnProperty("isHidden"))
+                                if (typeof message.isHidden !== "boolean")
+                                    return "isHidden: boolean expected";
+                            if (message.nextSiblingId != null && message.hasOwnProperty("nextSiblingId"))
+                                if (!$util.isString(message.nextSiblingId))
+                                    return "nextSiblingId: string expected";
+                            if (message.parentId != null && message.hasOwnProperty("parentId"))
+                                if (!$util.isString(message.parentId))
+                                    return "parentId: string expected";
+                            if (message.headerId != null && message.hasOwnProperty("headerId"))
+                                if (!$util.isString(message.headerId))
+                                    return "headerId: string expected";
+                            if (message.format != null && message.hasOwnProperty("format")) {
+                                var error = $root.factset.protobuf.stach.v2.table.DataFormat.verify(message.format);
+                                if (error)
+                                    return "format." + error;
+                            }
                             return null;
                         };
 
                         /**
-                         * Creates a CollapsedColumnResult message from a plain object. Also converts values to their respective internal types.
+                         * Creates a ColumnDefinition message from a plain object. Also converts values to their respective internal types.
                          * @function fromObject
-                         * @memberof factset.protobuf.stach.v3.Table.CollapsedColumnResult
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
                          * @static
                          * @param {Object.<string,*>} object Plain object
-                         * @returns {factset.protobuf.stach.v3.Table.CollapsedColumnResult} CollapsedColumnResult
+                         * @returns {factset.protobuf.stach.v2.table.ColumnDefinition} ColumnDefinition
                          */
-                        CollapsedColumnResult.fromObject = function fromObject(object) {
-                            if (object instanceof $root.factset.protobuf.stach.v3.Table.CollapsedColumnResult)
+                        ColumnDefinition.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.ColumnDefinition)
                                 return object;
-                            var message = new $root.factset.protobuf.stach.v3.Table.CollapsedColumnResult();
+                            var message = new $root.factset.protobuf.stach.v2.table.ColumnDefinition();
+                            if (object.id != null)
+                                message.id = String(object.id);
                             if (object.name != null)
                                 message.name = String(object.name);
+                            if (object.description != null)
+                                message.description = String(object.description);
+                            if (object.type != null)
+                                message.type = String(object.type);
+                            if (object.isDimension != null)
+                                message.isDimension = Boolean(object.isDimension);
+                            if (object.isHidden != null)
+                                message.isHidden = Boolean(object.isHidden);
+                            if (object.nextSiblingId != null)
+                                message.nextSiblingId = String(object.nextSiblingId);
+                            if (object.parentId != null)
+                                message.parentId = String(object.parentId);
+                            if (object.headerId != null)
+                                message.headerId = String(object.headerId);
+                            if (object.format != null) {
+                                if (typeof object.format !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.ColumnDefinition.format: object expected");
+                                message.format = $root.factset.protobuf.stach.v2.table.DataFormat.fromObject(object.format);
+                            }
                             return message;
                         };
 
                         /**
-                         * Creates a plain object from a CollapsedColumnResult message. Also converts values to other types if specified.
+                         * Creates a plain object from a ColumnDefinition message. Also converts values to other types if specified.
                          * @function toObject
-                         * @memberof factset.protobuf.stach.v3.Table.CollapsedColumnResult
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
                          * @static
-                         * @param {factset.protobuf.stach.v3.Table.CollapsedColumnResult} message CollapsedColumnResult
+                         * @param {factset.protobuf.stach.v2.table.ColumnDefinition} message ColumnDefinition
                          * @param {$protobuf.IConversionOptions} [options] Conversion options
                          * @returns {Object.<string,*>} Plain object
                          */
-                        CollapsedColumnResult.toObject = function toObject(message, options) {
+                        ColumnDefinition.toObject = function toObject(message, options) {
                             if (!options)
                                 options = {};
                             var object = {};
-                            if (options.defaults)
+                            if (options.defaults) {
+                                object.id = "";
                                 object.name = "";
+                                object.description = "";
+                                object.type = "";
+                                object.isDimension = false;
+                                object.isHidden = false;
+                                object.nextSiblingId = "";
+                                object.parentId = "";
+                                object.headerId = "";
+                                object.format = null;
+                            }
+                            if (message.id != null && message.hasOwnProperty("id"))
+                                object.id = message.id;
                             if (message.name != null && message.hasOwnProperty("name"))
                                 object.name = message.name;
+                            if (message.description != null && message.hasOwnProperty("description"))
+                                object.description = message.description;
+                            if (message.type != null && message.hasOwnProperty("type"))
+                                object.type = message.type;
+                            if (message.isDimension != null && message.hasOwnProperty("isDimension"))
+                                object.isDimension = message.isDimension;
+                            if (message.isHidden != null && message.hasOwnProperty("isHidden"))
+                                object.isHidden = message.isHidden;
+                            if (message.nextSiblingId != null && message.hasOwnProperty("nextSiblingId"))
+                                object.nextSiblingId = message.nextSiblingId;
+                            if (message.parentId != null && message.hasOwnProperty("parentId"))
+                                object.parentId = message.parentId;
+                            if (message.headerId != null && message.hasOwnProperty("headerId"))
+                                object.headerId = message.headerId;
+                            if (message.format != null && message.hasOwnProperty("format"))
+                                object.format = $root.factset.protobuf.stach.v2.table.DataFormat.toObject(message.format, options);
                             return object;
                         };
 
                         /**
-                         * Converts this CollapsedColumnResult to JSON.
+                         * Converts this ColumnDefinition to JSON.
                          * @function toJSON
-                         * @memberof factset.protobuf.stach.v3.Table.CollapsedColumnResult
+                         * @memberof factset.protobuf.stach.v2.table.ColumnDefinition
                          * @instance
                          * @returns {Object.<string,*>} JSON object
                          */
-                        CollapsedColumnResult.prototype.toJSON = function toJSON() {
+                        ColumnDefinition.prototype.toJSON = function toJSON() {
                             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                         };
 
-                        return CollapsedColumnResult;
+                        return ColumnDefinition;
                     })();
 
-                    Table.SplitResult = (function() {
+                    table.DataFormat = (function() {
 
                         /**
-                         * Properties of a SplitResult.
-                         * @memberof factset.protobuf.stach.v3.Table
-                         * @interface ISplitResult
-                         * @property {string|null} [multiLevelHeadersTableReference] SplitResult multiLevelHeadersTableReference
+                         * Properties of a DataFormat.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface IDataFormat
+                         * @property {string|null} [format] DataFormat format
+                         * @property {string|null} [nullFormat] DataFormat nullFormat
+                         * @property {factset.protobuf.stach.v2.table.HorizontalAlignment|null} [halign] DataFormat halign
+                         * @property {factset.protobuf.stach.v2.table.VerticalAlignment|null} [valign] DataFormat valign
                          */
 
                         /**
-                         * Constructs a new SplitResult.
-                         * @memberof factset.protobuf.stach.v3.Table
-                         * @classdesc Represents a SplitResult.
-                         * @implements ISplitResult
+                         * Constructs a new DataFormat.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a DataFormat.
+                         * @implements IDataFormat
                          * @constructor
-                         * @param {factset.protobuf.stach.v3.Table.ISplitResult=} [properties] Properties to set
+                         * @param {factset.protobuf.stach.v2.table.IDataFormat=} [properties] Properties to set
                          */
-                        function SplitResult(properties) {
+                        function DataFormat(properties) {
                             if (properties)
                                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                                     if (properties[keys[i]] != null)
@@ -2539,591 +3720,315 @@ $root.factset = (function() {
                         }
 
                         /**
-                         * SplitResult multiLevelHeadersTableReference.
-                         * @member {string} multiLevelHeadersTableReference
-                         * @memberof factset.protobuf.stach.v3.Table.SplitResult
+                         * DataFormat format.
+                         * @member {string} format
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
                          * @instance
                          */
-                        SplitResult.prototype.multiLevelHeadersTableReference = "";
+                        DataFormat.prototype.format = "";
 
                         /**
-                         * Creates a new SplitResult instance using the specified properties.
-                         * @function create
-                         * @memberof factset.protobuf.stach.v3.Table.SplitResult
-                         * @static
-                         * @param {factset.protobuf.stach.v3.Table.ISplitResult=} [properties] Properties to set
-                         * @returns {factset.protobuf.stach.v3.Table.SplitResult} SplitResult instance
+                         * DataFormat nullFormat.
+                         * @member {string} nullFormat
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
+                         * @instance
                          */
-                        SplitResult.create = function create(properties) {
-                            return new SplitResult(properties);
+                        DataFormat.prototype.nullFormat = "";
+
+                        /**
+                         * DataFormat halign.
+                         * @member {factset.protobuf.stach.v2.table.HorizontalAlignment} halign
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
+                         * @instance
+                         */
+                        DataFormat.prototype.halign = 0;
+
+                        /**
+                         * DataFormat valign.
+                         * @member {factset.protobuf.stach.v2.table.VerticalAlignment} valign
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
+                         * @instance
+                         */
+                        DataFormat.prototype.valign = 0;
+
+                        /**
+                         * Creates a new DataFormat instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IDataFormat=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.DataFormat} DataFormat instance
+                         */
+                        DataFormat.create = function create(properties) {
+                            return new DataFormat(properties);
                         };
 
                         /**
-                         * Encodes the specified SplitResult message. Does not implicitly {@link factset.protobuf.stach.v3.Table.SplitResult.verify|verify} messages.
+                         * Encodes the specified DataFormat message. Does not implicitly {@link factset.protobuf.stach.v2.table.DataFormat.verify|verify} messages.
                          * @function encode
-                         * @memberof factset.protobuf.stach.v3.Table.SplitResult
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
                          * @static
-                         * @param {factset.protobuf.stach.v3.Table.ISplitResult} message SplitResult message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.table.IDataFormat} message DataFormat message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        SplitResult.encode = function encode(message, writer) {
+                        DataFormat.encode = function encode(message, writer) {
                             if (!writer)
                                 writer = $Writer.create();
-                            if (message.multiLevelHeadersTableReference != null && Object.hasOwnProperty.call(message, "multiLevelHeadersTableReference"))
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.multiLevelHeadersTableReference);
+                            if (message.format != null && Object.hasOwnProperty.call(message, "format"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.format);
+                            if (message.nullFormat != null && Object.hasOwnProperty.call(message, "nullFormat"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.nullFormat);
+                            if (message.halign != null && Object.hasOwnProperty.call(message, "halign"))
+                                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.halign);
+                            if (message.valign != null && Object.hasOwnProperty.call(message, "valign"))
+                                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.valign);
                             return writer;
                         };
 
                         /**
-                         * Encodes the specified SplitResult message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.Table.SplitResult.verify|verify} messages.
+                         * Encodes the specified DataFormat message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.DataFormat.verify|verify} messages.
                          * @function encodeDelimited
-                         * @memberof factset.protobuf.stach.v3.Table.SplitResult
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
                          * @static
-                         * @param {factset.protobuf.stach.v3.Table.ISplitResult} message SplitResult message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.table.IDataFormat} message DataFormat message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        SplitResult.encodeDelimited = function encodeDelimited(message, writer) {
+                        DataFormat.encodeDelimited = function encodeDelimited(message, writer) {
                             return this.encode(message, writer).ldelim();
                         };
 
                         /**
-                         * Decodes a SplitResult message from the specified reader or buffer.
+                         * Decodes a DataFormat message from the specified reader or buffer.
                          * @function decode
-                         * @memberof factset.protobuf.stach.v3.Table.SplitResult
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                          * @param {number} [length] Message length if known beforehand
-                         * @returns {factset.protobuf.stach.v3.Table.SplitResult} SplitResult
+                         * @returns {factset.protobuf.stach.v2.table.DataFormat} DataFormat
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        SplitResult.decode = function decode(reader, length) {
+                        DataFormat.decode = function decode(reader, length) {
                             if (!(reader instanceof $Reader))
                                 reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.Table.SplitResult();
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.DataFormat();
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.multiLevelHeadersTableReference = reader.string();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.format = reader.string();
+                                        break;
+                                    case 2:
+                                        message.nullFormat = reader.string();
+                                        break;
+                                    case 3:
+                                        message.halign = reader.int32();
+                                        break;
+                                    case 4:
+                                        message.valign = reader.int32();
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
                         };
 
                         /**
-                         * Decodes a SplitResult message from the specified reader or buffer, length delimited.
+                         * Decodes a DataFormat message from the specified reader or buffer, length delimited.
                          * @function decodeDelimited
-                         * @memberof factset.protobuf.stach.v3.Table.SplitResult
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {factset.protobuf.stach.v3.Table.SplitResult} SplitResult
+                         * @returns {factset.protobuf.stach.v2.table.DataFormat} DataFormat
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        SplitResult.decodeDelimited = function decodeDelimited(reader) {
+                        DataFormat.decodeDelimited = function decodeDelimited(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
                             return this.decode(reader, reader.uint32());
                         };
 
                         /**
-                         * Verifies a SplitResult message.
+                         * Verifies a DataFormat message.
                          * @function verify
-                         * @memberof factset.protobuf.stach.v3.Table.SplitResult
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
                          * @static
                          * @param {Object.<string,*>} message Plain object to verify
                          * @returns {string|null} `null` if valid, otherwise the reason why it is not
                          */
-                        SplitResult.verify = function verify(message) {
+                        DataFormat.verify = function verify(message) {
                             if (typeof message !== "object" || message === null)
                                 return "object expected";
-                            if (message.multiLevelHeadersTableReference != null && message.hasOwnProperty("multiLevelHeadersTableReference"))
-                                if (!$util.isString(message.multiLevelHeadersTableReference))
-                                    return "multiLevelHeadersTableReference: string expected";
+                            if (message.format != null && message.hasOwnProperty("format"))
+                                if (!$util.isString(message.format))
+                                    return "format: string expected";
+                            if (message.nullFormat != null && message.hasOwnProperty("nullFormat"))
+                                if (!$util.isString(message.nullFormat))
+                                    return "nullFormat: string expected";
+                            if (message.halign != null && message.hasOwnProperty("halign"))
+                                switch (message.halign) {
+                                    default:
+                                        return "halign: enum value expected";
+                                    case 0:
+                                    case 1:
+                                    case 2:
+                                    case 3:
+                                        break;
+                                }
+                            if (message.valign != null && message.hasOwnProperty("valign"))
+                                switch (message.valign) {
+                                    default:
+                                        return "valign: enum value expected";
+                                    case 0:
+                                    case 1:
+                                    case 2:
+                                    case 3:
+                                        break;
+                                }
                             return null;
                         };
 
                         /**
-                         * Creates a SplitResult message from a plain object. Also converts values to their respective internal types.
+                         * Creates a DataFormat message from a plain object. Also converts values to their respective internal types.
                          * @function fromObject
-                         * @memberof factset.protobuf.stach.v3.Table.SplitResult
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
                          * @static
                          * @param {Object.<string,*>} object Plain object
-                         * @returns {factset.protobuf.stach.v3.Table.SplitResult} SplitResult
+                         * @returns {factset.protobuf.stach.v2.table.DataFormat} DataFormat
                          */
-                        SplitResult.fromObject = function fromObject(object) {
-                            if (object instanceof $root.factset.protobuf.stach.v3.Table.SplitResult)
+                        DataFormat.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.DataFormat)
                                 return object;
-                            var message = new $root.factset.protobuf.stach.v3.Table.SplitResult();
-                            if (object.multiLevelHeadersTableReference != null)
-                                message.multiLevelHeadersTableReference = String(object.multiLevelHeadersTableReference);
+                            var message = new $root.factset.protobuf.stach.v2.table.DataFormat();
+                            if (object.format != null)
+                                message.format = String(object.format);
+                            if (object.nullFormat != null)
+                                message.nullFormat = String(object.nullFormat);
+                            switch (object.halign) {
+                                case "UNKNOWN_HALIGN":
+                                case 0:
+                                    message.halign = 0;
+                                    break;
+                                case "LEFT":
+                                case 1:
+                                    message.halign = 1;
+                                    break;
+                                case "CENTER":
+                                case 2:
+                                    message.halign = 2;
+                                    break;
+                                case "RIGHT":
+                                case 3:
+                                    message.halign = 3;
+                                    break;
+                            }
+                            switch (object.valign) {
+                                case "UNKNOWN_VALIGN":
+                                case 0:
+                                    message.valign = 0;
+                                    break;
+                                case "TOP":
+                                case 1:
+                                    message.valign = 1;
+                                    break;
+                                case "MIDDLE":
+                                case 2:
+                                    message.valign = 2;
+                                    break;
+                                case "BOTTOM":
+                                case 3:
+                                    message.valign = 3;
+                                    break;
+                            }
                             return message;
                         };
 
                         /**
-                         * Creates a plain object from a SplitResult message. Also converts values to other types if specified.
+                         * Creates a plain object from a DataFormat message. Also converts values to other types if specified.
                          * @function toObject
-                         * @memberof factset.protobuf.stach.v3.Table.SplitResult
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
                          * @static
-                         * @param {factset.protobuf.stach.v3.Table.SplitResult} message SplitResult
+                         * @param {factset.protobuf.stach.v2.table.DataFormat} message DataFormat
                          * @param {$protobuf.IConversionOptions} [options] Conversion options
                          * @returns {Object.<string,*>} Plain object
                          */
-                        SplitResult.toObject = function toObject(message, options) {
+                        DataFormat.toObject = function toObject(message, options) {
                             if (!options)
                                 options = {};
                             var object = {};
-                            if (options.defaults)
-                                object.multiLevelHeadersTableReference = "";
-                            if (message.multiLevelHeadersTableReference != null && message.hasOwnProperty("multiLevelHeadersTableReference"))
-                                object.multiLevelHeadersTableReference = message.multiLevelHeadersTableReference;
+                            if (options.defaults) {
+                                object.format = "";
+                                object.nullFormat = "";
+                                object.halign = options.enums === String ? "UNKNOWN_HALIGN" : 0;
+                                object.valign = options.enums === String ? "UNKNOWN_VALIGN" : 0;
+                            }
+                            if (message.format != null && message.hasOwnProperty("format"))
+                                object.format = message.format;
+                            if (message.nullFormat != null && message.hasOwnProperty("nullFormat"))
+                                object.nullFormat = message.nullFormat;
+                            if (message.halign != null && message.hasOwnProperty("halign"))
+                                object.halign = options.enums === String ? $root.factset.protobuf.stach.v2.table.HorizontalAlignment[message.halign] : message.halign;
+                            if (message.valign != null && message.hasOwnProperty("valign"))
+                                object.valign = options.enums === String ? $root.factset.protobuf.stach.v2.table.VerticalAlignment[message.valign] : message.valign;
                             return object;
                         };
 
                         /**
-                         * Converts this SplitResult to JSON.
+                         * Converts this DataFormat to JSON.
                          * @function toJSON
-                         * @memberof factset.protobuf.stach.v3.Table.SplitResult
+                         * @memberof factset.protobuf.stach.v2.table.DataFormat
                          * @instance
                          * @returns {Object.<string,*>} JSON object
                          */
-                        SplitResult.prototype.toJSON = function toJSON() {
+                        DataFormat.prototype.toJSON = function toJSON() {
                             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                         };
 
-                        return SplitResult;
+                        return DataFormat;
                     })();
 
-                    return Table;
-                })();
-
-                v3.TableView = (function() {
-
                     /**
-                     * Properties of a TableView.
-                     * @memberof factset.protobuf.stach.v3
-                     * @interface ITableView
-                     * @property {string|null} [displayName] TableView displayName
-                     * @property {Array.<string>|null} [columns] TableView columns
-                     * @property {Object.<string,string>|null} [headers] TableView headers
-                     * @property {factset.protobuf.stach.v3.TableView.IGroup|null} [group] TableView group
-                     * @property {factset.protobuf.stach.v3.TableView.ISplit|null} [split] TableView split
-                     * @property {Object.<string,factset.protobuf.stach.v3.IMetadataItem>|null} [customMetadata] TableView customMetadata
+                     * HorizontalAlignment enum.
+                     * @name factset.protobuf.stach.v2.table.HorizontalAlignment
+                     * @enum {number}
+                     * @property {number} UNKNOWN_HALIGN=0 UNKNOWN_HALIGN value
+                     * @property {number} LEFT=1 LEFT value
+                     * @property {number} CENTER=2 CENTER value
+                     * @property {number} RIGHT=3 RIGHT value
                      */
+                    table.HorizontalAlignment = (function() {
+                        var valuesById = {}, values = Object.create(valuesById);
+                        values[valuesById[0] = "UNKNOWN_HALIGN"] = 0;
+                        values[valuesById[1] = "LEFT"] = 1;
+                        values[valuesById[2] = "CENTER"] = 2;
+                        values[valuesById[3] = "RIGHT"] = 3;
+                        return values;
+                    })();
 
-                    /**
-                     * Constructs a new TableView.
-                     * @memberof factset.protobuf.stach.v3
-                     * @classdesc Represents a TableView.
-                     * @implements ITableView
-                     * @constructor
-                     * @param {factset.protobuf.stach.v3.ITableView=} [properties] Properties to set
-                     */
-                    function TableView(properties) {
-                        this.columns = [];
-                        this.headers = {};
-                        this.customMetadata = {};
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-
-                    /**
-                     * TableView displayName.
-                     * @member {string} displayName
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @instance
-                     */
-                    TableView.prototype.displayName = "";
-
-                    /**
-                     * TableView columns.
-                     * @member {Array.<string>} columns
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @instance
-                     */
-                    TableView.prototype.columns = $util.emptyArray;
-
-                    /**
-                     * TableView headers.
-                     * @member {Object.<string,string>} headers
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @instance
-                     */
-                    TableView.prototype.headers = $util.emptyObject;
-
-                    /**
-                     * TableView group.
-                     * @member {factset.protobuf.stach.v3.TableView.IGroup|null|undefined} group
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @instance
-                     */
-                    TableView.prototype.group = null;
-
-                    /**
-                     * TableView split.
-                     * @member {factset.protobuf.stach.v3.TableView.ISplit|null|undefined} split
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @instance
-                     */
-                    TableView.prototype.split = null;
-
-                    /**
-                     * TableView customMetadata.
-                     * @member {Object.<string,factset.protobuf.stach.v3.IMetadataItem>} customMetadata
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @instance
-                     */
-                    TableView.prototype.customMetadata = $util.emptyObject;
-
-                    /**
-                     * Creates a new TableView instance using the specified properties.
-                     * @function create
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @static
-                     * @param {factset.protobuf.stach.v3.ITableView=} [properties] Properties to set
-                     * @returns {factset.protobuf.stach.v3.TableView} TableView instance
-                     */
-                    TableView.create = function create(properties) {
-                        return new TableView(properties);
-                    };
-
-                    /**
-                     * Encodes the specified TableView message. Does not implicitly {@link factset.protobuf.stach.v3.TableView.verify|verify} messages.
-                     * @function encode
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @static
-                     * @param {factset.protobuf.stach.v3.ITableView} message TableView message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    TableView.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.displayName != null && Object.hasOwnProperty.call(message, "displayName"))
-                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.displayName);
-                        if (message.columns != null && message.columns.length)
-                            for (var i = 0; i < message.columns.length; ++i)
-                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.columns[i]);
-                        if (message.headers != null && Object.hasOwnProperty.call(message, "headers"))
-                            for (var keys = Object.keys(message.headers), i = 0; i < keys.length; ++i)
-                                writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.headers[keys[i]]).ldelim();
-                        if (message.group != null && Object.hasOwnProperty.call(message, "group"))
-                            $root.factset.protobuf.stach.v3.TableView.Group.encode(message.group, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-                        if (message.split != null && Object.hasOwnProperty.call(message, "split"))
-                            $root.factset.protobuf.stach.v3.TableView.Split.encode(message.split, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
-                        if (message.customMetadata != null && Object.hasOwnProperty.call(message, "customMetadata"))
-                            for (var keys = Object.keys(message.customMetadata), i = 0; i < keys.length; ++i) {
-                                writer.uint32(/* id 100, wireType 2 =*/802).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
-                                $root.factset.protobuf.stach.v3.MetadataItem.encode(message.customMetadata[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
-                            }
-                        return writer;
-                    };
-
-                    /**
-                     * Encodes the specified TableView message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.TableView.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @static
-                     * @param {factset.protobuf.stach.v3.ITableView} message TableView message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    TableView.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-
-                    /**
-                     * Decodes a TableView message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {factset.protobuf.stach.v3.TableView} TableView
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    TableView.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.TableView(), key, value;
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                message.displayName = reader.string();
-                                break;
-                            case 2:
-                                if (!(message.columns && message.columns.length))
-                                    message.columns = [];
-                                message.columns.push(reader.string());
-                                break;
-                            case 3:
-                                if (message.headers === $util.emptyObject)
-                                    message.headers = {};
-                                var end2 = reader.uint32() + reader.pos;
-                                key = "";
-                                value = "";
-                                while (reader.pos < end2) {
-                                    var tag2 = reader.uint32();
-                                    switch (tag2 >>> 3) {
-                                    case 1:
-                                        key = reader.string();
-                                        break;
-                                    case 2:
-                                        value = reader.string();
-                                        break;
-                                    default:
-                                        reader.skipType(tag2 & 7);
-                                        break;
-                                    }
-                                }
-                                message.headers[key] = value;
-                                break;
-                            case 4:
-                                message.group = $root.factset.protobuf.stach.v3.TableView.Group.decode(reader, reader.uint32());
-                                break;
-                            case 5:
-                                message.split = $root.factset.protobuf.stach.v3.TableView.Split.decode(reader, reader.uint32());
-                                break;
-                            case 100:
-                                if (message.customMetadata === $util.emptyObject)
-                                    message.customMetadata = {};
-                                var end2 = reader.uint32() + reader.pos;
-                                key = "";
-                                value = null;
-                                while (reader.pos < end2) {
-                                    var tag2 = reader.uint32();
-                                    switch (tag2 >>> 3) {
-                                    case 1:
-                                        key = reader.string();
-                                        break;
-                                    case 2:
-                                        value = $root.factset.protobuf.stach.v3.MetadataItem.decode(reader, reader.uint32());
-                                        break;
-                                    default:
-                                        reader.skipType(tag2 & 7);
-                                        break;
-                                    }
-                                }
-                                message.customMetadata[key] = value;
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Decodes a TableView message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {factset.protobuf.stach.v3.TableView} TableView
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    TableView.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-
-                    /**
-                     * Verifies a TableView message.
-                     * @function verify
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    TableView.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.displayName != null && message.hasOwnProperty("displayName"))
-                            if (!$util.isString(message.displayName))
-                                return "displayName: string expected";
-                        if (message.columns != null && message.hasOwnProperty("columns")) {
-                            if (!Array.isArray(message.columns))
-                                return "columns: array expected";
-                            for (var i = 0; i < message.columns.length; ++i)
-                                if (!$util.isString(message.columns[i]))
-                                    return "columns: string[] expected";
-                        }
-                        if (message.headers != null && message.hasOwnProperty("headers")) {
-                            if (!$util.isObject(message.headers))
-                                return "headers: object expected";
-                            var key = Object.keys(message.headers);
-                            for (var i = 0; i < key.length; ++i)
-                                if (!$util.isString(message.headers[key[i]]))
-                                    return "headers: string{k:string} expected";
-                        }
-                        if (message.group != null && message.hasOwnProperty("group")) {
-                            var error = $root.factset.protobuf.stach.v3.TableView.Group.verify(message.group);
-                            if (error)
-                                return "group." + error;
-                        }
-                        if (message.split != null && message.hasOwnProperty("split")) {
-                            var error = $root.factset.protobuf.stach.v3.TableView.Split.verify(message.split);
-                            if (error)
-                                return "split." + error;
-                        }
-                        if (message.customMetadata != null && message.hasOwnProperty("customMetadata")) {
-                            if (!$util.isObject(message.customMetadata))
-                                return "customMetadata: object expected";
-                            var key = Object.keys(message.customMetadata);
-                            for (var i = 0; i < key.length; ++i) {
-                                var error = $root.factset.protobuf.stach.v3.MetadataItem.verify(message.customMetadata[key[i]]);
-                                if (error)
-                                    return "customMetadata." + error;
-                            }
-                        }
-                        return null;
-                    };
-
-                    /**
-                     * Creates a TableView message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {factset.protobuf.stach.v3.TableView} TableView
-                     */
-                    TableView.fromObject = function fromObject(object) {
-                        if (object instanceof $root.factset.protobuf.stach.v3.TableView)
-                            return object;
-                        var message = new $root.factset.protobuf.stach.v3.TableView();
-                        if (object.displayName != null)
-                            message.displayName = String(object.displayName);
-                        if (object.columns) {
-                            if (!Array.isArray(object.columns))
-                                throw TypeError(".factset.protobuf.stach.v3.TableView.columns: array expected");
-                            message.columns = [];
-                            for (var i = 0; i < object.columns.length; ++i)
-                                message.columns[i] = String(object.columns[i]);
-                        }
-                        if (object.headers) {
-                            if (typeof object.headers !== "object")
-                                throw TypeError(".factset.protobuf.stach.v3.TableView.headers: object expected");
-                            message.headers = {};
-                            for (var keys = Object.keys(object.headers), i = 0; i < keys.length; ++i)
-                                message.headers[keys[i]] = String(object.headers[keys[i]]);
-                        }
-                        if (object.group != null) {
-                            if (typeof object.group !== "object")
-                                throw TypeError(".factset.protobuf.stach.v3.TableView.group: object expected");
-                            message.group = $root.factset.protobuf.stach.v3.TableView.Group.fromObject(object.group);
-                        }
-                        if (object.split != null) {
-                            if (typeof object.split !== "object")
-                                throw TypeError(".factset.protobuf.stach.v3.TableView.split: object expected");
-                            message.split = $root.factset.protobuf.stach.v3.TableView.Split.fromObject(object.split);
-                        }
-                        if (object.customMetadata) {
-                            if (typeof object.customMetadata !== "object")
-                                throw TypeError(".factset.protobuf.stach.v3.TableView.customMetadata: object expected");
-                            message.customMetadata = {};
-                            for (var keys = Object.keys(object.customMetadata), i = 0; i < keys.length; ++i) {
-                                if (typeof object.customMetadata[keys[i]] !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.TableView.customMetadata: object expected");
-                                message.customMetadata[keys[i]] = $root.factset.protobuf.stach.v3.MetadataItem.fromObject(object.customMetadata[keys[i]]);
-                            }
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Creates a plain object from a TableView message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @static
-                     * @param {factset.protobuf.stach.v3.TableView} message TableView
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    TableView.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.arrays || options.defaults)
-                            object.columns = [];
-                        if (options.objects || options.defaults) {
-                            object.headers = {};
-                            object.customMetadata = {};
-                        }
-                        if (options.defaults) {
-                            object.displayName = "";
-                            object.group = null;
-                            object.split = null;
-                        }
-                        if (message.displayName != null && message.hasOwnProperty("displayName"))
-                            object.displayName = message.displayName;
-                        if (message.columns && message.columns.length) {
-                            object.columns = [];
-                            for (var j = 0; j < message.columns.length; ++j)
-                                object.columns[j] = message.columns[j];
-                        }
-                        var keys2;
-                        if (message.headers && (keys2 = Object.keys(message.headers)).length) {
-                            object.headers = {};
-                            for (var j = 0; j < keys2.length; ++j)
-                                object.headers[keys2[j]] = message.headers[keys2[j]];
-                        }
-                        if (message.group != null && message.hasOwnProperty("group"))
-                            object.group = $root.factset.protobuf.stach.v3.TableView.Group.toObject(message.group, options);
-                        if (message.split != null && message.hasOwnProperty("split"))
-                            object.split = $root.factset.protobuf.stach.v3.TableView.Split.toObject(message.split, options);
-                        if (message.customMetadata && (keys2 = Object.keys(message.customMetadata)).length) {
-                            object.customMetadata = {};
-                            for (var j = 0; j < keys2.length; ++j)
-                                object.customMetadata[keys2[j]] = $root.factset.protobuf.stach.v3.MetadataItem.toObject(message.customMetadata[keys2[j]], options);
-                        }
-                        return object;
-                    };
-
-                    /**
-                     * Converts this TableView to JSON.
-                     * @function toJSON
-                     * @memberof factset.protobuf.stach.v3.TableView
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    TableView.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-
-                    TableView.Group = (function() {
+                    table.ListOfMetadata = (function() {
 
                         /**
-                         * Properties of a Group.
-                         * @memberof factset.protobuf.stach.v3.TableView
-                         * @interface IGroup
-                         * @property {Array.<string>|null} [by] Group by
-                         * @property {factset.protobuf.stach.v3.TableView.ICollapsedColumn|null} [collapsedColumn] Group collapsedColumn
+                         * Properties of a ListOfMetadata.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface IListOfMetadata
+                         * @property {Array.<string>|null} [ids] ListOfMetadata ids
                          */
 
                         /**
-                         * Constructs a new Group.
-                         * @memberof factset.protobuf.stach.v3.TableView
-                         * @classdesc Represents a Group.
-                         * @implements IGroup
+                         * Constructs a new ListOfMetadata.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a ListOfMetadata.
+                         * @implements IListOfMetadata
                          * @constructor
-                         * @param {factset.protobuf.stach.v3.TableView.IGroup=} [properties] Properties to set
+                         * @param {factset.protobuf.stach.v2.table.IListOfMetadata=} [properties] Properties to set
                          */
-                        function Group(properties) {
-                            this.by = [];
+                        function ListOfMetadata(properties) {
+                            this.ids = [];
                             if (properties)
                                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                                     if (properties[keys[i]] != null)
@@ -3131,228 +4036,203 @@ $root.factset = (function() {
                         }
 
                         /**
-                         * Group by.
-                         * @member {Array.<string>} by
-                         * @memberof factset.protobuf.stach.v3.TableView.Group
+                         * ListOfMetadata ids.
+                         * @member {Array.<string>} ids
+                         * @memberof factset.protobuf.stach.v2.table.ListOfMetadata
                          * @instance
                          */
-                        Group.prototype.by = $util.emptyArray;
+                        ListOfMetadata.prototype.ids = $util.emptyArray;
 
                         /**
-                         * Group collapsedColumn.
-                         * @member {factset.protobuf.stach.v3.TableView.ICollapsedColumn|null|undefined} collapsedColumn
-                         * @memberof factset.protobuf.stach.v3.TableView.Group
-                         * @instance
-                         */
-                        Group.prototype.collapsedColumn = null;
-
-                        /**
-                         * Creates a new Group instance using the specified properties.
+                         * Creates a new ListOfMetadata instance using the specified properties.
                          * @function create
-                         * @memberof factset.protobuf.stach.v3.TableView.Group
+                         * @memberof factset.protobuf.stach.v2.table.ListOfMetadata
                          * @static
-                         * @param {factset.protobuf.stach.v3.TableView.IGroup=} [properties] Properties to set
-                         * @returns {factset.protobuf.stach.v3.TableView.Group} Group instance
+                         * @param {factset.protobuf.stach.v2.table.IListOfMetadata=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.ListOfMetadata} ListOfMetadata instance
                          */
-                        Group.create = function create(properties) {
-                            return new Group(properties);
+                        ListOfMetadata.create = function create(properties) {
+                            return new ListOfMetadata(properties);
                         };
 
                         /**
-                         * Encodes the specified Group message. Does not implicitly {@link factset.protobuf.stach.v3.TableView.Group.verify|verify} messages.
+                         * Encodes the specified ListOfMetadata message. Does not implicitly {@link factset.protobuf.stach.v2.table.ListOfMetadata.verify|verify} messages.
                          * @function encode
-                         * @memberof factset.protobuf.stach.v3.TableView.Group
+                         * @memberof factset.protobuf.stach.v2.table.ListOfMetadata
                          * @static
-                         * @param {factset.protobuf.stach.v3.TableView.IGroup} message Group message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.table.IListOfMetadata} message ListOfMetadata message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        Group.encode = function encode(message, writer) {
+                        ListOfMetadata.encode = function encode(message, writer) {
                             if (!writer)
                                 writer = $Writer.create();
-                            if (message.by != null && message.by.length)
-                                for (var i = 0; i < message.by.length; ++i)
-                                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.by[i]);
-                            if (message.collapsedColumn != null && Object.hasOwnProperty.call(message, "collapsedColumn"))
-                                $root.factset.protobuf.stach.v3.TableView.CollapsedColumn.encode(message.collapsedColumn, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            if (message.ids != null && message.ids.length)
+                                for (var i = 0; i < message.ids.length; ++i)
+                                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.ids[i]);
                             return writer;
                         };
 
                         /**
-                         * Encodes the specified Group message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.TableView.Group.verify|verify} messages.
+                         * Encodes the specified ListOfMetadata message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.ListOfMetadata.verify|verify} messages.
                          * @function encodeDelimited
-                         * @memberof factset.protobuf.stach.v3.TableView.Group
+                         * @memberof factset.protobuf.stach.v2.table.ListOfMetadata
                          * @static
-                         * @param {factset.protobuf.stach.v3.TableView.IGroup} message Group message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.table.IListOfMetadata} message ListOfMetadata message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        Group.encodeDelimited = function encodeDelimited(message, writer) {
+                        ListOfMetadata.encodeDelimited = function encodeDelimited(message, writer) {
                             return this.encode(message, writer).ldelim();
                         };
 
                         /**
-                         * Decodes a Group message from the specified reader or buffer.
+                         * Decodes a ListOfMetadata message from the specified reader or buffer.
                          * @function decode
-                         * @memberof factset.protobuf.stach.v3.TableView.Group
+                         * @memberof factset.protobuf.stach.v2.table.ListOfMetadata
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                          * @param {number} [length] Message length if known beforehand
-                         * @returns {factset.protobuf.stach.v3.TableView.Group} Group
+                         * @returns {factset.protobuf.stach.v2.table.ListOfMetadata} ListOfMetadata
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        Group.decode = function decode(reader, length) {
+                        ListOfMetadata.decode = function decode(reader, length) {
                             if (!(reader instanceof $Reader))
                                 reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.TableView.Group();
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.ListOfMetadata();
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    if (!(message.by && message.by.length))
-                                        message.by = [];
-                                    message.by.push(reader.string());
-                                    break;
-                                case 2:
-                                    message.collapsedColumn = $root.factset.protobuf.stach.v3.TableView.CollapsedColumn.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        if (!(message.ids && message.ids.length))
+                                            message.ids = [];
+                                        message.ids.push(reader.string());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
                         };
 
                         /**
-                         * Decodes a Group message from the specified reader or buffer, length delimited.
+                         * Decodes a ListOfMetadata message from the specified reader or buffer, length delimited.
                          * @function decodeDelimited
-                         * @memberof factset.protobuf.stach.v3.TableView.Group
+                         * @memberof factset.protobuf.stach.v2.table.ListOfMetadata
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {factset.protobuf.stach.v3.TableView.Group} Group
+                         * @returns {factset.protobuf.stach.v2.table.ListOfMetadata} ListOfMetadata
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        Group.decodeDelimited = function decodeDelimited(reader) {
+                        ListOfMetadata.decodeDelimited = function decodeDelimited(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
                             return this.decode(reader, reader.uint32());
                         };
 
                         /**
-                         * Verifies a Group message.
+                         * Verifies a ListOfMetadata message.
                          * @function verify
-                         * @memberof factset.protobuf.stach.v3.TableView.Group
+                         * @memberof factset.protobuf.stach.v2.table.ListOfMetadata
                          * @static
                          * @param {Object.<string,*>} message Plain object to verify
                          * @returns {string|null} `null` if valid, otherwise the reason why it is not
                          */
-                        Group.verify = function verify(message) {
+                        ListOfMetadata.verify = function verify(message) {
                             if (typeof message !== "object" || message === null)
                                 return "object expected";
-                            if (message.by != null && message.hasOwnProperty("by")) {
-                                if (!Array.isArray(message.by))
-                                    return "by: array expected";
-                                for (var i = 0; i < message.by.length; ++i)
-                                    if (!$util.isString(message.by[i]))
-                                        return "by: string[] expected";
-                            }
-                            if (message.collapsedColumn != null && message.hasOwnProperty("collapsedColumn")) {
-                                var error = $root.factset.protobuf.stach.v3.TableView.CollapsedColumn.verify(message.collapsedColumn);
-                                if (error)
-                                    return "collapsedColumn." + error;
+                            if (message.ids != null && message.hasOwnProperty("ids")) {
+                                if (!Array.isArray(message.ids))
+                                    return "ids: array expected";
+                                for (var i = 0; i < message.ids.length; ++i)
+                                    if (!$util.isString(message.ids[i]))
+                                        return "ids: string[] expected";
                             }
                             return null;
                         };
 
                         /**
-                         * Creates a Group message from a plain object. Also converts values to their respective internal types.
+                         * Creates a ListOfMetadata message from a plain object. Also converts values to their respective internal types.
                          * @function fromObject
-                         * @memberof factset.protobuf.stach.v3.TableView.Group
+                         * @memberof factset.protobuf.stach.v2.table.ListOfMetadata
                          * @static
                          * @param {Object.<string,*>} object Plain object
-                         * @returns {factset.protobuf.stach.v3.TableView.Group} Group
+                         * @returns {factset.protobuf.stach.v2.table.ListOfMetadata} ListOfMetadata
                          */
-                        Group.fromObject = function fromObject(object) {
-                            if (object instanceof $root.factset.protobuf.stach.v3.TableView.Group)
+                        ListOfMetadata.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.ListOfMetadata)
                                 return object;
-                            var message = new $root.factset.protobuf.stach.v3.TableView.Group();
-                            if (object.by) {
-                                if (!Array.isArray(object.by))
-                                    throw TypeError(".factset.protobuf.stach.v3.TableView.Group.by: array expected");
-                                message.by = [];
-                                for (var i = 0; i < object.by.length; ++i)
-                                    message.by[i] = String(object.by[i]);
-                            }
-                            if (object.collapsedColumn != null) {
-                                if (typeof object.collapsedColumn !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.TableView.Group.collapsedColumn: object expected");
-                                message.collapsedColumn = $root.factset.protobuf.stach.v3.TableView.CollapsedColumn.fromObject(object.collapsedColumn);
+                            var message = new $root.factset.protobuf.stach.v2.table.ListOfMetadata();
+                            if (object.ids) {
+                                if (!Array.isArray(object.ids))
+                                    throw TypeError(".factset.protobuf.stach.v2.table.ListOfMetadata.ids: array expected");
+                                message.ids = [];
+                                for (var i = 0; i < object.ids.length; ++i)
+                                    message.ids[i] = String(object.ids[i]);
                             }
                             return message;
                         };
 
                         /**
-                         * Creates a plain object from a Group message. Also converts values to other types if specified.
+                         * Creates a plain object from a ListOfMetadata message. Also converts values to other types if specified.
                          * @function toObject
-                         * @memberof factset.protobuf.stach.v3.TableView.Group
+                         * @memberof factset.protobuf.stach.v2.table.ListOfMetadata
                          * @static
-                         * @param {factset.protobuf.stach.v3.TableView.Group} message Group
+                         * @param {factset.protobuf.stach.v2.table.ListOfMetadata} message ListOfMetadata
                          * @param {$protobuf.IConversionOptions} [options] Conversion options
                          * @returns {Object.<string,*>} Plain object
                          */
-                        Group.toObject = function toObject(message, options) {
+                        ListOfMetadata.toObject = function toObject(message, options) {
                             if (!options)
                                 options = {};
                             var object = {};
                             if (options.arrays || options.defaults)
-                                object.by = [];
-                            if (options.defaults)
-                                object.collapsedColumn = null;
-                            if (message.by && message.by.length) {
-                                object.by = [];
-                                for (var j = 0; j < message.by.length; ++j)
-                                    object.by[j] = message.by[j];
+                                object.ids = [];
+                            if (message.ids && message.ids.length) {
+                                object.ids = [];
+                                for (var j = 0; j < message.ids.length; ++j)
+                                    object.ids[j] = message.ids[j];
                             }
-                            if (message.collapsedColumn != null && message.hasOwnProperty("collapsedColumn"))
-                                object.collapsedColumn = $root.factset.protobuf.stach.v3.TableView.CollapsedColumn.toObject(message.collapsedColumn, options);
                             return object;
                         };
 
                         /**
-                         * Converts this Group to JSON.
+                         * Converts this ListOfMetadata to JSON.
                          * @function toJSON
-                         * @memberof factset.protobuf.stach.v3.TableView.Group
+                         * @memberof factset.protobuf.stach.v2.table.ListOfMetadata
                          * @instance
                          * @returns {Object.<string,*>} JSON object
                          */
-                        Group.prototype.toJSON = function toJSON() {
+                        ListOfMetadata.prototype.toJSON = function toJSON() {
                             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                         };
 
-                        return Group;
+                        return ListOfMetadata;
                     })();
 
-                    TableView.CollapsedColumn = (function() {
+                    table.MetadataCollection = (function() {
 
                         /**
-                         * Properties of a CollapsedColumn.
-                         * @memberof factset.protobuf.stach.v3.TableView
-                         * @interface ICollapsedColumn
-                         * @property {string|null} [alias] CollapsedColumn alias
+                         * Properties of a MetadataCollection.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface IMetadataCollection
+                         * @property {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>|null} [items] MetadataCollection items
+                         * @property {factset.protobuf.stach.v2.table.IMetadataLocations|null} [locations] MetadataCollection locations
                          */
 
                         /**
-                         * Constructs a new CollapsedColumn.
-                         * @memberof factset.protobuf.stach.v3.TableView
-                         * @classdesc Represents a CollapsedColumn.
-                         * @implements ICollapsedColumn
+                         * Constructs a new MetadataCollection.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a MetadataCollection.
+                         * @implements IMetadataCollection
                          * @constructor
-                         * @param {factset.protobuf.stach.v3.TableView.ICollapsedColumn=} [properties] Properties to set
+                         * @param {factset.protobuf.stach.v2.table.IMetadataCollection=} [properties] Properties to set
                          */
-                        function CollapsedColumn(properties) {
+                        function MetadataCollection(properties) {
+                            this.items = {};
                             if (properties)
                                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                                     if (properties[keys[i]] != null)
@@ -3360,780 +4240,255 @@ $root.factset = (function() {
                         }
 
                         /**
-                         * CollapsedColumn alias.
-                         * @member {string} alias
-                         * @memberof factset.protobuf.stach.v3.TableView.CollapsedColumn
+                         * MetadataCollection items.
+                         * @member {Object.<string,factset.protobuf.stach.v2.table.IMetadataItem>} items
+                         * @memberof factset.protobuf.stach.v2.table.MetadataCollection
                          * @instance
                          */
-                        CollapsedColumn.prototype.alias = "";
+                        MetadataCollection.prototype.items = $util.emptyObject;
 
                         /**
-                         * Creates a new CollapsedColumn instance using the specified properties.
-                         * @function create
-                         * @memberof factset.protobuf.stach.v3.TableView.CollapsedColumn
-                         * @static
-                         * @param {factset.protobuf.stach.v3.TableView.ICollapsedColumn=} [properties] Properties to set
-                         * @returns {factset.protobuf.stach.v3.TableView.CollapsedColumn} CollapsedColumn instance
+                         * MetadataCollection locations.
+                         * @member {factset.protobuf.stach.v2.table.IMetadataLocations|null|undefined} locations
+                         * @memberof factset.protobuf.stach.v2.table.MetadataCollection
+                         * @instance
                          */
-                        CollapsedColumn.create = function create(properties) {
-                            return new CollapsedColumn(properties);
+                        MetadataCollection.prototype.locations = null;
+
+                        /**
+                         * Creates a new MetadataCollection instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.table.MetadataCollection
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IMetadataCollection=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.MetadataCollection} MetadataCollection instance
+                         */
+                        MetadataCollection.create = function create(properties) {
+                            return new MetadataCollection(properties);
                         };
 
                         /**
-                         * Encodes the specified CollapsedColumn message. Does not implicitly {@link factset.protobuf.stach.v3.TableView.CollapsedColumn.verify|verify} messages.
+                         * Encodes the specified MetadataCollection message. Does not implicitly {@link factset.protobuf.stach.v2.table.MetadataCollection.verify|verify} messages.
                          * @function encode
-                         * @memberof factset.protobuf.stach.v3.TableView.CollapsedColumn
+                         * @memberof factset.protobuf.stach.v2.table.MetadataCollection
                          * @static
-                         * @param {factset.protobuf.stach.v3.TableView.ICollapsedColumn} message CollapsedColumn message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.table.IMetadataCollection} message MetadataCollection message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        CollapsedColumn.encode = function encode(message, writer) {
+                        MetadataCollection.encode = function encode(message, writer) {
                             if (!writer)
                                 writer = $Writer.create();
-                            if (message.alias != null && Object.hasOwnProperty.call(message, "alias"))
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.alias);
-                            return writer;
-                        };
-
-                        /**
-                         * Encodes the specified CollapsedColumn message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.TableView.CollapsedColumn.verify|verify} messages.
-                         * @function encodeDelimited
-                         * @memberof factset.protobuf.stach.v3.TableView.CollapsedColumn
-                         * @static
-                         * @param {factset.protobuf.stach.v3.TableView.ICollapsedColumn} message CollapsedColumn message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        CollapsedColumn.encodeDelimited = function encodeDelimited(message, writer) {
-                            return this.encode(message, writer).ldelim();
-                        };
-
-                        /**
-                         * Decodes a CollapsedColumn message from the specified reader or buffer.
-                         * @function decode
-                         * @memberof factset.protobuf.stach.v3.TableView.CollapsedColumn
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @param {number} [length] Message length if known beforehand
-                         * @returns {factset.protobuf.stach.v3.TableView.CollapsedColumn} CollapsedColumn
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        CollapsedColumn.decode = function decode(reader, length) {
-                            if (!(reader instanceof $Reader))
-                                reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.TableView.CollapsedColumn();
-                            while (reader.pos < end) {
-                                var tag = reader.uint32();
-                                switch (tag >>> 3) {
-                                case 1:
-                                    message.alias = reader.string();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                            if (message.items != null && Object.hasOwnProperty.call(message, "items"))
+                                for (var keys = Object.keys(message.items), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.table.MetadataItem.encode(message.items[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                                 }
-                            }
-                            return message;
-                        };
-
-                        /**
-                         * Decodes a CollapsedColumn message from the specified reader or buffer, length delimited.
-                         * @function decodeDelimited
-                         * @memberof factset.protobuf.stach.v3.TableView.CollapsedColumn
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {factset.protobuf.stach.v3.TableView.CollapsedColumn} CollapsedColumn
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        CollapsedColumn.decodeDelimited = function decodeDelimited(reader) {
-                            if (!(reader instanceof $Reader))
-                                reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
-                        };
-
-                        /**
-                         * Verifies a CollapsedColumn message.
-                         * @function verify
-                         * @memberof factset.protobuf.stach.v3.TableView.CollapsedColumn
-                         * @static
-                         * @param {Object.<string,*>} message Plain object to verify
-                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                         */
-                        CollapsedColumn.verify = function verify(message) {
-                            if (typeof message !== "object" || message === null)
-                                return "object expected";
-                            if (message.alias != null && message.hasOwnProperty("alias"))
-                                if (!$util.isString(message.alias))
-                                    return "alias: string expected";
-                            return null;
-                        };
-
-                        /**
-                         * Creates a CollapsedColumn message from a plain object. Also converts values to their respective internal types.
-                         * @function fromObject
-                         * @memberof factset.protobuf.stach.v3.TableView.CollapsedColumn
-                         * @static
-                         * @param {Object.<string,*>} object Plain object
-                         * @returns {factset.protobuf.stach.v3.TableView.CollapsedColumn} CollapsedColumn
-                         */
-                        CollapsedColumn.fromObject = function fromObject(object) {
-                            if (object instanceof $root.factset.protobuf.stach.v3.TableView.CollapsedColumn)
-                                return object;
-                            var message = new $root.factset.protobuf.stach.v3.TableView.CollapsedColumn();
-                            if (object.alias != null)
-                                message.alias = String(object.alias);
-                            return message;
-                        };
-
-                        /**
-                         * Creates a plain object from a CollapsedColumn message. Also converts values to other types if specified.
-                         * @function toObject
-                         * @memberof factset.protobuf.stach.v3.TableView.CollapsedColumn
-                         * @static
-                         * @param {factset.protobuf.stach.v3.TableView.CollapsedColumn} message CollapsedColumn
-                         * @param {$protobuf.IConversionOptions} [options] Conversion options
-                         * @returns {Object.<string,*>} Plain object
-                         */
-                        CollapsedColumn.toObject = function toObject(message, options) {
-                            if (!options)
-                                options = {};
-                            var object = {};
-                            if (options.defaults)
-                                object.alias = "";
-                            if (message.alias != null && message.hasOwnProperty("alias"))
-                                object.alias = message.alias;
-                            return object;
-                        };
-
-                        /**
-                         * Converts this CollapsedColumn to JSON.
-                         * @function toJSON
-                         * @memberof factset.protobuf.stach.v3.TableView.CollapsedColumn
-                         * @instance
-                         * @returns {Object.<string,*>} JSON object
-                         */
-                        CollapsedColumn.prototype.toJSON = function toJSON() {
-                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                        };
-
-                        return CollapsedColumn;
-                    })();
-
-                    TableView.Split = (function() {
-
-                        /**
-                         * Properties of a Split.
-                         * @memberof factset.protobuf.stach.v3.TableView
-                         * @interface ISplit
-                         * @property {string|null} [alias] Split alias
-                         * @property {Array.<string>|null} [by] Split by
-                         * @property {Array.<string>|null} [include] Split include
-                         * @property {Array.<string>|null} [over] Split over
-                         * @property {Object.<string,string>|null} [headers] Split headers
-                         * @property {boolean|null} [removeEmptySplitColumns] Split removeEmptySplitColumns
-                         */
-
-                        /**
-                         * Constructs a new Split.
-                         * @memberof factset.protobuf.stach.v3.TableView
-                         * @classdesc Represents a Split.
-                         * @implements ISplit
-                         * @constructor
-                         * @param {factset.protobuf.stach.v3.TableView.ISplit=} [properties] Properties to set
-                         */
-                        function Split(properties) {
-                            this.by = [];
-                            this.include = [];
-                            this.over = [];
-                            this.headers = {};
-                            if (properties)
-                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                    if (properties[keys[i]] != null)
-                                        this[keys[i]] = properties[keys[i]];
-                        }
-
-                        /**
-                         * Split alias.
-                         * @member {string} alias
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
-                         * @instance
-                         */
-                        Split.prototype.alias = "";
-
-                        /**
-                         * Split by.
-                         * @member {Array.<string>} by
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
-                         * @instance
-                         */
-                        Split.prototype.by = $util.emptyArray;
-
-                        /**
-                         * Split include.
-                         * @member {Array.<string>} include
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
-                         * @instance
-                         */
-                        Split.prototype.include = $util.emptyArray;
-
-                        /**
-                         * Split over.
-                         * @member {Array.<string>} over
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
-                         * @instance
-                         */
-                        Split.prototype.over = $util.emptyArray;
-
-                        /**
-                         * Split headers.
-                         * @member {Object.<string,string>} headers
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
-                         * @instance
-                         */
-                        Split.prototype.headers = $util.emptyObject;
-
-                        /**
-                         * Split removeEmptySplitColumns.
-                         * @member {boolean} removeEmptySplitColumns
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
-                         * @instance
-                         */
-                        Split.prototype.removeEmptySplitColumns = false;
-
-                        /**
-                         * Creates a new Split instance using the specified properties.
-                         * @function create
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
-                         * @static
-                         * @param {factset.protobuf.stach.v3.TableView.ISplit=} [properties] Properties to set
-                         * @returns {factset.protobuf.stach.v3.TableView.Split} Split instance
-                         */
-                        Split.create = function create(properties) {
-                            return new Split(properties);
-                        };
-
-                        /**
-                         * Encodes the specified Split message. Does not implicitly {@link factset.protobuf.stach.v3.TableView.Split.verify|verify} messages.
-                         * @function encode
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
-                         * @static
-                         * @param {factset.protobuf.stach.v3.TableView.ISplit} message Split message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        Split.encode = function encode(message, writer) {
-                            if (!writer)
-                                writer = $Writer.create();
-                            if (message.alias != null && Object.hasOwnProperty.call(message, "alias"))
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.alias);
-                            if (message.by != null && message.by.length)
-                                for (var i = 0; i < message.by.length; ++i)
-                                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.by[i]);
-                            if (message.include != null && message.include.length)
-                                for (var i = 0; i < message.include.length; ++i)
-                                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.include[i]);
-                            if (message.over != null && message.over.length)
-                                for (var i = 0; i < message.over.length; ++i)
-                                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.over[i]);
-                            if (message.headers != null && Object.hasOwnProperty.call(message, "headers"))
-                                for (var keys = Object.keys(message.headers), i = 0; i < keys.length; ++i)
-                                    writer.uint32(/* id 5, wireType 2 =*/42).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.headers[keys[i]]).ldelim();
-                            if (message.removeEmptySplitColumns != null && Object.hasOwnProperty.call(message, "removeEmptySplitColumns"))
-                                writer.uint32(/* id 6, wireType 0 =*/48).bool(message.removeEmptySplitColumns);
+                            if (message.locations != null && Object.hasOwnProperty.call(message, "locations"))
+                                $root.factset.protobuf.stach.v2.table.MetadataLocations.encode(message.locations, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                             return writer;
                         };
 
                         /**
-                         * Encodes the specified Split message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.TableView.Split.verify|verify} messages.
+                         * Encodes the specified MetadataCollection message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.MetadataCollection.verify|verify} messages.
                          * @function encodeDelimited
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
+                         * @memberof factset.protobuf.stach.v2.table.MetadataCollection
                          * @static
-                         * @param {factset.protobuf.stach.v3.TableView.ISplit} message Split message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.table.IMetadataCollection} message MetadataCollection message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        Split.encodeDelimited = function encodeDelimited(message, writer) {
+                        MetadataCollection.encodeDelimited = function encodeDelimited(message, writer) {
                             return this.encode(message, writer).ldelim();
                         };
 
                         /**
-                         * Decodes a Split message from the specified reader or buffer.
+                         * Decodes a MetadataCollection message from the specified reader or buffer.
                          * @function decode
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
+                         * @memberof factset.protobuf.stach.v2.table.MetadataCollection
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                          * @param {number} [length] Message length if known beforehand
-                         * @returns {factset.protobuf.stach.v3.TableView.Split} Split
+                         * @returns {factset.protobuf.stach.v2.table.MetadataCollection} MetadataCollection
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        Split.decode = function decode(reader, length) {
+                        MetadataCollection.decode = function decode(reader, length) {
                             if (!(reader instanceof $Reader))
                                 reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.TableView.Split(), key, value;
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.MetadataCollection(), key, value;
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.alias = reader.string();
-                                    break;
-                                case 2:
-                                    if (!(message.by && message.by.length))
-                                        message.by = [];
-                                    message.by.push(reader.string());
-                                    break;
-                                case 3:
-                                    if (!(message.include && message.include.length))
-                                        message.include = [];
-                                    message.include.push(reader.string());
-                                    break;
-                                case 4:
-                                    if (!(message.over && message.over.length))
-                                        message.over = [];
-                                    message.over.push(reader.string());
-                                    break;
-                                case 5:
-                                    if (message.headers === $util.emptyObject)
-                                        message.headers = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = "";
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = reader.string();
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                    case 1:
+                                        if (message.items === $util.emptyObject)
+                                            message.items = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.headers[key] = value;
-                                    break;
-                                case 6:
-                                    message.removeEmptySplitColumns = reader.bool();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                        message.items[key] = value;
+                                        break;
+                                    case 2:
+                                        message.locations = $root.factset.protobuf.stach.v2.table.MetadataLocations.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
                         };
 
                         /**
-                         * Decodes a Split message from the specified reader or buffer, length delimited.
+                         * Decodes a MetadataCollection message from the specified reader or buffer, length delimited.
                          * @function decodeDelimited
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
+                         * @memberof factset.protobuf.stach.v2.table.MetadataCollection
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {factset.protobuf.stach.v3.TableView.Split} Split
+                         * @returns {factset.protobuf.stach.v2.table.MetadataCollection} MetadataCollection
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        Split.decodeDelimited = function decodeDelimited(reader) {
+                        MetadataCollection.decodeDelimited = function decodeDelimited(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
                             return this.decode(reader, reader.uint32());
                         };
 
                         /**
-                         * Verifies a Split message.
+                         * Verifies a MetadataCollection message.
                          * @function verify
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
+                         * @memberof factset.protobuf.stach.v2.table.MetadataCollection
                          * @static
                          * @param {Object.<string,*>} message Plain object to verify
                          * @returns {string|null} `null` if valid, otherwise the reason why it is not
                          */
-                        Split.verify = function verify(message) {
+                        MetadataCollection.verify = function verify(message) {
                             if (typeof message !== "object" || message === null)
                                 return "object expected";
-                            if (message.alias != null && message.hasOwnProperty("alias"))
-                                if (!$util.isString(message.alias))
-                                    return "alias: string expected";
-                            if (message.by != null && message.hasOwnProperty("by")) {
-                                if (!Array.isArray(message.by))
-                                    return "by: array expected";
-                                for (var i = 0; i < message.by.length; ++i)
-                                    if (!$util.isString(message.by[i]))
-                                        return "by: string[] expected";
+                            if (message.items != null && message.hasOwnProperty("items")) {
+                                if (!$util.isObject(message.items))
+                                    return "items: object expected";
+                                var key = Object.keys(message.items);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.MetadataItem.verify(message.items[key[i]]);
+                                    if (error)
+                                        return "items." + error;
+                                }
                             }
-                            if (message.include != null && message.hasOwnProperty("include")) {
-                                if (!Array.isArray(message.include))
-                                    return "include: array expected";
-                                for (var i = 0; i < message.include.length; ++i)
-                                    if (!$util.isString(message.include[i]))
-                                        return "include: string[] expected";
+                            if (message.locations != null && message.hasOwnProperty("locations")) {
+                                var error = $root.factset.protobuf.stach.v2.table.MetadataLocations.verify(message.locations);
+                                if (error)
+                                    return "locations." + error;
                             }
-                            if (message.over != null && message.hasOwnProperty("over")) {
-                                if (!Array.isArray(message.over))
-                                    return "over: array expected";
-                                for (var i = 0; i < message.over.length; ++i)
-                                    if (!$util.isString(message.over[i]))
-                                        return "over: string[] expected";
-                            }
-                            if (message.headers != null && message.hasOwnProperty("headers")) {
-                                if (!$util.isObject(message.headers))
-                                    return "headers: object expected";
-                                var key = Object.keys(message.headers);
-                                for (var i = 0; i < key.length; ++i)
-                                    if (!$util.isString(message.headers[key[i]]))
-                                        return "headers: string{k:string} expected";
-                            }
-                            if (message.removeEmptySplitColumns != null && message.hasOwnProperty("removeEmptySplitColumns"))
-                                if (typeof message.removeEmptySplitColumns !== "boolean")
-                                    return "removeEmptySplitColumns: boolean expected";
                             return null;
                         };
 
                         /**
-                         * Creates a Split message from a plain object. Also converts values to their respective internal types.
+                         * Creates a MetadataCollection message from a plain object. Also converts values to their respective internal types.
                          * @function fromObject
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
+                         * @memberof factset.protobuf.stach.v2.table.MetadataCollection
                          * @static
                          * @param {Object.<string,*>} object Plain object
-                         * @returns {factset.protobuf.stach.v3.TableView.Split} Split
+                         * @returns {factset.protobuf.stach.v2.table.MetadataCollection} MetadataCollection
                          */
-                        Split.fromObject = function fromObject(object) {
-                            if (object instanceof $root.factset.protobuf.stach.v3.TableView.Split)
+                        MetadataCollection.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.MetadataCollection)
                                 return object;
-                            var message = new $root.factset.protobuf.stach.v3.TableView.Split();
-                            if (object.alias != null)
-                                message.alias = String(object.alias);
-                            if (object.by) {
-                                if (!Array.isArray(object.by))
-                                    throw TypeError(".factset.protobuf.stach.v3.TableView.Split.by: array expected");
-                                message.by = [];
-                                for (var i = 0; i < object.by.length; ++i)
-                                    message.by[i] = String(object.by[i]);
+                            var message = new $root.factset.protobuf.stach.v2.table.MetadataCollection();
+                            if (object.items) {
+                                if (typeof object.items !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.MetadataCollection.items: object expected");
+                                message.items = {};
+                                for (var keys = Object.keys(object.items), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.items[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.table.MetadataCollection.items: object expected");
+                                    message.items[keys[i]] = $root.factset.protobuf.stach.v2.table.MetadataItem.fromObject(object.items[keys[i]]);
+                                }
                             }
-                            if (object.include) {
-                                if (!Array.isArray(object.include))
-                                    throw TypeError(".factset.protobuf.stach.v3.TableView.Split.include: array expected");
-                                message.include = [];
-                                for (var i = 0; i < object.include.length; ++i)
-                                    message.include[i] = String(object.include[i]);
+                            if (object.locations != null) {
+                                if (typeof object.locations !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.MetadataCollection.locations: object expected");
+                                message.locations = $root.factset.protobuf.stach.v2.table.MetadataLocations.fromObject(object.locations);
                             }
-                            if (object.over) {
-                                if (!Array.isArray(object.over))
-                                    throw TypeError(".factset.protobuf.stach.v3.TableView.Split.over: array expected");
-                                message.over = [];
-                                for (var i = 0; i < object.over.length; ++i)
-                                    message.over[i] = String(object.over[i]);
-                            }
-                            if (object.headers) {
-                                if (typeof object.headers !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.TableView.Split.headers: object expected");
-                                message.headers = {};
-                                for (var keys = Object.keys(object.headers), i = 0; i < keys.length; ++i)
-                                    message.headers[keys[i]] = String(object.headers[keys[i]]);
-                            }
-                            if (object.removeEmptySplitColumns != null)
-                                message.removeEmptySplitColumns = Boolean(object.removeEmptySplitColumns);
                             return message;
                         };
 
                         /**
-                         * Creates a plain object from a Split message. Also converts values to other types if specified.
+                         * Creates a plain object from a MetadataCollection message. Also converts values to other types if specified.
                          * @function toObject
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
+                         * @memberof factset.protobuf.stach.v2.table.MetadataCollection
                          * @static
-                         * @param {factset.protobuf.stach.v3.TableView.Split} message Split
+                         * @param {factset.protobuf.stach.v2.table.MetadataCollection} message MetadataCollection
                          * @param {$protobuf.IConversionOptions} [options] Conversion options
                          * @returns {Object.<string,*>} Plain object
                          */
-                        Split.toObject = function toObject(message, options) {
+                        MetadataCollection.toObject = function toObject(message, options) {
                             if (!options)
                                 options = {};
                             var object = {};
-                            if (options.arrays || options.defaults) {
-                                object.by = [];
-                                object.include = [];
-                                object.over = [];
-                            }
                             if (options.objects || options.defaults)
-                                object.headers = {};
-                            if (options.defaults) {
-                                object.alias = "";
-                                object.removeEmptySplitColumns = false;
-                            }
-                            if (message.alias != null && message.hasOwnProperty("alias"))
-                                object.alias = message.alias;
-                            if (message.by && message.by.length) {
-                                object.by = [];
-                                for (var j = 0; j < message.by.length; ++j)
-                                    object.by[j] = message.by[j];
-                            }
-                            if (message.include && message.include.length) {
-                                object.include = [];
-                                for (var j = 0; j < message.include.length; ++j)
-                                    object.include[j] = message.include[j];
-                            }
-                            if (message.over && message.over.length) {
-                                object.over = [];
-                                for (var j = 0; j < message.over.length; ++j)
-                                    object.over[j] = message.over[j];
-                            }
+                                object.items = {};
+                            if (options.defaults)
+                                object.locations = null;
                             var keys2;
-                            if (message.headers && (keys2 = Object.keys(message.headers)).length) {
-                                object.headers = {};
+                            if (message.items && (keys2 = Object.keys(message.items)).length) {
+                                object.items = {};
                                 for (var j = 0; j < keys2.length; ++j)
-                                    object.headers[keys2[j]] = message.headers[keys2[j]];
+                                    object.items[keys2[j]] = $root.factset.protobuf.stach.v2.table.MetadataItem.toObject(message.items[keys2[j]], options);
                             }
-                            if (message.removeEmptySplitColumns != null && message.hasOwnProperty("removeEmptySplitColumns"))
-                                object.removeEmptySplitColumns = message.removeEmptySplitColumns;
+                            if (message.locations != null && message.hasOwnProperty("locations"))
+                                object.locations = $root.factset.protobuf.stach.v2.table.MetadataLocations.toObject(message.locations, options);
                             return object;
                         };
 
                         /**
-                         * Converts this Split to JSON.
+                         * Converts this MetadataCollection to JSON.
                          * @function toJSON
-                         * @memberof factset.protobuf.stach.v3.TableView.Split
+                         * @memberof factset.protobuf.stach.v2.table.MetadataCollection
                          * @instance
                          * @returns {Object.<string,*>} JSON object
                          */
-                        Split.prototype.toJSON = function toJSON() {
+                        MetadataCollection.prototype.toJSON = function toJSON() {
                             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                         };
 
-                        return Split;
+                        return MetadataCollection;
                     })();
 
-                    return TableView;
-                })();
-
-                v3.Views = (function() {
-
-                    /**
-                     * Properties of a Views.
-                     * @memberof factset.protobuf.stach.v3
-                     * @interface IViews
-                     * @property {Array.<factset.protobuf.stach.v3.Views.IView>|null} [views] Views views
-                     */
-
-                    /**
-                     * Constructs a new Views.
-                     * @memberof factset.protobuf.stach.v3
-                     * @classdesc Represents a Views.
-                     * @implements IViews
-                     * @constructor
-                     * @param {factset.protobuf.stach.v3.IViews=} [properties] Properties to set
-                     */
-                    function Views(properties) {
-                        this.views = [];
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-
-                    /**
-                     * Views views.
-                     * @member {Array.<factset.protobuf.stach.v3.Views.IView>} views
-                     * @memberof factset.protobuf.stach.v3.Views
-                     * @instance
-                     */
-                    Views.prototype.views = $util.emptyArray;
-
-                    /**
-                     * Creates a new Views instance using the specified properties.
-                     * @function create
-                     * @memberof factset.protobuf.stach.v3.Views
-                     * @static
-                     * @param {factset.protobuf.stach.v3.IViews=} [properties] Properties to set
-                     * @returns {factset.protobuf.stach.v3.Views} Views instance
-                     */
-                    Views.create = function create(properties) {
-                        return new Views(properties);
-                    };
-
-                    /**
-                     * Encodes the specified Views message. Does not implicitly {@link factset.protobuf.stach.v3.Views.verify|verify} messages.
-                     * @function encode
-                     * @memberof factset.protobuf.stach.v3.Views
-                     * @static
-                     * @param {factset.protobuf.stach.v3.IViews} message Views message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    Views.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.views != null && message.views.length)
-                            for (var i = 0; i < message.views.length; ++i)
-                                $root.factset.protobuf.stach.v3.Views.View.encode(message.views[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                        return writer;
-                    };
-
-                    /**
-                     * Encodes the specified Views message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.Views.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof factset.protobuf.stach.v3.Views
-                     * @static
-                     * @param {factset.protobuf.stach.v3.IViews} message Views message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    Views.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-
-                    /**
-                     * Decodes a Views message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof factset.protobuf.stach.v3.Views
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {factset.protobuf.stach.v3.Views} Views
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    Views.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.Views();
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                if (!(message.views && message.views.length))
-                                    message.views = [];
-                                message.views.push($root.factset.protobuf.stach.v3.Views.View.decode(reader, reader.uint32()));
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Decodes a Views message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof factset.protobuf.stach.v3.Views
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {factset.protobuf.stach.v3.Views} Views
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    Views.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-
-                    /**
-                     * Verifies a Views message.
-                     * @function verify
-                     * @memberof factset.protobuf.stach.v3.Views
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    Views.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.views != null && message.hasOwnProperty("views")) {
-                            if (!Array.isArray(message.views))
-                                return "views: array expected";
-                            for (var i = 0; i < message.views.length; ++i) {
-                                var error = $root.factset.protobuf.stach.v3.Views.View.verify(message.views[i]);
-                                if (error)
-                                    return "views." + error;
-                            }
-                        }
-                        return null;
-                    };
-
-                    /**
-                     * Creates a Views message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof factset.protobuf.stach.v3.Views
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {factset.protobuf.stach.v3.Views} Views
-                     */
-                    Views.fromObject = function fromObject(object) {
-                        if (object instanceof $root.factset.protobuf.stach.v3.Views)
-                            return object;
-                        var message = new $root.factset.protobuf.stach.v3.Views();
-                        if (object.views) {
-                            if (!Array.isArray(object.views))
-                                throw TypeError(".factset.protobuf.stach.v3.Views.views: array expected");
-                            message.views = [];
-                            for (var i = 0; i < object.views.length; ++i) {
-                                if (typeof object.views[i] !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.Views.views: object expected");
-                                message.views[i] = $root.factset.protobuf.stach.v3.Views.View.fromObject(object.views[i]);
-                            }
-                        }
-                        return message;
-                    };
-
-                    /**
-                     * Creates a plain object from a Views message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof factset.protobuf.stach.v3.Views
-                     * @static
-                     * @param {factset.protobuf.stach.v3.Views} message Views
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    Views.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.arrays || options.defaults)
-                            object.views = [];
-                        if (message.views && message.views.length) {
-                            object.views = [];
-                            for (var j = 0; j < message.views.length; ++j)
-                                object.views[j] = $root.factset.protobuf.stach.v3.Views.View.toObject(message.views[j], options);
-                        }
-                        return object;
-                    };
-
-                    /**
-                     * Converts this Views to JSON.
-                     * @function toJSON
-                     * @memberof factset.protobuf.stach.v3.Views
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    Views.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-
-                    Views.View = (function() {
+                    table.MetadataItem = (function() {
 
                         /**
-                         * Properties of a View.
-                         * @memberof factset.protobuf.stach.v3.Views
-                         * @interface IView
-                         * @property {string|null} [name] View name
-                         * @property {string|null} [displayName] View displayName
-                         * @property {factset.protobuf.stach.v3.ITableView|null} [table] View table
+                         * Properties of a MetadataItem.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface IMetadataItem
+                         * @property {google.protobuf.IValue|null} [value] MetadataItem value
+                         * @property {factset.protobuf.stach.v2.table.IReference|null} [reference] MetadataItem reference
                          */
 
                         /**
-                         * Constructs a new View.
-                         * @memberof factset.protobuf.stach.v3.Views
-                         * @classdesc Represents a View.
-                         * @implements IView
+                         * Constructs a new MetadataItem.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a MetadataItem.
+                         * @implements IMetadataItem
                          * @constructor
-                         * @param {factset.protobuf.stach.v3.Views.IView=} [properties] Properties to set
+                         * @param {factset.protobuf.stach.v2.table.IMetadataItem=} [properties] Properties to set
                          */
-                        function View(properties) {
+                        function MetadataItem(properties) {
                             if (properties)
                                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                                     if (properties[keys[i]] != null)
@@ -4141,240 +4496,2332 @@ $root.factset = (function() {
                         }
 
                         /**
-                         * View name.
-                         * @member {string} name
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * MetadataItem value.
+                         * @member {google.protobuf.IValue|null|undefined} value
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @instance
                          */
-                        View.prototype.name = "";
+                        MetadataItem.prototype.value = null;
 
                         /**
-                         * View displayName.
-                         * @member {string} displayName
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * MetadataItem reference.
+                         * @member {factset.protobuf.stach.v2.table.IReference|null|undefined} reference
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @instance
                          */
-                        View.prototype.displayName = "";
-
-                        /**
-                         * View table.
-                         * @member {factset.protobuf.stach.v3.ITableView|null|undefined} table
-                         * @memberof factset.protobuf.stach.v3.Views.View
-                         * @instance
-                         */
-                        View.prototype.table = null;
+                        MetadataItem.prototype.reference = null;
 
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
 
                         /**
-                         * View type.
-                         * @member {"table"|undefined} type
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * MetadataItem data.
+                         * @member {"value"|"reference"|undefined} data
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @instance
                          */
-                        Object.defineProperty(View.prototype, "type", {
-                            get: $util.oneOfGetter($oneOfFields = ["table"]),
+                        Object.defineProperty(MetadataItem.prototype, "data", {
+                            get: $util.oneOfGetter($oneOfFields = ["value", "reference"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
 
                         /**
-                         * Creates a new View instance using the specified properties.
+                         * Creates a new MetadataItem instance using the specified properties.
                          * @function create
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @static
-                         * @param {factset.protobuf.stach.v3.Views.IView=} [properties] Properties to set
-                         * @returns {factset.protobuf.stach.v3.Views.View} View instance
+                         * @param {factset.protobuf.stach.v2.table.IMetadataItem=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.MetadataItem} MetadataItem instance
                          */
-                        View.create = function create(properties) {
-                            return new View(properties);
+                        MetadataItem.create = function create(properties) {
+                            return new MetadataItem(properties);
                         };
 
                         /**
-                         * Encodes the specified View message. Does not implicitly {@link factset.protobuf.stach.v3.Views.View.verify|verify} messages.
+                         * Encodes the specified MetadataItem message. Does not implicitly {@link factset.protobuf.stach.v2.table.MetadataItem.verify|verify} messages.
                          * @function encode
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @static
-                         * @param {factset.protobuf.stach.v3.Views.IView} message View message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.table.IMetadataItem} message MetadataItem message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        View.encode = function encode(message, writer) {
+                        MetadataItem.encode = function encode(message, writer) {
                             if (!writer)
                                 writer = $Writer.create();
-                            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-                            if (message.displayName != null && Object.hasOwnProperty.call(message, "displayName"))
-                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.displayName);
-                            if (message.table != null && Object.hasOwnProperty.call(message, "table"))
-                                $root.factset.protobuf.stach.v3.TableView.encode(message.table, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                            if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                                $root.google.protobuf.Value.encode(message.value, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.reference != null && Object.hasOwnProperty.call(message, "reference"))
+                                $root.factset.protobuf.stach.v2.table.Reference.encode(message.reference, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
                             return writer;
                         };
 
                         /**
-                         * Encodes the specified View message, length delimited. Does not implicitly {@link factset.protobuf.stach.v3.Views.View.verify|verify} messages.
+                         * Encodes the specified MetadataItem message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.MetadataItem.verify|verify} messages.
                          * @function encodeDelimited
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @static
-                         * @param {factset.protobuf.stach.v3.Views.IView} message View message or plain object to encode
+                         * @param {factset.protobuf.stach.v2.table.IMetadataItem} message MetadataItem message or plain object to encode
                          * @param {$protobuf.Writer} [writer] Writer to encode to
                          * @returns {$protobuf.Writer} Writer
                          */
-                        View.encodeDelimited = function encodeDelimited(message, writer) {
+                        MetadataItem.encodeDelimited = function encodeDelimited(message, writer) {
                             return this.encode(message, writer).ldelim();
                         };
 
                         /**
-                         * Decodes a View message from the specified reader or buffer.
+                         * Decodes a MetadataItem message from the specified reader or buffer.
                          * @function decode
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
                          * @param {number} [length] Message length if known beforehand
-                         * @returns {factset.protobuf.stach.v3.Views.View} View
+                         * @returns {factset.protobuf.stach.v2.table.MetadataItem} MetadataItem
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        View.decode = function decode(reader, length) {
+                        MetadataItem.decode = function decode(reader, length) {
                             if (!(reader instanceof $Reader))
                                 reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v3.Views.View();
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.MetadataItem();
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.name = reader.string();
-                                    break;
-                                case 2:
-                                    message.displayName = reader.string();
-                                    break;
-                                case 3:
-                                    message.table = $root.factset.protobuf.stach.v3.TableView.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.value = $root.google.protobuf.Value.decode(reader, reader.uint32());
+                                        break;
+                                    case 2:
+                                        message.reference = $root.factset.protobuf.stach.v2.table.Reference.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
                         };
 
                         /**
-                         * Decodes a View message from the specified reader or buffer, length delimited.
+                         * Decodes a MetadataItem message from the specified reader or buffer, length delimited.
                          * @function decodeDelimited
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @static
                          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {factset.protobuf.stach.v3.Views.View} View
+                         * @returns {factset.protobuf.stach.v2.table.MetadataItem} MetadataItem
                          * @throws {Error} If the payload is not a reader or valid buffer
                          * @throws {$protobuf.util.ProtocolError} If required fields are missing
                          */
-                        View.decodeDelimited = function decodeDelimited(reader) {
+                        MetadataItem.decodeDelimited = function decodeDelimited(reader) {
                             if (!(reader instanceof $Reader))
                                 reader = new $Reader(reader);
                             return this.decode(reader, reader.uint32());
                         };
 
                         /**
-                         * Verifies a View message.
+                         * Verifies a MetadataItem message.
                          * @function verify
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @static
                          * @param {Object.<string,*>} message Plain object to verify
                          * @returns {string|null} `null` if valid, otherwise the reason why it is not
                          */
-                        View.verify = function verify(message) {
+                        MetadataItem.verify = function verify(message) {
                             if (typeof message !== "object" || message === null)
                                 return "object expected";
                             var properties = {};
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                if (!$util.isString(message.name))
-                                    return "name: string expected";
-                            if (message.displayName != null && message.hasOwnProperty("displayName"))
-                                if (!$util.isString(message.displayName))
-                                    return "displayName: string expected";
-                            if (message.table != null && message.hasOwnProperty("table")) {
-                                properties.type = 1;
+                            if (message.value != null && message.hasOwnProperty("value")) {
+                                properties.data = 1;
                                 {
-                                    var error = $root.factset.protobuf.stach.v3.TableView.verify(message.table);
+                                    var error = $root.google.protobuf.Value.verify(message.value);
                                     if (error)
-                                        return "table." + error;
+                                        return "value." + error;
+                                }
+                            }
+                            if (message.reference != null && message.hasOwnProperty("reference")) {
+                                if (properties.data === 1)
+                                    return "data: multiple values";
+                                properties.data = 1;
+                                {
+                                    var error = $root.factset.protobuf.stach.v2.table.Reference.verify(message.reference);
+                                    if (error)
+                                        return "reference." + error;
                                 }
                             }
                             return null;
                         };
 
                         /**
-                         * Creates a View message from a plain object. Also converts values to their respective internal types.
+                         * Creates a MetadataItem message from a plain object. Also converts values to their respective internal types.
                          * @function fromObject
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @static
                          * @param {Object.<string,*>} object Plain object
-                         * @returns {factset.protobuf.stach.v3.Views.View} View
+                         * @returns {factset.protobuf.stach.v2.table.MetadataItem} MetadataItem
                          */
-                        View.fromObject = function fromObject(object) {
-                            if (object instanceof $root.factset.protobuf.stach.v3.Views.View)
+                        MetadataItem.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.MetadataItem)
                                 return object;
-                            var message = new $root.factset.protobuf.stach.v3.Views.View();
-                            if (object.name != null)
-                                message.name = String(object.name);
-                            if (object.displayName != null)
-                                message.displayName = String(object.displayName);
-                            if (object.table != null) {
-                                if (typeof object.table !== "object")
-                                    throw TypeError(".factset.protobuf.stach.v3.Views.View.table: object expected");
-                                message.table = $root.factset.protobuf.stach.v3.TableView.fromObject(object.table);
+                            var message = new $root.factset.protobuf.stach.v2.table.MetadataItem();
+                            if (object.value != null) {
+                                message.value = $root.google.protobuf.Value.fromObject(object.value);
+                            }
+                            if (object.reference != null) {
+                                if (typeof object.reference !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.MetadataItem.reference: object expected");
+                                message.reference = $root.factset.protobuf.stach.v2.table.Reference.fromObject(object.reference);
                             }
                             return message;
                         };
 
                         /**
-                         * Creates a plain object from a View message. Also converts values to other types if specified.
+                         * Creates a plain object from a MetadataItem message. Also converts values to other types if specified.
                          * @function toObject
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @static
-                         * @param {factset.protobuf.stach.v3.Views.View} message View
+                         * @param {factset.protobuf.stach.v2.table.MetadataItem} message MetadataItem
                          * @param {$protobuf.IConversionOptions} [options] Conversion options
                          * @returns {Object.<string,*>} Plain object
                          */
-                        View.toObject = function toObject(message, options) {
+                        MetadataItem.toObject = function toObject(message, options) {
                             if (!options)
                                 options = {};
                             var object = {};
-                            if (options.defaults) {
-                                object.name = "";
-                                object.displayName = "";
-                            }
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                object.name = message.name;
-                            if (message.displayName != null && message.hasOwnProperty("displayName"))
-                                object.displayName = message.displayName;
-                            if (message.table != null && message.hasOwnProperty("table")) {
-                                object.table = $root.factset.protobuf.stach.v3.TableView.toObject(message.table, options);
+                            if (message.value != null && message.hasOwnProperty("value")) {
+                                object.value = $root.google.protobuf.Value.toObject(message.value, options);
                                 if (options.oneofs)
-                                    object.type = "table";
+                                    object.data = "value";
+                            }
+                            if (message.reference != null && message.hasOwnProperty("reference")) {
+                                object.reference = $root.factset.protobuf.stach.v2.table.Reference.toObject(message.reference, options);
+                                if (options.oneofs)
+                                    object.data = "reference";
                             }
                             return object;
                         };
 
                         /**
-                         * Converts this View to JSON.
+                         * Converts this MetadataItem to JSON.
                          * @function toJSON
-                         * @memberof factset.protobuf.stach.v3.Views.View
+                         * @memberof factset.protobuf.stach.v2.table.MetadataItem
                          * @instance
                          * @returns {Object.<string,*>} JSON object
                          */
-                        View.prototype.toJSON = function toJSON() {
+                        MetadataItem.prototype.toJSON = function toJSON() {
                             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                         };
 
-                        return View;
+                        return MetadataItem;
                     })();
 
-                    return Views;
+                    table.MetadataLocations = (function() {
+
+                        /**
+                         * Properties of a MetadataLocations.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface IMetadataLocations
+                         * @property {Array.<string>|null} [table] MetadataLocations table
+                         * @property {Object.<string,factset.protobuf.stach.v2.table.IListOfMetadata>|null} [columns] MetadataLocations columns
+                         * @property {Object.<string,factset.protobuf.stach.v2.table.IListOfMetadata>|null} [rows] MetadataLocations rows
+                         * @property {factset.protobuf.stach.v2.table.MetadataLocations.ICellsColumnMap|null} [cells] MetadataLocations cells
+                         */
+
+                        /**
+                         * Constructs a new MetadataLocations.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a MetadataLocations.
+                         * @implements IMetadataLocations
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.table.IMetadataLocations=} [properties] Properties to set
+                         */
+                        function MetadataLocations(properties) {
+                            this.table = [];
+                            this.columns = {};
+                            this.rows = {};
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * MetadataLocations table.
+                         * @member {Array.<string>} table
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @instance
+                         */
+                        MetadataLocations.prototype.table = $util.emptyArray;
+
+                        /**
+                         * MetadataLocations columns.
+                         * @member {Object.<string,factset.protobuf.stach.v2.table.IListOfMetadata>} columns
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @instance
+                         */
+                        MetadataLocations.prototype.columns = $util.emptyObject;
+
+                        /**
+                         * MetadataLocations rows.
+                         * @member {Object.<string,factset.protobuf.stach.v2.table.IListOfMetadata>} rows
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @instance
+                         */
+                        MetadataLocations.prototype.rows = $util.emptyObject;
+
+                        /**
+                         * MetadataLocations cells.
+                         * @member {factset.protobuf.stach.v2.table.MetadataLocations.ICellsColumnMap|null|undefined} cells
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @instance
+                         */
+                        MetadataLocations.prototype.cells = null;
+
+                        /**
+                         * Creates a new MetadataLocations instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IMetadataLocations=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.MetadataLocations} MetadataLocations instance
+                         */
+                        MetadataLocations.create = function create(properties) {
+                            return new MetadataLocations(properties);
+                        };
+
+                        /**
+                         * Encodes the specified MetadataLocations message. Does not implicitly {@link factset.protobuf.stach.v2.table.MetadataLocations.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IMetadataLocations} message MetadataLocations message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        MetadataLocations.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.table != null && message.table.length)
+                                for (var i = 0; i < message.table.length; ++i)
+                                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.table[i]);
+                            if (message.columns != null && Object.hasOwnProperty.call(message, "columns"))
+                                for (var keys = Object.keys(message.columns), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.table.ListOfMetadata.encode(message.columns[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
+                            if (message.rows != null && Object.hasOwnProperty.call(message, "rows"))
+                                for (var keys = Object.keys(message.rows), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.table.ListOfMetadata.encode(message.rows[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
+                            if (message.cells != null && Object.hasOwnProperty.call(message, "cells"))
+                                $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap.encode(message.cells, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified MetadataLocations message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.MetadataLocations.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IMetadataLocations} message MetadataLocations message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        MetadataLocations.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a MetadataLocations message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.table.MetadataLocations} MetadataLocations
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        MetadataLocations.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.MetadataLocations(), key, value;
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        if (!(message.table && message.table.length))
+                                            message.table = [];
+                                        message.table.push(reader.string());
+                                        break;
+                                    case 2:
+                                        if (message.columns === $util.emptyObject)
+                                            message.columns = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.ListOfMetadata.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.columns[key] = value;
+                                        break;
+                                    case 3:
+                                        if (message.rows === $util.emptyObject)
+                                            message.rows = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.ListOfMetadata.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.rows[key] = value;
+                                        break;
+                                    case 4:
+                                        message.cells = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a MetadataLocations message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.table.MetadataLocations} MetadataLocations
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        MetadataLocations.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a MetadataLocations message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        MetadataLocations.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.table != null && message.hasOwnProperty("table")) {
+                                if (!Array.isArray(message.table))
+                                    return "table: array expected";
+                                for (var i = 0; i < message.table.length; ++i)
+                                    if (!$util.isString(message.table[i]))
+                                        return "table: string[] expected";
+                            }
+                            if (message.columns != null && message.hasOwnProperty("columns")) {
+                                if (!$util.isObject(message.columns))
+                                    return "columns: object expected";
+                                var key = Object.keys(message.columns);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.ListOfMetadata.verify(message.columns[key[i]]);
+                                    if (error)
+                                        return "columns." + error;
+                                }
+                            }
+                            if (message.rows != null && message.hasOwnProperty("rows")) {
+                                if (!$util.isObject(message.rows))
+                                    return "rows: object expected";
+                                var key = Object.keys(message.rows);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.ListOfMetadata.verify(message.rows[key[i]]);
+                                    if (error)
+                                        return "rows." + error;
+                                }
+                            }
+                            if (message.cells != null && message.hasOwnProperty("cells")) {
+                                var error = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap.verify(message.cells);
+                                if (error)
+                                    return "cells." + error;
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a MetadataLocations message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.table.MetadataLocations} MetadataLocations
+                         */
+                        MetadataLocations.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.MetadataLocations)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.table.MetadataLocations();
+                            if (object.table) {
+                                if (!Array.isArray(object.table))
+                                    throw TypeError(".factset.protobuf.stach.v2.table.MetadataLocations.table: array expected");
+                                message.table = [];
+                                for (var i = 0; i < object.table.length; ++i)
+                                    message.table[i] = String(object.table[i]);
+                            }
+                            if (object.columns) {
+                                if (typeof object.columns !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.MetadataLocations.columns: object expected");
+                                message.columns = {};
+                                for (var keys = Object.keys(object.columns), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.columns[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.table.MetadataLocations.columns: object expected");
+                                    message.columns[keys[i]] = $root.factset.protobuf.stach.v2.table.ListOfMetadata.fromObject(object.columns[keys[i]]);
+                                }
+                            }
+                            if (object.rows) {
+                                if (typeof object.rows !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.MetadataLocations.rows: object expected");
+                                message.rows = {};
+                                for (var keys = Object.keys(object.rows), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.rows[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.table.MetadataLocations.rows: object expected");
+                                    message.rows[keys[i]] = $root.factset.protobuf.stach.v2.table.ListOfMetadata.fromObject(object.rows[keys[i]]);
+                                }
+                            }
+                            if (object.cells != null) {
+                                if (typeof object.cells !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.MetadataLocations.cells: object expected");
+                                message.cells = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap.fromObject(object.cells);
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a MetadataLocations message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.MetadataLocations} message MetadataLocations
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        MetadataLocations.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.arrays || options.defaults)
+                                object.table = [];
+                            if (options.objects || options.defaults) {
+                                object.columns = {};
+                                object.rows = {};
+                            }
+                            if (options.defaults)
+                                object.cells = null;
+                            if (message.table && message.table.length) {
+                                object.table = [];
+                                for (var j = 0; j < message.table.length; ++j)
+                                    object.table[j] = message.table[j];
+                            }
+                            var keys2;
+                            if (message.columns && (keys2 = Object.keys(message.columns)).length) {
+                                object.columns = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.columns[keys2[j]] = $root.factset.protobuf.stach.v2.table.ListOfMetadata.toObject(message.columns[keys2[j]], options);
+                            }
+                            if (message.rows && (keys2 = Object.keys(message.rows)).length) {
+                                object.rows = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.rows[keys2[j]] = $root.factset.protobuf.stach.v2.table.ListOfMetadata.toObject(message.rows[keys2[j]], options);
+                            }
+                            if (message.cells != null && message.hasOwnProperty("cells"))
+                                object.cells = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap.toObject(message.cells, options);
+                            return object;
+                        };
+
+                        /**
+                         * Converts this MetadataLocations to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        MetadataLocations.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        MetadataLocations.CellsColumnMap = (function() {
+
+                            /**
+                             * Properties of a CellsColumnMap.
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                             * @interface ICellsColumnMap
+                             * @property {Object.<string,factset.protobuf.stach.v2.table.MetadataLocations.ICellsRowMap>|null} [columns] CellsColumnMap columns
+                             */
+
+                            /**
+                             * Constructs a new CellsColumnMap.
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                             * @classdesc Represents a CellsColumnMap.
+                             * @implements ICellsColumnMap
+                             * @constructor
+                             * @param {factset.protobuf.stach.v2.table.MetadataLocations.ICellsColumnMap=} [properties] Properties to set
+                             */
+                            function CellsColumnMap(properties) {
+                                this.columns = {};
+                                if (properties)
+                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+
+                            /**
+                             * CellsColumnMap columns.
+                             * @member {Object.<string,factset.protobuf.stach.v2.table.MetadataLocations.ICellsRowMap>} columns
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap
+                             * @instance
+                             */
+                            CellsColumnMap.prototype.columns = $util.emptyObject;
+
+                            /**
+                             * Creates a new CellsColumnMap instance using the specified properties.
+                             * @function create
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap
+                             * @static
+                             * @param {factset.protobuf.stach.v2.table.MetadataLocations.ICellsColumnMap=} [properties] Properties to set
+                             * @returns {factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap} CellsColumnMap instance
+                             */
+                            CellsColumnMap.create = function create(properties) {
+                                return new CellsColumnMap(properties);
+                            };
+
+                            /**
+                             * Encodes the specified CellsColumnMap message. Does not implicitly {@link factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap.verify|verify} messages.
+                             * @function encode
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap
+                             * @static
+                             * @param {factset.protobuf.stach.v2.table.MetadataLocations.ICellsColumnMap} message CellsColumnMap message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            CellsColumnMap.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.columns != null && Object.hasOwnProperty.call(message, "columns"))
+                                    for (var keys = Object.keys(message.columns), i = 0; i < keys.length; ++i) {
+                                        writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                        $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap.encode(message.columns[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                    }
+                                return writer;
+                            };
+
+                            /**
+                             * Encodes the specified CellsColumnMap message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap.verify|verify} messages.
+                             * @function encodeDelimited
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap
+                             * @static
+                             * @param {factset.protobuf.stach.v2.table.MetadataLocations.ICellsColumnMap} message CellsColumnMap message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            CellsColumnMap.encodeDelimited = function encodeDelimited(message, writer) {
+                                return this.encode(message, writer).ldelim();
+                            };
+
+                            /**
+                             * Decodes a CellsColumnMap message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap} CellsColumnMap
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            CellsColumnMap.decode = function decode(reader, length) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap(), key, value;
+                                while (reader.pos < end) {
+                                    var tag = reader.uint32();
+                                    switch (tag >>> 3) {
+                                        case 1:
+                                            if (message.columns === $util.emptyObject)
+                                                message.columns = {};
+                                            var end2 = reader.uint32() + reader.pos;
+                                            key = "";
+                                            value = null;
+                                            while (reader.pos < end2) {
+                                                var tag2 = reader.uint32();
+                                                switch (tag2 >>> 3) {
+                                                    case 1:
+                                                        key = reader.string();
+                                                        break;
+                                                    case 2:
+                                                        value = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap.decode(reader, reader.uint32());
+                                                        break;
+                                                    default:
+                                                        reader.skipType(tag2 & 7);
+                                                        break;
+                                                }
+                                            }
+                                            message.columns[key] = value;
+                                            break;
+                                        default:
+                                            reader.skipType(tag & 7);
+                                            break;
+                                    }
+                                }
+                                return message;
+                            };
+
+                            /**
+                             * Decodes a CellsColumnMap message from the specified reader or buffer, length delimited.
+                             * @function decodeDelimited
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @returns {factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap} CellsColumnMap
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            CellsColumnMap.decodeDelimited = function decodeDelimited(reader) {
+                                if (!(reader instanceof $Reader))
+                                    reader = new $Reader(reader);
+                                return this.decode(reader, reader.uint32());
+                            };
+
+                            /**
+                             * Verifies a CellsColumnMap message.
+                             * @function verify
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap
+                             * @static
+                             * @param {Object.<string,*>} message Plain object to verify
+                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                             */
+                            CellsColumnMap.verify = function verify(message) {
+                                if (typeof message !== "object" || message === null)
+                                    return "object expected";
+                                if (message.columns != null && message.hasOwnProperty("columns")) {
+                                    if (!$util.isObject(message.columns))
+                                        return "columns: object expected";
+                                    var key = Object.keys(message.columns);
+                                    for (var i = 0; i < key.length; ++i) {
+                                        var error = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap.verify(message.columns[key[i]]);
+                                        if (error)
+                                            return "columns." + error;
+                                    }
+                                }
+                                return null;
+                            };
+
+                            /**
+                             * Creates a CellsColumnMap message from a plain object. Also converts values to their respective internal types.
+                             * @function fromObject
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap
+                             * @static
+                             * @param {Object.<string,*>} object Plain object
+                             * @returns {factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap} CellsColumnMap
+                             */
+                            CellsColumnMap.fromObject = function fromObject(object) {
+                                if (object instanceof $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap)
+                                    return object;
+                                var message = new $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap();
+                                if (object.columns) {
+                                    if (typeof object.columns !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap.columns: object expected");
+                                    message.columns = {};
+                                    for (var keys = Object.keys(object.columns), i = 0; i < keys.length; ++i) {
+                                        if (typeof object.columns[keys[i]] !== "object")
+                                            throw TypeError(".factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap.columns: object expected");
+                                        message.columns[keys[i]] = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap.fromObject(object.columns[keys[i]]);
+                                    }
+                                }
+                                return message;
+                            };
+
+                            /**
+                             * Creates a plain object from a CellsColumnMap message. Also converts values to other types if specified.
+                             * @function toObject
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap
+                             * @static
+                             * @param {factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap} message CellsColumnMap
+                             * @param {$protobuf.IConversionOptions} [options] Conversion options
+                             * @returns {Object.<string,*>} Plain object
+                             */
+                            CellsColumnMap.toObject = function toObject(message, options) {
+                                if (!options)
+                                    options = {};
+                                var object = {};
+                                if (options.objects || options.defaults)
+                                    object.columns = {};
+                                var keys2;
+                                if (message.columns && (keys2 = Object.keys(message.columns)).length) {
+                                    object.columns = {};
+                                    for (var j = 0; j < keys2.length; ++j)
+                                        object.columns[keys2[j]] = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap.toObject(message.columns[keys2[j]], options);
+                                }
+                                return object;
+                            };
+
+                            /**
+                             * Converts this CellsColumnMap to JSON.
+                             * @function toJSON
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap
+                             * @instance
+                             * @returns {Object.<string,*>} JSON object
+                             */
+                            CellsColumnMap.prototype.toJSON = function toJSON() {
+                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                            };
+
+                            return CellsColumnMap;
+                        })();
+
+                        MetadataLocations.CellsRowMap = (function() {
+
+                            /**
+                             * Properties of a CellsRowMap.
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                             * @interface ICellsRowMap
+                             * @property {Object.<string,factset.protobuf.stach.v2.table.IListOfMetadata>|null} [rows] CellsRowMap rows
+                             */
+
+                            /**
+                             * Constructs a new CellsRowMap.
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations
+                             * @classdesc Represents a CellsRowMap.
+                             * @implements ICellsRowMap
+                             * @constructor
+                             * @param {factset.protobuf.stach.v2.table.MetadataLocations.ICellsRowMap=} [properties] Properties to set
+                             */
+                            function CellsRowMap(properties) {
+                                this.rows = {};
+                                if (properties)
+                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+
+                            /**
+                             * CellsRowMap rows.
+                             * @member {Object.<string,factset.protobuf.stach.v2.table.IListOfMetadata>} rows
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap
+                             * @instance
+                             */
+                            CellsRowMap.prototype.rows = $util.emptyObject;
+
+                            /**
+                             * Creates a new CellsRowMap instance using the specified properties.
+                             * @function create
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap
+                             * @static
+                             * @param {factset.protobuf.stach.v2.table.MetadataLocations.ICellsRowMap=} [properties] Properties to set
+                             * @returns {factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap} CellsRowMap instance
+                             */
+                            CellsRowMap.create = function create(properties) {
+                                return new CellsRowMap(properties);
+                            };
+
+                            /**
+                             * Encodes the specified CellsRowMap message. Does not implicitly {@link factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap.verify|verify} messages.
+                             * @function encode
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap
+                             * @static
+                             * @param {factset.protobuf.stach.v2.table.MetadataLocations.ICellsRowMap} message CellsRowMap message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            CellsRowMap.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.rows != null && Object.hasOwnProperty.call(message, "rows"))
+                                    for (var keys = Object.keys(message.rows), i = 0; i < keys.length; ++i) {
+                                        writer.uint32(/* id 1, wireType 2 =*/10).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                        $root.factset.protobuf.stach.v2.table.ListOfMetadata.encode(message.rows[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                    }
+                                return writer;
+                            };
+
+                            /**
+                             * Encodes the specified CellsRowMap message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap.verify|verify} messages.
+                             * @function encodeDelimited
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap
+                             * @static
+                             * @param {factset.protobuf.stach.v2.table.MetadataLocations.ICellsRowMap} message CellsRowMap message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            CellsRowMap.encodeDelimited = function encodeDelimited(message, writer) {
+                                return this.encode(message, writer).ldelim();
+                            };
+
+                            /**
+                             * Decodes a CellsRowMap message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap} CellsRowMap
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            CellsRowMap.decode = function decode(reader, length) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap(), key, value;
+                                while (reader.pos < end) {
+                                    var tag = reader.uint32();
+                                    switch (tag >>> 3) {
+                                        case 1:
+                                            if (message.rows === $util.emptyObject)
+                                                message.rows = {};
+                                            var end2 = reader.uint32() + reader.pos;
+                                            key = "";
+                                            value = null;
+                                            while (reader.pos < end2) {
+                                                var tag2 = reader.uint32();
+                                                switch (tag2 >>> 3) {
+                                                    case 1:
+                                                        key = reader.string();
+                                                        break;
+                                                    case 2:
+                                                        value = $root.factset.protobuf.stach.v2.table.ListOfMetadata.decode(reader, reader.uint32());
+                                                        break;
+                                                    default:
+                                                        reader.skipType(tag2 & 7);
+                                                        break;
+                                                }
+                                            }
+                                            message.rows[key] = value;
+                                            break;
+                                        default:
+                                            reader.skipType(tag & 7);
+                                            break;
+                                    }
+                                }
+                                return message;
+                            };
+
+                            /**
+                             * Decodes a CellsRowMap message from the specified reader or buffer, length delimited.
+                             * @function decodeDelimited
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @returns {factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap} CellsRowMap
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            CellsRowMap.decodeDelimited = function decodeDelimited(reader) {
+                                if (!(reader instanceof $Reader))
+                                    reader = new $Reader(reader);
+                                return this.decode(reader, reader.uint32());
+                            };
+
+                            /**
+                             * Verifies a CellsRowMap message.
+                             * @function verify
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap
+                             * @static
+                             * @param {Object.<string,*>} message Plain object to verify
+                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                             */
+                            CellsRowMap.verify = function verify(message) {
+                                if (typeof message !== "object" || message === null)
+                                    return "object expected";
+                                if (message.rows != null && message.hasOwnProperty("rows")) {
+                                    if (!$util.isObject(message.rows))
+                                        return "rows: object expected";
+                                    var key = Object.keys(message.rows);
+                                    for (var i = 0; i < key.length; ++i) {
+                                        var error = $root.factset.protobuf.stach.v2.table.ListOfMetadata.verify(message.rows[key[i]]);
+                                        if (error)
+                                            return "rows." + error;
+                                    }
+                                }
+                                return null;
+                            };
+
+                            /**
+                             * Creates a CellsRowMap message from a plain object. Also converts values to their respective internal types.
+                             * @function fromObject
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap
+                             * @static
+                             * @param {Object.<string,*>} object Plain object
+                             * @returns {factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap} CellsRowMap
+                             */
+                            CellsRowMap.fromObject = function fromObject(object) {
+                                if (object instanceof $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap)
+                                    return object;
+                                var message = new $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap();
+                                if (object.rows) {
+                                    if (typeof object.rows !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap.rows: object expected");
+                                    message.rows = {};
+                                    for (var keys = Object.keys(object.rows), i = 0; i < keys.length; ++i) {
+                                        if (typeof object.rows[keys[i]] !== "object")
+                                            throw TypeError(".factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap.rows: object expected");
+                                        message.rows[keys[i]] = $root.factset.protobuf.stach.v2.table.ListOfMetadata.fromObject(object.rows[keys[i]]);
+                                    }
+                                }
+                                return message;
+                            };
+
+                            /**
+                             * Creates a plain object from a CellsRowMap message. Also converts values to other types if specified.
+                             * @function toObject
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap
+                             * @static
+                             * @param {factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap} message CellsRowMap
+                             * @param {$protobuf.IConversionOptions} [options] Conversion options
+                             * @returns {Object.<string,*>} Plain object
+                             */
+                            CellsRowMap.toObject = function toObject(message, options) {
+                                if (!options)
+                                    options = {};
+                                var object = {};
+                                if (options.objects || options.defaults)
+                                    object.rows = {};
+                                var keys2;
+                                if (message.rows && (keys2 = Object.keys(message.rows)).length) {
+                                    object.rows = {};
+                                    for (var j = 0; j < keys2.length; ++j)
+                                        object.rows[keys2[j]] = $root.factset.protobuf.stach.v2.table.ListOfMetadata.toObject(message.rows[keys2[j]], options);
+                                }
+                                return object;
+                            };
+
+                            /**
+                             * Converts this CellsRowMap to JSON.
+                             * @function toJSON
+                             * @memberof factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap
+                             * @instance
+                             * @returns {Object.<string,*>} JSON object
+                             */
+                            CellsRowMap.prototype.toJSON = function toJSON() {
+                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                            };
+
+                            return CellsRowMap;
+                        })();
+
+                        return MetadataLocations;
+                    })();
+
+                    table.Reference = (function() {
+
+                        /**
+                         * Properties of a Reference.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface IReference
+                         * @property {factset.protobuf.stach.v2.table.ReferenceType|null} [referenceType] Reference referenceType
+                         * @property {string|null} [tableId] Reference tableId
+                         * @property {string|null} [columnId] Reference columnId
+                         * @property {string|null} [rowId] Reference rowId
+                         */
+
+                        /**
+                         * Constructs a new Reference.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a Reference.
+                         * @implements IReference
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.table.IReference=} [properties] Properties to set
+                         */
+                        function Reference(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * Reference referenceType.
+                         * @member {factset.protobuf.stach.v2.table.ReferenceType} referenceType
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @instance
+                         */
+                        Reference.prototype.referenceType = 0;
+
+                        /**
+                         * Reference tableId.
+                         * @member {string} tableId
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @instance
+                         */
+                        Reference.prototype.tableId = "";
+
+                        /**
+                         * Reference columnId.
+                         * @member {string} columnId
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @instance
+                         */
+                        Reference.prototype.columnId = "";
+
+                        /**
+                         * Reference rowId.
+                         * @member {string} rowId
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @instance
+                         */
+                        Reference.prototype.rowId = "";
+
+                        /**
+                         * Creates a new Reference instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IReference=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.Reference} Reference instance
+                         */
+                        Reference.create = function create(properties) {
+                            return new Reference(properties);
+                        };
+
+                        /**
+                         * Encodes the specified Reference message. Does not implicitly {@link factset.protobuf.stach.v2.table.Reference.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IReference} message Reference message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Reference.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.referenceType != null && Object.hasOwnProperty.call(message, "referenceType"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.referenceType);
+                            if (message.tableId != null && Object.hasOwnProperty.call(message, "tableId"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.tableId);
+                            if (message.columnId != null && Object.hasOwnProperty.call(message, "columnId"))
+                                writer.uint32(/* id 3, wireType 2 =*/26).string(message.columnId);
+                            if (message.rowId != null && Object.hasOwnProperty.call(message, "rowId"))
+                                writer.uint32(/* id 4, wireType 2 =*/34).string(message.rowId);
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified Reference message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.Reference.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IReference} message Reference message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Reference.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a Reference message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.table.Reference} Reference
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Reference.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.Reference();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        message.referenceType = reader.int32();
+                                        break;
+                                    case 2:
+                                        message.tableId = reader.string();
+                                        break;
+                                    case 3:
+                                        message.columnId = reader.string();
+                                        break;
+                                    case 4:
+                                        message.rowId = reader.string();
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a Reference message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.table.Reference} Reference
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Reference.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a Reference message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        Reference.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.referenceType != null && message.hasOwnProperty("referenceType"))
+                                switch (message.referenceType) {
+                                    default:
+                                        return "referenceType: enum value expected";
+                                    case 0:
+                                    case 1:
+                                    case 2:
+                                    case 3:
+                                    case 4:
+                                        break;
+                                }
+                            if (message.tableId != null && message.hasOwnProperty("tableId"))
+                                if (!$util.isString(message.tableId))
+                                    return "tableId: string expected";
+                            if (message.columnId != null && message.hasOwnProperty("columnId"))
+                                if (!$util.isString(message.columnId))
+                                    return "columnId: string expected";
+                            if (message.rowId != null && message.hasOwnProperty("rowId"))
+                                if (!$util.isString(message.rowId))
+                                    return "rowId: string expected";
+                            return null;
+                        };
+
+                        /**
+                         * Creates a Reference message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.table.Reference} Reference
+                         */
+                        Reference.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.Reference)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.table.Reference();
+                            switch (object.referenceType) {
+                                case "UNKNOWN_REFERENCE_TYPE":
+                                case 0:
+                                    message.referenceType = 0;
+                                    break;
+                                case "TABLE":
+                                case 1:
+                                    message.referenceType = 1;
+                                    break;
+                                case "COLUMN":
+                                case 2:
+                                    message.referenceType = 2;
+                                    break;
+                                case "ROW":
+                                case 3:
+                                    message.referenceType = 3;
+                                    break;
+                                case "CELL":
+                                case 4:
+                                    message.referenceType = 4;
+                                    break;
+                            }
+                            if (object.tableId != null)
+                                message.tableId = String(object.tableId);
+                            if (object.columnId != null)
+                                message.columnId = String(object.columnId);
+                            if (object.rowId != null)
+                                message.rowId = String(object.rowId);
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a Reference message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.Reference} message Reference
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        Reference.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.referenceType = options.enums === String ? "UNKNOWN_REFERENCE_TYPE" : 0;
+                                object.tableId = "";
+                                object.columnId = "";
+                                object.rowId = "";
+                            }
+                            if (message.referenceType != null && message.hasOwnProperty("referenceType"))
+                                object.referenceType = options.enums === String ? $root.factset.protobuf.stach.v2.table.ReferenceType[message.referenceType] : message.referenceType;
+                            if (message.tableId != null && message.hasOwnProperty("tableId"))
+                                object.tableId = message.tableId;
+                            if (message.columnId != null && message.hasOwnProperty("columnId"))
+                                object.columnId = message.columnId;
+                            if (message.rowId != null && message.hasOwnProperty("rowId"))
+                                object.rowId = message.rowId;
+                            return object;
+                        };
+
+                        /**
+                         * Converts this Reference to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.table.Reference
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        Reference.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return Reference;
+                    })();
+
+                    /**
+                     * ReferenceType enum.
+                     * @name factset.protobuf.stach.v2.table.ReferenceType
+                     * @enum {number}
+                     * @property {number} UNKNOWN_REFERENCE_TYPE=0 UNKNOWN_REFERENCE_TYPE value
+                     * @property {number} TABLE=1 TABLE value
+                     * @property {number} COLUMN=2 COLUMN value
+                     * @property {number} ROW=3 ROW value
+                     * @property {number} CELL=4 CELL value
+                     */
+                    table.ReferenceType = (function() {
+                        var valuesById = {}, values = Object.create(valuesById);
+                        values[valuesById[0] = "UNKNOWN_REFERENCE_TYPE"] = 0;
+                        values[valuesById[1] = "TABLE"] = 1;
+                        values[valuesById[2] = "COLUMN"] = 2;
+                        values[valuesById[3] = "ROW"] = 3;
+                        values[valuesById[4] = "CELL"] = 4;
+                        return values;
+                    })();
+
+                    table.RowDefinition = (function() {
+
+                        /**
+                         * Properties of a RowDefinition.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface IRowDefinition
+                         * @property {string|null} [id] RowDefinition id
+                         * @property {factset.protobuf.stach.v2.table.IDataFormat|null} [format] RowDefinition format
+                         */
+
+                        /**
+                         * Constructs a new RowDefinition.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a RowDefinition.
+                         * @implements IRowDefinition
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.table.IRowDefinition=} [properties] Properties to set
+                         */
+                        function RowDefinition(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * RowDefinition id.
+                         * @member {string} id
+                         * @memberof factset.protobuf.stach.v2.table.RowDefinition
+                         * @instance
+                         */
+                        RowDefinition.prototype.id = "";
+
+                        /**
+                         * RowDefinition format.
+                         * @member {factset.protobuf.stach.v2.table.IDataFormat|null|undefined} format
+                         * @memberof factset.protobuf.stach.v2.table.RowDefinition
+                         * @instance
+                         */
+                        RowDefinition.prototype.format = null;
+
+                        /**
+                         * Creates a new RowDefinition instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.table.RowDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IRowDefinition=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.RowDefinition} RowDefinition instance
+                         */
+                        RowDefinition.create = function create(properties) {
+                            return new RowDefinition(properties);
+                        };
+
+                        /**
+                         * Encodes the specified RowDefinition message. Does not implicitly {@link factset.protobuf.stach.v2.table.RowDefinition.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.table.RowDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IRowDefinition} message RowDefinition message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        RowDefinition.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                            if (message.format != null && Object.hasOwnProperty.call(message, "format"))
+                                $root.factset.protobuf.stach.v2.table.DataFormat.encode(message.format, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified RowDefinition message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.RowDefinition.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.RowDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.IRowDefinition} message RowDefinition message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        RowDefinition.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a RowDefinition message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.table.RowDefinition
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.table.RowDefinition} RowDefinition
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        RowDefinition.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.RowDefinition();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        message.id = reader.string();
+                                        break;
+                                    case 2:
+                                        message.format = $root.factset.protobuf.stach.v2.table.DataFormat.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a RowDefinition message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.RowDefinition
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.table.RowDefinition} RowDefinition
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        RowDefinition.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a RowDefinition message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.table.RowDefinition
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        RowDefinition.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.id != null && message.hasOwnProperty("id"))
+                                if (!$util.isString(message.id))
+                                    return "id: string expected";
+                            if (message.format != null && message.hasOwnProperty("format")) {
+                                var error = $root.factset.protobuf.stach.v2.table.DataFormat.verify(message.format);
+                                if (error)
+                                    return "format." + error;
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a RowDefinition message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.table.RowDefinition
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.table.RowDefinition} RowDefinition
+                         */
+                        RowDefinition.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.RowDefinition)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.table.RowDefinition();
+                            if (object.id != null)
+                                message.id = String(object.id);
+                            if (object.format != null) {
+                                if (typeof object.format !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.RowDefinition.format: object expected");
+                                message.format = $root.factset.protobuf.stach.v2.table.DataFormat.fromObject(object.format);
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a RowDefinition message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.table.RowDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.RowDefinition} message RowDefinition
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        RowDefinition.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.id = "";
+                                object.format = null;
+                            }
+                            if (message.id != null && message.hasOwnProperty("id"))
+                                object.id = message.id;
+                            if (message.format != null && message.hasOwnProperty("format"))
+                                object.format = $root.factset.protobuf.stach.v2.table.DataFormat.toObject(message.format, options);
+                            return object;
+                        };
+
+                        /**
+                         * Converts this RowDefinition to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.table.RowDefinition
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        RowDefinition.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return RowDefinition;
+                    })();
+
+                    table.Table = (function() {
+
+                        /**
+                         * Properties of a Table.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface ITable
+                         * @property {factset.protobuf.stach.v2.table.ITableDefinition|null} [definition] Table definition
+                         * @property {factset.protobuf.stach.v2.table.ITableData|null} [data] Table data
+                         */
+
+                        /**
+                         * Constructs a new Table.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a Table.
+                         * @implements ITable
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.table.ITable=} [properties] Properties to set
+                         */
+                        function Table(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * Table definition.
+                         * @member {factset.protobuf.stach.v2.table.ITableDefinition|null|undefined} definition
+                         * @memberof factset.protobuf.stach.v2.table.Table
+                         * @instance
+                         */
+                        Table.prototype.definition = null;
+
+                        /**
+                         * Table data.
+                         * @member {factset.protobuf.stach.v2.table.ITableData|null|undefined} data
+                         * @memberof factset.protobuf.stach.v2.table.Table
+                         * @instance
+                         */
+                        Table.prototype.data = null;
+
+                        /**
+                         * Creates a new Table instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.table.Table
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.ITable=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.Table} Table instance
+                         */
+                        Table.create = function create(properties) {
+                            return new Table(properties);
+                        };
+
+                        /**
+                         * Encodes the specified Table message. Does not implicitly {@link factset.protobuf.stach.v2.table.Table.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.table.Table
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.ITable} message Table message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Table.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.definition != null && Object.hasOwnProperty.call(message, "definition"))
+                                $root.factset.protobuf.stach.v2.table.TableDefinition.encode(message.definition, writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.data != null && Object.hasOwnProperty.call(message, "data"))
+                                $root.factset.protobuf.stach.v2.table.TableData.encode(message.data, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified Table message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.Table.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.Table
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.ITable} message Table message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        Table.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a Table message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.table.Table
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.table.Table} Table
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Table.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.Table();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        message.definition = $root.factset.protobuf.stach.v2.table.TableDefinition.decode(reader, reader.uint32());
+                                        break;
+                                    case 2:
+                                        message.data = $root.factset.protobuf.stach.v2.table.TableData.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a Table message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.Table
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.table.Table} Table
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        Table.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a Table message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.table.Table
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        Table.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.definition != null && message.hasOwnProperty("definition")) {
+                                var error = $root.factset.protobuf.stach.v2.table.TableDefinition.verify(message.definition);
+                                if (error)
+                                    return "definition." + error;
+                            }
+                            if (message.data != null && message.hasOwnProperty("data")) {
+                                var error = $root.factset.protobuf.stach.v2.table.TableData.verify(message.data);
+                                if (error)
+                                    return "data." + error;
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a Table message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.table.Table
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.table.Table} Table
+                         */
+                        Table.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.Table)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.table.Table();
+                            if (object.definition != null) {
+                                if (typeof object.definition !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.Table.definition: object expected");
+                                message.definition = $root.factset.protobuf.stach.v2.table.TableDefinition.fromObject(object.definition);
+                            }
+                            if (object.data != null) {
+                                if (typeof object.data !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.Table.data: object expected");
+                                message.data = $root.factset.protobuf.stach.v2.table.TableData.fromObject(object.data);
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a Table message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.table.Table
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.Table} message Table
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        Table.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.definition = null;
+                                object.data = null;
+                            }
+                            if (message.definition != null && message.hasOwnProperty("definition"))
+                                object.definition = $root.factset.protobuf.stach.v2.table.TableDefinition.toObject(message.definition, options);
+                            if (message.data != null && message.hasOwnProperty("data"))
+                                object.data = $root.factset.protobuf.stach.v2.table.TableData.toObject(message.data, options);
+                            return object;
+                        };
+
+                        /**
+                         * Converts this Table to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.table.Table
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        Table.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return Table;
+                    })();
+
+                    table.TableData = (function() {
+
+                        /**
+                         * Properties of a TableData.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface ITableData
+                         * @property {Array.<factset.protobuf.stach.v2.table.IRowDefinition>|null} [rows] TableData rows
+                         * @property {Object.<string,factset.protobuf.stach.v2.table.IColumnData>|null} [columns] TableData columns
+                         * @property {factset.protobuf.stach.v2.table.IMetadataCollection|null} [metadata] TableData metadata
+                         */
+
+                        /**
+                         * Constructs a new TableData.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a TableData.
+                         * @implements ITableData
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.table.ITableData=} [properties] Properties to set
+                         */
+                        function TableData(properties) {
+                            this.rows = [];
+                            this.columns = {};
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * TableData rows.
+                         * @member {Array.<factset.protobuf.stach.v2.table.IRowDefinition>} rows
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @instance
+                         */
+                        TableData.prototype.rows = $util.emptyArray;
+
+                        /**
+                         * TableData columns.
+                         * @member {Object.<string,factset.protobuf.stach.v2.table.IColumnData>} columns
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @instance
+                         */
+                        TableData.prototype.columns = $util.emptyObject;
+
+                        /**
+                         * TableData metadata.
+                         * @member {factset.protobuf.stach.v2.table.IMetadataCollection|null|undefined} metadata
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @instance
+                         */
+                        TableData.prototype.metadata = null;
+
+                        /**
+                         * Creates a new TableData instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.ITableData=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.TableData} TableData instance
+                         */
+                        TableData.create = function create(properties) {
+                            return new TableData(properties);
+                        };
+
+                        /**
+                         * Encodes the specified TableData message. Does not implicitly {@link factset.protobuf.stach.v2.table.TableData.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.ITableData} message TableData message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        TableData.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.rows != null && message.rows.length)
+                                for (var i = 0; i < message.rows.length; ++i)
+                                    $root.factset.protobuf.stach.v2.table.RowDefinition.encode(message.rows[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                            if (message.columns != null && Object.hasOwnProperty.call(message, "columns"))
+                                for (var keys = Object.keys(message.columns), i = 0; i < keys.length; ++i) {
+                                    writer.uint32(/* id 2, wireType 2 =*/18).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                                    $root.factset.protobuf.stach.v2.table.ColumnData.encode(message.columns[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                                }
+                            if (message.metadata != null && Object.hasOwnProperty.call(message, "metadata"))
+                                $root.factset.protobuf.stach.v2.table.MetadataCollection.encode(message.metadata, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified TableData message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.TableData.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.ITableData} message TableData message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        TableData.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a TableData message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.table.TableData} TableData
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        TableData.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.TableData(), key, value;
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        if (!(message.rows && message.rows.length))
+                                            message.rows = [];
+                                        message.rows.push($root.factset.protobuf.stach.v2.table.RowDefinition.decode(reader, reader.uint32()));
+                                        break;
+                                    case 2:
+                                        if (message.columns === $util.emptyObject)
+                                            message.columns = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.ColumnData.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
+                                        }
+                                        message.columns[key] = value;
+                                        break;
+                                    case 3:
+                                        message.metadata = $root.factset.protobuf.stach.v2.table.MetadataCollection.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a TableData message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.table.TableData} TableData
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        TableData.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a TableData message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        TableData.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.rows != null && message.hasOwnProperty("rows")) {
+                                if (!Array.isArray(message.rows))
+                                    return "rows: array expected";
+                                for (var i = 0; i < message.rows.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.RowDefinition.verify(message.rows[i]);
+                                    if (error)
+                                        return "rows." + error;
+                                }
+                            }
+                            if (message.columns != null && message.hasOwnProperty("columns")) {
+                                if (!$util.isObject(message.columns))
+                                    return "columns: object expected";
+                                var key = Object.keys(message.columns);
+                                for (var i = 0; i < key.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.ColumnData.verify(message.columns[key[i]]);
+                                    if (error)
+                                        return "columns." + error;
+                                }
+                            }
+                            if (message.metadata != null && message.hasOwnProperty("metadata")) {
+                                var error = $root.factset.protobuf.stach.v2.table.MetadataCollection.verify(message.metadata);
+                                if (error)
+                                    return "metadata." + error;
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a TableData message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.table.TableData} TableData
+                         */
+                        TableData.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.TableData)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.table.TableData();
+                            if (object.rows) {
+                                if (!Array.isArray(object.rows))
+                                    throw TypeError(".factset.protobuf.stach.v2.table.TableData.rows: array expected");
+                                message.rows = [];
+                                for (var i = 0; i < object.rows.length; ++i) {
+                                    if (typeof object.rows[i] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.table.TableData.rows: object expected");
+                                    message.rows[i] = $root.factset.protobuf.stach.v2.table.RowDefinition.fromObject(object.rows[i]);
+                                }
+                            }
+                            if (object.columns) {
+                                if (typeof object.columns !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.TableData.columns: object expected");
+                                message.columns = {};
+                                for (var keys = Object.keys(object.columns), i = 0; i < keys.length; ++i) {
+                                    if (typeof object.columns[keys[i]] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.table.TableData.columns: object expected");
+                                    message.columns[keys[i]] = $root.factset.protobuf.stach.v2.table.ColumnData.fromObject(object.columns[keys[i]]);
+                                }
+                            }
+                            if (object.metadata != null) {
+                                if (typeof object.metadata !== "object")
+                                    throw TypeError(".factset.protobuf.stach.v2.table.TableData.metadata: object expected");
+                                message.metadata = $root.factset.protobuf.stach.v2.table.MetadataCollection.fromObject(object.metadata);
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a TableData message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.TableData} message TableData
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        TableData.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.arrays || options.defaults)
+                                object.rows = [];
+                            if (options.objects || options.defaults)
+                                object.columns = {};
+                            if (options.defaults)
+                                object.metadata = null;
+                            if (message.rows && message.rows.length) {
+                                object.rows = [];
+                                for (var j = 0; j < message.rows.length; ++j)
+                                    object.rows[j] = $root.factset.protobuf.stach.v2.table.RowDefinition.toObject(message.rows[j], options);
+                            }
+                            var keys2;
+                            if (message.columns && (keys2 = Object.keys(message.columns)).length) {
+                                object.columns = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.columns[keys2[j]] = $root.factset.protobuf.stach.v2.table.ColumnData.toObject(message.columns[keys2[j]], options);
+                            }
+                            if (message.metadata != null && message.hasOwnProperty("metadata"))
+                                object.metadata = $root.factset.protobuf.stach.v2.table.MetadataCollection.toObject(message.metadata, options);
+                            return object;
+                        };
+
+                        /**
+                         * Converts this TableData to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.table.TableData
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        TableData.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return TableData;
+                    })();
+
+                    table.TableDefinition = (function() {
+
+                        /**
+                         * Properties of a TableDefinition.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @interface ITableDefinition
+                         * @property {string|null} [headerTableId] TableDefinition headerTableId
+                         * @property {Array.<factset.protobuf.stach.v2.table.IColumnDefinition>|null} [columns] TableDefinition columns
+                         */
+
+                        /**
+                         * Constructs a new TableDefinition.
+                         * @memberof factset.protobuf.stach.v2.table
+                         * @classdesc Represents a TableDefinition.
+                         * @implements ITableDefinition
+                         * @constructor
+                         * @param {factset.protobuf.stach.v2.table.ITableDefinition=} [properties] Properties to set
+                         */
+                        function TableDefinition(properties) {
+                            this.columns = [];
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+
+                        /**
+                         * TableDefinition headerTableId.
+                         * @member {string} headerTableId
+                         * @memberof factset.protobuf.stach.v2.table.TableDefinition
+                         * @instance
+                         */
+                        TableDefinition.prototype.headerTableId = "";
+
+                        /**
+                         * TableDefinition columns.
+                         * @member {Array.<factset.protobuf.stach.v2.table.IColumnDefinition>} columns
+                         * @memberof factset.protobuf.stach.v2.table.TableDefinition
+                         * @instance
+                         */
+                        TableDefinition.prototype.columns = $util.emptyArray;
+
+                        /**
+                         * Creates a new TableDefinition instance using the specified properties.
+                         * @function create
+                         * @memberof factset.protobuf.stach.v2.table.TableDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.ITableDefinition=} [properties] Properties to set
+                         * @returns {factset.protobuf.stach.v2.table.TableDefinition} TableDefinition instance
+                         */
+                        TableDefinition.create = function create(properties) {
+                            return new TableDefinition(properties);
+                        };
+
+                        /**
+                         * Encodes the specified TableDefinition message. Does not implicitly {@link factset.protobuf.stach.v2.table.TableDefinition.verify|verify} messages.
+                         * @function encode
+                         * @memberof factset.protobuf.stach.v2.table.TableDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.ITableDefinition} message TableDefinition message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        TableDefinition.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.headerTableId != null && Object.hasOwnProperty.call(message, "headerTableId"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.headerTableId);
+                            if (message.columns != null && message.columns.length)
+                                for (var i = 0; i < message.columns.length; ++i)
+                                    $root.factset.protobuf.stach.v2.table.ColumnDefinition.encode(message.columns[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            return writer;
+                        };
+
+                        /**
+                         * Encodes the specified TableDefinition message, length delimited. Does not implicitly {@link factset.protobuf.stach.v2.table.TableDefinition.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.TableDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.ITableDefinition} message TableDefinition message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        TableDefinition.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+
+                        /**
+                         * Decodes a TableDefinition message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof factset.protobuf.stach.v2.table.TableDefinition
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {factset.protobuf.stach.v2.table.TableDefinition} TableDefinition
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        TableDefinition.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.factset.protobuf.stach.v2.table.TableDefinition();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                    case 1:
+                                        message.headerTableId = reader.string();
+                                        break;
+                                    case 2:
+                                        if (!(message.columns && message.columns.length))
+                                            message.columns = [];
+                                        message.columns.push($root.factset.protobuf.stach.v2.table.ColumnDefinition.decode(reader, reader.uint32()));
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Decodes a TableDefinition message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof factset.protobuf.stach.v2.table.TableDefinition
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {factset.protobuf.stach.v2.table.TableDefinition} TableDefinition
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        TableDefinition.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+
+                        /**
+                         * Verifies a TableDefinition message.
+                         * @function verify
+                         * @memberof factset.protobuf.stach.v2.table.TableDefinition
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        TableDefinition.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.headerTableId != null && message.hasOwnProperty("headerTableId"))
+                                if (!$util.isString(message.headerTableId))
+                                    return "headerTableId: string expected";
+                            if (message.columns != null && message.hasOwnProperty("columns")) {
+                                if (!Array.isArray(message.columns))
+                                    return "columns: array expected";
+                                for (var i = 0; i < message.columns.length; ++i) {
+                                    var error = $root.factset.protobuf.stach.v2.table.ColumnDefinition.verify(message.columns[i]);
+                                    if (error)
+                                        return "columns." + error;
+                                }
+                            }
+                            return null;
+                        };
+
+                        /**
+                         * Creates a TableDefinition message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof factset.protobuf.stach.v2.table.TableDefinition
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {factset.protobuf.stach.v2.table.TableDefinition} TableDefinition
+                         */
+                        TableDefinition.fromObject = function fromObject(object) {
+                            if (object instanceof $root.factset.protobuf.stach.v2.table.TableDefinition)
+                                return object;
+                            var message = new $root.factset.protobuf.stach.v2.table.TableDefinition();
+                            if (object.headerTableId != null)
+                                message.headerTableId = String(object.headerTableId);
+                            if (object.columns) {
+                                if (!Array.isArray(object.columns))
+                                    throw TypeError(".factset.protobuf.stach.v2.table.TableDefinition.columns: array expected");
+                                message.columns = [];
+                                for (var i = 0; i < object.columns.length; ++i) {
+                                    if (typeof object.columns[i] !== "object")
+                                        throw TypeError(".factset.protobuf.stach.v2.table.TableDefinition.columns: object expected");
+                                    message.columns[i] = $root.factset.protobuf.stach.v2.table.ColumnDefinition.fromObject(object.columns[i]);
+                                }
+                            }
+                            return message;
+                        };
+
+                        /**
+                         * Creates a plain object from a TableDefinition message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof factset.protobuf.stach.v2.table.TableDefinition
+                         * @static
+                         * @param {factset.protobuf.stach.v2.table.TableDefinition} message TableDefinition
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        TableDefinition.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.arrays || options.defaults)
+                                object.columns = [];
+                            if (options.defaults)
+                                object.headerTableId = "";
+                            if (message.headerTableId != null && message.hasOwnProperty("headerTableId"))
+                                object.headerTableId = message.headerTableId;
+                            if (message.columns && message.columns.length) {
+                                object.columns = [];
+                                for (var j = 0; j < message.columns.length; ++j)
+                                    object.columns[j] = $root.factset.protobuf.stach.v2.table.ColumnDefinition.toObject(message.columns[j], options);
+                            }
+                            return object;
+                        };
+
+                        /**
+                         * Converts this TableDefinition to JSON.
+                         * @function toJSON
+                         * @memberof factset.protobuf.stach.v2.table.TableDefinition
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        TableDefinition.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+
+                        return TableDefinition;
+                    })();
+
+                    /**
+                     * VerticalAlignment enum.
+                     * @name factset.protobuf.stach.v2.table.VerticalAlignment
+                     * @enum {number}
+                     * @property {number} UNKNOWN_VALIGN=0 UNKNOWN_VALIGN value
+                     * @property {number} TOP=1 TOP value
+                     * @property {number} MIDDLE=2 MIDDLE value
+                     * @property {number} BOTTOM=3 BOTTOM value
+                     */
+                    table.VerticalAlignment = (function() {
+                        var valuesById = {}, values = Object.create(valuesById);
+                        values[valuesById[0] = "UNKNOWN_VALIGN"] = 0;
+                        values[valuesById[1] = "TOP"] = 1;
+                        values[valuesById[2] = "MIDDLE"] = 2;
+                        values[valuesById[3] = "BOTTOM"] = 3;
+                        return values;
+                    })();
+
+                    return table;
                 })();
 
-                return v3;
+                return v2;
             })();
 
             return stach;
@@ -4500,31 +6947,31 @@ $root.google = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        if (message.fields === $util.emptyObject)
-                            message.fields = {};
-                        var end2 = reader.uint32() + reader.pos;
-                        key = "";
-                        value = null;
-                        while (reader.pos < end2) {
-                            var tag2 = reader.uint32();
-                            switch (tag2 >>> 3) {
-                            case 1:
-                                key = reader.string();
-                                break;
-                            case 2:
-                                value = $root.google.protobuf.Value.decode(reader, reader.uint32());
-                                break;
-                            default:
-                                reader.skipType(tag2 & 7);
-                                break;
+                        case 1:
+                            if (message.fields === $util.emptyObject)
+                                message.fields = {};
+                            var end2 = reader.uint32() + reader.pos;
+                            key = "";
+                            value = null;
+                            while (reader.pos < end2) {
+                                var tag2 = reader.uint32();
+                                switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.google.protobuf.Value.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                }
                             }
-                        }
-                        message.fields[key] = value;
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
+                            message.fields[key] = value;
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
                     }
                 }
                 return message;
@@ -4792,27 +7239,27 @@ $root.google = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        message.nullValue = reader.int32();
-                        break;
-                    case 2:
-                        message.numberValue = reader.double();
-                        break;
-                    case 3:
-                        message.stringValue = reader.string();
-                        break;
-                    case 4:
-                        message.boolValue = reader.bool();
-                        break;
-                    case 5:
-                        message.structValue = $root.google.protobuf.Struct.decode(reader, reader.uint32());
-                        break;
-                    case 6:
-                        message.listValue = $root.google.protobuf.ListValue.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
+                        case 1:
+                            message.nullValue = reader.int32();
+                            break;
+                        case 2:
+                            message.numberValue = reader.double();
+                            break;
+                        case 3:
+                            message.stringValue = reader.string();
+                            break;
+                        case 4:
+                            message.boolValue = reader.bool();
+                            break;
+                        case 5:
+                            message.structValue = $root.google.protobuf.Struct.decode(reader, reader.uint32());
+                            break;
+                        case 6:
+                            message.listValue = $root.google.protobuf.ListValue.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
                     }
                 }
                 return message;
@@ -4849,10 +7296,10 @@ $root.google = (function() {
                 if (message.nullValue != null && message.hasOwnProperty("nullValue")) {
                     properties.kind = 1;
                     switch (message.nullValue) {
-                    default:
-                        return "nullValue: enum value expected";
-                    case 0:
-                        break;
+                        default:
+                            return "nullValue: enum value expected";
+                        case 0:
+                            break;
                     }
                 }
                 if (message.numberValue != null && message.hasOwnProperty("numberValue")) {
@@ -4912,10 +7359,10 @@ $root.google = (function() {
                     return object;
                 var message = new $root.google.protobuf.Value();
                 switch (object.nullValue) {
-                case "NULL_VALUE":
-                case 0:
-                    message.nullValue = 0;
-                    break;
+                    case "NULL_VALUE":
+                    case 0:
+                        message.nullValue = 0;
+                        break;
                 }
                 if (object.numberValue != null)
                     message.numberValue = Number(object.numberValue);
@@ -5098,14 +7545,14 @@ $root.google = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        if (!(message.values && message.values.length))
-                            message.values = [];
-                        message.values.push($root.google.protobuf.Value.decode(reader, reader.uint32()));
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
+                        case 1:
+                            if (!(message.values && message.values.length))
+                                message.values = [];
+                            message.values.push($root.google.protobuf.Value.decode(reader, reader.uint32()));
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
                     }
                 }
                 return message;
