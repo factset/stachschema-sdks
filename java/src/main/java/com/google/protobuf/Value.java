@@ -63,8 +63,8 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 17: {
-            kindCase_ = 2;
             kind_ = input.readDouble();
+            kindCase_ = 2;
             break;
           }
           case 26: {
@@ -74,8 +74,8 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 32: {
-            kindCase_ = 4;
             kind_ = input.readBool();
+            kindCase_ = 4;
             break;
           }
           case 42: {
@@ -194,6 +194,17 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.google.protobuf.NullValue null_value = 1;</code>
+   * @return Whether the nullValue field is set.
+   */
+  public boolean hasNullValue() {
+    return kindCase_ == 1;
+  }
+  /**
+   * <pre>
+   * Represents a null value.
+   * </pre>
+   *
+   * <code>.google.protobuf.NullValue null_value = 1;</code>
    * @return The enum numeric value on the wire for nullValue.
    */
   public int getNullValueValue() {
@@ -227,6 +238,18 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>double number_value = 2;</code>
+   * @return Whether the numberValue field is set.
+   */
+  @java.lang.Override
+  public boolean hasNumberValue() {
+    return kindCase_ == 2;
+  }
+  /**
+   * <pre>
+   * Represents a double value.
+   * </pre>
+   *
+   * <code>double number_value = 2;</code>
    * @return The numberValue.
    */
   @java.lang.Override
@@ -238,6 +261,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STRING_VALUE_FIELD_NUMBER = 3;
+  /**
+   * <pre>
+   * Represents a string value.
+   * </pre>
+   *
+   * <code>string string_value = 3;</code>
+   * @return Whether the stringValue field is set.
+   */
+  public boolean hasStringValue() {
+    return kindCase_ == 3;
+  }
   /**
    * <pre>
    * Represents a string value.
@@ -291,6 +325,18 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BOOL_VALUE_FIELD_NUMBER = 4;
+  /**
+   * <pre>
+   * Represents a boolean value.
+   * </pre>
+   *
+   * <code>bool bool_value = 4;</code>
+   * @return Whether the boolValue field is set.
+   */
+  @java.lang.Override
+  public boolean hasBoolValue() {
+    return kindCase_ == 4;
+  }
   /**
    * <pre>
    * Represents a boolean value.
@@ -872,6 +918,18 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.google.protobuf.NullValue null_value = 1;</code>
+     * @return Whether the nullValue field is set.
+     */
+    @java.lang.Override
+    public boolean hasNullValue() {
+      return kindCase_ == 1;
+    }
+    /**
+     * <pre>
+     * Represents a null value.
+     * </pre>
+     *
+     * <code>.google.protobuf.NullValue null_value = 1;</code>
      * @return The enum numeric value on the wire for nullValue.
      */
     @java.lang.Override
@@ -955,6 +1013,17 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>double number_value = 2;</code>
+     * @return Whether the numberValue field is set.
+     */
+    public boolean hasNumberValue() {
+      return kindCase_ == 2;
+    }
+    /**
+     * <pre>
+     * Represents a double value.
+     * </pre>
+     *
+     * <code>double number_value = 2;</code>
      * @return The numberValue.
      */
     public double getNumberValue() {
@@ -995,6 +1064,18 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    /**
+     * <pre>
+     * Represents a string value.
+     * </pre>
+     *
+     * <code>string string_value = 3;</code>
+     * @return Whether the stringValue field is set.
+     */
+    @java.lang.Override
+    public boolean hasStringValue() {
+      return kindCase_ == 3;
+    }
     /**
      * <pre>
      * Represents a string value.
@@ -1104,6 +1185,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    /**
+     * <pre>
+     * Represents a boolean value.
+     * </pre>
+     *
+     * <code>bool bool_value = 4;</code>
+     * @return Whether the boolValue field is set.
+     */
+    public boolean hasBoolValue() {
+      return kindCase_ == 4;
+    }
     /**
      * <pre>
      * Represents a boolean value.

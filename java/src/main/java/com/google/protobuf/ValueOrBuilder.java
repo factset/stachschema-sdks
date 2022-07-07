@@ -13,6 +13,15 @@ public interface ValueOrBuilder extends
    * </pre>
    *
    * <code>.google.protobuf.NullValue null_value = 1;</code>
+   * @return Whether the nullValue field is set.
+   */
+  boolean hasNullValue();
+  /**
+   * <pre>
+   * Represents a null value.
+   * </pre>
+   *
+   * <code>.google.protobuf.NullValue null_value = 1;</code>
    * @return The enum numeric value on the wire for nullValue.
    */
   int getNullValueValue();
@@ -32,10 +41,28 @@ public interface ValueOrBuilder extends
    * </pre>
    *
    * <code>double number_value = 2;</code>
+   * @return Whether the numberValue field is set.
+   */
+  boolean hasNumberValue();
+  /**
+   * <pre>
+   * Represents a double value.
+   * </pre>
+   *
+   * <code>double number_value = 2;</code>
    * @return The numberValue.
    */
   double getNumberValue();
 
+  /**
+   * <pre>
+   * Represents a string value.
+   * </pre>
+   *
+   * <code>string string_value = 3;</code>
+   * @return Whether the stringValue field is set.
+   */
+  boolean hasStringValue();
   /**
    * <pre>
    * Represents a string value.
@@ -56,6 +83,15 @@ public interface ValueOrBuilder extends
   com.google.protobuf.ByteString
       getStringValueBytes();
 
+  /**
+   * <pre>
+   * Represents a boolean value.
+   * </pre>
+   *
+   * <code>bool bool_value = 4;</code>
+   * @return Whether the boolValue field is set.
+   */
+  boolean hasBoolValue();
   /**
    * <pre>
    * Represents a boolean value.

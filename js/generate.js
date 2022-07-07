@@ -19,7 +19,7 @@ var protoFiles = (function getStachProtoFiles(dir, filelist) {
     }
   });
   return filelist;
-})("/schema/fds/protobuf/stach/v2");
+})("/schema/fds/protobuf/stach/v2")
 
 pbjs.main([ "-t", "static-module", "-w", "commonjs", "-r", moduleName, "-o", jsOutputFileName ].concat(protoFiles), function(err, jsOutput) {
   if (err) throw err;

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-BASE_PATH=/src/fds.protobuf.stach.v2 # Base location of Python generated classes
+BASE_PATH=/src/fds.protobuf.stach.v3 # Base location of Python generated classes
 ARTIFACTS_PATH=/python/artifacts
 
 if [ -d $ARTIFACTS_PATH ]

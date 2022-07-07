@@ -165,39 +165,39 @@ $root.factset = (function() {
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
-                            case 1:
-                                message.version = reader.string();
-                                break;
-                            case 2:
-                                if (!(message.primaryTableIds && message.primaryTableIds.length))
-                                    message.primaryTableIds = [];
-                                message.primaryTableIds.push(reader.string());
-                                break;
-                            case 3:
-                                if (message.tables === $util.emptyObject)
-                                    message.tables = {};
-                                var end2 = reader.uint32() + reader.pos;
-                                key = "";
-                                value = null;
-                                while (reader.pos < end2) {
-                                    var tag2 = reader.uint32();
-                                    switch (tag2 >>> 3) {
-                                    case 1:
-                                        key = reader.string();
-                                        break;
-                                    case 2:
-                                        value = $root.factset.protobuf.stach.v2.table.Table.decode(reader, reader.uint32());
-                                        break;
-                                    default:
-                                        reader.skipType(tag2 & 7);
-                                        break;
+                                case 1:
+                                    message.version = reader.string();
+                                    break;
+                                case 2:
+                                    if (!(message.primaryTableIds && message.primaryTableIds.length))
+                                        message.primaryTableIds = [];
+                                    message.primaryTableIds.push(reader.string());
+                                    break;
+                                case 3:
+                                    if (message.tables === $util.emptyObject)
+                                        message.tables = {};
+                                    var end2 = reader.uint32() + reader.pos;
+                                    key = "";
+                                    value = null;
+                                    while (reader.pos < end2) {
+                                        var tag2 = reader.uint32();
+                                        switch (tag2 >>> 3) {
+                                            case 1:
+                                                key = reader.string();
+                                                break;
+                                            case 2:
+                                                value = $root.factset.protobuf.stach.v2.table.Table.decode(reader, reader.uint32());
+                                                break;
+                                            default:
+                                                reader.skipType(tag2 & 7);
+                                                break;
+                                        }
                                     }
-                                }
-                                message.tables[key] = value;
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
+                                    message.tables[key] = value;
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
                             }
                         }
                         return message;
@@ -443,34 +443,34 @@ $root.factset = (function() {
                         while (reader.pos < end) {
                             var tag = reader.uint32();
                             switch (tag >>> 3) {
-                            case 1:
-                                message.version = reader.string();
-                                break;
-                            case 2:
-                                if (message.tables === $util.emptyObject)
-                                    message.tables = {};
-                                var end2 = reader.uint32() + reader.pos;
-                                key = "";
-                                value = null;
-                                while (reader.pos < end2) {
-                                    var tag2 = reader.uint32();
-                                    switch (tag2 >>> 3) {
-                                    case 1:
-                                        key = reader.string();
-                                        break;
-                                    case 2:
-                                        value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.Table.decode(reader, reader.uint32());
-                                        break;
-                                    default:
-                                        reader.skipType(tag2 & 7);
-                                        break;
+                                case 1:
+                                    message.version = reader.string();
+                                    break;
+                                case 2:
+                                    if (message.tables === $util.emptyObject)
+                                        message.tables = {};
+                                    var end2 = reader.uint32() + reader.pos;
+                                    key = "";
+                                    value = null;
+                                    while (reader.pos < end2) {
+                                        var tag2 = reader.uint32();
+                                        switch (tag2 >>> 3) {
+                                            case 1:
+                                                key = reader.string();
+                                                break;
+                                            case 2:
+                                                value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.Table.decode(reader, reader.uint32());
+                                                break;
+                                            default:
+                                                reader.skipType(tag2 & 7);
+                                                break;
+                                        }
                                     }
-                                }
-                                message.tables[key] = value;
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
+                                    message.tables[key] = value;
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
                             }
                         }
                         return message;
@@ -699,18 +699,18 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.definition = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.decode(reader, reader.uint32());
-                                    break;
-                                case 2:
-                                    message.headersDefinition = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.decode(reader, reader.uint32());
-                                    break;
-                                case 3:
-                                    message.data = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableData.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.definition = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.decode(reader, reader.uint32());
+                                        break;
+                                    case 2:
+                                        message.headersDefinition = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableDefinition.decode(reader, reader.uint32());
+                                        break;
+                                    case 3:
+                                        message.data = $root.factset.protobuf.stach.v2.RowOrganizedPackage.TableData.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -926,14 +926,14 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    if (!(message.columns && message.columns.length))
-                                        message.columns = [];
-                                    message.columns.push($root.factset.protobuf.stach.v2.table.ColumnDefinition.decode(reader, reader.uint32()));
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        if (!(message.columns && message.columns.length))
+                                            message.columns = [];
+                                        message.columns.push($root.factset.protobuf.stach.v2.table.ColumnDefinition.decode(reader, reader.uint32()));
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -1164,58 +1164,58 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    if (!(message.rows && message.rows.length))
-                                        message.rows = [];
-                                    message.rows.push($root.factset.protobuf.stach.v2.RowOrganizedPackage.Row.decode(reader, reader.uint32()));
-                                    break;
-                                case 2:
-                                    if (message.tableMetadata === $util.emptyObject)
-                                        message.tableMetadata = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                    case 1:
+                                        if (!(message.rows && message.rows.length))
+                                            message.rows = [];
+                                        message.rows.push($root.factset.protobuf.stach.v2.RowOrganizedPackage.Row.decode(reader, reader.uint32()));
+                                        break;
+                                    case 2:
+                                        if (message.tableMetadata === $util.emptyObject)
+                                            message.tableMetadata = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.tableMetadata[key] = value;
-                                    break;
-                                case 3:
-                                    if (message.columnMetadata === $util.emptyObject)
-                                        message.columnMetadata = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                        message.tableMetadata[key] = value;
+                                        break;
+                                    case 3:
+                                        if (message.columnMetadata === $util.emptyObject)
+                                            message.columnMetadata = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.MapOfMetadata.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.columnMetadata[key] = value;
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                        message.columnMetadata[key] = value;
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -1561,87 +1561,87 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.id = reader.string();
-                                    break;
-                                case 2:
-                                    message.rowType = reader.int32();
-                                    break;
-                                case 3:
-                                    message.cells = $root.google.protobuf.ListValue.decode(reader, reader.uint32());
-                                    break;
-                                case 4:
-                                    message.values = $root.google.protobuf.Struct.decode(reader, reader.uint32());
-                                    break;
-                                case 5:
-                                    if (message.cellDetails === $util.emptyObject)
-                                        message.cellDetails = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                    case 1:
+                                        message.id = reader.string();
+                                        break;
+                                    case 2:
+                                        message.rowType = reader.int32();
+                                        break;
+                                    case 3:
+                                        message.cells = $root.google.protobuf.ListValue.decode(reader, reader.uint32());
+                                        break;
+                                    case 4:
+                                        message.values = $root.google.protobuf.Struct.decode(reader, reader.uint32());
+                                        break;
+                                    case 5:
+                                        if (message.cellDetails === $util.emptyObject)
+                                            message.cellDetails = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.CellDetail.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.cellDetails[key] = value;
-                                    break;
-                                case 6:
-                                    if (message.headerCellDetails === $util.emptyObject)
-                                        message.headerCellDetails = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                        message.cellDetails[key] = value;
+                                        break;
+                                    case 6:
+                                        if (message.headerCellDetails === $util.emptyObject)
+                                            message.headerCellDetails = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.RowOrganizedPackage.HeaderCellDetail.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.headerCellDetails[key] = value;
-                                    break;
-                                case 7:
-                                    if (message.rowMetadata === $util.emptyObject)
-                                        message.rowMetadata = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                        message.headerCellDetails[key] = value;
+                                        break;
+                                    case 7:
+                                        if (message.rowMetadata === $util.emptyObject)
+                                            message.rowMetadata = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.rowMetadata[key] = value;
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                        message.rowMetadata[key] = value;
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -1680,11 +1680,11 @@ $root.factset = (function() {
                                     return "id: string expected";
                             if (message.rowType != null && message.hasOwnProperty("rowType"))
                                 switch (message.rowType) {
-                                default:
-                                    return "rowType: enum value expected";
-                                case 0:
-                                case 1:
-                                    break;
+                                    default:
+                                        return "rowType: enum value expected";
+                                    case 0:
+                                    case 1:
+                                        break;
                                 }
                             if (message.cells != null && message.hasOwnProperty("cells")) {
                                 properties.kind = 1;
@@ -1752,14 +1752,14 @@ $root.factset = (function() {
                             if (object.id != null)
                                 message.id = String(object.id);
                             switch (object.rowType) {
-                            case "Body":
-                            case 0:
-                                message.rowType = 0;
-                                break;
-                            case "Header":
-                            case 1:
-                                message.rowType = 1;
-                                break;
+                                case "Body":
+                                case 0:
+                                    message.rowType = 0;
+                                    break;
+                                case "Header":
+                                case 1:
+                                    message.rowType = 1;
+                                    break;
                             }
                             if (object.cells != null) {
                                 message.cells = $root.google.protobuf.ListValue.fromObject(object.cells);
@@ -2001,37 +2001,37 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.groupLevel = reader.int32();
-                                    break;
-                                case 2:
-                                    message.cellDefinition = $root.factset.protobuf.stach.v2.table.CellDefinition.decode(reader, reader.uint32());
-                                    break;
-                                case 3:
-                                    if (message.cellMetadata === $util.emptyObject)
-                                        message.cellMetadata = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                    case 1:
+                                        message.groupLevel = reader.int32();
+                                        break;
+                                    case 2:
+                                        message.cellDefinition = $root.factset.protobuf.stach.v2.table.CellDefinition.decode(reader, reader.uint32());
+                                        break;
+                                    case 3:
+                                        if (message.cellMetadata === $util.emptyObject)
+                                            message.cellMetadata = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.cellMetadata[key] = value;
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                        message.cellMetadata[key] = value;
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -2314,46 +2314,46 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.colspan = reader.int32();
-                                    break;
-                                case 2:
-                                    message.rowspan = reader.int32();
-                                    break;
-                                case 3:
-                                    message.source = reader.int32();
-                                    break;
-                                case 4:
-                                    message.columnIndex = reader.int32();
-                                    break;
-                                case 5:
-                                    message.cellDefinition = $root.factset.protobuf.stach.v2.table.CellDefinition.decode(reader, reader.uint32());
-                                    break;
-                                case 6:
-                                    if (message.cellMetadata === $util.emptyObject)
-                                        message.cellMetadata = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                    case 1:
+                                        message.colspan = reader.int32();
+                                        break;
+                                    case 2:
+                                        message.rowspan = reader.int32();
+                                        break;
+                                    case 3:
+                                        message.source = reader.int32();
+                                        break;
+                                    case 4:
+                                        message.columnIndex = reader.int32();
+                                        break;
+                                    case 5:
+                                        message.cellDefinition = $root.factset.protobuf.stach.v2.table.CellDefinition.decode(reader, reader.uint32());
+                                        break;
+                                    case 6:
+                                        if (message.cellMetadata === $util.emptyObject)
+                                            message.cellMetadata = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.cellMetadata[key] = value;
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                        message.cellMetadata[key] = value;
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -2394,13 +2394,13 @@ $root.factset = (function() {
                                     return "rowspan: integer expected";
                             if (message.source != null && message.hasOwnProperty("source"))
                                 switch (message.source) {
-                                default:
-                                    return "source: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                case 3:
-                                    break;
+                                    default:
+                                        return "source: enum value expected";
+                                    case 0:
+                                    case 1:
+                                    case 2:
+                                    case 3:
+                                        break;
                                 }
                             if (message.columnIndex != null && message.hasOwnProperty("columnIndex"))
                                 if (!$util.isInteger(message.columnIndex))
@@ -2440,22 +2440,22 @@ $root.factset = (function() {
                             if (object.rowspan != null)
                                 message.rowspan = object.rowspan | 0;
                             switch (object.source) {
-                            case "UNKNOWN":
-                            case 0:
-                                message.source = 0;
-                                break;
-                            case "NONE":
-                            case 1:
-                                message.source = 1;
-                                break;
-                            case "PRIMARY":
-                            case 2:
-                                message.source = 2;
-                                break;
-                            case "HEADERS":
-                            case 3:
-                                message.source = 3;
-                                break;
+                                case "UNKNOWN":
+                                case 0:
+                                    message.source = 0;
+                                    break;
+                                case "NONE":
+                                case 1:
+                                    message.source = 1;
+                                    break;
+                                case "PRIMARY":
+                                case 2:
+                                    message.source = 2;
+                                    break;
+                                case "HEADERS":
+                                case 3:
+                                    message.source = 3;
+                                    break;
                             }
                             if (object.columnIndex != null)
                                 message.columnIndex = object.columnIndex | 0;
@@ -2646,31 +2646,31 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    if (message.items === $util.emptyObject)
-                                        message.items = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                    case 1:
+                                        if (message.items === $util.emptyObject)
+                                            message.items = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.items[key] = value;
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                        message.items[key] = value;
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -2894,15 +2894,15 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.type = reader.string();
-                                    break;
-                                case 2:
-                                    message.format = $root.factset.protobuf.stach.v2.table.DataFormat.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.type = reader.string();
+                                        break;
+                                    case 2:
+                                        message.format = $root.factset.protobuf.stach.v2.table.DataFormat.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -3124,39 +3124,39 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    if (message.ranges === $util.emptyObject)
-                                        message.ranges = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = 0;
-                                    value = 0;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.int32();
-                                            break;
-                                        case 2:
-                                            value = reader.int32();
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                    case 1:
+                                        if (message.ranges === $util.emptyObject)
+                                            message.ranges = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = 0;
+                                        value = 0;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.int32();
+                                                    break;
+                                                case 2:
+                                                    value = reader.int32();
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.ranges[key] = value;
-                                    break;
-                                case 2:
-                                    message.values = $root.google.protobuf.ListValue.decode(reader, reader.uint32());
-                                    break;
-                                case 3:
-                                    if (!(message.definitions && message.definitions.length))
-                                        message.definitions = [];
-                                    message.definitions.push($root.factset.protobuf.stach.v2.table.CellDefinition.decode(reader, reader.uint32()));
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                        message.ranges[key] = value;
+                                        break;
+                                    case 2:
+                                        message.values = $root.google.protobuf.ListValue.decode(reader, reader.uint32());
+                                        break;
+                                    case 3:
+                                        if (!(message.definitions && message.definitions.length))
+                                            message.definitions = [];
+                                        message.definitions.push($root.factset.protobuf.stach.v2.table.CellDefinition.decode(reader, reader.uint32()));
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -3492,39 +3492,39 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.id = reader.string();
-                                    break;
-                                case 2:
-                                    message.name = reader.string();
-                                    break;
-                                case 3:
-                                    message.description = reader.string();
-                                    break;
-                                case 4:
-                                    message.type = reader.string();
-                                    break;
-                                case 5:
-                                    message.isDimension = reader.bool();
-                                    break;
-                                case 6:
-                                    message.isHidden = reader.bool();
-                                    break;
-                                case 7:
-                                    message.nextSiblingId = reader.string();
-                                    break;
-                                case 8:
-                                    message.parentId = reader.string();
-                                    break;
-                                case 9:
-                                    message.headerId = reader.string();
-                                    break;
-                                case 10:
-                                    message.format = $root.factset.protobuf.stach.v2.table.DataFormat.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.id = reader.string();
+                                        break;
+                                    case 2:
+                                        message.name = reader.string();
+                                        break;
+                                    case 3:
+                                        message.description = reader.string();
+                                        break;
+                                    case 4:
+                                        message.type = reader.string();
+                                        break;
+                                    case 5:
+                                        message.isDimension = reader.bool();
+                                        break;
+                                    case 6:
+                                        message.isHidden = reader.bool();
+                                        break;
+                                    case 7:
+                                        message.nextSiblingId = reader.string();
+                                        break;
+                                    case 8:
+                                        message.parentId = reader.string();
+                                        break;
+                                    case 9:
+                                        message.headerId = reader.string();
+                                        break;
+                                    case 10:
+                                        message.format = $root.factset.protobuf.stach.v2.table.DataFormat.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -3817,21 +3817,21 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.format = reader.string();
-                                    break;
-                                case 2:
-                                    message.nullFormat = reader.string();
-                                    break;
-                                case 3:
-                                    message.halign = reader.int32();
-                                    break;
-                                case 4:
-                                    message.valign = reader.int32();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.format = reader.string();
+                                        break;
+                                    case 2:
+                                        message.nullFormat = reader.string();
+                                        break;
+                                    case 3:
+                                        message.halign = reader.int32();
+                                        break;
+                                    case 4:
+                                        message.valign = reader.int32();
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -3872,23 +3872,23 @@ $root.factset = (function() {
                                     return "nullFormat: string expected";
                             if (message.halign != null && message.hasOwnProperty("halign"))
                                 switch (message.halign) {
-                                default:
-                                    return "halign: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                case 3:
-                                    break;
+                                    default:
+                                        return "halign: enum value expected";
+                                    case 0:
+                                    case 1:
+                                    case 2:
+                                    case 3:
+                                        break;
                                 }
                             if (message.valign != null && message.hasOwnProperty("valign"))
                                 switch (message.valign) {
-                                default:
-                                    return "valign: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                case 3:
-                                    break;
+                                    default:
+                                        return "valign: enum value expected";
+                                    case 0:
+                                    case 1:
+                                    case 2:
+                                    case 3:
+                                        break;
                                 }
                             return null;
                         };
@@ -3910,40 +3910,40 @@ $root.factset = (function() {
                             if (object.nullFormat != null)
                                 message.nullFormat = String(object.nullFormat);
                             switch (object.halign) {
-                            case "UNKNOWN_HALIGN":
-                            case 0:
-                                message.halign = 0;
-                                break;
-                            case "LEFT":
-                            case 1:
-                                message.halign = 1;
-                                break;
-                            case "CENTER":
-                            case 2:
-                                message.halign = 2;
-                                break;
-                            case "RIGHT":
-                            case 3:
-                                message.halign = 3;
-                                break;
+                                case "UNKNOWN_HALIGN":
+                                case 0:
+                                    message.halign = 0;
+                                    break;
+                                case "LEFT":
+                                case 1:
+                                    message.halign = 1;
+                                    break;
+                                case "CENTER":
+                                case 2:
+                                    message.halign = 2;
+                                    break;
+                                case "RIGHT":
+                                case 3:
+                                    message.halign = 3;
+                                    break;
                             }
                             switch (object.valign) {
-                            case "UNKNOWN_VALIGN":
-                            case 0:
-                                message.valign = 0;
-                                break;
-                            case "TOP":
-                            case 1:
-                                message.valign = 1;
-                                break;
-                            case "MIDDLE":
-                            case 2:
-                                message.valign = 2;
-                                break;
-                            case "BOTTOM":
-                            case 3:
-                                message.valign = 3;
-                                break;
+                                case "UNKNOWN_VALIGN":
+                                case 0:
+                                    message.valign = 0;
+                                    break;
+                                case "TOP":
+                                case 1:
+                                    message.valign = 1;
+                                    break;
+                                case "MIDDLE":
+                                case 2:
+                                    message.valign = 2;
+                                    break;
+                                case "BOTTOM":
+                                case 3:
+                                    message.valign = 3;
+                                    break;
                             }
                             return message;
                         };
@@ -4104,14 +4104,14 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    if (!(message.ids && message.ids.length))
-                                        message.ids = [];
-                                    message.ids.push(reader.string());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        if (!(message.ids && message.ids.length))
+                                            message.ids = [];
+                                        message.ids.push(reader.string());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -4320,34 +4320,34 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    if (message.items === $util.emptyObject)
-                                        message.items = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                    case 1:
+                                        if (message.items === $util.emptyObject)
+                                            message.items = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.MetadataItem.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.items[key] = value;
-                                    break;
-                                case 2:
-                                    message.locations = $root.factset.protobuf.stach.v2.table.MetadataLocations.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                        message.items[key] = value;
+                                        break;
+                                    case 2:
+                                        message.locations = $root.factset.protobuf.stach.v2.table.MetadataLocations.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -4587,15 +4587,15 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.value = $root.google.protobuf.Value.decode(reader, reader.uint32());
-                                    break;
-                                case 2:
-                                    message.reference = $root.factset.protobuf.stach.v2.table.Reference.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.value = $root.google.protobuf.Value.decode(reader, reader.uint32());
+                                        break;
+                                    case 2:
+                                        message.reference = $root.factset.protobuf.stach.v2.table.Reference.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -4848,61 +4848,61 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    if (!(message.table && message.table.length))
-                                        message.table = [];
-                                    message.table.push(reader.string());
-                                    break;
-                                case 2:
-                                    if (message.columns === $util.emptyObject)
-                                        message.columns = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.table.ListOfMetadata.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                    case 1:
+                                        if (!(message.table && message.table.length))
+                                            message.table = [];
+                                        message.table.push(reader.string());
+                                        break;
+                                    case 2:
+                                        if (message.columns === $util.emptyObject)
+                                            message.columns = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.ListOfMetadata.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.columns[key] = value;
-                                    break;
-                                case 3:
-                                    if (message.rows === $util.emptyObject)
-                                        message.rows = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.table.ListOfMetadata.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                        message.columns[key] = value;
+                                        break;
+                                    case 3:
+                                        if (message.rows === $util.emptyObject)
+                                            message.rows = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.ListOfMetadata.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.rows[key] = value;
-                                    break;
-                                case 4:
-                                    message.cells = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                        message.rows[key] = value;
+                                        break;
+                                    case 4:
+                                        message.cells = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsColumnMap.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -5166,31 +5166,31 @@ $root.factset = (function() {
                                 while (reader.pos < end) {
                                     var tag = reader.uint32();
                                     switch (tag >>> 3) {
-                                    case 1:
-                                        if (message.columns === $util.emptyObject)
-                                            message.columns = {};
-                                        var end2 = reader.uint32() + reader.pos;
-                                        key = "";
-                                        value = null;
-                                        while (reader.pos < end2) {
-                                            var tag2 = reader.uint32();
-                                            switch (tag2 >>> 3) {
-                                            case 1:
-                                                key = reader.string();
-                                                break;
-                                            case 2:
-                                                value = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap.decode(reader, reader.uint32());
-                                                break;
-                                            default:
-                                                reader.skipType(tag2 & 7);
-                                                break;
+                                        case 1:
+                                            if (message.columns === $util.emptyObject)
+                                                message.columns = {};
+                                            var end2 = reader.uint32() + reader.pos;
+                                            key = "";
+                                            value = null;
+                                            while (reader.pos < end2) {
+                                                var tag2 = reader.uint32();
+                                                switch (tag2 >>> 3) {
+                                                    case 1:
+                                                        key = reader.string();
+                                                        break;
+                                                    case 2:
+                                                        value = $root.factset.protobuf.stach.v2.table.MetadataLocations.CellsRowMap.decode(reader, reader.uint32());
+                                                        break;
+                                                    default:
+                                                        reader.skipType(tag2 & 7);
+                                                        break;
+                                                }
                                             }
-                                        }
-                                        message.columns[key] = value;
-                                        break;
-                                    default:
-                                        reader.skipType(tag & 7);
-                                        break;
+                                            message.columns[key] = value;
+                                            break;
+                                        default:
+                                            reader.skipType(tag & 7);
+                                            break;
                                     }
                                 }
                                 return message;
@@ -5395,31 +5395,31 @@ $root.factset = (function() {
                                 while (reader.pos < end) {
                                     var tag = reader.uint32();
                                     switch (tag >>> 3) {
-                                    case 1:
-                                        if (message.rows === $util.emptyObject)
-                                            message.rows = {};
-                                        var end2 = reader.uint32() + reader.pos;
-                                        key = "";
-                                        value = null;
-                                        while (reader.pos < end2) {
-                                            var tag2 = reader.uint32();
-                                            switch (tag2 >>> 3) {
-                                            case 1:
-                                                key = reader.string();
-                                                break;
-                                            case 2:
-                                                value = $root.factset.protobuf.stach.v2.table.ListOfMetadata.decode(reader, reader.uint32());
-                                                break;
-                                            default:
-                                                reader.skipType(tag2 & 7);
-                                                break;
+                                        case 1:
+                                            if (message.rows === $util.emptyObject)
+                                                message.rows = {};
+                                            var end2 = reader.uint32() + reader.pos;
+                                            key = "";
+                                            value = null;
+                                            while (reader.pos < end2) {
+                                                var tag2 = reader.uint32();
+                                                switch (tag2 >>> 3) {
+                                                    case 1:
+                                                        key = reader.string();
+                                                        break;
+                                                    case 2:
+                                                        value = $root.factset.protobuf.stach.v2.table.ListOfMetadata.decode(reader, reader.uint32());
+                                                        break;
+                                                    default:
+                                                        reader.skipType(tag2 & 7);
+                                                        break;
+                                                }
                                             }
-                                        }
-                                        message.rows[key] = value;
-                                        break;
-                                    default:
-                                        reader.skipType(tag & 7);
-                                        break;
+                                            message.rows[key] = value;
+                                            break;
+                                        default:
+                                            reader.skipType(tag & 7);
+                                            break;
                                     }
                                 }
                                 return message;
@@ -5656,21 +5656,21 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.referenceType = reader.int32();
-                                    break;
-                                case 2:
-                                    message.tableId = reader.string();
-                                    break;
-                                case 3:
-                                    message.columnId = reader.string();
-                                    break;
-                                case 4:
-                                    message.rowId = reader.string();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.referenceType = reader.int32();
+                                        break;
+                                    case 2:
+                                        message.tableId = reader.string();
+                                        break;
+                                    case 3:
+                                        message.columnId = reader.string();
+                                        break;
+                                    case 4:
+                                        message.rowId = reader.string();
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -5705,14 +5705,14 @@ $root.factset = (function() {
                                 return "object expected";
                             if (message.referenceType != null && message.hasOwnProperty("referenceType"))
                                 switch (message.referenceType) {
-                                default:
-                                    return "referenceType: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                case 3:
-                                case 4:
-                                    break;
+                                    default:
+                                        return "referenceType: enum value expected";
+                                    case 0:
+                                    case 1:
+                                    case 2:
+                                    case 3:
+                                    case 4:
+                                        break;
                                 }
                             if (message.tableId != null && message.hasOwnProperty("tableId"))
                                 if (!$util.isString(message.tableId))
@@ -5739,26 +5739,26 @@ $root.factset = (function() {
                                 return object;
                             var message = new $root.factset.protobuf.stach.v2.table.Reference();
                             switch (object.referenceType) {
-                            case "UNKNOWN_REFERENCE_TYPE":
-                            case 0:
-                                message.referenceType = 0;
-                                break;
-                            case "TABLE":
-                            case 1:
-                                message.referenceType = 1;
-                                break;
-                            case "COLUMN":
-                            case 2:
-                                message.referenceType = 2;
-                                break;
-                            case "ROW":
-                            case 3:
-                                message.referenceType = 3;
-                                break;
-                            case "CELL":
-                            case 4:
-                                message.referenceType = 4;
-                                break;
+                                case "UNKNOWN_REFERENCE_TYPE":
+                                case 0:
+                                    message.referenceType = 0;
+                                    break;
+                                case "TABLE":
+                                case 1:
+                                    message.referenceType = 1;
+                                    break;
+                                case "COLUMN":
+                                case 2:
+                                    message.referenceType = 2;
+                                    break;
+                                case "ROW":
+                                case 3:
+                                    message.referenceType = 3;
+                                    break;
+                                case "CELL":
+                                case 4:
+                                    message.referenceType = 4;
+                                    break;
                             }
                             if (object.tableId != null)
                                 message.tableId = String(object.tableId);
@@ -5936,15 +5936,15 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.id = reader.string();
-                                    break;
-                                case 2:
-                                    message.format = $root.factset.protobuf.stach.v2.table.DataFormat.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.id = reader.string();
+                                        break;
+                                    case 2:
+                                        message.format = $root.factset.protobuf.stach.v2.table.DataFormat.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -6151,15 +6151,15 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.definition = $root.factset.protobuf.stach.v2.table.TableDefinition.decode(reader, reader.uint32());
-                                    break;
-                                case 2:
-                                    message.data = $root.factset.protobuf.stach.v2.table.TableData.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.definition = $root.factset.protobuf.stach.v2.table.TableDefinition.decode(reader, reader.uint32());
+                                        break;
+                                    case 2:
+                                        message.data = $root.factset.protobuf.stach.v2.table.TableData.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -6388,39 +6388,39 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    if (!(message.rows && message.rows.length))
-                                        message.rows = [];
-                                    message.rows.push($root.factset.protobuf.stach.v2.table.RowDefinition.decode(reader, reader.uint32()));
-                                    break;
-                                case 2:
-                                    if (message.columns === $util.emptyObject)
-                                        message.columns = {};
-                                    var end2 = reader.uint32() + reader.pos;
-                                    key = "";
-                                    value = null;
-                                    while (reader.pos < end2) {
-                                        var tag2 = reader.uint32();
-                                        switch (tag2 >>> 3) {
-                                        case 1:
-                                            key = reader.string();
-                                            break;
-                                        case 2:
-                                            value = $root.factset.protobuf.stach.v2.table.ColumnData.decode(reader, reader.uint32());
-                                            break;
-                                        default:
-                                            reader.skipType(tag2 & 7);
-                                            break;
+                                    case 1:
+                                        if (!(message.rows && message.rows.length))
+                                            message.rows = [];
+                                        message.rows.push($root.factset.protobuf.stach.v2.table.RowDefinition.decode(reader, reader.uint32()));
+                                        break;
+                                    case 2:
+                                        if (message.columns === $util.emptyObject)
+                                            message.columns = {};
+                                        var end2 = reader.uint32() + reader.pos;
+                                        key = "";
+                                        value = null;
+                                        while (reader.pos < end2) {
+                                            var tag2 = reader.uint32();
+                                            switch (tag2 >>> 3) {
+                                                case 1:
+                                                    key = reader.string();
+                                                    break;
+                                                case 2:
+                                                    value = $root.factset.protobuf.stach.v2.table.ColumnData.decode(reader, reader.uint32());
+                                                    break;
+                                                default:
+                                                    reader.skipType(tag2 & 7);
+                                                    break;
+                                            }
                                         }
-                                    }
-                                    message.columns[key] = value;
-                                    break;
-                                case 3:
-                                    message.metadata = $root.factset.protobuf.stach.v2.table.MetadataCollection.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                        message.columns[key] = value;
+                                        break;
+                                    case 3:
+                                        message.metadata = $root.factset.protobuf.stach.v2.table.MetadataCollection.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -6674,17 +6674,17 @@ $root.factset = (function() {
                             while (reader.pos < end) {
                                 var tag = reader.uint32();
                                 switch (tag >>> 3) {
-                                case 1:
-                                    message.headerTableId = reader.string();
-                                    break;
-                                case 2:
-                                    if (!(message.columns && message.columns.length))
-                                        message.columns = [];
-                                    message.columns.push($root.factset.protobuf.stach.v2.table.ColumnDefinition.decode(reader, reader.uint32()));
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
+                                    case 1:
+                                        message.headerTableId = reader.string();
+                                        break;
+                                    case 2:
+                                        if (!(message.columns && message.columns.length))
+                                            message.columns = [];
+                                        message.columns.push($root.factset.protobuf.stach.v2.table.ColumnDefinition.decode(reader, reader.uint32()));
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
                                 }
                             }
                             return message;
@@ -6947,31 +6947,31 @@ $root.google = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        if (message.fields === $util.emptyObject)
-                            message.fields = {};
-                        var end2 = reader.uint32() + reader.pos;
-                        key = "";
-                        value = null;
-                        while (reader.pos < end2) {
-                            var tag2 = reader.uint32();
-                            switch (tag2 >>> 3) {
-                            case 1:
-                                key = reader.string();
-                                break;
-                            case 2:
-                                value = $root.google.protobuf.Value.decode(reader, reader.uint32());
-                                break;
-                            default:
-                                reader.skipType(tag2 & 7);
-                                break;
+                        case 1:
+                            if (message.fields === $util.emptyObject)
+                                message.fields = {};
+                            var end2 = reader.uint32() + reader.pos;
+                            key = "";
+                            value = null;
+                            while (reader.pos < end2) {
+                                var tag2 = reader.uint32();
+                                switch (tag2 >>> 3) {
+                                    case 1:
+                                        key = reader.string();
+                                        break;
+                                    case 2:
+                                        value = $root.google.protobuf.Value.decode(reader, reader.uint32());
+                                        break;
+                                    default:
+                                        reader.skipType(tag2 & 7);
+                                        break;
+                                }
                             }
-                        }
-                        message.fields[key] = value;
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
+                            message.fields[key] = value;
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
                     }
                 }
                 return message;
@@ -7239,27 +7239,27 @@ $root.google = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        message.nullValue = reader.int32();
-                        break;
-                    case 2:
-                        message.numberValue = reader.double();
-                        break;
-                    case 3:
-                        message.stringValue = reader.string();
-                        break;
-                    case 4:
-                        message.boolValue = reader.bool();
-                        break;
-                    case 5:
-                        message.structValue = $root.google.protobuf.Struct.decode(reader, reader.uint32());
-                        break;
-                    case 6:
-                        message.listValue = $root.google.protobuf.ListValue.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
+                        case 1:
+                            message.nullValue = reader.int32();
+                            break;
+                        case 2:
+                            message.numberValue = reader.double();
+                            break;
+                        case 3:
+                            message.stringValue = reader.string();
+                            break;
+                        case 4:
+                            message.boolValue = reader.bool();
+                            break;
+                        case 5:
+                            message.structValue = $root.google.protobuf.Struct.decode(reader, reader.uint32());
+                            break;
+                        case 6:
+                            message.listValue = $root.google.protobuf.ListValue.decode(reader, reader.uint32());
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
                     }
                 }
                 return message;
@@ -7296,10 +7296,10 @@ $root.google = (function() {
                 if (message.nullValue != null && message.hasOwnProperty("nullValue")) {
                     properties.kind = 1;
                     switch (message.nullValue) {
-                    default:
-                        return "nullValue: enum value expected";
-                    case 0:
-                        break;
+                        default:
+                            return "nullValue: enum value expected";
+                        case 0:
+                            break;
                     }
                 }
                 if (message.numberValue != null && message.hasOwnProperty("numberValue")) {
@@ -7359,10 +7359,10 @@ $root.google = (function() {
                     return object;
                 var message = new $root.google.protobuf.Value();
                 switch (object.nullValue) {
-                case "NULL_VALUE":
-                case 0:
-                    message.nullValue = 0;
-                    break;
+                    case "NULL_VALUE":
+                    case 0:
+                        message.nullValue = 0;
+                        break;
                 }
                 if (object.numberValue != null)
                     message.numberValue = Number(object.numberValue);
@@ -7545,14 +7545,14 @@ $root.google = (function() {
                 while (reader.pos < end) {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
-                    case 1:
-                        if (!(message.values && message.values.length))
-                            message.values = [];
-                        message.values.push($root.google.protobuf.Value.decode(reader, reader.uint32()));
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
+                        case 1:
+                            if (!(message.values && message.values.length))
+                                message.values = [];
+                            message.values.push($root.google.protobuf.Value.decode(reader, reader.uint32()));
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
                     }
                 }
                 return message;

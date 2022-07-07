@@ -153,7 +153,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean containsFields(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     return internalGetFields().getMap().containsKey(key);
   }
   /**
@@ -188,7 +188,7 @@ private static final long serialVersionUID = 0L;
   public com.google.protobuf.Value getFieldsOrDefault(
       java.lang.String key,
       com.google.protobuf.Value defaultValue) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.protobuf.Value> map =
         internalGetFields().getMap();
     return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -204,7 +204,7 @@ private static final long serialVersionUID = 0L;
 
   public com.google.protobuf.Value getFieldsOrThrow(
       java.lang.String key) {
-    if (key == null) { throw new java.lang.NullPointerException(); }
+    if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.protobuf.Value> map =
         internalGetFields().getMap();
     if (!map.containsKey(key)) {
@@ -596,7 +596,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean containsFields(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetFields().getMap().containsKey(key);
     }
     /**
@@ -631,7 +631,7 @@ private static final long serialVersionUID = 0L;
     public com.google.protobuf.Value getFieldsOrDefault(
         java.lang.String key,
         com.google.protobuf.Value defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Value> map =
           internalGetFields().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -647,7 +647,7 @@ private static final long serialVersionUID = 0L;
 
     public com.google.protobuf.Value getFieldsOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Value> map =
           internalGetFields().getMap();
       if (!map.containsKey(key)) {
@@ -671,7 +671,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder removeFields(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableFields().getMutableMap()
           .remove(key);
       return this;
@@ -694,8 +694,11 @@ private static final long serialVersionUID = 0L;
     public Builder putFields(
         java.lang.String key,
         com.google.protobuf.Value value) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      if (value == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) {
+  throw new NullPointerException("map value");
+}
+
       internalGetMutableFields().getMutableMap()
           .put(key, value);
       return this;

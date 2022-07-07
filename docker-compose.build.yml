@@ -12,12 +12,12 @@ services:
       dockerfile: java/Dockerfile.build
     volumes:
     - ./java:/java
-  build_js:
-    build:
-      context: .
-      dockerfile: js/Dockerfile.build
-    volumes:
-    - ./js:/js
+#  build_js:
+#    build:
+#      context: .
+#      dockerfile: js/Dockerfile.build
+#    volumes:
+#    - ./js:/js
   build_python:
     build:
       context: .

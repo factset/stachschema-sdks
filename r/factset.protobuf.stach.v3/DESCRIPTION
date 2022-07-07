@@ -1,0 +1,24 @@
+Package: factset.protobuf.stach.v3
+Type: Package
+Title: 'FactSet' 'STACH V3' Library
+Version: 1.0.0
+Author: analytics-reporting
+Maintainer: Charlie Mathis<chmathis@factset.com>
+Description: Generates 'RProtobuf' classes for 'FactSet' 'STACH V3' tabular 
+    format which represents complex multi-dimensional array of data. These 
+    classes help in the 'serialization' and 'deserialization' of 'STACH V3' 
+    formatted data. See 'GitHub' repository documentation for more 
+    information.
+URL: https://github.com/factset/stachschema-sdks
+BugReports: https://github.com/factset/stachschema-sdks/issues
+License: Apache License 2.0
+Encoding: UTF-8
+LazyData: true
+Imports: R6
+Depends: RProtoBuf
+Suggests: testthat
+SystemRequirements: ProtoBuf libraries and compiler version 3.3.0 or later;
+ On Debian/Ubuntu these can be installed as libprotoc-dev, libprotobuf-dev
+ and protobuf-compiler, while on Fedora/CentOS protobuf-devel and
+ protobuf-compiler are needed.
+RoxygenNote: 7.0.0
