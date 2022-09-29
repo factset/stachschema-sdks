@@ -15,7 +15,7 @@ The purpose of this library is to help in the serialization and de-serialization
 \describe{
 \item{\code{package}}{Stach Data which is represented as a Package object}
 \item{\code{input}}{Input file which is in binary format}
-}
+}\if{html}{\out{</div>}}
 }
 
 \examples{
