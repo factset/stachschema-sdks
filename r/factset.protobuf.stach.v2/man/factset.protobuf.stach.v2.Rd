@@ -28,6 +28,16 @@ read( factset.protobuf.stach.v2.RowOrganizedPackage, input = 'path of your stach
 
 # an example to Read the raw stach data as a character 
 read( factset.protobuf.stach.v2.Package, input = as.character(stachdata) )
+}
+\testonly{
+# an example to Read column organized file data from a connection
+binaryFilePath <-
+  system.file('testdata/V2ColumnStachData', package = 'factset.protobuf.stach.v2')
+package <- read( factset.protobuf.stach.v2.Package, input = binaryFilePath )
 
+# an example to Read row organized file data from a connection
+binaryFilePath <-
+  system.file('testdata/V2RowStachData', package = 'factset.protobuf.stach.v2')
+package <- read( factset.protobuf.stach.v2.RowOrganizedPackage, input = binaryFilePath )
 }
 }
