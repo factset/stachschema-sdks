@@ -1,9 +1,11 @@
 Package: factset.protobuf.stach.v2
 Type: Package
+Version: 1.0.6
 Title: 'FactSet' 'STACH V2' Library
-Version: 1.0.5
-Author: analytics-reporting
-Maintainer: Charlie Mathis<chmathis@factset.com>
+Authors@R: c(person("Charlie Mathis", "Developer", role = c("aut", "cre"),
+                     email = "chmathis@factset.com"))
+Author: Charlie Mathis Developer [aut, cre]
+Maintainer: Charlie Mathis Developer <chmathis@factset.com>
 Description: Generates 'RProtobuf' classes for 'FactSet' 'STACH V2' tabular 
     format which represents complex multi-dimensional array of data. These 
     classes help in the 'serialization' and 'deserialization' of 'STACH V2' 
@@ -14,8 +16,10 @@ BugReports: https://github.com/factset/stachschema-sdks/issues
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
-Imports: R6
-Depends: RProtoBuf
+Imports: 
+	R6
+Depends: 
+	RProtoBuf
 Suggests: testthat
 SystemRequirements: ProtoBuf libraries and compiler version 3.3.0 or later;
  On Debian/Ubuntu these can be installed as libprotoc-dev, libprotobuf-dev
