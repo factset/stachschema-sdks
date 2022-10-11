@@ -2,10 +2,8 @@ Package: factset.protobuf.stach.v2
 Type: Package
 Version: 1.0.6
 Title: 'FactSet' 'STACH V2' Library
-Authors@R: c(person("Charlie Mathis", "Developer", role = c("aut", "cre"),
-                     email = "chmathis@factset.com"))
-Author: Charlie Mathis Developer [aut, cre]
-Maintainer: Charlie Mathis Developer <chmathis@factset.com>
+Authors@R: 
+    person("Vamshi Krishna", role = c("aut","cre"), email = "vamshikrishna.mupparaju@factset.com")
 Description: Generates 'RProtobuf' classes for 'FactSet' 'STACH V2' tabular 
     format which represents complex multi-dimensional array of data. These 
     classes help in the 'serialization' and 'deserialization' of 'STACH V2' 

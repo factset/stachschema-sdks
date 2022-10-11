@@ -26,7 +26,7 @@ read( factset.protobuf.stach.v2.Package, input = 'path of your stach file' )
 # an example to Read row organized file data from a connection
 read( factset.protobuf.stach.v2.RowOrganizedPackage, input = 'path of your stach file' )
 
-# an example to Read the raw stach data as a character 
+# an example to Read the raw stach data as a character
 read( factset.protobuf.stach.v2.Package, input = as.character(stachdata) )
 }
 \testonly{
