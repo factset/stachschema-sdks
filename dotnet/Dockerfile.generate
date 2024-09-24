@@ -8,8 +8,8 @@ LABEL org.label-schema.license="Apache-2.0" \
 RUN apt-get update && \
     apt-get -y install unzip
 
-ARG PROTOC_ZIP=protoc-3.19.4-linux-x86_64.zip
-RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/$PROTOC_ZIP
+ARG PROTOC_ZIP=protoc-28.2-linux-x86_64.zip
+RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v28.2/$PROTOC_ZIP
 RUN unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
 RUN unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
 RUN rm -f $PROTOC_ZIP
