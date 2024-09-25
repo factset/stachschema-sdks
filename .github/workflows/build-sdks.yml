@@ -37,7 +37,7 @@ jobs:
           docker-compose -f docker-compose.build.yml up --remove-orphans
 
       - name: Copy artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Artifacts
           path: '*/artifacts/'
