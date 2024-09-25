@@ -5,7 +5,7 @@ SCHEMA_PATH=/schema # Location of Protobuf schema
 BASE_PATH=/dotnet/Schema # Base location of C# generated classes
 PACKAGE_PATH=fds/protobuf/stach
 
-SCHEMA_PATH_v1=/schema/v2 # Location of Protobuf schema
+SCHEMA_PATH_v1=/schema/v1 # Location of Protobuf schema
 BASE_PATH_v1=/dotnet/v2/Schema # Base location of C# generated classes
 
 SCHEMA_PATH_v2=/schema/v2 # Location of Protobuf schema
