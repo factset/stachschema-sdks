@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-SCHEMA_PATH=/schema # Location of Protobuf schema
-BASE_PATH=/dotnet/Schema # Base location of C# generated classes
+# SCHEMA_PATH=/schema # Location of Protobuf schema
+# BASE_PATH=/dotnet/Schema # Base location of C# generated classes
 PACKAGE_PATH=fds/protobuf/stach
 
 SCHEMA_PATH_v1=/schema/v1 # Location of Protobuf schema
@@ -24,7 +24,12 @@ rm -f $BASE_PATH_v3/$PACKAGE_PATH/**/*.g.cs
 
 echo Removed old generated code
 
-# commenting old code
+# generating the folder structure if not exist, for first time.
+mkdir -p $BASE_PATH_v1/$PACKAGE_PATH
+mkdir -p $BASE_PATH_v2/$PACKAGE_PATH
+mkdir -p $BASE_PATH_v3/$PACKAGE_PATH
+
+# old code
 # PROTOFILES=$(find $SCHEMA_PATH/$PACKAGE_PATH -iname "*.proto")
 # protoc --proto_path $SCHEMA_PATH --csharp_out $BASE_PATH/$PACKAGE_PATH --csharp_opt=file_extension=.g.cs,base_namespace=FactSet.Protobuf.Stach.V3 $PROTOFILES
 
