@@ -10,7 +10,7 @@ env:
   MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
   DOTNET_SDK_LOCATION: "dotnet/Schema"
   PYTHON_SDK_LOCATION: "python/fds.protobuf.stach.v3"
-  JAVA_SDK_LOCATION: "java" 
+  JAVA_SDK_LOCATION: "java/v3" 
 
 on:
   release:

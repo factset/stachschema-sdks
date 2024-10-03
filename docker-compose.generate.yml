@@ -26,7 +26,9 @@ services:
       context: .
       dockerfile: java/Dockerfile.generate
     volumes:
-    - ${SCHEMA}:/schema
+    - ${SCHEMA}/fds/protobuf/stach/v1:/schema/v1/fds/protobuf/stach
+    - ${SCHEMA}/fds/protobuf/stach/v2:/schema/v2/fds/protobuf/stach
+    - ${SCHEMA}/fds/protobuf/stach/v3:/schema/v3/fds/protobuf/stach
     - ./java:/java
   generate_r:
     build:
