@@ -11,9 +11,9 @@ BASE_PATH_v3=/java/v3
 rm -f $BASE_PATH/**/*.java
 
 
-mkdir -P $BASE_PATH_v1/$PACKAGE_PATH
-mkdir -P $BASE_PATH_v2/$PACKAGE_PATH
-mkdir -P $BASE_PATH_v3/$PACKAGE_PATH
+mkdir --parent $BASE_PATH_v1/$PACKAGE_PATH
+mkdir --parent $BASE_PATH_v2/$PACKAGE_PATH
+mkdir --parent $BASE_PATH_v3/$PACKAGE_PATH
 
 echo Removed old generated code
 
