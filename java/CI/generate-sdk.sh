@@ -22,13 +22,16 @@ echo Removed old generated code
 
 cd $BASE_PATH_v1
 mvn clean install -q -P generate-stach-schema -f pom.xml
+echo Generated java stach v1 code
 
 cd ../..
 cd $BASE_PATH_v2
 mvn clean install -q -P generate-stach-schema -f pom.xml
+echo Generated java stach v2 code
 
 cd ../..
 cd $BASE_PATH_v3
 mvn clean install -q -P generate-stach-schema -f pom.xml
+echo Generated java stach v3 code
 
 echo Produced new generated code
