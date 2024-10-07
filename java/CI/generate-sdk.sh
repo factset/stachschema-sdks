@@ -4,9 +4,9 @@ set -e
 BASE_PATH=/java # Base location of Java generated classes
 PACKAGE_PATH=src/main/java
 
-BASE_PATH_v1 = /java/v1
-BASE_PATH_v2 = /java/v2
-BASE_PATH_v3 = /java/v3
+BASE_PATH_v1=/java/v1
+BASE_PATH_v2=/java/v2
+BASE_PATH_v3=/java/v3
 
 rm -f $BASE_PATH/**/*.java
 
