@@ -11,9 +11,9 @@ BASE_PATH_v3=/java/v3
 rm -f $BASE_PATH/**/*.java
 
 
-mkdir -P $BASE_PATH_v1/$PACKAGE_PATH
-mkdir -P $BASE_PATH_v2/$PACKAGE_PATH
-mkdir -P $BASE_PATH_v3/$PACKAGE_PATH
+mkdir --parent $BASE_PATH_v1/$PACKAGE_PATH
+mkdir --parent $BASE_PATH_v2/$PACKAGE_PATH
+mkdir --parent $BASE_PATH_v3/$PACKAGE_PATH
 
 echo Removed old generated code
 
@@ -22,16 +22,16 @@ echo Removed old generated code
 
 cd $BASE_PATH_v1
 mvn clean install -q -P generate-stach-schema -f pom.xml
-echo Generated java stach v1 code
+echo Generated java stach v1 files
 
 cd ../..
 cd $BASE_PATH_v2
 mvn clean install -q -P generate-stach-schema -f pom.xml
-echo Generated java stach v2 code
+echo Generated java stach v2 files
 
 cd ../..
 cd $BASE_PATH_v3
 mvn clean install -q -P generate-stach-schema -f pom.xml
-echo Generated java stach v3 code
+echo Generated java stach v3 files
 
 echo Produced new generated code
