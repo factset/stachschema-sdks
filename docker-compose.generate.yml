@@ -37,10 +37,10 @@ services:
     volumes:
     - ${SCHEMA}/v3:/schema
     - ./r:/r
-  generate_go:
-    build:
-      context: .
-      dockerfile: go/Dockerfile.generate
-    volumes:
-    - ${SCHEMA}/v3:/schema
-    - ./go:/golang
+  # generate_go:
+  #   build:
+  #     context: .
+  #     dockerfile: go/Dockerfile.generate
+  #   volumes:
+  #   - ${SCHEMA}/v3:/schema
+  #   - ./go:/golang
