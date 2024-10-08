@@ -3,8 +3,8 @@ dotnet/**/*.user
 dotnet/**/bin/
 dotnet/**/obj/
 dotnet/packages/
-java/.idea/
-java/*.iml
+java/**/ */.idea/
+java/**/*.iml
 java/**/target/
 node_modules/
 js/node_modules/

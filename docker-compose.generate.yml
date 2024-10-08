@@ -5,42 +5,42 @@ services:
       context: .
       dockerfile: dotnet/Dockerfile.generate
     volumes:
-    - ${SCHEMA}/fds/protobuf/stach/v3:/schema/fds/protobuf/stach/v3
+    - ${SCHEMA}/v3:/schema
     - ./dotnet:/dotnet
-#  generate_js:
-#    build:
-#      context: .
-#      dockerfile: js/Dockerfile.generate
-#    volumes:
-#    - ${SCHEMA}:/schema
-#    - ./js:/js
+  # generate_js:
+  #  build:
+  #    context: .
+  #    dockerfile: js/Dockerfile.generate
+  #  volumes:
+  #  - ${SCHEMA}/v3:/schema
+  #  - ./js:/js
   generate_python:
     build:
       context: .
       dockerfile: python/Dockerfile.generate
     volumes:
-    - ${SCHEMA}/fds/protobuf/stach/v3:/schema/fds/protobuf/stach/v3
+    - ${SCHEMA}/v3:/schema
     - ./python:/python
   generate_java:
     build:
       context: .
       dockerfile: java/Dockerfile.generate
     volumes:
-    - ${SCHEMA}/fds/protobuf/stach/v1:/schema/v1/fds/protobuf/stach
-    - ${SCHEMA}/fds/protobuf/stach/v2:/schema/v2/fds/protobuf/stach
-    - ${SCHEMA}/fds/protobuf/stach/v3:/schema/v3/fds/protobuf/stach
+    - ${SCHEMA}/v1:/schema/v1
+    - ${SCHEMA}/v2:/schema/v2
+    - ${SCHEMA}/v3:/schema/v3
     - ./java:/java
   generate_r:
     build:
       context: .
       dockerfile: r/Dockerfile.generate
     volumes:
-    - ${SCHEMA}/fds/protobuf/stach/v3:/schema/fds/protobuf/stach/v3
+    - ${SCHEMA}/v3:/schema
     - ./r:/r
   generate_go:
     build:
       context: .
       dockerfile: go/Dockerfile.generate
     volumes:
-    - ${SCHEMA}/fds/protobuf/stach/v3:/schema/fds/protobuf/stach/v3
+    - ${SCHEMA}/v3:/schema
     - ./go:/golang

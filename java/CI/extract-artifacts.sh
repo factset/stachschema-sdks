@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-BASE_PATH=/src # Base location of Java generated classes
+BASE_PATH=/src/v3 # Base location of Java generated classes
 ARTIFACTS_PATH=/java/artifacts
 
 if [ -d $ARTIFACTS_PATH ]
