@@ -10,12 +10,18 @@
     <url>https://github.com/factset/stachschema</url>
     <description>Google Protocol buffer classes for FactSet STACH tabular format which represents complex multi-dimensional array of data. These classes help in the serialization and deserialization of STACH formatted data. See GitHub repository documentation for more information.</description>
 
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <name>Central Repository OSSRH</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
     <scm>
-        <connection>scm:git:git://github.com/factset/stachschema.git</connection>
-        <developerConnection>scm:git:ssh://github.com:factset/stachschema.git</developerConnection>
-        <url>http://github.com/factset/stachschema/tree/master</url>
+        <connection>scm:git:git://github.com/factset/stachschema-sdks.git</connection>
+        <developerConnection>scm:git:ssh://github.com:factset/stachschema-sdks.git</developerConnection>
+        <url>http://github.com/factset/stachschema-sdks/tree/master</url>
     </scm>
-
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
