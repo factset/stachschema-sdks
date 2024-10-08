@@ -40,6 +40,7 @@ jobs:
       
     - name: Publish to Apache Maven Central
       run: |
+        export GPG_TTY=$(tty)
         cd ${{ env.JAVA_SDK_LOCATION_v1 }}
         mvn -Psign-artifacts verify deploy
 
