@@ -5,7 +5,7 @@ dotnet/**/obj/
 dotnet/packages/
 java/.idea/
 java/*.iml
-java/target/
+java/**/target/
 node_modules/
 js/node_modules/
 python/fds.protobuf.stach/dist/*.*
