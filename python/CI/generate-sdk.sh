@@ -23,10 +23,10 @@ BASE_PATH_V2=../fds.protobuf.stach.v2 # Base location of Python generated classe
 PACKAGE_PATH_V3=v3/fds/protobuf/stach/v3
 PACKAGE_PATH_V2=v2/fds/protobuf/stach/v2
 
-# rm -f $BASE_PATH_V2/$PACKAGE_PATH_V2/**/*_pb2.py
-# rm -f $BASE_PATH_V3/$PACKAGE_PATH_V3/**/*_pb2.py
-
 # echo Removed old generated code
+rm -f $BASE_PATH_V2/$PACKAGE_PATH_V2/**/*_pb2.py
+rm -f $BASE_PATH_V3/$PACKAGE_PATH_V3/**/*_pb2.py
+
 mkdir -p "$BASE_PATH_V3"
 mkdir -p "$BASE_PATH_V2"
 
