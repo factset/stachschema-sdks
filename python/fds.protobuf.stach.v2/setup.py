@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
-setup(name='fds.protobuf.stach.v3',
-      version='1.0.1',
+setup(name='fds.protobuf.stach.v2',
+      version='1.0.3',
       description='Stach library in python',
       url='',
       author='analytics-reporting',
