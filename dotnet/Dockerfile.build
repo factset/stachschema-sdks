@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2
+FROM mcr.microsoft.com/dotnet/core/sdk:6.0
 
 LABEL org.label-schema.license="Apache-2.0" \
       org.label-schema.vcs-url="https://github.com/factset/stachschema-sdks" \

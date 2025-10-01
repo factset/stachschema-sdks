@@ -1,4 +1,4 @@
-FROM golang:1.14.6
+FROM golang:1.21
 
 LABEL org.label-schema.license="Apache-2.0" \
       org.label-schema.vcs-url="https://github.com/factset/stachschema-sdks" \
