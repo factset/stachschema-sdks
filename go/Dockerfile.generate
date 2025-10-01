@@ -5,7 +5,7 @@ LABEL org.label-schema.license="Apache-2.0" \
       org.label-schema.description="To generate Go Stach package" \
       maintainer="analytics.api.support@factset.com"
 
-RUN apk update && apk add curl unzip bash
+RUN apk update && apk add curl unzip bash git
 
 ARG PROTOC_ZIP=protoc-3.19.4-linux-x86_64.zip
 RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/$PROTOC_ZIP
