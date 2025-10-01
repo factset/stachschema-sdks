@@ -1,4 +1,4 @@
-FROM golang:1.21-alpine
+FROM golang:1.23-alpine
 
 LABEL org.label-schema.license="Apache-2.0" \
       org.label-schema.vcs-url="https://github.com/factset/stachschema-sdks" \
@@ -13,6 +13,6 @@ RUN unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
 RUN unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
 RUN rm -f $PROTOC_ZIP
 
-RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@1.5.4
+RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 
 ENTRYPOINT ["bash", "/golang/CI/generate-sdk.sh"]
