@@ -1,5 +1,8 @@
 #!/bin/bash
 set -e
+
+export PATH="/usr/bin:$PATH"
+
 # --- Add these variables ---
 GIT_REPO_URL="https://github.com/factset/stachschema.git"
 LOCAL_SCHEMA_PATH="./tmp"
