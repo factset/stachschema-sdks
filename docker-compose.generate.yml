@@ -18,6 +18,8 @@ services:
     build:
       context: .
       dockerfile: python/Dockerfile.generate
+      args:
+        - CACHE_BUST=${RANDOM}
     volumes:
     - ${SCHEMA}/v1:/schema/v1
     - ${SCHEMA}/v2:/schema/v2
