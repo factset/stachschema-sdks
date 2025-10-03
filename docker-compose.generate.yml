@@ -1,12 +1,12 @@
 version: '3'
 services:
-  # generate_dotnet:
-  #   build:
-  #     context: .
-  #     dockerfile: dotnet/Dockerfile.generate
-  #   volumes:
-  #   - ${SCHEMA}/v3:/schema
-  #   - ./dotnet:/dotnet
+  generate_dotnet:
+    build:
+      context: .
+      dockerfile: dotnet/Dockerfile.generate
+    volumes:
+    - ${SCHEMA}/v3:/schema
+    - ./dotnet:/dotnet
   # generate_js:
   #  build:
   #    context: .
@@ -23,22 +23,22 @@ services:
     - ${SCHEMA}/v2:/schema/v2
     - ${SCHEMA}/v3:/schema/v3
     - ./python:/python
-  # generate_java:
-  #   build:
-  #     context: .
-  #     dockerfile: java/Dockerfile.generate
-  #   volumes:
-  #   - ${SCHEMA}/v1:/schema/v1
-  #   - ${SCHEMA}/v2:/schema/v2
-  #   - ${SCHEMA}/v3:/schema/v3
-  #   - ./java:/java
-  # generate_r:
-  #   build:
-  #     context: .
-  #     dockerfile: r/Dockerfile.generate
-  #   volumes:
-  #   - ${SCHEMA}/v3:/schema
-  #   - ./r:/r
+  generate_java:
+    build:
+      context: .
+      dockerfile: java/Dockerfile.generate
+    volumes:
+    - ${SCHEMA}/v1:/schema/v1
+    - ${SCHEMA}/v2:/schema/v2
+    - ${SCHEMA}/v3:/schema/v3
+    - ./java:/java
+  generate_r:
+    build:
+      context: .
+      dockerfile: r/Dockerfile.generate
+    volumes:
+    - ${SCHEMA}/v3:/schema
+    - ./r:/r
   # generate_go:
   #   build:
   #     context: .
