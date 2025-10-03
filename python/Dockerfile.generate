@@ -6,7 +6,7 @@ LABEL org.label-schema.license="Apache-2.0" \
       maintainer="analytics.api.support@factset.com"
 
 RUN apt-get update && \
-    apt-get -y install unzip curl git && \
+    apt-get -y install unzip git curl && \
     rm -rf /var/lib/apt/lists/*
 
 ARG PROTOC_ZIP=protoc-3.19.4-linux-x86_64.zip
