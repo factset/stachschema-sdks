@@ -5,7 +5,7 @@ export PATH="/usr/bin:$PATH"
 
 # --- Add these variables ---
 GIT_REPO_URL="https://github.com/factset/stachschema.git"
-LOCAL_SCHEMA_PATH="./tmp"
+LOCAL_SCHEMA_PATH="/schema"
 BRANCH_NAME="feat/sdks/support-versions"
 
 # Clone or update the repo
