@@ -1,26 +1,7 @@
 #!/bin/bash
 set -e
 
-export PATH="/usr/bin:$PATH"
-
-# --- Add these variables ---
-GIT_REPO_URL="https://github.com/factset/stachschema.git"
-LOCAL_SCHEMA_PATH="/schema"
-BRANCH_NAME="feat/sdks/support-versions"
-
-# # Clone or update the repo
-# if [ -d "$LOCAL_SCHEMA_PATH/.git" ]; then
-#     git -C "$LOCAL_SCHEMA_PATH" pull origin "$BRANCH_NAME"
-#     git -C "$LOCAL_SCHEMA_PATH" checkout "$BRANCH_NAME"
-# else
-#     if [ -d "$LOCAL_SCHEMA_PATH" ]; then
-#         echo "Directory $LOCAL_SCHEMA_PATH exists but is not a git repo. Removing..."
-#         rm -rf "$LOCAL_SCHEMA_PATH"
-#     fi
-#     git clone -b "$BRANCH_NAME" "$GIT_REPO_URL" "$LOCAL_SCHEMA_PATH"
-# fi
-
-SCHEMA_PATH="$LOCAL_SCHEMA_PATH/proto" # Location of Protobuf schema
+SCHEMA_PATH="/schema" # Location of Protobuf schema
 BASE_PATH_V3=../fds.protobuf.stach.v3 # Base location of Python generated classes
 BASE_PATH_V2=../fds.protobuf.stach.v2 # Base location of Python generated classes
 PACKAGE_PATH_V3=v3/fds/protobuf/stach/v3
