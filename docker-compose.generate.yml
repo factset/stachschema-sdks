@@ -19,7 +19,7 @@ services:
       context: .
       dockerfile: python/Dockerfile.generate
       args:
-        - CACHE_BUST=${RANDOM}
+        - CACHE_BUST=${BUILD_DATE:-$(date +%s)}
     volumes:
     - ${SCHEMA}/v1:/schema/v1
     - ${SCHEMA}/v2:/schema/v2
