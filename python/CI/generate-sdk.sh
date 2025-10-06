@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 
-SCHEMA_PATH="/schema" # Location of Protobuf schema
-BASE_PATH_V3=../fds.protobuf.stach.v3 # Base location of Python generated classes
-BASE_PATH_V2=../fds.protobuf.stach.v2 # Base location of Python generated classes
+SCHEMA_PATH=/schema # Location of Protobuf schema
+BASE_PATH_V3=/python/fds.protobuf.stach.v3 # Base location of Python generated classes
+BASE_PATH_V2=/python/fds.protobuf.stach.v2 # Base location of Python generated classes
 PACKAGE_PATH_V3=v3/fds/protobuf/stach/v3
 PACKAGE_PATH_V2=v2/fds/protobuf/stach/v2
 
