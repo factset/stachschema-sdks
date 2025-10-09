@@ -11,8 +11,8 @@ rm -f $BASE_PATH/$PACKAGE_PATH/**/*.pb.go
 
 echo Removed old generated code
 
-PROTOFILES=$(find $SCHEMA_PATH/$PACKAGE_PATH -iname "*.proto")
-protoc --proto_path $SCHEMA_PATH --go_out paths=source_relative:$BASE_PATH $PROTOFILES
+PROTOFILES=$(find $SCHEMA_PATH/v3 -iname "*.proto")
+protoc --proto_path $SCHEMA_PATH/v3 --go_out paths=source_relative:$BASE_PATH $PROTOFILES
 
 cd $BASE_PATH/$PACKAGE_PATH
 go mod init github.com/factset/stachschema-sdks/go/fds/protobuf/stach/v3
