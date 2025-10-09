@@ -18,8 +18,6 @@ services:
     build:
       context: .
       dockerfile: python/Dockerfile.generate
-      args:
-        - CACHE_BUST=${BUILD_DATE:-$(date +%s)}
     volumes:
     - ${SCHEMA}/v1:/schema/v1
     - ${SCHEMA}/v2:/schema/v2
@@ -41,10 +39,10 @@ services:
     volumes:
     - ${SCHEMA}/v3:/schema
     - ./r:/r
-  # generate_go:
-  #   build:
-  #     context: .
-  #     dockerfile: go/Dockerfile.generate
-  #   volumes:
-  #   - ${SCHEMA}/v3:/schema
-  #   - ./go:/golang
+  generate_go:
+    build:
+      context: .
+      dockerfile: go/Dockerfile.generate
+    volumes:
+    - ${SCHEMA}/v3:/schema
+    - ./go:/golang
