@@ -106,6 +106,7 @@
                             <attachDescriptorSet>true</attachDescriptorSet>
                             <attachProtoSources>false</attachProtoSources>
                             <outputDirectory>src/main/java</outputDirectory>
+                            <clearOutputDirectory>false</clearOutputDirectory>
                             <includes>
                                 <include>fds/**/*.proto</include>
                                 <include>google/**/*.proto</include>
