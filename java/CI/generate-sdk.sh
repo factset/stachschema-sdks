@@ -8,9 +8,7 @@ BASE_PATH_v1=/java/v1
 BASE_PATH_v2=/java/v2
 BASE_PATH_v3=/java/v3
 
-for BASE in $BASE_PATH_v1 $BASE_PATH_v2 $BASE_PATH_v3; do
-	find $BASE/$PACKAGE_PATH -name "*.java" ! -name "NullValues.java" -delete
-done
+rm -f $BASE_PATH/$PACKAGE_PATH/**/*.java
 
 mkdir --parent $BASE_PATH_v1/$PACKAGE_PATH
 mkdir --parent $BASE_PATH_v2/$PACKAGE_PATH
