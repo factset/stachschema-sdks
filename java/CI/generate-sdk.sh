@@ -8,8 +8,9 @@ BASE_PATH_v1=/java/v1
 BASE_PATH_v2=/java/v2
 BASE_PATH_v3=/java/v3
 
-rm -f $BASE_PATH/**/*.java
-
+for BASE in $BASE_PATH_v1 $BASE_PATH_v2 $BASE_PATH_v3; do
+	find $BASE/$PACKAGE_PATH -name "*.java" ! -name "NullValues.java" -delete
+done
 
 mkdir --parent $BASE_PATH_v1/$PACKAGE_PATH
 mkdir --parent $BASE_PATH_v2/$PACKAGE_PATH
@@ -20,18 +21,13 @@ echo Removed old generated code
 # cd $BASE_PATH
 # mvn clean install -q -P generate-stach-schema -f pom.xml
 
-cd $BASE_PATH_v1
-mvn clean install -q -P generate-stach-schema -f pom.xml
+mvn -f $BASE_PATH_v1/pom.xml clean install -q -P generate-stach-schema
 echo Generated java stach v1 files
 
-cd ../..
-cd $BASE_PATH_v2
-mvn clean install -q -P generate-stach-schema -f pom.xml
+mvn -f $BASE_PATH_v2/pom.xml clean install -q -P generate-stach-schema
 echo Generated java stach v2 files
 
-cd ../..
-cd $BASE_PATH_v3
-mvn clean install -q -P generate-stach-schema -f pom.xml
+mvn -f $BASE_PATH_v3/pom.xml clean install -q -P generate-stach-schema
 echo Generated java stach v3 files
 
 echo Produced new generated code
