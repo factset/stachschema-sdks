@@ -11,7 +11,7 @@ rm -f $BASE_PATH/$PACKAGE_PATH/**/*.pb.go
 
 echo Removed old generated code
 
-PROTOFILES=$(find $SCHEMA_PATH/$PACKAGE_PATH -iname "*.proto")
+PROTOFILES=$(find $SCHEMA_PATH -iname "*.proto")
 protoc --proto_path $SCHEMA_PATH --go_out paths=source_relative:$BASE_PATH $PROTOFILES
 
 cd $BASE_PATH/$PACKAGE_PATH
