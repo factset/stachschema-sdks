@@ -8,6 +8,13 @@ BASE_PATH_v1=/java/v1
 BASE_PATH_v2=/java/v2
 BASE_PATH_v3=/java/v3
 
+# Backup NullValues.java files before Maven runs
+for BASE in $BASE_PATH_v1 $BASE_PATH_v2 $BASE_PATH_v3; do
+    if [ -f "$BASE/$PACKAGE_PATH/NullValues.java" ]; then
+        cp "$BASE/$PACKAGE_PATH/NullValues.java" "/tmp/NullValues_$(basename $BASE).java"
+    fi
+done
+
 rm -f $BASE_PATH/$PACKAGE_PATH/**/*Proto.java
 
 mkdir --parent $BASE_PATH_v1/$PACKAGE_PATH
@@ -29,3 +36,11 @@ mvn -f $BASE_PATH_v3/pom.xml clean install -q -P generate-stach-schema
 echo Generated java stach v3 files
 
 echo Produced new generated code
+
+# Restore NullValues.java files after Maven runs
+for BASE in $BASE_PATH_v1 $BASE_PATH_v2 $BASE_PATH_v3; do
+    if [ -f "/tmp/NullValues_$(basename $BASE).java" ]; then
+        cp "/tmp/NullValues_$(basename $BASE).java" "$BASE/$PACKAGE_PATH/NullValues.java"
+        rm "/tmp/NullValues_$(basename $BASE).java"
+    fi
+done
