@@ -8,10 +8,14 @@ BASE_PATH_v1=/java/v1
 BASE_PATH_v2=/java/v2
 BASE_PATH_v3=/java/v3
 
-# Backup NullValues.java files before Maven runs
+# Backup section - store both file and its directory
 for BASE in $BASE_PATH_v1 $BASE_PATH_v2 $BASE_PATH_v3; do
-    if [ -f "$BASE/$PACKAGE_PATH/NullValues.java" ]; then
-        cp "$BASE/$PACKAGE_PATH/NullValues.java" "/tmp/NullValues_$(basename $BASE).java"
+    NULLVALUES_FILE=$(find "$BASE/$PACKAGE_PATH" -name "NullValues.java" -type f | head -1)
+    if [ -n "$NULLVALUES_FILE" ]; then
+        cp "$NULLVALUES_FILE" "/tmp/NullValues_$(basename $BASE).java"
+        # Store the original directory path
+        echo "$(dirname "$NULLVALUES_FILE")" > "/tmp/NullValues_$(basename $BASE).dir"
+        echo "Backed up: $NULLVALUES_FILE"
     fi
 done
 
@@ -37,10 +41,14 @@ echo Generated java stach v3 files
 
 echo Produced new generated code
 
-# Restore NullValues.java files after Maven runs
+# Restore section - use stored directory path
 for BASE in $BASE_PATH_v1 $BASE_PATH_v2 $BASE_PATH_v3; do
     if [ -f "/tmp/NullValues_$(basename $BASE).java" ]; then
-        cp "/tmp/NullValues_$(basename $BASE).java" "$BASE/$PACKAGE_PATH/NullValues.java"
+        ORIGINAL_DIR=$(cat "/tmp/NullValues_$(basename $BASE).dir")
+        mkdir -p "$ORIGINAL_DIR"  # Ensure directory exists
+        cp "/tmp/NullValues_$(basename $BASE).java" "$ORIGINAL_DIR/NullValues.java"
         rm "/tmp/NullValues_$(basename $BASE).java"
+        rm "/tmp/NullValues_$(basename $BASE).dir"
+        echo "Restored: $ORIGINAL_DIR/NullValues.java"
     fi
 done
