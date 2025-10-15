@@ -1,12 +1,11 @@
-FROM golang:1.14.6
+FROM golang:1.23-alpine
 
 LABEL org.label-schema.license="Apache-2.0" \
       org.label-schema.vcs-url="https://github.com/factset/stachschema-sdks" \
       org.label-schema.description="To generate Go Stach package" \
       maintainer="analytics.api.support@factset.com"
 
-RUN apt-get update && \
-    apt-get -y install unzip
+RUN apk update && apk add curl unzip bash git
 
 ARG PROTOC_ZIP=protoc-3.19.4-linux-x86_64.zip
 RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/$PROTOC_ZIP
@@ -14,6 +13,8 @@ RUN unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
 RUN unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
 RUN rm -f $PROTOC_ZIP
 
-RUN go get google.golang.org/protobuf/cmd/protoc-gen-go
+RUN chmod +x /usr/local/bin/protoc
+
+RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 
 ENTRYPOINT ["bash", "/golang/CI/generate-sdk.sh"]

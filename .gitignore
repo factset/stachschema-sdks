@@ -10,6 +10,10 @@ node_modules/
 js/node_modules/
 python/fds.protobuf.stach/dist/*.*
 python/fds.protobuf.stach/fds.protobuf.stach.egg-info
+python/fds.protobuf.stach.v2/dist/*.*
+python/fds.protobuf.stach.v2/fds.protobuf.stach.v2.egg-info
+python/fds.protobuf.stach.v3/dist/*.*
+python/fds.protobuf.stach.v3/fds.protobuf.stach.v3.egg-info
 r/*.tar.gz
 r/.RData
 r/.Rhistory

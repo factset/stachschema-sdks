@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.9-slim
 
 LABEL org.label-schema.license="Apache-2.0" \
       org.label-schema.vcs-url="https://github.com/factset/stachschema-sdks" \
@@ -6,7 +6,8 @@ LABEL org.label-schema.license="Apache-2.0" \
       maintainer="analytics.api.support@factset.com"
 
 RUN apt-get update && \
-    apt-get -y install unzip
+    apt-get -y install unzip git curl && \
+    rm -rf /var/lib/apt/lists/*
 
 ARG PROTOC_ZIP=protoc-3.19.4-linux-x86_64.zip
 RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.19.4/$PROTOC_ZIP

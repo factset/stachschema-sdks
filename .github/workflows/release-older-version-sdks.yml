@@ -6,12 +6,16 @@ env:
   MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD_2024OCT }}
   MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
   JAVA_SDK_LOCATION_v1: "java/v1" 
-  JAVA_SDK_LOCATION_v2: "java/v2" 
+  JAVA_SDK_LOCATION_v2: "java/v2"
+  PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+  PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+  PYTHON_SDK_LOCATION_v2: "python/fds.protobuf.stach.v2"
+
 on:
   workflow_dispatch:
     inputs:
       SDKs:
-        description: 'Which SDK to release? Options are "java-v1" and "java-v2"'
+        description: 'Which SDK to release? Options are "java-v1", "java-v2" and "python-v2"'
         required: true
         default: all
 
@@ -69,3 +73,30 @@ jobs:
       run: |
         cd ${{ env.JAVA_SDK_LOCATION_v2 }}
         mvn -Psign-artifacts verify deploy
+
+  python-v2:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' 
+      && github.event.inputs.SDKs == 'python-v2'
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel twine
+
+    - name: Build and publish to PyPI
+      env:
+        TWINE_USERNAME: ${{ env.PYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ env.PYPI_PASSWORD }}
+      run: |
+        cd ${{ env.PYTHON_SDK_LOCATION_v2 }}
+        python setup.py sdist bdist_wheel
+        twine upload dist/* --verbose

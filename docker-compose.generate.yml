@@ -19,7 +19,9 @@ services:
       context: .
       dockerfile: python/Dockerfile.generate
     volumes:
-    - ${SCHEMA}/v3:/schema
+    - ${SCHEMA}/v1:/schema/v1
+    - ${SCHEMA}/v2:/schema/v2
+    - ${SCHEMA}/v3:/schema/v3
     - ./python:/python
   generate_java:
     build:
@@ -37,10 +39,11 @@ services:
     volumes:
     - ${SCHEMA}/v3:/schema
     - ./r:/r
-  generate_go:
-    build:
-      context: .
-      dockerfile: go/Dockerfile.generate
-    volumes:
-    - ${SCHEMA}/v3:/schema
-    - ./go:/golang
+  # TODO: Uncomment after fixing the issue in golang/CI/generate-sdk.sh which is causing the build to fail.
+  # generate_go:
+  #   build:
+  #     context: .
+  #     dockerfile: go/Dockerfile.generate
+  #   volumes:
+  #   - ${SCHEMA}/v3:/schema
+  #   - ./go:/golang

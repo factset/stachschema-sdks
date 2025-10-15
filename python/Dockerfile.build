@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.9-slim
 
 LABEL org.label-schema.license="Apache-2.0" \
       org.label-schema.vcs-url="https://github.com/factset/stachschema-sdks" \
