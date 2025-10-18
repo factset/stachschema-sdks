@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(name='fds.protobuf.stach.v2',
-      version='1.0.3',
+      version='1.0.4',
       description='Stach library in python',
       url='',
       author='analytics-reporting',
       author_email='analytics.api.support@factset.com',
       license='Apache License 2.0',
-      install_requires=["protobuf>=3.19.4"],
+      install_requires=["protobuf==3.20.0"],
       packages=find_packages(),
       zip_safe=False)
