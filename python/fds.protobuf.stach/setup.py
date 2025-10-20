@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-setup(name='fds.protobuf.stach.v3',
+setup(name='fds.protobuf.stach',
       version='1.0.1',
       description='Stach library in python',
       url='',
