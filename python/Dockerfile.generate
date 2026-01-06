@@ -9,8 +9,8 @@ RUN apt-get update && \
     apt-get -y install unzip git curl && \
     rm -rf /var/lib/apt/lists/*
 
-ARG PROTOC_ZIP=protoc-31.0-linux-x86_64.zip
-RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v31.0/$PROTOC_ZIP
+ARG PROTOC_ZIP=protoc-32.0-linux-x86_64.zip
+RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v32.0/$PROTOC_ZIP
 RUN unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
 RUN unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
 RUN rm -f $PROTOC_ZIP

@@ -11,9 +11,9 @@ PACKAGE_PATH_V2=v2/fds/protobuf/stach/v2
 PACKAGE_PATH_V1=v1/fds/protobuf/stach
 
 # echo Removed old generated code
-rm -f $BASE_PATH_V2/$PACKAGE_PATH_V2/**/*.py
-rm -f $BASE_PATH_V3/$PACKAGE_PATH_V3/**/*.py
-rm -f $BASE_PATH_V1/$PACKAGE_PATH_V1/**/*.py
+rm -f $BASE_PATH_V2/$PACKAGE_PATH_V2/**/*_pb2.py
+rm -f $BASE_PATH_V3/$PACKAGE_PATH_V3/**/*_pb2.py
+rm -f $BASE_PATH_V1/$PACKAGE_PATH_V1/**/*_pb2.py
 
 mkdir -p "$BASE_PATH_V3"
 mkdir -p "$BASE_PATH_V2"
