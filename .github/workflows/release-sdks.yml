@@ -8,7 +8,7 @@ env:
   MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
   MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
   MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-  DOTNET_SDK_LOCATION: "dotnet/Schema"
+  DOTNET_SDK_LOCATION: "dotnet/v3"
   PYTHON_SDK_LOCATION: "python/fds.protobuf.stach.v3"
   JAVA_SDK_LOCATION: "java/v3" 
 
@@ -29,25 +29,22 @@ jobs:
       && (github.event.inputs.SDKs == 'dotnet' || github.event.inputs.SDKs == 'all'))
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v4
 
-    - name: Setup Nuget
-      uses: nuget/setup-nuget@v1
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
       with:
-        nuget-api-key: ${{ env.NUGET_API_KEY }}
-        nuget-version: '5.x'
-
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 2.2
+        dotnet-version: 10.0
     
     - name: Build and create the package
       run: dotnet build --configuration Release ${{ env.DOTNET_SDK_LOCATION }}/Schema.csproj
 
-    - name: Publish the package to Nuget
+    - name: NuGet Push
       run: |
-        nuget push ${{ env.DOTNET_SDK_LOCATION }}/bin/Release/*.nupkg -Source https://api.nuget.org/v3/index.json
+        dotnet nuget push ${{ env.DOTNET_SDK_LOCATION }}/bin/Release/*.nupkg 
+          --source https://api.nuget.org/v3/index.json
+          --api-key ${{ env.NUGET_API_KEY }}
 
   python:
     runs-on: ubuntu-latest
