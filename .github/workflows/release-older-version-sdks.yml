@@ -145,11 +145,17 @@ jobs:
       with:
         dotnet-version: 10.0
 
+    - name: Setup Nuget
+      uses: nuget/setup-nuget@v2
+      with:
+        nuget-api-key: ${{ env.NUGET_API_KEY }}
+        nuget-version: '5.x'
+
     - name: Build and create the package
       run: dotnet build --configuration Release ${{ env.DOTNET_SDK_LOCATION_v1 }}/Schema.csproj
 
     - name: NuGet Push
-      run: dotnet nuget push ${{ env.DOTNET_SDK_LOCATION_v1 }}/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ env.NUGET_API_KEY }}
+      run: nuget push ${{ env.DOTNET_SDK_LOCATION_v1 }}/bin/Release/*.nupkg -Source https://api.nuget.org/v3/index.json
 
   dotnet-v2:
     runs-on: ubuntu-latest
