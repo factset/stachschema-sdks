@@ -41,10 +41,7 @@ jobs:
       run: dotnet build --configuration Release ${{ env.DOTNET_SDK_LOCATION }}/Schema.csproj
 
     - name: NuGet Push
-      run: |
-        dotnet nuget push ${{ env.DOTNET_SDK_LOCATION }}/bin/Release/*.nupkg 
-          --source https://api.nuget.org/v3/index.json
-          --api-key ${{ env.NUGET_API_KEY }}
+      run: dotnet nuget push ${{ env.DOTNET_SDK_LOCATION }}/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ env.NUGET_API_KEY }}
 
   python:
     runs-on: ubuntu-latest
