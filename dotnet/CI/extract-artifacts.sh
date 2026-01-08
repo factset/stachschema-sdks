@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-BASE_PATH=/src/v3 # Base location of C# generated classes
+BASE_PATH=/src/v3/Schema # Base location of C# generated classes
 ARTIFACTS_PATH=/dotnet/artifacts
 
 if [ -d $ARTIFACTS_PATH ]
