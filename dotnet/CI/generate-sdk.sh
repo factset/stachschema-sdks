@@ -2,9 +2,9 @@
 set -e
 ls -laR dotnet
 
-BASE_PATH_V1=dotnet/v1/Models # Base location of dotnet generated classes for v1
-BASE_PATH_V2=dotnet/v2/Models # Base location of dotnet generated classes for v2
-BASE_PATH_V3=dotnet/v3/Models # Base location of dotnet generated classes for v3
+BASE_PATH_V1=dotnet/v1/Schema # Base location of dotnet generated classes for v1
+BASE_PATH_V2=dotnet/v2/Schema # Base location of dotnet generated classes for v2
+BASE_PATH_V3=dotnet/v3/Schema # Base location of dotnet generated classes for v3
 
 SCHEMA_PATH=schema # Location of Protobuf schema
 PACKAGE_PATH_V1=v1/fds/protobuf/stach
@@ -13,15 +13,9 @@ PACKAGE_PATH_V3=v3/fds/protobuf/stach/v3
 
 echo Start removing old generated code
 
-if [ -d "$BASE_PATH_V1" ]; then
-  find "$BASE_PATH_V1" -name '*.g.cs' -type f -delete
-fi
-if [ -d "$BASE_PATH_V2" ]; then
-  find "$BASE_PATH_V2" -name '*.g.cs' -type f -delete
-fi
-if [ -d "$BASE_PATH_V3" ]; then
-  find "$BASE_PATH_V3" -name '*.g.cs' -type f -delete
-fi
+find "$BASE_PATH_V1" -name '*.g.cs' -type f -delete
+find "$BASE_PATH_V2" -name '*.g.cs' -type f -delete
+find "$BASE_PATH_V3" -name '*.g.cs' -type f -delete
 
 echo Removed old generated code
 

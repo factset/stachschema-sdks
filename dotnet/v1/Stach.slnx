@@ -1,3 +1,3 @@
 <Solution>
-	<Project Path="Schema.csproj" />
+	<Project Path="Schema/Schema.csproj" />
 </Solution>
