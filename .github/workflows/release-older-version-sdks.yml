@@ -146,7 +146,7 @@ jobs:
         dotnet-version: 10.0
 
     - name: Setup Nuget
-      uses: nuget/setup-nuget@v2
+      uses: nuget/setup-nuget@v1
       with:
         nuget-api-key: ${{ env.NUGET_API_KEY }}
         nuget-version: '5.x'
