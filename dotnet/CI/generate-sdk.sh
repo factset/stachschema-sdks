@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
+ls -la
+BASE_PATH_V1=dotnet/v1/Models # Base location of dotnet generated classes for v1
+BASE_PATH_V2=dotnet/v2/Models # Base location of dotnet generated classes for v2
+BASE_PATH_V3=dotnet/v3/Models # Base location of dotnet generated classes for v3
 
-BASE_PATH_V1=/dotnet/v1/Models # Base location of dotnet generated classes for v1
-BASE_PATH_V2=/dotnet/v2/Models # Base location of dotnet generated classes for v2
-BASE_PATH_V3=/dotnet/v3/Models # Base location of dotnet generated classes for v3
-
-SCHEMA_PATH=/schema # Location of Protobuf schema
+SCHEMA_PATH=schema # Location of Protobuf schema
 PACKAGE_PATH_V1=v1/fds/protobuf/stach
 PACKAGE_PATH_V2=v2/fds/protobuf/stach/v2
 PACKAGE_PATH_V3=v3/fds/protobuf/stach/v3
