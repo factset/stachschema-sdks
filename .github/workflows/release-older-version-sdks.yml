@@ -12,8 +12,8 @@ env:
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   PYTHON_SDK_LOCATION_v2: "python/fds.protobuf.stach.v2"
   PYTHON_SDK_LOCATION_v1: "python/fds.protobuf.stach"
-  DOTNET_SDK_LOCATION_v1: "dotnet/v1"
-  DOTNET_SDK_LOCATION_v2: "dotnet/v2"
+  DOTNET_SDK_LOCATION_v1: "dotnet/v1/Schema"
+  DOTNET_SDK_LOCATION_v2: "dotnet/v2/Schema"
 
 on:
   workflow_dispatch:
