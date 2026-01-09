@@ -1,7 +1,6 @@
 name: Release SDKs
 
 env:
-  NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
   PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
@@ -41,7 +40,7 @@ jobs:
       run: dotnet build --configuration Release ${{ env.DOTNET_SDK_LOCATION }}/Schema.csproj
 
     - name: NuGet Push
-      run: dotnet nuget push ${{ env.DOTNET_SDK_LOCATION }}/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ env.NUGET_API_KEY }}
+      run: dotnet nuget push ${{ env.DOTNET_SDK_LOCATION }}/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
 
   python:
     runs-on: ubuntu-latest
