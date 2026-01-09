@@ -1,4 +1,4 @@
-dotnet/.vs/
+dotnet/**/.vs/
 dotnet/**/*.user
 dotnet/**/bin/
 dotnet/**/obj/
