@@ -22,22 +22,28 @@ mkdir -p "$BASE_PATH_V1"
 PROTOFILES=$(find $SCHEMA_PATH/$PACKAGE_PATH_V3 -iname "*.proto")
 protoc --proto_path $SCHEMA_PATH/v3 --python_out $BASE_PATH_V3 $PROTOFILES
 
-for f in $(find $BASE_PATH_V3/fds/protobuf/stach/v3 -type d -maxdepth 10); do
-	touch "$f/__init__.py"
+for f in $(find $BASE_PATH_V3/fds -maxdepth 10 -type d ); do
+    pushd $f
+    touch __init__.py
+    popd
 done;
 
 PROTOFILES=$(find $SCHEMA_PATH/$PACKAGE_PATH_V2 -iname "*.proto")
 protoc --proto_path $SCHEMA_PATH/v2 --python_out $BASE_PATH_V2 $PROTOFILES
 
-for f in $(find $BASE_PATH_V2/fds/protobuf/stach/v2 -type d -maxdepth 10); do
-	touch "$f/__init__.py"
+for f in $(find $BASE_PATH_V2/fds -maxdepth 10 -type d ); do
+    pushd $f
+    touch __init__.py
+    popd
 done;
 
 PROTOFILES=$(find $SCHEMA_PATH/$PACKAGE_PATH_V1 -iname "*.proto")
 protoc --proto_path $SCHEMA_PATH/v1 --python_out $BASE_PATH_V1 $PROTOFILES
 
-for f in $(find $BASE_PATH_V1/fds/protobuf/stach/v1 -type d -maxdepth 10); do
-    touch "$f/__init__.py"
+for f in $(find $BASE_PATH_V1/fds -maxdepth 10 -type d ); do
+    pushd $f
+    touch __init__.py
+    popd
 done;
 
 echo Produced new generated code
