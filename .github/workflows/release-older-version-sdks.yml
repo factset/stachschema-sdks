@@ -148,7 +148,7 @@ jobs:
       run: dotnet build --configuration Release ${{ env.DOTNET_SDK_LOCATION_v1 }}/Schema.csproj
 
     - name: NuGet Push
-      run: dotnet nuget push ${{ env.DOTNET_SDK_LOCATION_v1 }}/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push ${{ env.DOTNET_SDK_LOCATION_v1 }}/bin/Release/Factset.Protobuf.Stach.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
 
   dotnet-v2:
     runs-on: ubuntu-latest
@@ -167,4 +167,4 @@ jobs:
       run: dotnet build --configuration Release ${{ env.DOTNET_SDK_LOCATION_v2 }}/Schema.csproj
 
     - name: NuGet Push
-      run: dotnet nuget push ${{ env.DOTNET_SDK_LOCATION_v2 }}/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push ${{ env.DOTNET_SDK_LOCATION_v2 }}/bin/Release/Factset.Protobuf.Stach.V2.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate

@@ -40,7 +40,7 @@ jobs:
       run: dotnet build --configuration Release ${{ env.DOTNET_SDK_LOCATION }}/Schema.csproj
 
     - name: NuGet Push
-      run: dotnet nuget push ${{ env.DOTNET_SDK_LOCATION }}/bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+      run: dotnet nuget push ${{ env.DOTNET_SDK_LOCATION }}/bin/Release/Factset.Protobuf.Stach.V3.*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
 
   python:
     runs-on: ubuntu-latest
