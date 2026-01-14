@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-ls -laR dotnet
 
 BASE_PATH_V1=dotnet/v1/Schema # Base location of dotnet generated classes for v1
 BASE_PATH_V2=dotnet/v2/Schema # Base location of dotnet generated classes for v2
