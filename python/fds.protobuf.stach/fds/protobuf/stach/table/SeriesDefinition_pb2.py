@@ -26,7 +26,7 @@ from fds.protobuf.stach.table import DataType_pb2 as fds_dot_protobuf_dot_stach_
 from fds.protobuf.stach.table import SeriesFormat_pb2 as fds_dot_protobuf_dot_stach_dot_table_dot_SeriesFormat__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/fds/protobuf/stach/table/SeriesDefinition.proto\x12\x1c\x66\x61\x63tset.protobuf.stach.table\x1a\'fds/protobuf/stach/table/DataType.proto\x1a+fds/protobuf/stach/table/SeriesFormat.proto\"\xaf\x02\n\x10SeriesDefinition\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x34\n\x04type\x18\x04 \x01(\x0e\x32&.factset.protobuf.stach.table.DataType\x12\x14\n\x0cis_dimension\x18\x05 \x01(\x08\x12\x11\n\tis_hidden\x18\x06 \x01(\x08\x12\x17\n\x0fnext_sibling_id\x18\x07 \x01(\t\x12\x11\n\tparent_id\x18\x08 \x01(\t\x12\x11\n\theader_id\x18\t \x01(\t\x12:\n\x06\x66ormat\x18\x0b \x01(\x0b\x32*.factset.protobuf.stach.table.SeriesFormatJ\x04\x08\n\x10\x0bR\x0cheader_indexBX\n com.factset.protobuf.stach.tableB\x15SeriesDefinitionProto\xaa\x02\x1c\x46\x61\x63tSet.Protobuf.Stach.Tableb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/fds/protobuf/stach/table/SeriesDefinition.proto\x12\x1c\x66\x61\x63tset.protobuf.stach.table\x1a\'fds/protobuf/stach/table/DataType.proto\x1a+fds/protobuf/stach/table/SeriesFormat.proto\"\xb5\x02\n\x10SeriesDefinition\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x34\n\x04type\x18\x04 \x01(\x0e\x32&.factset.protobuf.stach.table.DataType\x12\x14\n\x0cis_dimension\x18\x05 \x01(\x08\x12\x11\n\tis_hidden\x18\x06 \x01(\x08\x12\x17\n\x0fnext_sibling_id\x18\x07 \x01(\t\x12\x11\n\tparent_id\x18\x08 \x01(\t\x12\x11\n\theader_id\x18\t \x01(\t\x12\x18\n\x0cheader_index\x18\n \x01(\x05\x42\x02\x18\x01\x12:\n\x06\x66ormat\x18\x0b \x01(\x0b\x32*.factset.protobuf.stach.table.SeriesFormatBX\n com.factset.protobuf.stach.tableB\x15SeriesDefinitionProto\xaa\x02\x1c\x46\x61\x63tSet.Protobuf.Stach.Tableb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,6 +34,8 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'fds.protobuf.stach.table.Se
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n com.factset.protobuf.stach.tableB\025SeriesDefinitionProto\252\002\034FactSet.Protobuf.Stach.Table'
+  _globals['_SERIESDEFINITION'].fields_by_name['header_index']._loaded_options = None
+  _globals['_SERIESDEFINITION'].fields_by_name['header_index']._serialized_options = b'\030\001'
   _globals['_SERIESDEFINITION']._serialized_start=168
-  _globals['_SERIESDEFINITION']._serialized_end=471
+  _globals['_SERIESDEFINITION']._serialized_end=477
 # @@protoc_insertion_point(module_scope)

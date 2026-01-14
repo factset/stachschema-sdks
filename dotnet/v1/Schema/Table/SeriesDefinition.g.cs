@@ -27,20 +27,20 @@ namespace FactSet.Protobuf.Stach.Table {
             "Ci9mZHMvcHJvdG9idWYvc3RhY2gvdGFibGUvU2VyaWVzRGVmaW5pdGlvbi5w",
             "cm90bxIcZmFjdHNldC5wcm90b2J1Zi5zdGFjaC50YWJsZRonZmRzL3Byb3Rv",
             "YnVmL3N0YWNoL3RhYmxlL0RhdGFUeXBlLnByb3RvGitmZHMvcHJvdG9idWYv",
-            "c3RhY2gvdGFibGUvU2VyaWVzRm9ybWF0LnByb3RvIq8CChBTZXJpZXNEZWZp",
+            "c3RhY2gvdGFibGUvU2VyaWVzRm9ybWF0LnByb3RvIrUCChBTZXJpZXNEZWZp",
             "bml0aW9uEgoKAmlkGAEgASgJEgwKBG5hbWUYAiABKAkSEwoLZGVzY3JpcHRp",
             "b24YAyABKAkSNAoEdHlwZRgEIAEoDjImLmZhY3RzZXQucHJvdG9idWYuc3Rh",
             "Y2gudGFibGUuRGF0YVR5cGUSFAoMaXNfZGltZW5zaW9uGAUgASgIEhEKCWlz",
             "X2hpZGRlbhgGIAEoCBIXCg9uZXh0X3NpYmxpbmdfaWQYByABKAkSEQoJcGFy",
-            "ZW50X2lkGAggASgJEhEKCWhlYWRlcl9pZBgJIAEoCRI6CgZmb3JtYXQYCyAB",
-            "KAsyKi5mYWN0c2V0LnByb3RvYnVmLnN0YWNoLnRhYmxlLlNlcmllc0Zvcm1h",
-            "dEoECAoQC1IMaGVhZGVyX2luZGV4QlgKIGNvbS5mYWN0c2V0LnByb3RvYnVm",
-            "LnN0YWNoLnRhYmxlQhVTZXJpZXNEZWZpbml0aW9uUHJvdG+qAhxGYWN0U2V0",
-            "LlByb3RvYnVmLlN0YWNoLlRhYmxlYgZwcm90bzM="));
+            "ZW50X2lkGAggASgJEhEKCWhlYWRlcl9pZBgJIAEoCRIYCgxoZWFkZXJfaW5k",
+            "ZXgYCiABKAVCAhgBEjoKBmZvcm1hdBgLIAEoCzIqLmZhY3RzZXQucHJvdG9i",
+            "dWYuc3RhY2gudGFibGUuU2VyaWVzRm9ybWF0QlgKIGNvbS5mYWN0c2V0LnBy",
+            "b3RvYnVmLnN0YWNoLnRhYmxlQhVTZXJpZXNEZWZpbml0aW9uUHJvdG+qAhxG",
+            "YWN0U2V0LlByb3RvYnVmLlN0YWNoLlRhYmxlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::FactSet.Protobuf.Stach.Table.DataTypeReflection.Descriptor, global::FactSet.Protobuf.Stach.Table.SeriesFormatReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.SeriesDefinition), global::FactSet.Protobuf.Stach.Table.SeriesDefinition.Parser, new[]{ "Id", "Name", "Description", "Type", "IsDimension", "IsHidden", "NextSiblingId", "ParentId", "HeaderId", "Format" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::FactSet.Protobuf.Stach.Table.SeriesDefinition), global::FactSet.Protobuf.Stach.Table.SeriesDefinition.Parser, new[]{ "Id", "Name", "Description", "Type", "IsDimension", "IsHidden", "NextSiblingId", "ParentId", "HeaderId", "HeaderIndex", "Format" }, null, null, null, null)
           }));
     }
     #endregion
@@ -90,6 +90,7 @@ namespace FactSet.Protobuf.Stach.Table {
       nextSiblingId_ = other.nextSiblingId_;
       parentId_ = other.parentId_;
       headerId_ = other.headerId_;
+      headerIndex_ = other.headerIndex_;
       format_ = other.format_ != null ? other.format_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -208,6 +209,19 @@ namespace FactSet.Protobuf.Stach.Table {
       }
     }
 
+    /// <summary>Field number for the "header_index" field.</summary>
+    public const int HeaderIndexFieldNumber = 10;
+    private int headerIndex_;
+    [global::System.ObsoleteAttribute]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int HeaderIndex {
+      get { return headerIndex_; }
+      set {
+        headerIndex_ = value;
+      }
+    }
+
     /// <summary>Field number for the "format" field.</summary>
     public const int FormatFieldNumber = 11;
     private global::FactSet.Protobuf.Stach.Table.SeriesFormat format_;
@@ -244,6 +258,7 @@ namespace FactSet.Protobuf.Stach.Table {
       if (NextSiblingId != other.NextSiblingId) return false;
       if (ParentId != other.ParentId) return false;
       if (HeaderId != other.HeaderId) return false;
+      if (HeaderIndex != other.HeaderIndex) return false;
       if (!object.Equals(Format, other.Format)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -261,6 +276,7 @@ namespace FactSet.Protobuf.Stach.Table {
       if (NextSiblingId.Length != 0) hash ^= NextSiblingId.GetHashCode();
       if (ParentId.Length != 0) hash ^= ParentId.GetHashCode();
       if (HeaderId.Length != 0) hash ^= HeaderId.GetHashCode();
+      if (HeaderIndex != 0) hash ^= HeaderIndex.GetHashCode();
       if (format_ != null) hash ^= Format.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -316,6 +332,10 @@ namespace FactSet.Protobuf.Stach.Table {
         output.WriteRawTag(74);
         output.WriteString(HeaderId);
       }
+      if (HeaderIndex != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(HeaderIndex);
+      }
       if (format_ != null) {
         output.WriteRawTag(90);
         output.WriteMessage(Format);
@@ -366,6 +386,10 @@ namespace FactSet.Protobuf.Stach.Table {
         output.WriteRawTag(74);
         output.WriteString(HeaderId);
       }
+      if (HeaderIndex != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(HeaderIndex);
+      }
       if (format_ != null) {
         output.WriteRawTag(90);
         output.WriteMessage(Format);
@@ -406,6 +430,9 @@ namespace FactSet.Protobuf.Stach.Table {
       }
       if (HeaderId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(HeaderId);
+      }
+      if (HeaderIndex != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(HeaderIndex);
       }
       if (format_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Format);
@@ -448,6 +475,9 @@ namespace FactSet.Protobuf.Stach.Table {
       }
       if (other.HeaderId.Length != 0) {
         HeaderId = other.HeaderId;
+      }
+      if (other.HeaderIndex != 0) {
+        HeaderIndex = other.HeaderIndex;
       }
       if (other.format_ != null) {
         if (format_ == null) {
@@ -506,6 +536,10 @@ namespace FactSet.Protobuf.Stach.Table {
             HeaderId = input.ReadString();
             break;
           }
+          case 80: {
+            HeaderIndex = input.ReadInt32();
+            break;
+          }
           case 90: {
             if (format_ == null) {
               Format = new global::FactSet.Protobuf.Stach.Table.SeriesFormat();
@@ -562,6 +596,10 @@ namespace FactSet.Protobuf.Stach.Table {
           }
           case 74: {
             HeaderId = input.ReadString();
+            break;
+          }
+          case 80: {
+            HeaderIndex = input.ReadInt32();
             break;
           }
           case 90: {
