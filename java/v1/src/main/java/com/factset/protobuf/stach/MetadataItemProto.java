@@ -134,6 +134,126 @@ public final class MetadataItemProto {
     com.google.protobuf.TimestampOrBuilder getTimestampValueOrBuilder();
 
     /**
+     * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+     * @return Whether the doubleArray field is set.
+     */
+    boolean hasDoubleArray();
+    /**
+     * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+     * @return The doubleArray.
+     */
+    com.factset.protobuf.stach.table.WrappersProto.DoubleArray getDoubleArray();
+    /**
+     * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+     */
+    com.factset.protobuf.stach.table.WrappersProto.DoubleArrayOrBuilder getDoubleArrayOrBuilder();
+
+    /**
+     * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+     * @return Whether the floatArray field is set.
+     */
+    boolean hasFloatArray();
+    /**
+     * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+     * @return The floatArray.
+     */
+    com.factset.protobuf.stach.table.WrappersProto.FloatArray getFloatArray();
+    /**
+     * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+     */
+    com.factset.protobuf.stach.table.WrappersProto.FloatArrayOrBuilder getFloatArrayOrBuilder();
+
+    /**
+     * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+     * @return Whether the int32Array field is set.
+     */
+    boolean hasInt32Array();
+    /**
+     * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+     * @return The int32Array.
+     */
+    com.factset.protobuf.stach.table.WrappersProto.Int32Array getInt32Array();
+    /**
+     * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+     */
+    com.factset.protobuf.stach.table.WrappersProto.Int32ArrayOrBuilder getInt32ArrayOrBuilder();
+
+    /**
+     * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+     * @return Whether the int64Array field is set.
+     */
+    boolean hasInt64Array();
+    /**
+     * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+     * @return The int64Array.
+     */
+    com.factset.protobuf.stach.table.WrappersProto.Int64Array getInt64Array();
+    /**
+     * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+     */
+    com.factset.protobuf.stach.table.WrappersProto.Int64ArrayOrBuilder getInt64ArrayOrBuilder();
+
+    /**
+     * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+     * @return Whether the boolArray field is set.
+     */
+    boolean hasBoolArray();
+    /**
+     * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+     * @return The boolArray.
+     */
+    com.factset.protobuf.stach.table.WrappersProto.BoolArray getBoolArray();
+    /**
+     * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+     */
+    com.factset.protobuf.stach.table.WrappersProto.BoolArrayOrBuilder getBoolArrayOrBuilder();
+
+    /**
+     * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+     * @return Whether the stringArray field is set.
+     */
+    boolean hasStringArray();
+    /**
+     * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+     * @return The stringArray.
+     */
+    com.factset.protobuf.stach.table.WrappersProto.StringArray getStringArray();
+    /**
+     * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+     */
+    com.factset.protobuf.stach.table.WrappersProto.StringArrayOrBuilder getStringArrayOrBuilder();
+
+    /**
+     * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+     * @return Whether the durationArray field is set.
+     */
+    boolean hasDurationArray();
+    /**
+     * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+     * @return The durationArray.
+     */
+    com.factset.protobuf.stach.table.WrappersProto.DurationArray getDurationArray();
+    /**
+     * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+     */
+    com.factset.protobuf.stach.table.WrappersProto.DurationArrayOrBuilder getDurationArrayOrBuilder();
+
+    /**
+     * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+     * @return Whether the timestampArray field is set.
+     */
+    boolean hasTimestampArray();
+    /**
+     * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+     * @return The timestampArray.
+     */
+    com.factset.protobuf.stach.table.WrappersProto.TimestampArray getTimestampArray();
+    /**
+     * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+     */
+    com.factset.protobuf.stach.table.WrappersProto.TimestampArrayOrBuilder getTimestampArrayOrBuilder();
+
+    /**
      * <code>.factset.protobuf.stach.table.Reference ref_value = 201;</code>
      * @return Whether the refValue field is set.
      */
@@ -200,6 +320,14 @@ public final class MetadataItemProto {
       STRING_VALUE(107),
       DURATION_VALUE(108),
       TIMESTAMP_VALUE(109),
+      DOUBLE_ARRAY(150),
+      FLOAT_ARRAY(151),
+      INT32_ARRAY(152),
+      INT64_ARRAY(153),
+      BOOL_ARRAY(156),
+      STRING_ARRAY(157),
+      DURATION_ARRAY(158),
+      TIMESTAMP_ARRAY(159),
       REF_VALUE(201),
       DATA_NOT_SET(0);
       private final int value;
@@ -226,6 +354,14 @@ public final class MetadataItemProto {
           case 107: return STRING_VALUE;
           case 108: return DURATION_VALUE;
           case 109: return TIMESTAMP_VALUE;
+          case 150: return DOUBLE_ARRAY;
+          case 151: return FLOAT_ARRAY;
+          case 152: return INT32_ARRAY;
+          case 153: return INT64_ARRAY;
+          case 156: return BOOL_ARRAY;
+          case 157: return STRING_ARRAY;
+          case 158: return DURATION_ARRAY;
+          case 159: return TIMESTAMP_ARRAY;
           case 201: return REF_VALUE;
           case 0: return DATA_NOT_SET;
           default: return null;
@@ -500,6 +636,254 @@ public final class MetadataItemProto {
       return com.google.protobuf.Timestamp.getDefaultInstance();
     }
 
+    public static final int DOUBLE_ARRAY_FIELD_NUMBER = 150;
+    /**
+     * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+     * @return Whether the doubleArray field is set.
+     */
+    @java.lang.Override
+    public boolean hasDoubleArray() {
+      return dataCase_ == 150;
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+     * @return The doubleArray.
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.DoubleArray getDoubleArray() {
+      if (dataCase_ == 150) {
+         return (com.factset.protobuf.stach.table.WrappersProto.DoubleArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.DoubleArray.getDefaultInstance();
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.DoubleArrayOrBuilder getDoubleArrayOrBuilder() {
+      if (dataCase_ == 150) {
+         return (com.factset.protobuf.stach.table.WrappersProto.DoubleArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.DoubleArray.getDefaultInstance();
+    }
+
+    public static final int FLOAT_ARRAY_FIELD_NUMBER = 151;
+    /**
+     * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+     * @return Whether the floatArray field is set.
+     */
+    @java.lang.Override
+    public boolean hasFloatArray() {
+      return dataCase_ == 151;
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+     * @return The floatArray.
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.FloatArray getFloatArray() {
+      if (dataCase_ == 151) {
+         return (com.factset.protobuf.stach.table.WrappersProto.FloatArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.FloatArray.getDefaultInstance();
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.FloatArrayOrBuilder getFloatArrayOrBuilder() {
+      if (dataCase_ == 151) {
+         return (com.factset.protobuf.stach.table.WrappersProto.FloatArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.FloatArray.getDefaultInstance();
+    }
+
+    public static final int INT32_ARRAY_FIELD_NUMBER = 152;
+    /**
+     * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+     * @return Whether the int32Array field is set.
+     */
+    @java.lang.Override
+    public boolean hasInt32Array() {
+      return dataCase_ == 152;
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+     * @return The int32Array.
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.Int32Array getInt32Array() {
+      if (dataCase_ == 152) {
+         return (com.factset.protobuf.stach.table.WrappersProto.Int32Array) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.Int32Array.getDefaultInstance();
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.Int32ArrayOrBuilder getInt32ArrayOrBuilder() {
+      if (dataCase_ == 152) {
+         return (com.factset.protobuf.stach.table.WrappersProto.Int32Array) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.Int32Array.getDefaultInstance();
+    }
+
+    public static final int INT64_ARRAY_FIELD_NUMBER = 153;
+    /**
+     * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+     * @return Whether the int64Array field is set.
+     */
+    @java.lang.Override
+    public boolean hasInt64Array() {
+      return dataCase_ == 153;
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+     * @return The int64Array.
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.Int64Array getInt64Array() {
+      if (dataCase_ == 153) {
+         return (com.factset.protobuf.stach.table.WrappersProto.Int64Array) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.Int64Array.getDefaultInstance();
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.Int64ArrayOrBuilder getInt64ArrayOrBuilder() {
+      if (dataCase_ == 153) {
+         return (com.factset.protobuf.stach.table.WrappersProto.Int64Array) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.Int64Array.getDefaultInstance();
+    }
+
+    public static final int BOOL_ARRAY_FIELD_NUMBER = 156;
+    /**
+     * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+     * @return Whether the boolArray field is set.
+     */
+    @java.lang.Override
+    public boolean hasBoolArray() {
+      return dataCase_ == 156;
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+     * @return The boolArray.
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.BoolArray getBoolArray() {
+      if (dataCase_ == 156) {
+         return (com.factset.protobuf.stach.table.WrappersProto.BoolArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.BoolArray.getDefaultInstance();
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.BoolArrayOrBuilder getBoolArrayOrBuilder() {
+      if (dataCase_ == 156) {
+         return (com.factset.protobuf.stach.table.WrappersProto.BoolArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.BoolArray.getDefaultInstance();
+    }
+
+    public static final int STRING_ARRAY_FIELD_NUMBER = 157;
+    /**
+     * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+     * @return Whether the stringArray field is set.
+     */
+    @java.lang.Override
+    public boolean hasStringArray() {
+      return dataCase_ == 157;
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+     * @return The stringArray.
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.StringArray getStringArray() {
+      if (dataCase_ == 157) {
+         return (com.factset.protobuf.stach.table.WrappersProto.StringArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.StringArray.getDefaultInstance();
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.StringArrayOrBuilder getStringArrayOrBuilder() {
+      if (dataCase_ == 157) {
+         return (com.factset.protobuf.stach.table.WrappersProto.StringArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.StringArray.getDefaultInstance();
+    }
+
+    public static final int DURATION_ARRAY_FIELD_NUMBER = 158;
+    /**
+     * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+     * @return Whether the durationArray field is set.
+     */
+    @java.lang.Override
+    public boolean hasDurationArray() {
+      return dataCase_ == 158;
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+     * @return The durationArray.
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.DurationArray getDurationArray() {
+      if (dataCase_ == 158) {
+         return (com.factset.protobuf.stach.table.WrappersProto.DurationArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.DurationArray.getDefaultInstance();
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.DurationArrayOrBuilder getDurationArrayOrBuilder() {
+      if (dataCase_ == 158) {
+         return (com.factset.protobuf.stach.table.WrappersProto.DurationArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.DurationArray.getDefaultInstance();
+    }
+
+    public static final int TIMESTAMP_ARRAY_FIELD_NUMBER = 159;
+    /**
+     * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+     * @return Whether the timestampArray field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimestampArray() {
+      return dataCase_ == 159;
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+     * @return The timestampArray.
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.TimestampArray getTimestampArray() {
+      if (dataCase_ == 159) {
+         return (com.factset.protobuf.stach.table.WrappersProto.TimestampArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.TimestampArray.getDefaultInstance();
+    }
+    /**
+     * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+     */
+    @java.lang.Override
+    public com.factset.protobuf.stach.table.WrappersProto.TimestampArrayOrBuilder getTimestampArrayOrBuilder() {
+      if (dataCase_ == 159) {
+         return (com.factset.protobuf.stach.table.WrappersProto.TimestampArray) data_;
+      }
+      return com.factset.protobuf.stach.table.WrappersProto.TimestampArray.getDefaultInstance();
+    }
+
     public static final int REF_VALUE_FIELD_NUMBER = 201;
     /**
      * <code>.factset.protobuf.stach.table.Reference ref_value = 201;</code>
@@ -577,6 +961,30 @@ public final class MetadataItemProto {
       if (dataCase_ == 109) {
         output.writeMessage(109, (com.google.protobuf.Timestamp) data_);
       }
+      if (dataCase_ == 150) {
+        output.writeMessage(150, (com.factset.protobuf.stach.table.WrappersProto.DoubleArray) data_);
+      }
+      if (dataCase_ == 151) {
+        output.writeMessage(151, (com.factset.protobuf.stach.table.WrappersProto.FloatArray) data_);
+      }
+      if (dataCase_ == 152) {
+        output.writeMessage(152, (com.factset.protobuf.stach.table.WrappersProto.Int32Array) data_);
+      }
+      if (dataCase_ == 153) {
+        output.writeMessage(153, (com.factset.protobuf.stach.table.WrappersProto.Int64Array) data_);
+      }
+      if (dataCase_ == 156) {
+        output.writeMessage(156, (com.factset.protobuf.stach.table.WrappersProto.BoolArray) data_);
+      }
+      if (dataCase_ == 157) {
+        output.writeMessage(157, (com.factset.protobuf.stach.table.WrappersProto.StringArray) data_);
+      }
+      if (dataCase_ == 158) {
+        output.writeMessage(158, (com.factset.protobuf.stach.table.WrappersProto.DurationArray) data_);
+      }
+      if (dataCase_ == 159) {
+        output.writeMessage(159, (com.factset.protobuf.stach.table.WrappersProto.TimestampArray) data_);
+      }
       if (dataCase_ == 201) {
         output.writeMessage(201, (com.factset.protobuf.stach.table.ReferenceProto.Reference) data_);
       }
@@ -627,6 +1035,38 @@ public final class MetadataItemProto {
       if (dataCase_ == 109) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(109, (com.google.protobuf.Timestamp) data_);
+      }
+      if (dataCase_ == 150) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(150, (com.factset.protobuf.stach.table.WrappersProto.DoubleArray) data_);
+      }
+      if (dataCase_ == 151) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(151, (com.factset.protobuf.stach.table.WrappersProto.FloatArray) data_);
+      }
+      if (dataCase_ == 152) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(152, (com.factset.protobuf.stach.table.WrappersProto.Int32Array) data_);
+      }
+      if (dataCase_ == 153) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(153, (com.factset.protobuf.stach.table.WrappersProto.Int64Array) data_);
+      }
+      if (dataCase_ == 156) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(156, (com.factset.protobuf.stach.table.WrappersProto.BoolArray) data_);
+      }
+      if (dataCase_ == 157) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(157, (com.factset.protobuf.stach.table.WrappersProto.StringArray) data_);
+      }
+      if (dataCase_ == 158) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(158, (com.factset.protobuf.stach.table.WrappersProto.DurationArray) data_);
+      }
+      if (dataCase_ == 159) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(159, (com.factset.protobuf.stach.table.WrappersProto.TimestampArray) data_);
       }
       if (dataCase_ == 201) {
         size += com.google.protobuf.CodedOutputStream
@@ -685,6 +1125,38 @@ public final class MetadataItemProto {
           if (!getTimestampValue()
               .equals(other.getTimestampValue())) return false;
           break;
+        case 150:
+          if (!getDoubleArray()
+              .equals(other.getDoubleArray())) return false;
+          break;
+        case 151:
+          if (!getFloatArray()
+              .equals(other.getFloatArray())) return false;
+          break;
+        case 152:
+          if (!getInt32Array()
+              .equals(other.getInt32Array())) return false;
+          break;
+        case 153:
+          if (!getInt64Array()
+              .equals(other.getInt64Array())) return false;
+          break;
+        case 156:
+          if (!getBoolArray()
+              .equals(other.getBoolArray())) return false;
+          break;
+        case 157:
+          if (!getStringArray()
+              .equals(other.getStringArray())) return false;
+          break;
+        case 158:
+          if (!getDurationArray()
+              .equals(other.getDurationArray())) return false;
+          break;
+        case 159:
+          if (!getTimestampArray()
+              .equals(other.getTimestampArray())) return false;
+          break;
         case 201:
           if (!getRefValue()
               .equals(other.getRefValue())) return false;
@@ -741,6 +1213,38 @@ public final class MetadataItemProto {
         case 109:
           hash = (37 * hash) + TIMESTAMP_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getTimestampValue().hashCode();
+          break;
+        case 150:
+          hash = (37 * hash) + DOUBLE_ARRAY_FIELD_NUMBER;
+          hash = (53 * hash) + getDoubleArray().hashCode();
+          break;
+        case 151:
+          hash = (37 * hash) + FLOAT_ARRAY_FIELD_NUMBER;
+          hash = (53 * hash) + getFloatArray().hashCode();
+          break;
+        case 152:
+          hash = (37 * hash) + INT32_ARRAY_FIELD_NUMBER;
+          hash = (53 * hash) + getInt32Array().hashCode();
+          break;
+        case 153:
+          hash = (37 * hash) + INT64_ARRAY_FIELD_NUMBER;
+          hash = (53 * hash) + getInt64Array().hashCode();
+          break;
+        case 156:
+          hash = (37 * hash) + BOOL_ARRAY_FIELD_NUMBER;
+          hash = (53 * hash) + getBoolArray().hashCode();
+          break;
+        case 157:
+          hash = (37 * hash) + STRING_ARRAY_FIELD_NUMBER;
+          hash = (53 * hash) + getStringArray().hashCode();
+          break;
+        case 158:
+          hash = (37 * hash) + DURATION_ARRAY_FIELD_NUMBER;
+          hash = (53 * hash) + getDurationArray().hashCode();
+          break;
+        case 159:
+          hash = (37 * hash) + TIMESTAMP_ARRAY_FIELD_NUMBER;
+          hash = (53 * hash) + getTimestampArray().hashCode();
           break;
         case 201:
           hash = (37 * hash) + REF_VALUE_FIELD_NUMBER;
@@ -887,6 +1391,30 @@ public final class MetadataItemProto {
         if (timestampValueBuilder_ != null) {
           timestampValueBuilder_.clear();
         }
+        if (doubleArrayBuilder_ != null) {
+          doubleArrayBuilder_.clear();
+        }
+        if (floatArrayBuilder_ != null) {
+          floatArrayBuilder_.clear();
+        }
+        if (int32ArrayBuilder_ != null) {
+          int32ArrayBuilder_.clear();
+        }
+        if (int64ArrayBuilder_ != null) {
+          int64ArrayBuilder_.clear();
+        }
+        if (boolArrayBuilder_ != null) {
+          boolArrayBuilder_.clear();
+        }
+        if (stringArrayBuilder_ != null) {
+          stringArrayBuilder_.clear();
+        }
+        if (durationArrayBuilder_ != null) {
+          durationArrayBuilder_.clear();
+        }
+        if (timestampArrayBuilder_ != null) {
+          timestampArrayBuilder_.clear();
+        }
         if (refValueBuilder_ != null) {
           refValueBuilder_.clear();
         }
@@ -941,6 +1469,38 @@ public final class MetadataItemProto {
         if (dataCase_ == 109 &&
             timestampValueBuilder_ != null) {
           result.data_ = timestampValueBuilder_.build();
+        }
+        if (dataCase_ == 150 &&
+            doubleArrayBuilder_ != null) {
+          result.data_ = doubleArrayBuilder_.build();
+        }
+        if (dataCase_ == 151 &&
+            floatArrayBuilder_ != null) {
+          result.data_ = floatArrayBuilder_.build();
+        }
+        if (dataCase_ == 152 &&
+            int32ArrayBuilder_ != null) {
+          result.data_ = int32ArrayBuilder_.build();
+        }
+        if (dataCase_ == 153 &&
+            int64ArrayBuilder_ != null) {
+          result.data_ = int64ArrayBuilder_.build();
+        }
+        if (dataCase_ == 156 &&
+            boolArrayBuilder_ != null) {
+          result.data_ = boolArrayBuilder_.build();
+        }
+        if (dataCase_ == 157 &&
+            stringArrayBuilder_ != null) {
+          result.data_ = stringArrayBuilder_.build();
+        }
+        if (dataCase_ == 158 &&
+            durationArrayBuilder_ != null) {
+          result.data_ = durationArrayBuilder_.build();
+        }
+        if (dataCase_ == 159 &&
+            timestampArrayBuilder_ != null) {
+          result.data_ = timestampArrayBuilder_.build();
         }
         if (dataCase_ == 201 &&
             refValueBuilder_ != null) {
@@ -1032,6 +1592,38 @@ public final class MetadataItemProto {
             mergeTimestampValue(other.getTimestampValue());
             break;
           }
+          case DOUBLE_ARRAY: {
+            mergeDoubleArray(other.getDoubleArray());
+            break;
+          }
+          case FLOAT_ARRAY: {
+            mergeFloatArray(other.getFloatArray());
+            break;
+          }
+          case INT32_ARRAY: {
+            mergeInt32Array(other.getInt32Array());
+            break;
+          }
+          case INT64_ARRAY: {
+            mergeInt64Array(other.getInt64Array());
+            break;
+          }
+          case BOOL_ARRAY: {
+            mergeBoolArray(other.getBoolArray());
+            break;
+          }
+          case STRING_ARRAY: {
+            mergeStringArray(other.getStringArray());
+            break;
+          }
+          case DURATION_ARRAY: {
+            mergeDurationArray(other.getDurationArray());
+            break;
+          }
+          case TIMESTAMP_ARRAY: {
+            mergeTimestampArray(other.getTimestampArray());
+            break;
+          }
           case REF_VALUE: {
             mergeRefValue(other.getRefValue());
             break;
@@ -1116,6 +1708,62 @@ public final class MetadataItemProto {
                 dataCase_ = 109;
                 break;
               } // case 874
+              case 1202: {
+                input.readMessage(
+                    getDoubleArrayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataCase_ = 150;
+                break;
+              } // case 1202
+              case 1210: {
+                input.readMessage(
+                    getFloatArrayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataCase_ = 151;
+                break;
+              } // case 1210
+              case 1218: {
+                input.readMessage(
+                    getInt32ArrayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataCase_ = 152;
+                break;
+              } // case 1218
+              case 1226: {
+                input.readMessage(
+                    getInt64ArrayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataCase_ = 153;
+                break;
+              } // case 1226
+              case 1250: {
+                input.readMessage(
+                    getBoolArrayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataCase_ = 156;
+                break;
+              } // case 1250
+              case 1258: {
+                input.readMessage(
+                    getStringArrayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataCase_ = 157;
+                break;
+              } // case 1258
+              case 1266: {
+                input.readMessage(
+                    getDurationArrayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataCase_ = 158;
+                break;
+              } // case 1266
+              case 1274: {
+                input.readMessage(
+                    getTimestampArrayFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dataCase_ = 159;
+                break;
+              } // case 1274
               case 1610: {
                 input.readMessage(
                     getRefValueFieldBuilder().getBuilder(),
@@ -1815,6 +2463,1142 @@ public final class MetadataItemProto {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.DoubleArray, com.factset.protobuf.stach.table.WrappersProto.DoubleArray.Builder, com.factset.protobuf.stach.table.WrappersProto.DoubleArrayOrBuilder> doubleArrayBuilder_;
+      /**
+       * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+       * @return Whether the doubleArray field is set.
+       */
+      @java.lang.Override
+      public boolean hasDoubleArray() {
+        return dataCase_ == 150;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+       * @return The doubleArray.
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.DoubleArray getDoubleArray() {
+        if (doubleArrayBuilder_ == null) {
+          if (dataCase_ == 150) {
+            return (com.factset.protobuf.stach.table.WrappersProto.DoubleArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.DoubleArray.getDefaultInstance();
+        } else {
+          if (dataCase_ == 150) {
+            return doubleArrayBuilder_.getMessage();
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.DoubleArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+       */
+      public Builder setDoubleArray(com.factset.protobuf.stach.table.WrappersProto.DoubleArray value) {
+        if (doubleArrayBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          doubleArrayBuilder_.setMessage(value);
+        }
+        dataCase_ = 150;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+       */
+      public Builder setDoubleArray(
+          com.factset.protobuf.stach.table.WrappersProto.DoubleArray.Builder builderForValue) {
+        if (doubleArrayBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          doubleArrayBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 150;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+       */
+      public Builder mergeDoubleArray(com.factset.protobuf.stach.table.WrappersProto.DoubleArray value) {
+        if (doubleArrayBuilder_ == null) {
+          if (dataCase_ == 150 &&
+              data_ != com.factset.protobuf.stach.table.WrappersProto.DoubleArray.getDefaultInstance()) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.DoubleArray.newBuilder((com.factset.protobuf.stach.table.WrappersProto.DoubleArray) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 150) {
+            doubleArrayBuilder_.mergeFrom(value);
+          } else {
+            doubleArrayBuilder_.setMessage(value);
+          }
+        }
+        dataCase_ = 150;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+       */
+      public Builder clearDoubleArray() {
+        if (doubleArrayBuilder_ == null) {
+          if (dataCase_ == 150) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 150) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          doubleArrayBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+       */
+      public com.factset.protobuf.stach.table.WrappersProto.DoubleArray.Builder getDoubleArrayBuilder() {
+        return getDoubleArrayFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.DoubleArrayOrBuilder getDoubleArrayOrBuilder() {
+        if ((dataCase_ == 150) && (doubleArrayBuilder_ != null)) {
+          return doubleArrayBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 150) {
+            return (com.factset.protobuf.stach.table.WrappersProto.DoubleArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.DoubleArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DoubleArray double_array = 150;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.DoubleArray, com.factset.protobuf.stach.table.WrappersProto.DoubleArray.Builder, com.factset.protobuf.stach.table.WrappersProto.DoubleArrayOrBuilder> 
+          getDoubleArrayFieldBuilder() {
+        if (doubleArrayBuilder_ == null) {
+          if (!(dataCase_ == 150)) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.DoubleArray.getDefaultInstance();
+          }
+          doubleArrayBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.factset.protobuf.stach.table.WrappersProto.DoubleArray, com.factset.protobuf.stach.table.WrappersProto.DoubleArray.Builder, com.factset.protobuf.stach.table.WrappersProto.DoubleArrayOrBuilder>(
+                  (com.factset.protobuf.stach.table.WrappersProto.DoubleArray) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 150;
+        onChanged();
+        return doubleArrayBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.FloatArray, com.factset.protobuf.stach.table.WrappersProto.FloatArray.Builder, com.factset.protobuf.stach.table.WrappersProto.FloatArrayOrBuilder> floatArrayBuilder_;
+      /**
+       * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+       * @return Whether the floatArray field is set.
+       */
+      @java.lang.Override
+      public boolean hasFloatArray() {
+        return dataCase_ == 151;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+       * @return The floatArray.
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.FloatArray getFloatArray() {
+        if (floatArrayBuilder_ == null) {
+          if (dataCase_ == 151) {
+            return (com.factset.protobuf.stach.table.WrappersProto.FloatArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.FloatArray.getDefaultInstance();
+        } else {
+          if (dataCase_ == 151) {
+            return floatArrayBuilder_.getMessage();
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.FloatArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+       */
+      public Builder setFloatArray(com.factset.protobuf.stach.table.WrappersProto.FloatArray value) {
+        if (floatArrayBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          floatArrayBuilder_.setMessage(value);
+        }
+        dataCase_ = 151;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+       */
+      public Builder setFloatArray(
+          com.factset.protobuf.stach.table.WrappersProto.FloatArray.Builder builderForValue) {
+        if (floatArrayBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          floatArrayBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 151;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+       */
+      public Builder mergeFloatArray(com.factset.protobuf.stach.table.WrappersProto.FloatArray value) {
+        if (floatArrayBuilder_ == null) {
+          if (dataCase_ == 151 &&
+              data_ != com.factset.protobuf.stach.table.WrappersProto.FloatArray.getDefaultInstance()) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.FloatArray.newBuilder((com.factset.protobuf.stach.table.WrappersProto.FloatArray) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 151) {
+            floatArrayBuilder_.mergeFrom(value);
+          } else {
+            floatArrayBuilder_.setMessage(value);
+          }
+        }
+        dataCase_ = 151;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+       */
+      public Builder clearFloatArray() {
+        if (floatArrayBuilder_ == null) {
+          if (dataCase_ == 151) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 151) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          floatArrayBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+       */
+      public com.factset.protobuf.stach.table.WrappersProto.FloatArray.Builder getFloatArrayBuilder() {
+        return getFloatArrayFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.FloatArrayOrBuilder getFloatArrayOrBuilder() {
+        if ((dataCase_ == 151) && (floatArrayBuilder_ != null)) {
+          return floatArrayBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 151) {
+            return (com.factset.protobuf.stach.table.WrappersProto.FloatArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.FloatArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.FloatArray float_array = 151;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.FloatArray, com.factset.protobuf.stach.table.WrappersProto.FloatArray.Builder, com.factset.protobuf.stach.table.WrappersProto.FloatArrayOrBuilder> 
+          getFloatArrayFieldBuilder() {
+        if (floatArrayBuilder_ == null) {
+          if (!(dataCase_ == 151)) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.FloatArray.getDefaultInstance();
+          }
+          floatArrayBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.factset.protobuf.stach.table.WrappersProto.FloatArray, com.factset.protobuf.stach.table.WrappersProto.FloatArray.Builder, com.factset.protobuf.stach.table.WrappersProto.FloatArrayOrBuilder>(
+                  (com.factset.protobuf.stach.table.WrappersProto.FloatArray) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 151;
+        onChanged();
+        return floatArrayBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.Int32Array, com.factset.protobuf.stach.table.WrappersProto.Int32Array.Builder, com.factset.protobuf.stach.table.WrappersProto.Int32ArrayOrBuilder> int32ArrayBuilder_;
+      /**
+       * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+       * @return Whether the int32Array field is set.
+       */
+      @java.lang.Override
+      public boolean hasInt32Array() {
+        return dataCase_ == 152;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+       * @return The int32Array.
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.Int32Array getInt32Array() {
+        if (int32ArrayBuilder_ == null) {
+          if (dataCase_ == 152) {
+            return (com.factset.protobuf.stach.table.WrappersProto.Int32Array) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.Int32Array.getDefaultInstance();
+        } else {
+          if (dataCase_ == 152) {
+            return int32ArrayBuilder_.getMessage();
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.Int32Array.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+       */
+      public Builder setInt32Array(com.factset.protobuf.stach.table.WrappersProto.Int32Array value) {
+        if (int32ArrayBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          int32ArrayBuilder_.setMessage(value);
+        }
+        dataCase_ = 152;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+       */
+      public Builder setInt32Array(
+          com.factset.protobuf.stach.table.WrappersProto.Int32Array.Builder builderForValue) {
+        if (int32ArrayBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          int32ArrayBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 152;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+       */
+      public Builder mergeInt32Array(com.factset.protobuf.stach.table.WrappersProto.Int32Array value) {
+        if (int32ArrayBuilder_ == null) {
+          if (dataCase_ == 152 &&
+              data_ != com.factset.protobuf.stach.table.WrappersProto.Int32Array.getDefaultInstance()) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.Int32Array.newBuilder((com.factset.protobuf.stach.table.WrappersProto.Int32Array) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 152) {
+            int32ArrayBuilder_.mergeFrom(value);
+          } else {
+            int32ArrayBuilder_.setMessage(value);
+          }
+        }
+        dataCase_ = 152;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+       */
+      public Builder clearInt32Array() {
+        if (int32ArrayBuilder_ == null) {
+          if (dataCase_ == 152) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 152) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          int32ArrayBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+       */
+      public com.factset.protobuf.stach.table.WrappersProto.Int32Array.Builder getInt32ArrayBuilder() {
+        return getInt32ArrayFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.Int32ArrayOrBuilder getInt32ArrayOrBuilder() {
+        if ((dataCase_ == 152) && (int32ArrayBuilder_ != null)) {
+          return int32ArrayBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 152) {
+            return (com.factset.protobuf.stach.table.WrappersProto.Int32Array) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.Int32Array.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int32Array int32_array = 152;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.Int32Array, com.factset.protobuf.stach.table.WrappersProto.Int32Array.Builder, com.factset.protobuf.stach.table.WrappersProto.Int32ArrayOrBuilder> 
+          getInt32ArrayFieldBuilder() {
+        if (int32ArrayBuilder_ == null) {
+          if (!(dataCase_ == 152)) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.Int32Array.getDefaultInstance();
+          }
+          int32ArrayBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.factset.protobuf.stach.table.WrappersProto.Int32Array, com.factset.protobuf.stach.table.WrappersProto.Int32Array.Builder, com.factset.protobuf.stach.table.WrappersProto.Int32ArrayOrBuilder>(
+                  (com.factset.protobuf.stach.table.WrappersProto.Int32Array) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 152;
+        onChanged();
+        return int32ArrayBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.Int64Array, com.factset.protobuf.stach.table.WrappersProto.Int64Array.Builder, com.factset.protobuf.stach.table.WrappersProto.Int64ArrayOrBuilder> int64ArrayBuilder_;
+      /**
+       * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+       * @return Whether the int64Array field is set.
+       */
+      @java.lang.Override
+      public boolean hasInt64Array() {
+        return dataCase_ == 153;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+       * @return The int64Array.
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.Int64Array getInt64Array() {
+        if (int64ArrayBuilder_ == null) {
+          if (dataCase_ == 153) {
+            return (com.factset.protobuf.stach.table.WrappersProto.Int64Array) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.Int64Array.getDefaultInstance();
+        } else {
+          if (dataCase_ == 153) {
+            return int64ArrayBuilder_.getMessage();
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.Int64Array.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+       */
+      public Builder setInt64Array(com.factset.protobuf.stach.table.WrappersProto.Int64Array value) {
+        if (int64ArrayBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          int64ArrayBuilder_.setMessage(value);
+        }
+        dataCase_ = 153;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+       */
+      public Builder setInt64Array(
+          com.factset.protobuf.stach.table.WrappersProto.Int64Array.Builder builderForValue) {
+        if (int64ArrayBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          int64ArrayBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 153;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+       */
+      public Builder mergeInt64Array(com.factset.protobuf.stach.table.WrappersProto.Int64Array value) {
+        if (int64ArrayBuilder_ == null) {
+          if (dataCase_ == 153 &&
+              data_ != com.factset.protobuf.stach.table.WrappersProto.Int64Array.getDefaultInstance()) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.Int64Array.newBuilder((com.factset.protobuf.stach.table.WrappersProto.Int64Array) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 153) {
+            int64ArrayBuilder_.mergeFrom(value);
+          } else {
+            int64ArrayBuilder_.setMessage(value);
+          }
+        }
+        dataCase_ = 153;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+       */
+      public Builder clearInt64Array() {
+        if (int64ArrayBuilder_ == null) {
+          if (dataCase_ == 153) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 153) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          int64ArrayBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+       */
+      public com.factset.protobuf.stach.table.WrappersProto.Int64Array.Builder getInt64ArrayBuilder() {
+        return getInt64ArrayFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.Int64ArrayOrBuilder getInt64ArrayOrBuilder() {
+        if ((dataCase_ == 153) && (int64ArrayBuilder_ != null)) {
+          return int64ArrayBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 153) {
+            return (com.factset.protobuf.stach.table.WrappersProto.Int64Array) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.Int64Array.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.Int64Array int64_array = 153;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.Int64Array, com.factset.protobuf.stach.table.WrappersProto.Int64Array.Builder, com.factset.protobuf.stach.table.WrappersProto.Int64ArrayOrBuilder> 
+          getInt64ArrayFieldBuilder() {
+        if (int64ArrayBuilder_ == null) {
+          if (!(dataCase_ == 153)) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.Int64Array.getDefaultInstance();
+          }
+          int64ArrayBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.factset.protobuf.stach.table.WrappersProto.Int64Array, com.factset.protobuf.stach.table.WrappersProto.Int64Array.Builder, com.factset.protobuf.stach.table.WrappersProto.Int64ArrayOrBuilder>(
+                  (com.factset.protobuf.stach.table.WrappersProto.Int64Array) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 153;
+        onChanged();
+        return int64ArrayBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.BoolArray, com.factset.protobuf.stach.table.WrappersProto.BoolArray.Builder, com.factset.protobuf.stach.table.WrappersProto.BoolArrayOrBuilder> boolArrayBuilder_;
+      /**
+       * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+       * @return Whether the boolArray field is set.
+       */
+      @java.lang.Override
+      public boolean hasBoolArray() {
+        return dataCase_ == 156;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+       * @return The boolArray.
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.BoolArray getBoolArray() {
+        if (boolArrayBuilder_ == null) {
+          if (dataCase_ == 156) {
+            return (com.factset.protobuf.stach.table.WrappersProto.BoolArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.BoolArray.getDefaultInstance();
+        } else {
+          if (dataCase_ == 156) {
+            return boolArrayBuilder_.getMessage();
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.BoolArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+       */
+      public Builder setBoolArray(com.factset.protobuf.stach.table.WrappersProto.BoolArray value) {
+        if (boolArrayBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          boolArrayBuilder_.setMessage(value);
+        }
+        dataCase_ = 156;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+       */
+      public Builder setBoolArray(
+          com.factset.protobuf.stach.table.WrappersProto.BoolArray.Builder builderForValue) {
+        if (boolArrayBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          boolArrayBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 156;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+       */
+      public Builder mergeBoolArray(com.factset.protobuf.stach.table.WrappersProto.BoolArray value) {
+        if (boolArrayBuilder_ == null) {
+          if (dataCase_ == 156 &&
+              data_ != com.factset.protobuf.stach.table.WrappersProto.BoolArray.getDefaultInstance()) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.BoolArray.newBuilder((com.factset.protobuf.stach.table.WrappersProto.BoolArray) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 156) {
+            boolArrayBuilder_.mergeFrom(value);
+          } else {
+            boolArrayBuilder_.setMessage(value);
+          }
+        }
+        dataCase_ = 156;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+       */
+      public Builder clearBoolArray() {
+        if (boolArrayBuilder_ == null) {
+          if (dataCase_ == 156) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 156) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          boolArrayBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+       */
+      public com.factset.protobuf.stach.table.WrappersProto.BoolArray.Builder getBoolArrayBuilder() {
+        return getBoolArrayFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.BoolArrayOrBuilder getBoolArrayOrBuilder() {
+        if ((dataCase_ == 156) && (boolArrayBuilder_ != null)) {
+          return boolArrayBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 156) {
+            return (com.factset.protobuf.stach.table.WrappersProto.BoolArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.BoolArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.BoolArray bool_array = 156;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.BoolArray, com.factset.protobuf.stach.table.WrappersProto.BoolArray.Builder, com.factset.protobuf.stach.table.WrappersProto.BoolArrayOrBuilder> 
+          getBoolArrayFieldBuilder() {
+        if (boolArrayBuilder_ == null) {
+          if (!(dataCase_ == 156)) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.BoolArray.getDefaultInstance();
+          }
+          boolArrayBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.factset.protobuf.stach.table.WrappersProto.BoolArray, com.factset.protobuf.stach.table.WrappersProto.BoolArray.Builder, com.factset.protobuf.stach.table.WrappersProto.BoolArrayOrBuilder>(
+                  (com.factset.protobuf.stach.table.WrappersProto.BoolArray) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 156;
+        onChanged();
+        return boolArrayBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.StringArray, com.factset.protobuf.stach.table.WrappersProto.StringArray.Builder, com.factset.protobuf.stach.table.WrappersProto.StringArrayOrBuilder> stringArrayBuilder_;
+      /**
+       * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+       * @return Whether the stringArray field is set.
+       */
+      @java.lang.Override
+      public boolean hasStringArray() {
+        return dataCase_ == 157;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+       * @return The stringArray.
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.StringArray getStringArray() {
+        if (stringArrayBuilder_ == null) {
+          if (dataCase_ == 157) {
+            return (com.factset.protobuf.stach.table.WrappersProto.StringArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.StringArray.getDefaultInstance();
+        } else {
+          if (dataCase_ == 157) {
+            return stringArrayBuilder_.getMessage();
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.StringArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+       */
+      public Builder setStringArray(com.factset.protobuf.stach.table.WrappersProto.StringArray value) {
+        if (stringArrayBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          stringArrayBuilder_.setMessage(value);
+        }
+        dataCase_ = 157;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+       */
+      public Builder setStringArray(
+          com.factset.protobuf.stach.table.WrappersProto.StringArray.Builder builderForValue) {
+        if (stringArrayBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          stringArrayBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 157;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+       */
+      public Builder mergeStringArray(com.factset.protobuf.stach.table.WrappersProto.StringArray value) {
+        if (stringArrayBuilder_ == null) {
+          if (dataCase_ == 157 &&
+              data_ != com.factset.protobuf.stach.table.WrappersProto.StringArray.getDefaultInstance()) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.StringArray.newBuilder((com.factset.protobuf.stach.table.WrappersProto.StringArray) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 157) {
+            stringArrayBuilder_.mergeFrom(value);
+          } else {
+            stringArrayBuilder_.setMessage(value);
+          }
+        }
+        dataCase_ = 157;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+       */
+      public Builder clearStringArray() {
+        if (stringArrayBuilder_ == null) {
+          if (dataCase_ == 157) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 157) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          stringArrayBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+       */
+      public com.factset.protobuf.stach.table.WrappersProto.StringArray.Builder getStringArrayBuilder() {
+        return getStringArrayFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.StringArrayOrBuilder getStringArrayOrBuilder() {
+        if ((dataCase_ == 157) && (stringArrayBuilder_ != null)) {
+          return stringArrayBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 157) {
+            return (com.factset.protobuf.stach.table.WrappersProto.StringArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.StringArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.StringArray string_array = 157;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.StringArray, com.factset.protobuf.stach.table.WrappersProto.StringArray.Builder, com.factset.protobuf.stach.table.WrappersProto.StringArrayOrBuilder> 
+          getStringArrayFieldBuilder() {
+        if (stringArrayBuilder_ == null) {
+          if (!(dataCase_ == 157)) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.StringArray.getDefaultInstance();
+          }
+          stringArrayBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.factset.protobuf.stach.table.WrappersProto.StringArray, com.factset.protobuf.stach.table.WrappersProto.StringArray.Builder, com.factset.protobuf.stach.table.WrappersProto.StringArrayOrBuilder>(
+                  (com.factset.protobuf.stach.table.WrappersProto.StringArray) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 157;
+        onChanged();
+        return stringArrayBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.DurationArray, com.factset.protobuf.stach.table.WrappersProto.DurationArray.Builder, com.factset.protobuf.stach.table.WrappersProto.DurationArrayOrBuilder> durationArrayBuilder_;
+      /**
+       * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+       * @return Whether the durationArray field is set.
+       */
+      @java.lang.Override
+      public boolean hasDurationArray() {
+        return dataCase_ == 158;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+       * @return The durationArray.
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.DurationArray getDurationArray() {
+        if (durationArrayBuilder_ == null) {
+          if (dataCase_ == 158) {
+            return (com.factset.protobuf.stach.table.WrappersProto.DurationArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.DurationArray.getDefaultInstance();
+        } else {
+          if (dataCase_ == 158) {
+            return durationArrayBuilder_.getMessage();
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.DurationArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+       */
+      public Builder setDurationArray(com.factset.protobuf.stach.table.WrappersProto.DurationArray value) {
+        if (durationArrayBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          durationArrayBuilder_.setMessage(value);
+        }
+        dataCase_ = 158;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+       */
+      public Builder setDurationArray(
+          com.factset.protobuf.stach.table.WrappersProto.DurationArray.Builder builderForValue) {
+        if (durationArrayBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          durationArrayBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 158;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+       */
+      public Builder mergeDurationArray(com.factset.protobuf.stach.table.WrappersProto.DurationArray value) {
+        if (durationArrayBuilder_ == null) {
+          if (dataCase_ == 158 &&
+              data_ != com.factset.protobuf.stach.table.WrappersProto.DurationArray.getDefaultInstance()) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.DurationArray.newBuilder((com.factset.protobuf.stach.table.WrappersProto.DurationArray) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 158) {
+            durationArrayBuilder_.mergeFrom(value);
+          } else {
+            durationArrayBuilder_.setMessage(value);
+          }
+        }
+        dataCase_ = 158;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+       */
+      public Builder clearDurationArray() {
+        if (durationArrayBuilder_ == null) {
+          if (dataCase_ == 158) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 158) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          durationArrayBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+       */
+      public com.factset.protobuf.stach.table.WrappersProto.DurationArray.Builder getDurationArrayBuilder() {
+        return getDurationArrayFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.DurationArrayOrBuilder getDurationArrayOrBuilder() {
+        if ((dataCase_ == 158) && (durationArrayBuilder_ != null)) {
+          return durationArrayBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 158) {
+            return (com.factset.protobuf.stach.table.WrappersProto.DurationArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.DurationArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.DurationArray duration_array = 158;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.DurationArray, com.factset.protobuf.stach.table.WrappersProto.DurationArray.Builder, com.factset.protobuf.stach.table.WrappersProto.DurationArrayOrBuilder> 
+          getDurationArrayFieldBuilder() {
+        if (durationArrayBuilder_ == null) {
+          if (!(dataCase_ == 158)) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.DurationArray.getDefaultInstance();
+          }
+          durationArrayBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.factset.protobuf.stach.table.WrappersProto.DurationArray, com.factset.protobuf.stach.table.WrappersProto.DurationArray.Builder, com.factset.protobuf.stach.table.WrappersProto.DurationArrayOrBuilder>(
+                  (com.factset.protobuf.stach.table.WrappersProto.DurationArray) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 158;
+        onChanged();
+        return durationArrayBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.TimestampArray, com.factset.protobuf.stach.table.WrappersProto.TimestampArray.Builder, com.factset.protobuf.stach.table.WrappersProto.TimestampArrayOrBuilder> timestampArrayBuilder_;
+      /**
+       * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+       * @return Whether the timestampArray field is set.
+       */
+      @java.lang.Override
+      public boolean hasTimestampArray() {
+        return dataCase_ == 159;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+       * @return The timestampArray.
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.TimestampArray getTimestampArray() {
+        if (timestampArrayBuilder_ == null) {
+          if (dataCase_ == 159) {
+            return (com.factset.protobuf.stach.table.WrappersProto.TimestampArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.TimestampArray.getDefaultInstance();
+        } else {
+          if (dataCase_ == 159) {
+            return timestampArrayBuilder_.getMessage();
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.TimestampArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+       */
+      public Builder setTimestampArray(com.factset.protobuf.stach.table.WrappersProto.TimestampArray value) {
+        if (timestampArrayBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          timestampArrayBuilder_.setMessage(value);
+        }
+        dataCase_ = 159;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+       */
+      public Builder setTimestampArray(
+          com.factset.protobuf.stach.table.WrappersProto.TimestampArray.Builder builderForValue) {
+        if (timestampArrayBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          timestampArrayBuilder_.setMessage(builderForValue.build());
+        }
+        dataCase_ = 159;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+       */
+      public Builder mergeTimestampArray(com.factset.protobuf.stach.table.WrappersProto.TimestampArray value) {
+        if (timestampArrayBuilder_ == null) {
+          if (dataCase_ == 159 &&
+              data_ != com.factset.protobuf.stach.table.WrappersProto.TimestampArray.getDefaultInstance()) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.TimestampArray.newBuilder((com.factset.protobuf.stach.table.WrappersProto.TimestampArray) data_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          if (dataCase_ == 159) {
+            timestampArrayBuilder_.mergeFrom(value);
+          } else {
+            timestampArrayBuilder_.setMessage(value);
+          }
+        }
+        dataCase_ = 159;
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+       */
+      public Builder clearTimestampArray() {
+        if (timestampArrayBuilder_ == null) {
+          if (dataCase_ == 159) {
+            dataCase_ = 0;
+            data_ = null;
+            onChanged();
+          }
+        } else {
+          if (dataCase_ == 159) {
+            dataCase_ = 0;
+            data_ = null;
+          }
+          timestampArrayBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+       */
+      public com.factset.protobuf.stach.table.WrappersProto.TimestampArray.Builder getTimestampArrayBuilder() {
+        return getTimestampArrayFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+       */
+      @java.lang.Override
+      public com.factset.protobuf.stach.table.WrappersProto.TimestampArrayOrBuilder getTimestampArrayOrBuilder() {
+        if ((dataCase_ == 159) && (timestampArrayBuilder_ != null)) {
+          return timestampArrayBuilder_.getMessageOrBuilder();
+        } else {
+          if (dataCase_ == 159) {
+            return (com.factset.protobuf.stach.table.WrappersProto.TimestampArray) data_;
+          }
+          return com.factset.protobuf.stach.table.WrappersProto.TimestampArray.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.factset.protobuf.stach.table.TimestampArray timestamp_array = 159;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.factset.protobuf.stach.table.WrappersProto.TimestampArray, com.factset.protobuf.stach.table.WrappersProto.TimestampArray.Builder, com.factset.protobuf.stach.table.WrappersProto.TimestampArrayOrBuilder> 
+          getTimestampArrayFieldBuilder() {
+        if (timestampArrayBuilder_ == null) {
+          if (!(dataCase_ == 159)) {
+            data_ = com.factset.protobuf.stach.table.WrappersProto.TimestampArray.getDefaultInstance();
+          }
+          timestampArrayBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.factset.protobuf.stach.table.WrappersProto.TimestampArray, com.factset.protobuf.stach.table.WrappersProto.TimestampArray.Builder, com.factset.protobuf.stach.table.WrappersProto.TimestampArrayOrBuilder>(
+                  (com.factset.protobuf.stach.table.WrappersProto.TimestampArray) data_,
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        dataCase_ = 159;
+        onChanged();
+        return timestampArrayBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.factset.protobuf.stach.table.ReferenceProto.Reference, com.factset.protobuf.stach.table.ReferenceProto.Reference.Builder, com.factset.protobuf.stach.table.ReferenceProto.ReferenceOrBuilder> refValueBuilder_;
       /**
        * <code>.factset.protobuf.stach.table.Reference ref_value = 201;</code>
@@ -2037,19 +3821,34 @@ public final class MetadataItemProto {
       "\026factset.protobuf.stach\032\036google/protobuf" +
       "/duration.proto\032\037google/protobuf/timesta" +
       "mp.proto\032(fds/protobuf/stach/table/Refer" +
-      "ence.proto\"\225\003\n\014MetadataItem\022\014\n\004name\030\001 \001(" +
-      "\t\022\026\n\014double_value\030d \001(\001H\000\022\025\n\013float_value" +
-      "\030e \001(\002H\000\022\025\n\013int32_value\030f \001(\005H\000\022\025\n\013int64" +
-      "_value\030g \001(\003H\000\022\024\n\nbool_value\030j \001(\010H\000\022\026\n\014" +
-      "string_value\030k \001(\tH\000\0223\n\016duration_value\030l" +
-      " \001(\0132\031.google.protobuf.DurationH\000\0225\n\017tim" +
-      "estamp_value\030m \001(\0132\032.google.protobuf.Tim" +
-      "estampH\000\022=\n\tref_value\030\311\001 \001(\0132\'.factset.p" +
-      "rotobuf.stach.table.ReferenceH\000B\006\n\004dataJ" +
-      "\004\010h\020iJ\004\010i\020jJ\006\010\310\001\020\311\001R\014uint32_valueR\014uint6" +
-      "4_valueR\tany_valueBH\n\032com.factset.protob" +
-      "uf.stachB\021MetadataItemProto\252\002\026FactSet.Pr" +
-      "otobuf.Stachb\006proto3"
+      "ence.proto\032\'fds/protobuf/stach/table/Wra" +
+      "ppers.proto\"\265\007\n\014MetadataItem\022\014\n\004name\030\001 \001" +
+      "(\t\022\026\n\014double_value\030d \001(\001H\000\022\025\n\013float_valu" +
+      "e\030e \001(\002H\000\022\025\n\013int32_value\030f \001(\005H\000\022\025\n\013int6" +
+      "4_value\030g \001(\003H\000\022\024\n\nbool_value\030j \001(\010H\000\022\026\n" +
+      "\014string_value\030k \001(\tH\000\0223\n\016duration_value\030" +
+      "l \001(\0132\031.google.protobuf.DurationH\000\0225\n\017ti" +
+      "mestamp_value\030m \001(\0132\032.google.protobuf.Ti" +
+      "mestampH\000\022B\n\014double_array\030\226\001 \001(\0132).facts" +
+      "et.protobuf.stach.table.DoubleArrayH\000\022@\n" +
+      "\013float_array\030\227\001 \001(\0132(.factset.protobuf.s" +
+      "tach.table.FloatArrayH\000\022@\n\013int32_array\030\230" +
+      "\001 \001(\0132(.factset.protobuf.stach.table.Int" +
+      "32ArrayH\000\022@\n\013int64_array\030\231\001 \001(\0132(.factse" +
+      "t.protobuf.stach.table.Int64ArrayH\000\022>\n\nb" +
+      "ool_array\030\234\001 \001(\0132\'.factset.protobuf.stac" +
+      "h.table.BoolArrayH\000\022B\n\014string_array\030\235\001 \001" +
+      "(\0132).factset.protobuf.stach.table.String" +
+      "ArrayH\000\022F\n\016duration_array\030\236\001 \001(\0132+.facts" +
+      "et.protobuf.stach.table.DurationArrayH\000\022" +
+      "H\n\017timestamp_array\030\237\001 \001(\0132,.factset.prot" +
+      "obuf.stach.table.TimestampArrayH\000\022=\n\tref" +
+      "_value\030\311\001 \001(\0132\'.factset.protobuf.stach.t" +
+      "able.ReferenceH\000B\006\n\004dataJ\004\010h\020iJ\004\010i\020jJ\006\010\310" +
+      "\001\020\311\001R\014uint32_valueR\014uint64_valueR\tany_va" +
+      "lueBH\n\032com.factset.protobuf.stachB\021Metad" +
+      "ataItemProto\252\002\026FactSet.Protobuf.Stachb\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2057,16 +3856,18 @@ public final class MetadataItemProto {
           com.google.protobuf.DurationProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
           com.factset.protobuf.stach.table.ReferenceProto.getDescriptor(),
+          com.factset.protobuf.stach.table.WrappersProto.getDescriptor(),
         });
     internal_static_factset_protobuf_stach_MetadataItem_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_factset_protobuf_stach_MetadataItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_factset_protobuf_stach_MetadataItem_descriptor,
-        new java.lang.String[] { "Name", "DoubleValue", "FloatValue", "Int32Value", "Int64Value", "BoolValue", "StringValue", "DurationValue", "TimestampValue", "RefValue", "Data", });
+        new java.lang.String[] { "Name", "DoubleValue", "FloatValue", "Int32Value", "Int64Value", "BoolValue", "StringValue", "DurationValue", "TimestampValue", "DoubleArray", "FloatArray", "Int32Array", "Int64Array", "BoolArray", "StringArray", "DurationArray", "TimestampArray", "RefValue", "Data", });
     com.google.protobuf.DurationProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
     com.factset.protobuf.stach.table.ReferenceProto.getDescriptor();
+    com.factset.protobuf.stach.table.WrappersProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
