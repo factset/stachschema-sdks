@@ -1,16 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
-    <AssemblyName>FactSet.Protobuf.Stach.V3</AssemblyName>
-    <RootNamespace>FactSet.Protobuf.Stach.V3</RootNamespace>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <AssemblyName>FactSet.Protobuf.Stach</AssemblyName>
+    <RootNamespace>FactSet.Protobuf.Stach</RootNamespace>
     <Description>Google Protocol buffer classes for FactSet STACH tabular format which represents complex multi-dimensional array of data. These classes help in the serialization and deserialization of STACH formatted data. See GitHub repository documentation for more information.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>FactSet.Protobuf.Stach.V3</PackageId>
+    <PackageId>FactSet.Protobuf.Stach</PackageId>
     <Authors>FactSet Research Systems, Inc.</Authors>
     <Company>FactSet Research Systems, Inc</Company>
-    <Product>FactSet.Protobuf.Stach.V3</Product>
-    <Version>1.0.0</Version>
+    <Product>FactSet.Protobuf.Stach</Product>
+    <Version>1.1.7</Version>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/factset/stachschema-sdks.git</RepositoryUrl>
     <PackageTags>STACH;Protobuf;FactSet;FDS;Analytics;Analytics API</PackageTags>
@@ -20,13 +22,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="proto\**" />
-    <EmbeddedResource Remove="proto\**" />
-    <None Remove="proto\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.19.4" />
+    <PackageReference Include="Google.Protobuf" Version="3.33.2" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>

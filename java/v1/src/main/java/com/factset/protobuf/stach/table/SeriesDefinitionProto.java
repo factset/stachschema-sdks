@@ -115,6 +115,14 @@ public final class SeriesDefinitionProto {
         getHeaderIdBytes();
 
     /**
+     * <code>int32 header_index = 10 [deprecated = true];</code>
+     * @deprecated factset.protobuf.stach.table.SeriesDefinition.header_index is deprecated.
+     *     See fds/protobuf/stach/table/SeriesDefinition.proto;l=20
+     * @return The headerIndex.
+     */
+    @java.lang.Deprecated int getHeaderIndex();
+
+    /**
      * <code>.factset.protobuf.stach.table.SeriesFormat format = 11;</code>
      * @return Whether the format field is set.
      */
@@ -446,6 +454,19 @@ public final class SeriesDefinitionProto {
       }
     }
 
+    public static final int HEADER_INDEX_FIELD_NUMBER = 10;
+    private int headerIndex_ = 0;
+    /**
+     * <code>int32 header_index = 10 [deprecated = true];</code>
+     * @deprecated factset.protobuf.stach.table.SeriesDefinition.header_index is deprecated.
+     *     See fds/protobuf/stach/table/SeriesDefinition.proto;l=20
+     * @return The headerIndex.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated public int getHeaderIndex() {
+      return headerIndex_;
+    }
+
     public static final int FORMAT_FIELD_NUMBER = 11;
     private com.factset.protobuf.stach.table.SeriesFormatProto.SeriesFormat format_;
     /**
@@ -513,6 +534,9 @@ public final class SeriesDefinitionProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(headerId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, headerId_);
       }
+      if (headerIndex_ != 0) {
+        output.writeInt32(10, headerIndex_);
+      }
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(11, getFormat());
       }
@@ -555,6 +579,10 @@ public final class SeriesDefinitionProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(headerId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, headerId_);
       }
+      if (headerIndex_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, headerIndex_);
+      }
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, getFormat());
@@ -591,6 +619,8 @@ public final class SeriesDefinitionProto {
           .equals(other.getParentId())) return false;
       if (!getHeaderId()
           .equals(other.getHeaderId())) return false;
+      if (getHeaderIndex()
+          != other.getHeaderIndex()) return false;
       if (hasFormat() != other.hasFormat()) return false;
       if (hasFormat()) {
         if (!getFormat()
@@ -627,6 +657,8 @@ public final class SeriesDefinitionProto {
       hash = (53 * hash) + getParentId().hashCode();
       hash = (37 * hash) + HEADER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getHeaderId().hashCode();
+      hash = (37 * hash) + HEADER_INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getHeaderIndex();
       if (hasFormat()) {
         hash = (37 * hash) + FORMAT_FIELD_NUMBER;
         hash = (53 * hash) + getFormat().hashCode();
@@ -777,6 +809,7 @@ public final class SeriesDefinitionProto {
         nextSiblingId_ = "";
         parentId_ = "";
         headerId_ = "";
+        headerIndex_ = 0;
         format_ = null;
         if (formatBuilder_ != null) {
           formatBuilder_.dispose();
@@ -842,8 +875,11 @@ public final class SeriesDefinitionProto {
         if (((from_bitField0_ & 0x00000100) != 0)) {
           result.headerId_ = headerId_;
         }
-        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.headerIndex_ = headerIndex_;
+        }
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000400) != 0)) {
           result.format_ = formatBuilder_ == null
               ? format_
               : formatBuilder_.build();
@@ -935,6 +971,9 @@ public final class SeriesDefinitionProto {
           bitField0_ |= 0x00000100;
           onChanged();
         }
+        if (other.getHeaderIndex() != 0) {
+          setHeaderIndex(other.getHeaderIndex());
+        }
         if (other.hasFormat()) {
           mergeFormat(other.getFormat());
         }
@@ -1009,11 +1048,16 @@ public final class SeriesDefinitionProto {
                 bitField0_ |= 0x00000100;
                 break;
               } // case 74
+              case 80: {
+                headerIndex_ = input.readInt32();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 80
               case 90: {
                 input.readMessage(
                     getFormatFieldBuilder().getBuilder(),
                     extensionRegistry);
-                bitField0_ |= 0x00000200;
+                bitField0_ |= 0x00000400;
                 break;
               } // case 90
               default: {
@@ -1582,6 +1626,44 @@ public final class SeriesDefinitionProto {
         return this;
       }
 
+      private int headerIndex_ ;
+      /**
+       * <code>int32 header_index = 10 [deprecated = true];</code>
+       * @deprecated factset.protobuf.stach.table.SeriesDefinition.header_index is deprecated.
+       *     See fds/protobuf/stach/table/SeriesDefinition.proto;l=20
+       * @return The headerIndex.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated public int getHeaderIndex() {
+        return headerIndex_;
+      }
+      /**
+       * <code>int32 header_index = 10 [deprecated = true];</code>
+       * @deprecated factset.protobuf.stach.table.SeriesDefinition.header_index is deprecated.
+       *     See fds/protobuf/stach/table/SeriesDefinition.proto;l=20
+       * @param value The headerIndex to set.
+       * @return This builder for chaining.
+       */
+      @java.lang.Deprecated public Builder setHeaderIndex(int value) {
+
+        headerIndex_ = value;
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 header_index = 10 [deprecated = true];</code>
+       * @deprecated factset.protobuf.stach.table.SeriesDefinition.header_index is deprecated.
+       *     See fds/protobuf/stach/table/SeriesDefinition.proto;l=20
+       * @return This builder for chaining.
+       */
+      @java.lang.Deprecated public Builder clearHeaderIndex() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        headerIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
       private com.factset.protobuf.stach.table.SeriesFormatProto.SeriesFormat format_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.factset.protobuf.stach.table.SeriesFormatProto.SeriesFormat, com.factset.protobuf.stach.table.SeriesFormatProto.SeriesFormat.Builder, com.factset.protobuf.stach.table.SeriesFormatProto.SeriesFormatOrBuilder> formatBuilder_;
@@ -1590,7 +1672,7 @@ public final class SeriesDefinitionProto {
        * @return Whether the format field is set.
        */
       public boolean hasFormat() {
-        return ((bitField0_ & 0x00000200) != 0);
+        return ((bitField0_ & 0x00000400) != 0);
       }
       /**
        * <code>.factset.protobuf.stach.table.SeriesFormat format = 11;</code>
@@ -1615,7 +1697,7 @@ public final class SeriesDefinitionProto {
         } else {
           formatBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -1629,7 +1711,7 @@ public final class SeriesDefinitionProto {
         } else {
           formatBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -1638,7 +1720,7 @@ public final class SeriesDefinitionProto {
        */
       public Builder mergeFormat(com.factset.protobuf.stach.table.SeriesFormatProto.SeriesFormat value) {
         if (formatBuilder_ == null) {
-          if (((bitField0_ & 0x00000200) != 0) &&
+          if (((bitField0_ & 0x00000400) != 0) &&
             format_ != null &&
             format_ != com.factset.protobuf.stach.table.SeriesFormatProto.SeriesFormat.getDefaultInstance()) {
             getFormatBuilder().mergeFrom(value);
@@ -1649,7 +1731,7 @@ public final class SeriesDefinitionProto {
           formatBuilder_.mergeFrom(value);
         }
         if (format_ != null) {
-          bitField0_ |= 0x00000200;
+          bitField0_ |= 0x00000400;
           onChanged();
         }
         return this;
@@ -1658,7 +1740,7 @@ public final class SeriesDefinitionProto {
        * <code>.factset.protobuf.stach.table.SeriesFormat format = 11;</code>
        */
       public Builder clearFormat() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         format_ = null;
         if (formatBuilder_ != null) {
           formatBuilder_.dispose();
@@ -1671,7 +1753,7 @@ public final class SeriesDefinitionProto {
        * <code>.factset.protobuf.stach.table.SeriesFormat format = 11;</code>
        */
       public com.factset.protobuf.stach.table.SeriesFormatProto.SeriesFormat.Builder getFormatBuilder() {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         onChanged();
         return getFormatFieldBuilder().getBuilder();
       }
@@ -1784,17 +1866,17 @@ public final class SeriesDefinitionProto {
       "ion.proto\022\034factset.protobuf.stach.table\032" +
       "\'fds/protobuf/stach/table/DataType.proto" +
       "\032+fds/protobuf/stach/table/SeriesFormat." +
-      "proto\"\257\002\n\020SeriesDefinition\022\n\n\002id\030\001 \001(\t\022\014" +
+      "proto\"\265\002\n\020SeriesDefinition\022\n\n\002id\030\001 \001(\t\022\014" +
       "\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\0224\n\004typ" +
       "e\030\004 \001(\0162&.factset.protobuf.stach.table.D" +
       "ataType\022\024\n\014is_dimension\030\005 \001(\010\022\021\n\tis_hidd" +
       "en\030\006 \001(\010\022\027\n\017next_sibling_id\030\007 \001(\t\022\021\n\tpar" +
-      "ent_id\030\010 \001(\t\022\021\n\theader_id\030\t \001(\t\022:\n\006forma" +
-      "t\030\013 \001(\0132*.factset.protobuf.stach.table.S" +
-      "eriesFormatJ\004\010\n\020\013R\014header_indexBX\n com.f" +
-      "actset.protobuf.stach.tableB\025SeriesDefin" +
-      "itionProto\252\002\034FactSet.Protobuf.Stach.Tabl" +
-      "eb\006proto3"
+      "ent_id\030\010 \001(\t\022\021\n\theader_id\030\t \001(\t\022\030\n\014heade" +
+      "r_index\030\n \001(\005B\002\030\001\022:\n\006format\030\013 \001(\0132*.fact" +
+      "set.protobuf.stach.table.SeriesFormatBX\n" +
+      " com.factset.protobuf.stach.tableB\025Serie" +
+      "sDefinitionProto\252\002\034FactSet.Protobuf.Stac" +
+      "h.Tableb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1807,7 +1889,7 @@ public final class SeriesDefinitionProto {
     internal_static_factset_protobuf_stach_table_SeriesDefinition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_factset_protobuf_stach_table_SeriesDefinition_descriptor,
-        new java.lang.String[] { "Id", "Name", "Description", "Type", "IsDimension", "IsHidden", "NextSiblingId", "ParentId", "HeaderId", "Format", });
+        new java.lang.String[] { "Id", "Name", "Description", "Type", "IsDimension", "IsHidden", "NextSiblingId", "ParentId", "HeaderId", "HeaderIndex", "Format", });
     com.factset.protobuf.stach.table.DataTypeProto.getDescriptor();
     com.factset.protobuf.stach.table.SeriesFormatProto.getDescriptor();
   }
